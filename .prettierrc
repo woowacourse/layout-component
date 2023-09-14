@@ -1,0 +1,20 @@
+{
+  "endOfLine": "auto",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "semi": true,
+  "importOrder": [
+    "^react(.*)",
+    "^@emotion/(.*)$",
+    "^@storybook/(.*)$",
+    "^@components/(.*)$",
+    "^@type/(.*)$",
+    "^@constants/(.*)$",
+    "^@styles/(.*)$",
+    "^@stories/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
