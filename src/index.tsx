@@ -1,3 +1,5 @@
 import LayoutProvider from '@/LayoutProvider';
 
-export { LayoutProvider };
+import Container from '@components/Container';
+
+export { LayoutProvider, Container };
