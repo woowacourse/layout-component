@@ -1,8 +1,30 @@
 {
-  "name": "tmp",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-layout-box",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "description": "React-based Layout Components",
+  "keywords": [
+    "react",
+    "layout",
+    "components"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sh981013s/layout-component/tree/step1"
+  },
+  "homepage": "https://github.com/sh981013s/layout-component/tree/step1",
+  "author": {
+    "name": "sh981013s(booungI)",
+    "email": "sh981013s@gmail.com",
+    "url": "https://seunghwanportfolio.netlify.app/"
+  },
+  "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,8 +42,11 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "^3.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
