@@ -6,7 +6,13 @@ interface GridProps {
   gapY?: number;
 }
 
-export default function Grid({ rows, columns, gap, gapX, gapY }: GridProps) {
+export default function Grid({
+  rows = 1,
+  columns = 1,
+  gap = 0,
+  gapX,
+  gapY,
+}: GridProps) {
   return (
     <div
       style={{
@@ -14,8 +20,8 @@ export default function Grid({ rows, columns, gap, gapX, gapY }: GridProps) {
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`,
         gap: `${gap}px`,
-        rowGap: `${gapY}px`,
-        columnGap: `${gapX}px`,
+        rowGap: gapY ? `${gapY}px` : '',
+        columnGap: gapX ? `${gapX}px` : '',
       }}
     ></div>
   );
