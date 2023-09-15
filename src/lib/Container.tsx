@@ -14,6 +14,7 @@ interface ContainerCssProps {
   background?: string;
   borderRadius?: string;
   border?: string;
+  overflow?: string;
 }
 
 interface ContainerProps extends ContainerCssProps {
@@ -98,12 +99,12 @@ const ContainerCss = css<ContainerCssProps>`
   max-width: ${(props) => props.maxWidth};
   min-height: ${(props) => props.minHeight};
   max-height: ${(props) => props.maxHeight};
-
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
   background: ${(props) => props.background};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};
+  overflow: ${(props) => props.overflow};
 `;
 
 const Div = styled.div<ContainerCssProps>`
