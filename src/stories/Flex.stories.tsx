@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Container } from '..';
+import { Flex } from '..';
 
 const meta = {
-  title: 'Container',
-  component: Container,
+  title: 'Flex',
+  component: Flex,
   tags: ['autodocs'],
-} satisfies Meta<typeof Container>;
+} satisfies Meta<typeof Flex>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -14,14 +14,16 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: (args) => {
     return (
-      <Container {...args} css={{ border: '1px solid black' }}>
-        container
-      </Container>
+      <Flex {...args} css={{ border: '1px solid black' }}>
+        flexFlex
+      </Flex>
     );
   },
   args: {
-    maxWidth: '100%',
-    minWidth: '100px',
+    dir: 'row',
+    align: 'center',
+    justify: 'center',
+    gap: '10px',
   },
 
   argTypes: {

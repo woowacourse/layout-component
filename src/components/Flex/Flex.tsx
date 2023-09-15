@@ -13,7 +13,7 @@ export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
    *
    * @default 'row'
    */
-  dir?: 'row' | 'column';
+  dir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   /**
    * Flex의 교차축을 따라 배치하는 방식
    *

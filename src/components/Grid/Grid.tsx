@@ -9,13 +9,13 @@ export interface GridProps extends ComponentPropsWithoutRef<'div'> {
    */
   as?: ElementType;
   /**
-   * Grid 의 자식요소 가로열 갯수
+   * Grid 의 자식요소 세로열 갯수
    *
    * @default 2
    */
   row?: number;
   /**
-   * Grid 의 자식요소 세로열 갯수
+   * Grid 의 자식요소 가로열 갯수
    *
    * @default 2
    */
