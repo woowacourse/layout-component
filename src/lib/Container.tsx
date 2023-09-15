@@ -1,6 +1,9 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
+type AsType = "div" | "main" | "header" | "footer";
+type MediaTargetType = "mobile" | "tablet" | "desktop";
+
 interface ContainerCssProps {
   minWidth?: string;
   maxWidth?: string;
@@ -14,14 +17,13 @@ interface ContainerCssProps {
 }
 
 interface ContainerProps extends ContainerCssProps {
-  as: "div" | "main" | "header" | "footer";
-  mediaTarget?: "mobile" | "tablet" | "desktop";
+  as: AsType;
+  mediaTarget?: MediaTargetType;
 }
 
 const Container = ({
   as = "div",
   mediaTarget,
-  children,
   minWidth,
   maxWidth,
   ...props
@@ -40,7 +42,7 @@ const Container = ({
           maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
-          {children}
+          {props.children}
         </Div>
       );
     case "main":
@@ -50,7 +52,7 @@ const Container = ({
           maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
-          {children}
+          {props.children}
         </Main>
       );
     case "header":
@@ -60,7 +62,7 @@ const Container = ({
           maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
-          {children}
+          {props.children}
         </Header>
       );
     case "footer":
@@ -70,7 +72,7 @@ const Container = ({
           maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
-          {children}
+          {props.children}
         </Footer>
       );
   }
