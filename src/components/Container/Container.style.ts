@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const wrapperStyle = (
+export const containerStyle = (
   minWidth: string | number,
   maxWidth: string | number
 ) =>
@@ -12,4 +12,7 @@ export const wrapperStyle = (
 
     marginLeft: 'auto',
     marginRight: 'auto',
+
+    overflow: 'hidden',
+    whiteSpace: 'normal',
   });

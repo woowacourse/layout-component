@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
-import { wrapperStyle } from './Container.style';
+import { containerStyle } from './Container.style';
+import React from 'react';
 
 interface ContainerProps extends ComponentPropsWithoutRef<React.ElementType> {
   /**
@@ -31,7 +32,7 @@ const Container = ({
 }: ContainerProps) => {
   const Tag = as;
   return (
-    <Tag {...attributes} css={wrapperStyle(minWidth, maxWidth)}>
+    <Tag {...attributes} css={containerStyle(minWidth, maxWidth)}>
       {children}
     </Tag>
   );
