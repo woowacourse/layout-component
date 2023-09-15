@@ -1,5 +1,13 @@
+import { Container, Flex, Grid } from './lib';
+
 const App = () => {
-  return <div>hello world</div>;
+  return (
+    <>
+      <Container />
+      <Flex />
+      <Grid />
+    </>
+  );
 };
 
 export default App;
