@@ -1,4 +1,6 @@
-interface GridProps {
+import { PropsWithChildren } from 'react';
+
+interface GridProps extends PropsWithChildren {
   rows?: number;
   columns?: number;
   gap?: number;
@@ -12,6 +14,7 @@ export default function Grid({
   gap = 0,
   gapX,
   gapY,
+  children,
 }: GridProps) {
   return (
     <div
@@ -23,6 +26,8 @@ export default function Grid({
         rowGap: gapY ? `${gapY}px` : '',
         columnGap: gapX ? `${gapX}px` : '',
       }}
-    ></div>
+    >
+      {children}
+    </div>
   );
 }

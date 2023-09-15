@@ -1,4 +1,6 @@
-interface FlexProps {
+import { PropsWithChildren } from 'react';
+
+interface FlexProps extends PropsWithChildren {
   justifyContent?:
     | 'start'
     | 'center'
@@ -15,6 +17,7 @@ export default function Flex({
   alignItems = 'start',
   flexWrap = 'nowrap',
   justifyContent = 'start',
+  children,
 }: FlexProps) {
   return (
     <div
@@ -25,6 +28,8 @@ export default function Flex({
         flexWrap,
         flexDirection,
       }}
-    ></div>
+    >
+      {children}
+    </div>
   );
 }

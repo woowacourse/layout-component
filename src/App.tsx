@@ -1,4 +1,5 @@
 import Container from './Container';
+import Grid from './Grid';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
           style={{ backgroundColor: 'aqua', height: '100vh', width: '100%' }}
         ></div>
       </Container>
+      <Grid></Grid>
     </>
   );
 }
