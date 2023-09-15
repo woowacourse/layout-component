@@ -1,21 +1,6 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
-const MEDIA_TARGET_WIDTH: Record<string, Record<string, string>> = {
-  mobile: {
-    minWidth: "320px",
-    maxWidth: "480px",
-  },
-  tablet: {
-    minWidth: "768px",
-    maxWidth: "1024px",
-  },
-  desktop: {
-    minWidth: "1050px",
-    maxWidth: "1680px",
-  },
-};
-
 interface ContainerCssProps {
   minWidth?: string;
   maxWidth?: string;
@@ -61,8 +46,8 @@ const Container = ({
     case "main":
       return (
         <Main
-          // minWidth={getMediaTargetMinWidth()}
-          // maxWidth={getMediaTargetMaxWidth()}
+          minWidth={getMediaTargetMinWidth()}
+          maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
           {children}
@@ -71,8 +56,8 @@ const Container = ({
     case "header":
       return (
         <Header
-          // minWidth={getMediaTargetMinWidth()}
-          // maxWidth={getMediaTargetMaxWidth()}
+          minWidth={getMediaTargetMinWidth()}
+          maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
           {children}
@@ -81,14 +66,29 @@ const Container = ({
     case "footer":
       return (
         <Footer
-          // minWidth={getMediaTargetMinWidth()}
-          // maxWidth={getMediaTargetMaxWidth()}
+          minWidth={getMediaTargetMinWidth()}
+          maxWidth={getMediaTargetMaxWidth()}
           {...props}
         >
           {children}
         </Footer>
       );
   }
+};
+
+const MEDIA_TARGET_WIDTH: Record<string, Record<string, string>> = {
+  mobile: {
+    minWidth: "320px",
+    maxWidth: "480px",
+  },
+  tablet: {
+    minWidth: "768px",
+    maxWidth: "1024px",
+  },
+  desktop: {
+    minWidth: "1050px",
+    maxWidth: "1680px",
+  },
 };
 
 const ContainerCss = css<ContainerCssProps>`
