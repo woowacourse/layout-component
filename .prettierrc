@@ -5,5 +5,6 @@
   "trailingComma": "es5",
   "useTabs": false,
   "arrowParens": "always",
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "endOfLine": "crlf"
 }
