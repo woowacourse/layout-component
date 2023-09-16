@@ -1,4 +1,10 @@
+import { Global } from '@emotion/react';
 import type { Preview } from '@storybook/react';
+
+import React from 'react';
+
+import { common } from '../src/styles/common';
+import { reset } from '../src/styles/reset';
 
 const preview: Preview = {
   parameters: {
@@ -49,6 +55,14 @@ const preview: Preview = {
       ],
     },
   },
+  decorators: [
+    (Story) => (
+      <React.Fragment>
+        <Global styles={[reset, common]} />
+        <Story />
+      </React.Fragment>
+    ),
+  ],
 };
 
 export default preview;
