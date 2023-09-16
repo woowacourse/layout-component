@@ -11,7 +11,7 @@ function Container({ minWidth, maxWidth, children, css }: Props) {
 }
 
 const ContainerLayout = styled.div<ContainerLayoutProps>`
-  ${({ css }) => css};
+  ${({ css }) => css}
 
   margin: 0 auto;
 
