@@ -1,7 +1,7 @@
 {
   "name": "tami-layout-component",
   "description": "Container, Grid, Flex layout",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "license": "MIT",
