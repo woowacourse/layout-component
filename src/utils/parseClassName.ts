@@ -1,14 +1,15 @@
 import type { ParseClassName } from '../types';
 import { dynamicKeyToCssPropMapping } from '../constants';
+import commonStyles from '../components/Common.module.css';
 
-export const parseClassName: ParseClassName = (className) => {
+export const parseClassName: ParseClassName = (className, styles) => {
   const { dynamicStyle, classNames } = className.split(' ').reduce(
     (acc, name) => {
       const [key, value] = name.split('[');
 
       // 정적 className에 대한 처리 ([]로 감싼 부분이 없는 경우)
       if (!value) {
-        acc.classNames.push(key);
+        acc.classNames.push(key in commonStyles ? commonStyles[key] : styles[key]);
         return acc;
       }
 
