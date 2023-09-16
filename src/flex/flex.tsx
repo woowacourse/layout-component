@@ -8,17 +8,17 @@ import FlexItem from './flex-item';
 
 import { forwardRef } from '../utils';
 
-type FlexCSSProperties = Pick<
+type FlexStyleProps = Pick<
   CSSProperties,
   'width' | 'height' | 'alignItems' | 'alignContent'
 > & {
-  direction: CSSProperties['flexDirection'];
-  wrap: CSSProperties['flexWrap'];
-  justify: CSSProperties['justifyContent'];
-  gap: number;
+  direction?: CSSProperties['flexDirection'];
+  wrap?: CSSProperties['flexWrap'];
+  justify?: CSSProperties['justifyContent'];
+  gap?: number;
 };
 
-type FlexProps = ComponentPropsWithoutRef<'div'> & FlexCSSProperties;
+type FlexProps = ComponentPropsWithoutRef<'div'> & FlexStyleProps;
 type FlexRef = ComponentPropsWithRef<'div'>['ref'];
 
 type CompoundFlex = {
@@ -41,7 +41,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
     }: FlexProps,
     ref: FlexRef
   ) => {
-    const style: CSSProperties = {
+    const style = {
       display: 'flex',
       flexDirection: direction,
       flexWrap: wrap,
