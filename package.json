@@ -13,7 +13,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
-    "publish": "rm -rf dist && mkdir dist && tsc"
+    "publish:npm": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "classnames": "^2.3.2",
