@@ -16,7 +16,12 @@ export default inputSrc.map(([input, format]) => ({
     dir: `dist/${format}`,
     format,
     preserveModules: format === 'cjs',
+    globals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+    },
   },
+  external: ['react', 'react-dom'],
   plugins: [
     resolve({ extensions }),
     commonjs(),
