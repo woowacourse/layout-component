@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Jero-Design-System/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -31,14 +31,14 @@ export const Secondary: Story = {
 
 export const Large: Story = {
   args: {
-    size: 'large',
+    size: 'lg',
     label: 'Button',
   },
 };
 
 export const Small: Story = {
   args: {
-    size: 'small',
+    size: 'sm',
     label: 'Button',
   },
 };

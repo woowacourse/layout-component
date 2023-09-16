@@ -19,17 +19,17 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
 
-.button--small {
+.button--sm {
   font-size: 12px;
   padding: 10px 16px;
 }
 
-.button--medium {
+.button--md {
   font-size: 14px;
   padding: 11px 20px;
 }
 
-.button--large {
+.button--lg {
   font-size: 16px;
   padding: 12px 24px;
 }
