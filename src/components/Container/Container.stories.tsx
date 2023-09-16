@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import styled from '@emotion/styled';
 import Container from '.';
 
 const meta = {
