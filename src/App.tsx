@@ -1,5 +1,8 @@
-const App = () => {
-  return <div>App</div>;
-};
+import React from 'react';
+import { Container, Flex, Grid } from './lib';
+
+function App() {
+  return <></>;
+}
 
 export default App;
