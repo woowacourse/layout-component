@@ -2,17 +2,12 @@
   "name": "tami-layout-component",
   "description": "Container, Grid, Flex layout",
   "version": "0.0.1",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xodms0309/layout-component.git"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
@@ -42,12 +37,10 @@
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "chromatic": "^7.1.0",
-    "css-loader": "^6.8.1",
     "eslint": "^8.49.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^0.6.13",
     "storybook": "^7.4.2",
-    "style-loader": "^3.3.3",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
