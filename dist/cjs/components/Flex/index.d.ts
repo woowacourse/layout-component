@@ -5,7 +5,6 @@ interface FlexProps extends PropsWithChildren {
     justify?: 'start' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
     align?: 'center' | 'start' | 'end';
     gap: number;
-    wrap?: boolean;
 }
-declare const Flex: ({ direction, justify, align, gap, wrap, children, }: FlexProps) => import("react/jsx-runtime").JSX.Element;
+declare const Flex: ({ direction, justify, align, gap, children, }: FlexProps) => import("react/jsx-runtime").JSX.Element;
 export default Flex;

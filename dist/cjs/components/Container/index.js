@@ -1,9 +1,22 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
+var jsx_runtime_1 = require("react/jsx-runtime");
 require("./index.css");
-const Container = ({ minWidth, maxWidth, customStyle = {}, children, }) => {
-    const applyStyle = Object.assign(Object.assign({}, customStyle), { minWidth: `${!minWidth ? maxWidth : minWidth}px`, width: `${maxWidth}px` });
+var Container = function (_a) {
+    var minWidth = _a.minWidth, maxWidth = _a.maxWidth, _b = _a.customStyle, customStyle = _b === void 0 ? {} : _b, children = _a.children;
+    var applyStyle = __assign(__assign({}, customStyle), { minWidth: "".concat(!minWidth ? maxWidth : minWidth, "px"), width: "".concat(maxWidth, "px") });
     return ((0, jsx_runtime_1.jsx)("div", { className: 'ys-layout-components-container', children: (0, jsx_runtime_1.jsx)("div", { className: 'ys-layout-components-content', style: applyStyle, children: children }) }));
 };
 exports.default = Container;
+//# sourceMappingURL=index.js.map
