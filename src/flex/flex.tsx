@@ -1,9 +1,6 @@
-import {
-  ComponentPropsWithRef,
-  ComponentPropsWithoutRef,
-  forwardRef,
-} from 'react';
-import Item from './item';
+import { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
+import { forwardRef } from '../utils/forward-ref';
+import FlexItem from './flex-item';
 
 interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   direction?: 'row' | 'column';
@@ -12,10 +9,16 @@ interface FlexProps extends ComponentPropsWithoutRef<'div'> {
 
 type FlexRef = ComponentPropsWithRef<'div'>['ref'];
 
-const Flex = ({ direction, justify, children }: FlexProps, ref: FlexRef) => {
-  return <div ref={ref}>{children}</div>;
-};
+interface CompoundFlex {
+  Item: typeof FlexItem;
+}
 
-Flex.Item = Item;
+const Flex = forwardRef<FlexProps, CompoundFlex>(
+  ({ direction, justify, children }: FlexProps, ref: FlexRef) => {
+    return <div ref={ref}>{children}</div>;
+  }
+);
 
-export default forwardRef(Flex);
+Flex.Item = FlexItem;
+
+export default Flex;
