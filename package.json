@@ -1,0 +1,30 @@
+{
+  "name": "layout-component",
+  "version": "1.0.0",
+  "description": "yunseong's layout components",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "scripts": {
+    "build": " rm -rf ./dist && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2yunseong/layout-component.git"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "typescript": "^5.2.2"
+  },
+  "author": "2yunseong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2yunseong/layout-component/issues"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
