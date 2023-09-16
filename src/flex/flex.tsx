@@ -10,13 +10,13 @@ import { forwardRef } from '../utils';
 
 type FlexCSSProperties = Pick<
   CSSProperties,
-  | 'flexDirection'
-  | 'flexWrap'
-  | 'justifyContent'
-  | 'alignItems'
-  | 'alignContent'
-  | 'gap'
->;
+  'width' | 'height' | 'alignItems' | 'alignContent'
+> & {
+  direction: CSSProperties['flexDirection'];
+  wrap: CSSProperties['flexWrap'];
+  justify: CSSProperties['justifyContent'];
+  gap: number;
+};
 
 type FlexProps = ComponentPropsWithoutRef<'div'> & FlexCSSProperties;
 type FlexRef = ComponentPropsWithRef<'div'>['ref'];
@@ -28,28 +28,33 @@ type CompoundFlex = {
 const Flex = forwardRef<FlexProps, CompoundFlex>(
   (
     {
-      flexDirection,
-      flexWrap,
-      justifyContent,
+      direction,
+      wrap,
+      justify,
       alignContent,
       alignItems,
       gap,
+      width,
+      height,
       children,
+      ...props
     }: FlexProps,
     ref: FlexRef
   ) => {
     const style: CSSProperties = {
       display: 'flex',
-      flexDirection,
-      flexWrap,
-      justifyContent,
+      flexDirection: direction,
+      flexWrap: wrap,
+      justifyContent: justify,
       alignContent,
       alignItems,
-      gap: typeof gap === 'number' ? `${gap}px` : gap,
+      gap: `${gap}px`,
+      width,
+      height,
     };
 
     return (
-      <div style={style} ref={ref}>
+      <div style={style} ref={ref} {...props}>
         {children}
       </div>
     );
