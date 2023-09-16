@@ -1,6 +1,6 @@
 {
   "name": "yunseong-layout-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "yunseong's layout components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
