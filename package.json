@@ -47,6 +47,7 @@
     "vite": "^4.4.5",
     "vite-tsconfig-paths": "^4.2.1"
   },
+  "homepage": "https://feb-dain.github.io/layout-component/",
   "resolutions": {
     "jackspeak": "2.1.1"
   }
