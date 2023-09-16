@@ -30,19 +30,19 @@ jobs:
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Install Dependencies
 
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build App
-        run: npm run build
+        run: yarn build
 
-      - name: publish to chromatic
+      - name: Publish to chromatic
         id: chromatic
         uses: chromaui/action@v1
         with:
