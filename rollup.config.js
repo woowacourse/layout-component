@@ -1,6 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -15,10 +15,10 @@ export default inputSrc.map(([input, format]) => ({
   output: {
     dir: `dist/${format}`,
     format,
+    preserveModules: format === 'cjs',
   },
-  preserveModules: format === 'cjs',
   plugins: [
-    nodeResolve({ extensions }),
+    resolve({ extensions }),
     commonjs(),
     babel({
       babelHelpers: 'runtime',
