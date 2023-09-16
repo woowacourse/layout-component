@@ -36,7 +36,8 @@
 
 ## 🔗 참고 링크 (선택 사항)
 
-(유용했던 참고 자료나 레퍼런스가 있다면 링크 첨부)
+- [tag를 props로 내려주기](https://www.aleksandrhovhannisyan.com/blog/dynamic-tag-name-props-in-react/)
+- [cra ts 환경에서 npm에 배포하기](https://velog.io/@dahyeon405/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A1%9C-%EC%9E%91%EC%84%B1%ED%95%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%A5%BC-npm-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0)
 
 ---
 
