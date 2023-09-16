@@ -42,7 +42,7 @@ interface GridItemProps extends ComponentPropsWithoutRef<'div'> {
    */
   bgColor?: string;
   /**
-   * GridItem의 배경 색상입니다.
+   * GridItem의 자식 컴포넌트입니다.
    */
   children?: ReactNode;
 }
