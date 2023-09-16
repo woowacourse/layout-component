@@ -18,29 +18,34 @@ const GridItem = ({
   area,
   row,
   col,
-  rowStart,
-  rowEnd,
-  colStart,
-  colEnd,
+  rowStart = 'auto',
+  rowEnd = 'auto',
+  colStart = 'auto',
+  colEnd = 'auto',
   width,
   height,
   bgColor,
   children,
+  ...props
 }: GridItemProps) => {
   const itemStyles = {
-    gridArea: area ?? area,
-    gridColumn: col === 'auto' ? 'auto' : `span ${col} / span ${col}`,
-    gridRow: row === 'auto' ? 'auto' : `span ${row} / span ${row}`,
-    gridColumnStart: colStart,
-    gridColumnEnd: colEnd,
-    gridRowStart: rowStart,
-    gridRowEnd: rowEnd,
+    gridArea: area || 'auto',
+    gridColumn: `${col && col !== 'auto' ? `span ${col} / span ${col}` : ''} ${
+      colStart && colEnd ? `${colStart} / ${colEnd}` : ''
+    }`,
+    gridRow: `${row && row !== 'auto' ? `span ${row} / span ${row}` : ''} ${
+      rowStart && rowEnd ? `${rowStart} / ${rowEnd}` : ''
+    }`,
     width: width,
     height: height,
     backgroundColor: bgColor,
   };
 
-  return <div style={itemStyles}>{children}</div>;
+  return (
+    <div style={itemStyles} {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default GridItem;
