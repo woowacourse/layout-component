@@ -11,7 +11,6 @@ interface FlexProps extends PropsWithChildren {
     | 'space-evenly';
   align?: 'center' | 'start' | 'end';
   gap: number;
-  wrap?: boolean;
 }
 
 const Flex = ({
@@ -19,7 +18,6 @@ const Flex = ({
   justify = 'start',
   align = 'start',
   gap = 0,
-  wrap = false,
   children,
 }: FlexProps) => {
   const applyStyle = {
