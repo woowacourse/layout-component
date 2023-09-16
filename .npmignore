@@ -4,3 +4,5 @@ public/
 tsconfig.json
 .github
 .storybook
+.eslintrc.cjs
+index.html
