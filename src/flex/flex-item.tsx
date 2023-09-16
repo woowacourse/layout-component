@@ -1,9 +1,29 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
-type FlexItemProps = ComponentPropsWithoutRef<'div'>;
+type FlexItemCSSProperties = Pick<
+  CSSProperties,
+  'order' | 'flexGrow' | 'flexShrink' | 'flexBasis' | 'alignSelf'
+>;
 
-const FlexItem = ({ children }: FlexItemProps) => {
-  return <div>{children}</div>;
+type FlexItemProps = ComponentPropsWithoutRef<'div'> & FlexItemCSSProperties;
+
+const FlexItem = ({
+  order,
+  flexGrow,
+  flexShrink,
+  flexBasis,
+  alignSelf,
+  children,
+}: FlexItemProps) => {
+  const style = {
+    order,
+    flexGrow,
+    flexShrink,
+    flexBasis,
+    alignSelf,
+  };
+
+  return <div style={style}>{children}</div>;
 };
 
 export default FlexItem;

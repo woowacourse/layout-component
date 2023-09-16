@@ -1,21 +1,58 @@
-import { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
-import { forwardRef } from '../utils/forward-ref';
+import type {
+  CSSProperties,
+  ComponentPropsWithRef,
+  ComponentPropsWithoutRef,
+} from 'react';
+
 import FlexItem from './flex-item';
 
-interface FlexProps extends ComponentPropsWithoutRef<'div'> {
-  direction?: 'row' | 'column';
-  justify?: 'start' | 'end' | 'center' | 'between' | 'around';
-}
+import { forwardRef } from '../utils';
 
+type FlexCSSProperties = Pick<
+  CSSProperties,
+  | 'flexDirection'
+  | 'flexWrap'
+  | 'justifyContent'
+  | 'alignItems'
+  | 'alignContent'
+  | 'gap'
+>;
+
+type FlexProps = ComponentPropsWithoutRef<'div'> & FlexCSSProperties;
 type FlexRef = ComponentPropsWithRef<'div'>['ref'];
 
-interface CompoundFlex {
+type CompoundFlex = {
   Item: typeof FlexItem;
-}
+};
 
 const Flex = forwardRef<FlexProps, CompoundFlex>(
-  ({ direction, justify, children }: FlexProps, ref: FlexRef) => {
-    return <div ref={ref}>{children}</div>;
+  (
+    {
+      flexDirection,
+      flexWrap,
+      justifyContent,
+      alignContent,
+      alignItems,
+      gap,
+      children,
+    }: FlexProps,
+    ref: FlexRef
+  ) => {
+    const style: CSSProperties = {
+      display: 'flex',
+      flexDirection,
+      flexWrap,
+      justifyContent,
+      alignContent,
+      alignItems,
+      gap: typeof gap === 'number' ? `${gap}px` : gap,
+    };
+
+    return (
+      <div style={style} ref={ref}>
+        {children}
+      </div>
+    );
   }
 );
 
