@@ -33,9 +33,9 @@ const StyledContainer = styled.div<{
 }>`
   height: 90vh;
   padding: 10px;
+
   max-width: ${(props) => props.$maxWidth};
   min-width: ${(props) => props.$minWidth};
 
-  color: gray;
   background-color: ${(props) => props.$backgroundColor};
 `;

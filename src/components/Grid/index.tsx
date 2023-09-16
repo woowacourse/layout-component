@@ -44,6 +44,5 @@ const StyledGrid = styled.div<{
   height: 90vh;
   padding: 10px;
 
-  color: gray;
   background-color: ${(props) => props.$backgroundColor};
 `;
