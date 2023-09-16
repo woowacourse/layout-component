@@ -1,17 +1,25 @@
 import { PropsWithChildren } from 'react';
-import './index.css';
+import styled from 'styled-components';
 
 interface FlexProps extends PropsWithChildren {
-  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justify?:
+  direction: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  justify:
     | 'start'
     | 'center'
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
-  align?: 'center' | 'start' | 'end';
+  align: 'center' | 'start' | 'end';
   gap: number;
 }
+
+const FlexComponent = styled.div<FlexProps>`
+  display: flex;
+  flex-direction: ${({ direction }) => direction};
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ align }) => align};
+  gap: ${({ gap }) => `${gap}px`};
+`;
 
 const Flex = ({
   direction = 'row',
@@ -19,18 +27,16 @@ const Flex = ({
   align = 'start',
   gap = 0,
   children,
-}: FlexProps) => {
-  const applyStyle = {
-    flexDirection: direction,
-    justifyContent: justify,
-    alignItems: align,
-    gap: `${gap}px`,
-  };
-
+}: Partial<FlexProps>) => {
   return (
-    <div className='ys-layout-components-flex' style={applyStyle}>
+    <FlexComponent
+      direction={direction}
+      justify={justify}
+      align={align}
+      gap={gap}
+    >
       {children}
-    </div>
+    </FlexComponent>
   );
 };
 

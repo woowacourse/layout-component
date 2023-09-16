@@ -1,9 +1,12 @@
 import { PropsWithChildren } from 'react';
-import './index.css';
+import styled from 'styled-components';
 
 interface GridItemProps extends PropsWithChildren {}
+
+const GridItemComponent = styled.div``;
+
 const GridItem = ({ children }: GridItemProps) => {
-  return <div className='ys-layout-components-grid-item'>{children}</div>;
+  return <GridItemComponent>{children}</GridItemComponent>;
 };
 
 export default GridItem;

@@ -1,25 +1,16 @@
 import { PropsWithChildren } from 'react';
-import './index.css';
+import styled from 'styled-components';
 
 interface FlexItemProps extends PropsWithChildren {
-  align?:
-    | 'auto'
-    | 'stretch'
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'baseline';
+  align: 'auto' | 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
 }
 
-const FlexItem = ({ align = 'auto', children }: FlexItemProps) => {
-  const applyStyle = {
-    alignSelf: align,
-  };
-  return (
-    <div className='ys-layout-components-flex-item' style={applyStyle}>
-      {children}
-    </div>
-  );
+const FlexItemComponent = styled.div<FlexItemProps>`
+  align-self: ${({ align }) => align};
+`;
+
+const FlexItem = ({ align = 'auto', children }: Partial<FlexItemProps>) => {
+  return <FlexItemComponent align={align}>{children}</FlexItemComponent>;
 };
 
 export default FlexItem;
