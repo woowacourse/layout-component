@@ -3,14 +3,14 @@ import styles from './Button.module.css';
 interface ButtonProps {
   primary?: boolean;
   backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
   label: string;
   onClick?: () => void;
 }
 
 export default function Button({
   primary = false,
-  size = 'medium',
+  size = 'md',
   backgroundColor,
   label,
   ...props
