@@ -1,12 +1,12 @@
 import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
-type FlexItemCSSProperties = Pick<CSSProperties, 'order' | 'alignSelf'> & {
+type FlexItemStyleProps = Pick<CSSProperties, 'order' | 'alignSelf'> & {
   grow?: CSSProperties['flexGrow'];
   shrink?: CSSProperties['flexShrink'];
   basis?: CSSProperties['flexBasis'];
 };
 
-type FlexItemProps = ComponentPropsWithoutRef<'div'> & FlexItemCSSProperties;
+type FlexItemProps = ComponentPropsWithoutRef<'div'> & FlexItemStyleProps;
 
 const FlexItem = ({
   order,
