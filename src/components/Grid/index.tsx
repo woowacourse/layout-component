@@ -10,10 +10,10 @@ interface GridProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Grid({
-  backgroundColor,
+  backgroundColor = 'white',
   rows,
   columns,
-  gap,
+  gap = '0',
   children,
   ...props
 }: GridProps) {
@@ -21,8 +21,8 @@ export default function Grid({
     <StyledGrid
       $rows={rows}
       $columns={columns}
-      $gap={gap ?? '0'}
-      $backgroundColor={backgroundColor ?? 'white'}
+      $gap={gap}
+      $backgroundColor={backgroundColor}
       {...props}
     >
       {children}

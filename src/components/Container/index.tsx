@@ -8,17 +8,17 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Container({
-  backgroundColor,
+  backgroundColor = 'white',
   maxWidth,
-  minWidth,
+  minWidth = '270px',
   children,
   ...props
 }: ContainerProps) {
   return (
     <StyledContainer
       $maxWidth={maxWidth}
-      $minWidth={minWidth ?? '270px'}
-      $backgroundColor={backgroundColor ?? 'white'}
+      $minWidth={minWidth}
+      $backgroundColor={backgroundColor}
       {...props}
     >
       {children}
