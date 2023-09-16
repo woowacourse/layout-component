@@ -1,5 +1,5 @@
 {
-  "name": "layout-component",
+  "name": "yunseong-layout-component",
   "version": "1.0.0",
   "description": "yunseong's layout components",
   "main": "./dist/cjs/index.js",
@@ -26,5 +26,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }

@@ -1,23 +1,18 @@
 {
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "target": "ES2015",
-    "jsx": "react-jsx",
     "module": "esnext",
-    "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "dist",
-    "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "noEmit": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist/esm",
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "skipLibCheck": true
-  },
-  "compileOnSave": true,
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }
