@@ -46,7 +46,13 @@ export const WithGap: Story = {
     children: (
       <>
         {Array.from({ length: 12 }).map((_, index) => (
-          <div style={{ border: '1px solid gray' }}>Item {index + 1}</div>
+          <div
+            style={{
+              border: '1px solid gray',
+            }}
+          >
+            Item {index + 1}
+          </div>
         ))}
       </>
     ),

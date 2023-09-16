@@ -41,7 +41,6 @@ const StyledGrid = styled.div<{
   grid-template-columns: ${(props) => `repeat(${props.$columns}, 1fr)`};
   gap: ${(props) => props.$gap};
 
-  height: 90vh;
   padding: 10px;
 
   background-color: ${(props) => props.$backgroundColor};
