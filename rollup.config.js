@@ -1,6 +1,7 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -31,11 +32,12 @@ export default inputSrc.map(([input, format]) => ({
       exclude: 'node_modules/**',
       presets: [
         '@babel/preset-env',
-        '@babel/preset-react',
+        ['@babel/preset-react', { runtime: 'automatic' }],
         '@babel/preset-typescript',
       ],
       plugins: ['@babel/plugin-transform-runtime'],
     }),
+    peerDepsExternal(),
     terser(),
   ],
 }));
