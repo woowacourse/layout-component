@@ -1,0 +1,11 @@
+.ys-layout-components-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.ys-layout-components-content {
+  height: 100%;
+}
