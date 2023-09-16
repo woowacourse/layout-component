@@ -6,7 +6,7 @@
 
 ### 요구사항
 
-- [ ] minWidth, maxWidth 속성을 통해 폭을 조절할 수 있어야 합니다.
+- [x] minWidth, maxWidth 속성을 통해 폭을 조절할 수 있어야 합니다.
 
 > 구현한 결과물은 MUI Container 페이지를 참고해주세요.
 
