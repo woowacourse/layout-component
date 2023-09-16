@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Button from '.';
+import Button from '../lib/Button';
 
 const meta = {
   title: 'Jero-Design-System/Button',

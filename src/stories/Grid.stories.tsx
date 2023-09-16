@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Grid from '.';
-import Container from '../Container';
+import Container from '../lib/Container';
+import Grid from '../lib/Grid';
 
 const meta = {
   title: 'Jero-Design-System/Grid',

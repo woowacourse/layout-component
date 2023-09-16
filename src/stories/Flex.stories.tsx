@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Flex from '.';
-import Container from '../Container';
+import Container from '../lib/Container';
+import Flex from '../lib/Flex';
 
 const meta = {
   title: 'Jero-Design-System/Flex',
