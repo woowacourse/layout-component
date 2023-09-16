@@ -14,6 +14,12 @@ const meta: Meta<typeof Container> = {
     borderRadius: {
       control: 'text',
     },
+    padding: {
+      control: 'text',
+    },
+    margin: {
+      control: 'text',
+    },
     children: {
       control: false,
     },
