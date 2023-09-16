@@ -1,24 +1,28 @@
 import { CSSProperties, PropsWithChildren } from 'react';
-import './index.css';
+import styled from 'styled-components';
 
 interface CSSGridProps extends PropsWithChildren {
   column: number;
   row: number;
   gap: number;
+  padding?: number;
 }
 
-const Grid = ({ column, row, gap, children }: CSSGridProps) => {
-  const gridStyle: CSSProperties = {
-    gridTemplateColumns: `repeat(${column}, 1fr)`,
-    gridTemplateRows: `repeat(${row}, 1fr)`,
-    gap: `${gap}px`,
-  };
-
+const Grid = ({ column, row, gap, padding, children }: CSSGridProps) => {
   return (
-    <div className="rgp-layout-grid" style={gridStyle}>
+    <GridLayout column={column} row={row} gap={gap} padding={padding}>
       {children}
-    </div>
+    </GridLayout>
   );
 };
 
 export default Grid;
+
+const GridLayout = styled.div<CSSGridProps>`
+  display: grid;
+  grid-template-columns: ${(props) => `repeat(${props.column}, 1fr)`};
+  grid-template-rows: ${(props) => `repeat(${props.row}, 1fr)`};
+  gap: ${(props) => props.gap}px;
+
+  ${(props) => props.padding && `padding: ${props.padding}px`}
+`;

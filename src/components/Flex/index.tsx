@@ -1,5 +1,5 @@
-import { CSSProperties, PropsWithChildren } from 'react';
-import './index.css';
+import { PropsWithChildren } from 'react';
+import styled from 'styled-components';
 
 type DIRECTION = 'row' | 'column';
 type JUSTIFY =
@@ -17,21 +17,27 @@ interface CSSFlexProps extends PropsWithChildren {
   justify: JUSTIFY;
   align: ALIGN;
   gap: number;
+  padding?: number;
 }
 
-const Flex = ({ direction, justify, align, gap, children }: CSSFlexProps) => {
-  const flexStyle: CSSProperties = {
-    flexDirection: direction,
-    justifyContent: justify,
-    alignItems: align,
-    gap: `${gap}px`,
-  };
-
+const Flex = ({ direction, justify, align, gap, padding, children }: CSSFlexProps) => {
   return (
-    <div className="rgp-layout-flex" style={flexStyle}>
+    <FlexLayout direction={direction} justify={justify} align={align} gap={gap} padding={padding}>
       {children}
-    </div>
+    </FlexLayout>
   );
 };
 
 export default Flex;
+
+const FlexLayout = styled.div<CSSFlexProps>`
+  display: flex;
+  flex-direction: ${(props) => props.direction};
+  justify-content: ${(props) => props.justify};
+  align-items: ${(props) => props.align};
+  gap: ${(props) => props.gap}px;
+
+  width: 100%;
+  height: 100%;
+  ${(props) => props.padding && `padding: ${props.padding}px`}
+`;
