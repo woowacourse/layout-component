@@ -16,7 +16,6 @@ export default inputSrc.map(([input, format]) => ({
   output: {
     dir: `dist/${format}`,
     format,
-    preserveModules: format === 'cjs',
     globals: {
       react: 'React',
       'react-dom': 'ReactDOM',
