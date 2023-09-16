@@ -5,6 +5,14 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@type": ["src/types"],
+      "@type/*": ["src/types/*"],
+      "@constant": ["src/constants/index"],
+      "@constant/*": ["src/constants/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -13,6 +21,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "allowSyntheticDefaultImports": true,
 
     /* Linting */
     "strict": true,
