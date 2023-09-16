@@ -24,6 +24,7 @@ export default inputSrc.map(([input, format]) => ({
   },
   external: ['react', 'react-dom'],
   plugins: [
+    peerDepsExternal(),
     resolve({ extensions }),
     commonjs(),
     babel({
@@ -37,7 +38,6 @@ export default inputSrc.map(([input, format]) => ({
       ],
       plugins: ['@babel/plugin-transform-runtime'],
     }),
-    peerDepsExternal(),
     terser(),
   ],
 }));

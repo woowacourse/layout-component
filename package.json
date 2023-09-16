@@ -7,16 +7,23 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "import": {
+        "types": "./dist/esm/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/types/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
     }
   },
   "repository": "https://github.com/Leejin-Yang/layout-component.git",
   "author": "Leejin-Yang <ejin1996@gmail.com>",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "yarn clean && tsc && rollup -c"
+    "type:cjs": "tsc --project tsconfig.json",
+    "type:esm": "tsc --project tsconfig.esm.json",
+    "build": "yarn clean && yarn type:cjs && yarn type:esm && rollup -c"
   },
   "license": "MIT",
   "peerDependencies": {
