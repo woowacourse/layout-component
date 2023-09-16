@@ -35,6 +35,7 @@ const Container = ({
   backgroundColor = 'white',
   borderRadius,
   children,
+  ...props
 }: ContainerProps) => {
   const containerStyle = {
     minWidth: typeof minWidth === 'number' ? `${minWidth}px` : minWidth,
@@ -50,6 +51,7 @@ const Container = ({
         [styles.centerContent]: centerContent,
       })}
       style={containerStyle}
+      {...props}
     >
       <div>{children}</div>
     </div>
