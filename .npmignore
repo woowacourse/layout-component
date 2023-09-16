@@ -1,6 +1,5 @@
 node_modules/
-.babelrc.json
 src
 tsconfig.json
 webpack.config.js
-.storybook
+.*
