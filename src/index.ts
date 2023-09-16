@@ -1,5 +1,11 @@
-export { default as Container } from './components/Container';
-export { default as Flex } from './components/Container';
-export { default as FlexItem } from './components/FlexItem';
-export { default as Grid } from './components/Grid';
-export { default as GridItem } from './components/GridItem';
+import Container from './components/Container';
+import Grid from './components/Grid';
+import GridItem from './components/GridItem';
+import Flex from './components/Flex';
+import FlexItem from './components/FlexItem';
+
+export { Container };
+export { Grid };
+export { GridItem };
+export { Flex };
+export { FlexItem };
