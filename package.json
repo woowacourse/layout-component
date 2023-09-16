@@ -1,5 +1,5 @@
 {
-  "name": "layout-component",
+  "name": "tami-layout-component",
   "description": "Container, Grid, Flex layout",
   "version": "0.0.0",
   "main": "./dist/index.js",
