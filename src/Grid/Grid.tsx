@@ -1,18 +1,22 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 interface GridProps extends ComponentPropsWithoutRef<'div'> {
-  rows: number;
-  columns: number;
-  gap: number;
+  areas?: string;
+  rows?: number;
+  columns?: number;
+  gap?: number;
+  height?: string;
   children: ReactNode[];
 }
 
-const Grid = ({ rows, columns, gap, children }: GridProps) => {
+const Grid = ({ areas, rows, columns, gap, height, children }: GridProps) => {
   const gridStyles = {
     display: 'grid',
+    gridTemplateAreas: areas,
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    gap: `${gap}px`,
+    gridGap: `${gap}px`,
+    height: height,
   };
 
   return <div style={gridStyles}>{children}</div>;
