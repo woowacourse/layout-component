@@ -1,9 +1,7 @@
-import { CSSProperties, PropsWithChildren } from 'react';
-import './index.css';
+import { PropsWithChildren } from 'react';
 interface ContainerProps extends PropsWithChildren {
-    maxWidth: number;
-    customStyle?: Omit<CSSProperties, 'width'>;
+    maxWidth?: number;
     minWidth?: number;
 }
-declare const Container: ({ minWidth, maxWidth, customStyle, children, }: ContainerProps) => import("react/jsx-runtime").JSX.Element;
+declare const Container: ({ minWidth, maxWidth, children, }: Partial<ContainerProps>) => import("react/jsx-runtime").JSX.Element;
 export default Container;
