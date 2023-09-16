@@ -7,11 +7,11 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@type": ["src/types"],
-      "@type/*": ["src/types/*"],
-      "@constant": ["src/constants/index"],
-      "@constant/*": ["src/constants/*"]
+      "@styles/*": ["src/styles/*"],
+      "@types": ["src/types"],
+      "@types/*": ["src/types/*"],
+      "@constants": ["src/constants/index"],
+      "@constants/*": ["src/constants/*"]
     },
 
     /* Bundler mode */
