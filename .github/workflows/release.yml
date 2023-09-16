@@ -2,9 +2,6 @@ name: NPM 배포 및 릴리즈 노트 작성
 
 on:
   push:
-    branches:
-      - step1
-      - step2
     tags:
       - v*.*.*
 
