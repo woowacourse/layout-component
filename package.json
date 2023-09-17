@@ -3,6 +3,24 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "It's a package made to use layout components comfortably",
+  "keywords": [
+    "components",
+    "react",
+    "ui"
+  ],
+  "bugs": {
+    "email": "wolfye@naver.com"
+  },
+  "author": {
+    "name": "Kim YoungGil",
+    "email": "wolfye@naver.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gilpop8663/layout-component.git"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
