@@ -1,14 +1,14 @@
-import { CSSProperties, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 interface CSSGridProps extends PropsWithChildren {
-  column: number;
-  row: number;
-  gap: number;
+  column?: number;
+  row?: number;
+  gap?: number;
   padding?: number;
 }
 
-const Grid = ({ column, row, gap, padding, children }: CSSGridProps) => {
+const Grid = ({ column = 1, row = 1, gap, padding, children }: CSSGridProps) => {
   return (
     <GridLayout column={column} row={row} gap={gap} padding={padding}>
       {children}

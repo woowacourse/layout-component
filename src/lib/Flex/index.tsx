@@ -13,14 +13,21 @@ type JUSTIFY =
 type ALIGN = 'center' | 'flex-start' | 'flex-end';
 
 interface CSSFlexProps extends PropsWithChildren {
-  direction: DIRECTION;
-  justify: JUSTIFY;
-  align: ALIGN;
-  gap: number;
+  direction?: DIRECTION;
+  justify?: JUSTIFY;
+  align?: ALIGN;
+  gap?: number;
   padding?: number;
 }
 
-const Flex = ({ direction, justify, align, gap, padding, children }: CSSFlexProps) => {
+const Flex = ({
+  direction = 'row',
+  justify = 'center',
+  align = 'center',
+  gap,
+  padding,
+  children,
+}: CSSFlexProps) => {
   return (
     <FlexLayout direction={direction} justify={justify} align={align} gap={gap} padding={padding}>
       {children}
@@ -35,7 +42,7 @@ const FlexLayout = styled.div<CSSFlexProps>`
   flex-direction: ${(props) => props.direction};
   justify-content: ${(props) => props.justify};
   align-items: ${(props) => props.align};
-  gap: ${(props) => props.gap}px;
+  ${(props) => props.gap && `padding: ${props.gap}px`}
 
   width: 100%;
   height: 100%;
