@@ -12,7 +12,7 @@ import { LAYOUT } from './style';
 const generateChildrenBoxes = () => {
   const BOX_COUNT = 6;
 
-  const boxes = Array.from({ length: BOX_COUNT }).map((_, index) => {
+  const boxes = Array.from({ length: BOX_COUNT }, (_, index) => {
     return <p key={index}>Box{index + 1}</p>;
   });
 

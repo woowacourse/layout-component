@@ -71,7 +71,7 @@ const ContainerForStorybook = styled(FlexContainer)`
 export const Default = ({ children, ...args }: FlexItemProps) => {
   return (
     <ContainerForStorybook layout="center" gap={8}>
-      {Array.from({ length: 4 }).map((_, index) => {
+      {Array.from({ length: 4 }, (_, index) => {
         return (
           <FlexItem order={index + 1} grow={1} shrink={1}>
             {children}
@@ -87,7 +87,7 @@ export const Default = ({ children, ...args }: FlexItemProps) => {
 export const DirectionColumn = ({ children, ...args }: FlexItemProps) => {
   return (
     <ContainerForStorybook layout="center" direction="column" gap={8} css={{ height: 180 }}>
-      {Array.from({ length: 2 }).map((_, index) => {
+      {Array.from({ length: 2 }, (_, index) => {
         return (
           <FlexItem order={index + 1} shrink={1}>
             {children}
