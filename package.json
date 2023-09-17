@@ -1,6 +1,6 @@
 {
   "name": "rego-layout-component",
-  "version": "0.0.2",
+  "version": "0.0.2a",
   "private": false,
   "description": "React layout components, Container, Flex, Grid.",
   "keywords": [

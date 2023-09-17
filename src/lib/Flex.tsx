@@ -20,7 +20,7 @@ interface CSSFlexProps extends PropsWithChildren {
   padding?: number;
 }
 
-const Flex = ({
+export const Flex = ({
   direction = 'row',
   justify = 'center',
   align = 'center',
@@ -34,8 +34,6 @@ const Flex = ({
     </FlexLayout>
   );
 };
-
-export default Flex;
 
 const FlexLayout = styled.div<CSSFlexProps>`
   display: flex;

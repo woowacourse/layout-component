@@ -13,7 +13,7 @@ interface CSSContainerProps extends PropsWithChildren {
   background?: string;
 }
 
-const Container = ({
+export const Container = ({
   minWidth = '100%',
   maxWidth = '100%',
   padding,
@@ -35,8 +35,6 @@ const Container = ({
     </ContainerLayout>
   );
 };
-
-export default Container;
 
 const ContainerLayout = styled.div<CSSContainerProps>`
   display: flex;
