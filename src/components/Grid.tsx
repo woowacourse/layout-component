@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
 import { css } from '@emotion/react';
@@ -99,7 +98,14 @@ interface ItemProps extends ComponentPropsWithoutRef<ElementType> {
   column?: string | number;
 }
 
-Grid.Item = ({ tag = 'div', area, row, column, children, ...attributes }: ItemProps) => {
+Grid.Item = function GridItem({
+  tag = 'div',
+  area,
+  row,
+  column,
+  children,
+  ...attributes
+}: ItemProps) {
   const Tag = tag;
 
   return (
