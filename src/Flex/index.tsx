@@ -1,19 +1,18 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
 
 interface FlexProps extends PropsWithChildren {
-  justifyContent?:
-    | 'start'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'stretch' | 'center' | 'start' | 'end';
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  flexWrap?: 'wrap-reverse' | 'wrap' | 'nowrap';
+  ref?: MutableRefObject<HTMLDivElement | null>;
+  css?: CSSProperties;
+  justifyContent?: CSSProperties['justifyContent'];
+  alignItems?: CSSProperties['alignItems'];
+  direction?: CSSProperties['flexDirection'];
+  flexWrap?: CSSProperties['flexWrap'];
 }
 
 export default function Flex({
-  flexDirection = 'row',
+  ref,
+  css,
+  direction = 'row',
   alignItems = 'start',
   flexWrap = 'nowrap',
   justifyContent = 'start',
@@ -21,12 +20,14 @@ export default function Flex({
 }: FlexProps) {
   return (
     <div
+      ref={ref}
       style={{
         display: 'flex',
         justifyContent,
         alignItems,
         flexWrap,
-        flexDirection,
+        flexDirection: direction,
+        ...css,
       }}
     >
       {children}

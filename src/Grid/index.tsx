@@ -1,6 +1,8 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
 
 interface GridProps extends PropsWithChildren {
+  ref?: MutableRefObject<HTMLDivElement | null>;
+  css?: CSSProperties;
   rows?: number;
   columns?: number;
   gap?: number;
@@ -9,6 +11,8 @@ interface GridProps extends PropsWithChildren {
 }
 
 export default function Grid({
+  ref,
+  css,
   rows = 1,
   columns = 1,
   gap = 0,
@@ -18,6 +22,7 @@ export default function Grid({
 }: GridProps) {
   return (
     <div
+      ref={ref}
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
@@ -25,6 +30,7 @@ export default function Grid({
         gap: `${gap}px`,
         rowGap: gapY ? `${gapY}px` : '',
         columnGap: gapX ? `${gapX}px` : '',
+        ...css,
       }}
     >
       {children}
