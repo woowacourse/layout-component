@@ -1,29 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Grid from '../../components/layouts/Grid';
+import Box from '../../components/Box';
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
 	title: 'Layout/Grid',
 	component: Grid,
 	parameters: {
-		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
 		layout: 'centered',
 	},
-	// This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-	tags: ['autodocs'],
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
+	args: {
+		customCss: {},
 	},
+	tags: ['autodocs'],
 } satisfies Meta<typeof Grid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
 	args: {
-		primary: true,
-		label: 'Button',
+		tag: 'div',
+		rows: 3,
+		cols: 3,
+		gap: 5,
+	},
+	render: (args) => {
+		return (
+			<Grid {...args}>
+				{Array.from({ length: 10 }).map(() => (
+					<Box />
+				))}
+			</Grid>
+		);
 	},
 };
