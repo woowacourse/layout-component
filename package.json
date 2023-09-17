@@ -1,8 +1,23 @@
 {
-  "name": "a",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@wainaat/react-layout-component",
+  "description": "Layout components for react.",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/WaiNaat/layout-component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaiNaat/layout-component.git"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
