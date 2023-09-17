@@ -16,7 +16,6 @@ type ContainerStyleProps = Pick<
   minWidth?: number;
   maxWidth?: number;
   padding?: number;
-  margin?: number;
   centerContent?: boolean;
 };
 
@@ -31,7 +30,6 @@ const Container = forwardRef<ContainerProps>(
       backgroundColor,
       borderRadius,
       padding,
-      margin,
       centerContent = false,
       children,
       ...props
@@ -42,7 +40,6 @@ const Container = forwardRef<ContainerProps>(
       minWidth: minWidth ? `${minWidth}px` : 'auto',
       maxWidth: maxWidth ? `${maxWidth}px` : 'none',
       padding: `${padding}px`,
-      margin: `${margin}px`,
       backgroundColor,
       borderRadius:
         typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius,
