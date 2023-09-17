@@ -29,8 +29,8 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const gridColumn = `${col === 'auto' ? 'auto' : `span ${col} / span ${col}`}`;
-  const gridRow = `${row === 'auto' ? 'auto' : `span ${row} / span ${row}`}`;
+  const gridColumn = `${col === 'auto' ? 'auto' : `span ${col}`}`;
+  const gridRow = `${row === 'auto' ? 'auto' : `span ${row}`}`;
 
   const style = {
     gridArea: area,
