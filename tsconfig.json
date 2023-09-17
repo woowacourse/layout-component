@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* Language and Environment */
+    "outDir": "./dist",
     "target": "esnext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "lib": [
       "DOM",

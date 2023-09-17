@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "<p align=\"middle\" >\r   <img width=\"100px;\" src=\"https://em-content.zobj.net/source/skype/289/straight-ruler_1f4cf.png\"/>\r </p>\r <h2 align=\"middle\">누구나 사용할 수 있는 레이아웃 컴포넌트</h2>\r <p align=\"middle\">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>\r <br/>",
   "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "repository": {
@@ -20,15 +25,30 @@
   },
   "homepage": "https://github.com/hafnium1923/layout-component#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.27",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "eslint": "^8.49.0",
     "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-storybook": "^0.6.13",
     "html-webpack-plugin": "^5.5.3",
     "prettier": "3.0.3",
+    "storybook": "^7.4.2",
     "ts-loader": "^9.4.4",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
@@ -37,6 +57,6 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "styled-components": "^6.0.8"
   }
 }
