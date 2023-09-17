@@ -18,7 +18,7 @@ const meta = {
   },
   argTypes: {
     position: {
-      description: 'Container의 위치 변경 가능',
+      description: 'Container의 가로 위치 변경 가능',
     },
     maxWidth: {
       options: Object.assign(
@@ -30,7 +30,7 @@ const meta = {
       control: {
         type: 'select',
       },
-      description: 'Container 박스 최대 너비 변경 가능',
+      description: 'Container 최대 너비 변경 가능',
     },
     minWidth: {
       options: Object.assign(
@@ -39,7 +39,7 @@ const meta = {
           [`${key} (${value})`]: key,
         }))
       ),
-      description: 'Container 박스 최소 너비 변경 가능',
+      description: 'Container 최소 너비 변경 가능',
     },
     fluid: {
       description: 'Container의 너비가 화면 너비에 맞춰(100%) 유동적으로 변함',
