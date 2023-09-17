@@ -1,17 +1,11 @@
 import { FlexProps } from './types.ts';
-import { useEffect, useState } from 'react';
 import * as S from './Flex.styles.tsx';
+import useBrowserGapSupport from '../hooks/useBrowserGapSupport.ts';
 
 const Flex = (props: FlexProps) => {
   const { direction, justify, align, gap, children } = props;
 
-  const [doesBrowserSupportGap, setDoesBrowserSupportGap] = useState(false);
-
-  useEffect(() => {
-    setDoesBrowserSupportGap(
-      window.CSS && window.CSS.supports && window.CSS.supports('gap', '0px'),
-    );
-  }, []);
+  const { doesBrowserSupportGap } = useBrowserGapSupport();
 
   return (
     <S.Flex
