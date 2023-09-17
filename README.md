@@ -101,4 +101,6 @@ export default App;
 
 ## **라이센스**
 
-이 프로젝트는 MIT 라이센스 하에 릴리스되었습니다. 자세한 정보는 **[LICENSE 파일](https://raw.githubusercontent.com/jeongwusi/layout-component/main/LICENSE)**을 참조하십시오.
+이 프로젝트는 MIT 라이센스 하에 릴리스되었습니다.
+
+자세한 정보는 LICENSE 파일을 참조하십시오: **[LICENSE 파일](https://raw.githubusercontent.com/jeongwusi/layout-component/main/LICENSE)**
