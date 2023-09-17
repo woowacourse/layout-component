@@ -1,5 +1,4 @@
-import type { ElementType, HTMLAttributes, ReactNode } from 'react';
-
+import type { CommonProps } from '../types/common';
 import type { Alignment, Size } from './style';
 import { positionStyle, widthStyle } from './style';
 
@@ -9,10 +8,8 @@ export interface WidthStyle {
   fluid?: boolean;
   gutter?: boolean;
 }
-export interface ContainerProps extends WidthStyle, HTMLAttributes<HTMLElement> {
+export interface ContainerProps extends WidthStyle, CommonProps {
   position?: Alignment;
-  tag?: ElementType;
-  children?: ReactNode;
 }
 
 function Container({
