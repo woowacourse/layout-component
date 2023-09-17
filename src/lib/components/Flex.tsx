@@ -1,10 +1,10 @@
-import { generateFlexInlineStyle } from '../../utils/generateFlexInlineStyle';
-import { parseClassName } from '../../utils/parseClassName';
-import styles from './Flex.module.css';
+import { generateFlexInlineStyle } from '../utils/generateFlexInlineStyle';
+import { parseClassName } from '../utils/parseClassName';
+import styles from '../styles/Flex.module.css';
 
-import type { CommonProps } from '../../types';
-import type { Gap } from '../../types/components/common';
-import type { Align, Direction, Justify } from '../../types/components/flex';
+import type { CommonProps } from '../types';
+import type { Gap } from '../types/common';
+import type { Align, Direction, Justify } from '../types/flex';
 
 interface FlexProps<C extends React.ElementType> extends CommonProps {
   as?: C;

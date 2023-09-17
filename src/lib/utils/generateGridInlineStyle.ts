@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 
-import type { Gap } from '../types/components/common';
-import type { Columns, Rows } from '../types/components/grid';
+import type { Gap } from '../types/common';
+import type { Columns, Rows } from '../types/grid';
 
 export const generateGridInlineStyle = (
   rows: Rows,

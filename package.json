@@ -1,7 +1,26 @@
 {
-  "name": "layout-component",
-  "version": "0.1.0",
-  "private": true,
+  "name": "woody-layout-component",
+  "version": "1.0.1",
+  "description": "A simple UI library for React",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "private": false,
+  "keywords": [
+    "UI",
+    "React",
+    "library"
+  ],
+  "author": "Woody <evencoding@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evencoding/layout-component/"
+  },
+  "bugs": {
+    "url": "https://github.com/evencoding/layout-component/issues"
+  },
+  "homepage": "https://github.com/evencoding/layout-component/#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,7 +42,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir -p dist/styles && tsc && cp -R src/lib/components/**/*.module.css dist/styles/"
   },
   "eslintConfig": {
     "extends": [

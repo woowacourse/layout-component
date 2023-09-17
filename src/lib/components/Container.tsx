@@ -1,9 +1,9 @@
-import { generateContainerInlineStyle } from '../../utils/generateContainerInlineStyle';
-import { parseClassName } from '../../utils/parseClassName';
-import styles from './Container.module.css';
+import { generateContainerInlineStyle } from '../utils/generateContainerInlineStyle';
+import { parseClassName } from '../utils/parseClassName';
+import styles from '../styles/Container.module.css';
 
-import type { CommonProps } from '../../types';
-import type { MaxWidth, MinWidth } from '../../types/components/container';
+import type { CommonProps } from '../types';
+import type { MaxWidth, MinWidth } from '../types/container';
 
 interface ContainerProps<C extends React.ElementType> extends CommonProps {
   as?: C;

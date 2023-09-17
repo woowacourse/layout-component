@@ -1,6 +1,6 @@
 import type { ParseClassName } from '../types';
 import { dynamicKeyToCssPropMapping } from '../constants';
-import commonStyles from '../components/Common.module.css';
+import commonStyles from '../styles/Common.module.css';
 
 export const parseClassName: ParseClassName = (className, styles) => {
   const { dynamicStyle, classNames } = className.split(' ').reduce(
