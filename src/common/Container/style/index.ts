@@ -10,7 +10,7 @@ export const ALIGNMENT = {
 export type Alignment = keyof typeof ALIGNMENT;
 
 export const positionStyle = (position: Alignment) => css`
-  ${position && `margin: ${ALIGNMENT[position]}`}
+  ${position && `margin: ${ALIGNMENT[position]}`};
 `;
 
 export const CONTAINER_WIDTH = {
