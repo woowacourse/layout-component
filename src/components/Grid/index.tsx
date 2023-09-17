@@ -4,7 +4,7 @@ import styled, { CSSProperties, css } from 'styled-components';
 type Props = {
   rows: CSSProperties['gridTemplateRows'];
   columns: CSSProperties['gridTemplateColumns'];
-  gap: CSSProperties['gap'];
+  gap?: CSSProperties['gap'];
 };
 
 const Grid = ({ children, ...rest }: PropsWithChildren<Props>) => {
