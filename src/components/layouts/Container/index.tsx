@@ -1,13 +1,9 @@
 import { CSSObject } from '@emotion/react';
 import { Wrapper } from './Container.styles';
-
-type TagType = Pick<
-	HTMLElementTagNameMap,
-	'div' | 'section' | 'main' | 'header'
->;
+import { ContainerTagType } from '../../../models/TagTypes';
 
 interface ContainerProps extends React.PropsWithChildren {
-	tag?: keyof TagType;
+	tag?: keyof ContainerTagType;
 	minWidth: number;
 	maxWidth: number;
 	customCss?: CSSObject;
