@@ -13,7 +13,9 @@
   "rules": {
     "color-named": "never",
     "selector-class-pattern": null,
+    "value-keyword-case": null,
     "no-extra-semicolons": true,
+    "property-no-unknown": null,
     "declaration-empty-line-before": [
       "always",
       {
