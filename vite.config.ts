@@ -14,10 +14,12 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: '@wainaat/layout-component',
       fileName: 'index',
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
+        intro: 'import "./style.css"',
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
