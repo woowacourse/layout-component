@@ -37,8 +37,8 @@ const Container = forwardRef<ContainerProps>(
     ref: ContainerRef
   ) => {
     const style = {
-      minWidth: minWidth ? `${minWidth}px` : 'auto',
-      maxWidth: maxWidth ? `${maxWidth}px` : 'none',
+      minWidth: `${minWidth}px`,
+      maxWidth: `${maxWidth}px`,
       padding: `${padding}px`,
       backgroundColor,
       borderRadius:
