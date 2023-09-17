@@ -178,7 +178,7 @@ export const CustomItemDirectionGrid: Story = {
   },
 };
 
-export const IgnoreGridItem: Story = {
+export const GenerateErrorGridItem: Story = {
   render: () => {
     return (
       <Grid columns={4} gap="20px">
