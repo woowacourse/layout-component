@@ -42,8 +42,13 @@ export default App;
 
 ### **Props**
 
+**필수**
+
 - **`rows`** (number): 격자의 행 수를 지정합니다.
 - **`columns`** (number): 격자의 열 수를 지정합니다.
+
+**선택 (기본값 0)**
+
 - **`gap`** (number): 자식 컴포넌트 간의 간격을 조절합니다.
 
 ### **사용 예제**
@@ -71,9 +76,14 @@ export default App;
 
 ### **Props**
 
+**필수**
+
 - **`direction`** ('row' | 'column'): 배열 방향을 지정합니다.
 - **`justify`** ('flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around'): 주 축 정렬을 지정합니다.
 - **`align`** ('flex-start' | 'flex-end' | 'center' | 'stretch'): 교차 축 정렬을 지정합니다.
+
+**선택 (기본값 0)**
+
 - **`gap`** (number): 자식 컴포넌트 간의 간격을 조절합니다.
 
 ### **사용 예제**
