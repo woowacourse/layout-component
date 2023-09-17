@@ -1,4 +1,4 @@
-import { CSSProperties, ComponentPropsWithoutRef } from 'react';
+import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
 type FlexItemStyleProps = Pick<CSSProperties, 'order' | 'alignSelf'> & {
   grow?: CSSProperties['flexGrow'];

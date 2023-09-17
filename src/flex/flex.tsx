@@ -8,13 +8,11 @@ import FlexItem from './flex-item';
 
 import { forwardRef } from '../utils';
 
-type FlexStyleProps = Pick<
-  CSSProperties,
-  'width' | 'height' | 'alignItems' | 'alignContent'
-> & {
+type FlexStyleProps = Pick<CSSProperties, 'width' | 'height'> & {
   direction?: CSSProperties['flexDirection'];
   wrap?: CSSProperties['flexWrap'];
   justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
   gap?: number;
 };
 
@@ -31,8 +29,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
       direction,
       wrap,
       justify,
-      alignContent,
-      alignItems,
+      align,
       gap,
       width,
       height,
@@ -46,8 +43,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
       flexDirection: direction,
       flexWrap: wrap,
       justifyContent: justify,
-      alignContent,
-      alignItems,
+      alignItems: align,
       gap: `${gap}px`,
       width,
       height,
