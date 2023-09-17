@@ -1,13 +1,13 @@
 {
   "name": "react-aaker-layout-components",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-		"prepare": "rm -rf dist && mkdir dist && yarn build"
+    "prepare": "rm -rf dist && mkdir dist && yarn build"
   },
   "files": [
     "dist"
