@@ -8,7 +8,7 @@ export interface ContainerProps {
   maxWidth?: React.CSSProperties['maxWidth'];
 }
 
-const Container = (props: ContainerProps) => {
+export const Container = (props: ContainerProps) => {
   const { children, as = 'div', minWidth, maxWidth = '100%' } = props;
 
   return (
@@ -17,5 +17,3 @@ const Container = (props: ContainerProps) => {
     </S.ContainerRoot>
   );
 };
-
-export default Container;

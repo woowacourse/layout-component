@@ -9,7 +9,7 @@ export interface GridProps {
   gap?: React.CSSProperties['gap'];
 }
 
-const Grid = (props: GridProps) => {
+export const Grid = (props: GridProps) => {
   const { children, rows, columns, as = 'div', gap = 0 } = props;
 
   return (
@@ -18,5 +18,3 @@ const Grid = (props: GridProps) => {
     </S.GridRoot>
   );
 };
-
-export default Grid;

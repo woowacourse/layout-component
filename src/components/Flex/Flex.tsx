@@ -12,7 +12,7 @@ export interface FlexProps {
   css?: React.CSSProperties;
 }
 
-const Flex = (props: FlexProps) => {
+export const Flex = (props: FlexProps) => {
   const {
     children,
     as = 'div',
@@ -38,5 +38,3 @@ const Flex = (props: FlexProps) => {
     </S.FlexRoot>
   );
 };
-
-export default Flex;
