@@ -1,5 +1,4 @@
-import type { ElementType, HTMLAttributes } from 'react';
-import React from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 
 import type { Alignment, Size } from './style';
 import { positionStyle, widthStyle } from './style';
@@ -13,7 +12,7 @@ export interface WidthStyle {
 export interface ContainerProps extends WidthStyle, HTMLAttributes<HTMLElement> {
   position?: Alignment;
   tag?: ElementType;
-  children?: React.JSX.Element;
+  children?: ReactNode;
 }
 
 function Container({

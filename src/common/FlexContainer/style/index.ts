@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import type { FlexLayoutStyle, FlexProps } from '../FlexContainer';
+import type { FlexLayoutStyle, FlexContainerProps } from '../FlexContainer';
 
 export const LAYOUT = {
   topLeft: {
@@ -48,7 +48,7 @@ export const layoutStyle = ({
   justify,
   alignItems,
   alignContent,
-}: Required<Pick<FlexProps, 'direction'>> & FlexLayoutStyle) => css`
+}: Required<Pick<FlexContainerProps, 'direction'>> & FlexLayoutStyle) => css`
   ${layout &&
   `justify-content: ${direction === 'row' ? LAYOUT[layout].justify : LAYOUT[layout].align}`};
   ${layout &&

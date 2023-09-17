@@ -5,7 +5,7 @@ import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
 import { CONTAINER_WIDTH } from '../Container/style';
-import type { FlexProps } from './FlexContainer';
+import type { FlexContainerProps } from './FlexContainer';
 import FlexContainer from './FlexContainer';
 import { LAYOUT } from './style';
 
@@ -145,7 +145,7 @@ const ContainerForStorybook = styled(FlexContainer)`
   }
 `;
 
-export const Default = ({ ...args }: FlexProps) => {
+export const Default = ({ ...args }: FlexContainerProps) => {
   return <ContainerForStorybook {...args} />;
 };
 
@@ -155,7 +155,7 @@ const ContainerWithNoHeightBoxes = styled(ContainerForStorybook)`
   }
 `;
 
-export const DefaultWithNoHeightBoxes = ({ ...args }: FlexProps) => {
+export const DefaultWithNoHeightBoxes = ({ ...args }: FlexContainerProps) => {
   return <ContainerWithNoHeightBoxes {...args} />;
 };
 

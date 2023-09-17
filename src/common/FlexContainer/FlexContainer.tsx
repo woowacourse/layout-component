@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { ContainerProps } from '../Container/Container';
 import Container from '../Container/Container';
 import type { Gap, Layout } from './style';
 import { gapStyle, layoutStyle } from './style';
 
-type BasicLayoutProps = Gap & Omit<ContainerProps, 'children'> & HTMLAttributes<HTMLElement>;
+type BasicLayoutProps = Gap & ContainerProps & HTMLAttributes<HTMLElement>;
 
 type FlexBasicLayout = 'start' | 'center' | 'end';
 type FlexContentLayout = FlexBasicLayout | 'space-between' | 'space-around' | 'space-evenly';
@@ -18,11 +18,10 @@ export interface FlexLayoutStyle {
   alignContent?: FlexContentLayout | 'stretch';
 }
 
-export interface FlexProps extends FlexLayoutStyle, BasicLayoutProps {
+export interface FlexContainerProps extends FlexLayoutStyle, BasicLayoutProps {
   direction?: 'row' | 'column';
   wrap?: boolean;
   reverse?: boolean;
-  children: ReactNode;
 }
 
 const StyledFlexContainer = styled(Container)`
@@ -43,7 +42,7 @@ const FlexContainer = ({
   position = 'center',
   children,
   ...attributes
-}: FlexProps) => {
+}: FlexContainerProps) => {
   return (
     <StyledFlexContainer
       css={[
