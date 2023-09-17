@@ -12,7 +12,7 @@ export interface ContainerProps extends WidthStyle, CommonProps {
   position?: Alignment;
 }
 
-function Container({
+const Container = ({
   tag = 'div',
   position = 'center',
   maxWidth,
@@ -21,7 +21,7 @@ function Container({
   gutter = false,
   children,
   ...attributes
-}: ContainerProps) {
+}: ContainerProps) => {
   const Tag = tag;
 
   return (
@@ -32,6 +32,6 @@ function Container({
       {children}
     </Tag>
   );
-}
+};
 
 export default Container;
