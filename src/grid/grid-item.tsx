@@ -35,7 +35,6 @@ const GridItem = ({
   const style = area
     ? { gridArea: area, backgroundColor }
     : {
-        gridArea: area,
         gridRow,
         gridRowStart: rowStart,
         gridRowEnd: rowEnd,
