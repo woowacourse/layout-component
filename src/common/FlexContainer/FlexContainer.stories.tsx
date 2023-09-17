@@ -202,3 +202,22 @@ export const Layout = () => {
     </>
   );
 };
+
+export const ExampleHeader = () => {
+  return (
+    <ContainerForStorybook
+      tag="header"
+      layout="centerLeft"
+      columnGap={12}
+      css={{ padding: '0 16px' }}
+    >
+      <h1 css={{ fontWeight: 600, fontSize: 16 }}>로고</h1>
+      {Array.from({ length: 4 }, (_, index) => (
+        <p key={index}>메뉴{index + 1}</p>
+      ))}
+      <button type="button" aria-label="로그인" css={{ marginLeft: 'auto' }}>
+        로그인
+      </button>
+    </ContainerForStorybook>
+  );
+};
