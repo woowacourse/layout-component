@@ -1,17 +1,33 @@
 {
-  "name": "layout",
-  "private": true,
+  "name": "react-layout-component-pat",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "module": "./lib/esm/index.js",
+  "main": "./lib/cjs/index.js",
+  "description": "Patrick's react-layout-component",
+  "repository": "https://github.com/GC-Park/layout-component",
+  "files": [
+    "lib/"
+  ],
+  "contributors": [
+    "Patrick"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf lib",
+    "copy-files": "copyfiles README.md lib",
+    "tsc-build": "npm run clean && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && npm run copy-files",
+    "publish:npm": "npm run tsc-build && npm publish"
   },
   "dependencies": {
+    "copyfiles": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
     "styled-components": "^6.0.8"
   },
   "devDependencies": {
