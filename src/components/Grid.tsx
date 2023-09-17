@@ -1,6 +1,8 @@
 /* eslint-disable react/display-name */
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
+import { css } from '@emotion/react';
+
 interface GridProps extends ComponentPropsWithoutRef<ElementType> {
   /**
    * Grid 컴포넌트가 사용할 HTML 태그
@@ -48,26 +50,21 @@ function Grid({
 }: GridProps) {
   const Tag = tag;
 
-  console.log(rows, columns);
-  console.log(String(columns));
-
   const gridTemplateRows = String(rows)?.match(/^\d+$/) ? `repeat(${rows}, minmax(0, 1fr))` : rows;
   const gridTemplateColumns = String(columns)?.match(/^\d+$/)
     ? `repeat(${columns}, minmax(0, 1fr))`
     : columns;
 
-  console.log(gridTemplateColumns, gridTemplateRows);
-
   return (
     <Tag
-      css={{
+      css={css({
         display: 'grid',
         gridTemplateRows,
         gridTemplateColumns,
         rowGap,
         columnGap,
         gap,
-      }}
+      })}
       {...attributes}
     >
       {children}

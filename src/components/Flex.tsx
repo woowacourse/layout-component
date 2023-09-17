@@ -1,5 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
+import { css } from '@emotion/react';
+
 import type {
   ContentDistribution,
   ContentPosition,
@@ -80,7 +82,7 @@ function Flex({
 
   return (
     <Tag
-      css={{
+      css={css({
         display: 'flex',
         flexDirection: direction,
         flexWrap: wrap,
@@ -89,7 +91,7 @@ function Flex({
         rowGap,
         columnGap,
         gap,
-      }}
+      })}
       {...attributes}
     >
       {children}

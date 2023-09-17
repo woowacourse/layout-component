@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
 import type { Interpolation, Theme } from '@emotion/react';
+import { css } from '@emotion/react';
 
 import { centerStyle } from '@styles/index';
 
@@ -88,7 +89,7 @@ function Container({
   return (
     <Tag
       css={[
-        {
+        css({
           width,
           height,
           maxWidth,
@@ -99,7 +100,7 @@ function Container({
           padding,
           borderRadius,
           backgroundColor,
-        },
+        }),
         centerContentStyle,
       ]}
       {...attributes}
