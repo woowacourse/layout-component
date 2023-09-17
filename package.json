@@ -1,7 +1,27 @@
 {
   "name": "rego-layout-component",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "description": "React layout components, Container, Flex, Grid.",
+  "keywords": [
+    "react",
+    "component",
+    "layout",
+    "container",
+    "flex",
+    "grid"
+  ],
+  "author": {
+    "name": "regularPark",
+    "email": "srk99279@naver.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/regularPark/layout-component.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -21,7 +41,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "rm -fr dist && mkdir dist && tsc"
   },
   "eslintConfig": {
     "extends": [
