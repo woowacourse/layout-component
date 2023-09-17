@@ -3,9 +3,6 @@ import Container from './Container';
 
 type Story = StoryObj<typeof Container>;
 
-/**
- * `MemoContainer` 컴포넌트는 메인 화면의 메모버튼 컴포넌트입니다.
- */
 const meta: Meta<typeof Container> = {
   title: 'LAYOUT/Container',
   component: Container,
@@ -13,6 +10,51 @@ const meta: Meta<typeof Container> = {
 
 export default meta;
 
-export const DefaultContainer: Story = {
-  args: {},
+export const XSmallContainer: Story = {
+  args: {
+    $minWidth: 'xs',
+    $maxWidth: 'xs',
+    children: 'X Small',
+  },
+};
+
+export const SmallContainer: Story = {
+  args: {
+    $minWidth: 'sm',
+    $maxWidth: 'sm',
+    children: 'Small',
+  },
+};
+
+export const MediumContainer: Story = {
+  args: {
+    $minWidth: 'md',
+    $maxWidth: 'md',
+    children: 'Medium',
+  },
+};
+
+export const LargeContainer: Story = {
+  args: {
+    $minWidth: 'lg',
+    $maxWidth: 'lg',
+    children: 'Large',
+  },
+};
+
+export const XLargeContainer: Story = {
+  args: {
+    $minWidth: 'xl',
+    $maxWidth: 'xl',
+    children: 'X Large',
+  },
+};
+
+export const BlueContainer: Story = {
+  args: {
+    $minWidth: 'md',
+    $maxWidth: 'md',
+    children: 'Blue',
+    background: '#cfe8fc',
+  },
 };
