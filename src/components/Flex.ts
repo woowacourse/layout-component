@@ -2,32 +2,28 @@ import { styled } from 'styled-components'
 import Container, { ContainerProps } from './Container'
 
 interface FlexProps extends ContainerProps {
-  $flexDirection?: string
-  $flexWrap?: string
-  $flexBasis?: string
-  $flexGrow?: string
-  $flexShrink?: string
-  $alignItems?: string
-  $alignContent?: string
-  $justifyContent?: string
-  $justifyItems?: string
-  flex?: string
-  $gap?: string
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
+  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
+  justify: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around'
+  align?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline'
+
+  flexBasis?: number
+  flexGrow?: number
+  flexShrink?: number
+  gap?: number
 }
 
 const Flex = styled(Container)<FlexProps>`
   display: flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection};
-  flex-wrap: ${({ $flexWrap }) => $flexWrap};
-  flex-basis: ${({ $flexBasis }) => $flexBasis};
-  flex-grow: ${({ $flexGrow }) => $flexGrow};
-  flex-shrink: ${({ $flexShrink }) => $flexShrink};
-  align-items: ${({ $alignItems }) => $alignItems};
-  align-content: ${({ $alignContent }) => $alignContent};
-  justify-content: ${({ $justifyContent }) => $justifyContent};
-  justify-items: ${({ $justifyItems }) => $justifyItems};
-  flex: ${({ flex }) => flex};
-  gap: ${({ $gap }) => $gap};
+  flex-direction: ${({ direction }) => direction};
+  flex-wrap: ${({ flexWrap }) => flexWrap};
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ align }) => align};
+
+  flex-basis: ${({ flexBasis }) => (flexBasis ? flexBasis + 'px' : 'auto')};
+  flex-grow: ${({ flexGrow }) => flexGrow};
+  flex-shrink: ${({ flexShrink }) => flexShrink};
+  gap: ${({ gap }) => gap + 'px'};
 `
 
 export default Flex
