@@ -1,14 +1,35 @@
 {
-  "name": "layout-component",
-  "version": "0.0.0",
+  "name": "layout-component-dahyeeee",
+  "version": "0.0.8",
+  "description": "기본 react layout을 사용할 수 있는 라이브러리",
+  "license": "MIT",
+  "author": {
+    "name": "Dahye Yun",
+    "email": "06robin11@gmail.com"
+  },
   "type": "module",
+  "private": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/layout-component-dahyeeee.umd.js",
+  "module": "./dist/layout-component-dahyeeee.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/layout-component-dahyeeee.es.js",
+      "require": "./dist/layout-component-dahyeeee.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_bd24d1d7a80d004"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -26,17 +47,23 @@
     "@storybook/react": "^7.4.1",
     "@storybook/react-vite": "^7.4.1",
     "@storybook/testing-library": "^0.2.0",
+    "@types/node": "^20.6.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "chromatic": "^7.1.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
     "storybook": "^7.4.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
-  }
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "layout-component-dahyeeee@0.0.8"
 }
