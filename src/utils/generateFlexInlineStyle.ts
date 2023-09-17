@@ -1,7 +1,8 @@
 import { CSSProperties } from 'react';
 import { flexCssPropMappings } from '../constants/components/flex';
-import { Gap } from '../types/components/common';
-import { Align, Direction, Justify } from '../types/components/flex';
+
+import type { Gap } from '../types/components/common';
+import type { Align, Direction, Justify } from '../types/components/flex';
 
 export const generateFlexInlineStyle = (
   direction?: Direction,

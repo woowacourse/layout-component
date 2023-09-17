@@ -1,10 +1,11 @@
 import { HTMLProps } from 'react';
-import type { CommonProps } from '../../types';
-import type { Gap } from '../../types/components/common';
-import type { Columns, Rows } from '../../types/components/grid';
 import { generateGridInlineStyle } from '../../utils/generateGridInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Grid.module.css';
+
+import type { CommonProps } from '../../types';
+import type { Gap } from '../../types/components/common';
+import type { Columns, Rows } from '../../types/components/grid';
 
 interface GridProps extends CommonProps, HTMLProps<HTMLDivElement> {
   rows: Rows;

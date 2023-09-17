@@ -1,9 +1,10 @@
 import { HTMLProps } from 'react';
-import type { CommonProps } from '../../types';
-import type { MaxWidth, MinWidth } from '../../types/components/container';
 import { generateContainerInlineStyle } from '../../utils/generateContainerInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Container.module.css';
+
+import type { CommonProps } from '../../types';
+import type { MaxWidth, MinWidth } from '../../types/components/container';
 
 interface ContainerProps extends CommonProps, HTMLProps<HTMLDivElement> {
   minWidth?: MinWidth;

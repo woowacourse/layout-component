@@ -1,10 +1,11 @@
 import { HTMLProps } from 'react';
-import type { CommonProps } from '../../types';
-import { Gap } from '../../types/components/common';
-import { Align, Direction, Justify } from '../../types/components/flex';
 import { generateFlexInlineStyle } from '../../utils/generateFlexInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Flex.module.css';
+
+import type { CommonProps } from '../../types';
+import type { Gap } from '../../types/components/common';
+import type { Align, Direction, Justify } from '../../types/components/flex';
 
 interface FlexProps extends CommonProps, HTMLProps<HTMLDivElement> {
   direction?: Direction;
