@@ -17,7 +17,7 @@ const Grid = (props: React.PropsWithChildren<GridProps>) => {
         ...assignInlineVars({
           [rowCount]: rows.toString(),
           [columnCount]: columns.toString(),
-          [gridGap]: gap.toString(),
+          [gridGap]: gap,
         }),
       }}
       {...rest}
