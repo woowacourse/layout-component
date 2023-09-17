@@ -17,9 +17,9 @@ const Container = ({ minWidth, maxWidth, children }: Props) => {
 
 export default Container;
 
-type ContentProps = Omit<Props, 'children'>;
+type LayoutProps = Omit<Props, 'children'>;
 
-const Layout = styled.div<ContentProps>`
+const Layout = styled.div<LayoutProps>`
   margin: 0 auto;
   min-width: ${props => (props.minWidth ? `${props.minWidth}px` : 'none')};
   max-width: ${props => (props.maxWidth ? `${props.maxWidth}px` : 'none')};
