@@ -9,23 +9,9 @@ import {
   flexWrap,
 } from './Flex.css';
 
-type JustifyContentPositionalAlignment =
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'flex-start'
-  | 'flex-end'
-  | 'left'
-  | 'right';
-
-type AlignItemsPositionalAlignment =
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'flex-start'
-  | 'flex-end'
-  | 'self-start'
-  | 'self-end';
+type PositionalAlignment = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
+type JustifyContentPositionalAlignment = PositionalAlignment | 'left' | 'right';
+type AlignItemsPositionalAlignment = PositionalAlignment | 'self-start' | 'self-end';
 
 interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
