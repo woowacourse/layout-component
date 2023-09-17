@@ -27,7 +27,6 @@ export default inputSrc.map(([input, format]) => ({
     peerDepsExternal(),
     resolve({ extensions }),
     postcss({
-      extract: true,
       minimize: true,
       modules: true,
       plugins: [],
