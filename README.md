@@ -6,3 +6,4 @@
 <br/>
 
 [Storybook Chromatic 배포 페이지](https://65068c38c8cef469d3e5e634-mnopgfqwtw.chromatic.com/)
+[배포 페이지](https://gabrielyoon7.github.io/layout-component/)
