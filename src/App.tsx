@@ -1,7 +1,5 @@
-import Container from './Container';
-
 function App() {
-  return <Container />;
+  return <></>;
 }
 
 export default App;
