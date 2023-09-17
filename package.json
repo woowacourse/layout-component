@@ -1,6 +1,6 @@
 {
   "name": "goni-layout-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "A collection of reusable layout components for building responsive web applications with React.",
   "keywords": [
