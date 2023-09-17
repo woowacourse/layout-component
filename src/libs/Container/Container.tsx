@@ -1,13 +1,12 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, HTMLAttributes, PropsWithChildren } from 'react';
 
-import { css, styled, CSSProp } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 type ContainerProps = {
   $maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   $minWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  style?: CSSProp;
-  background?: string;
-};
+  background: CSSProperties['background'];
+} & HTMLAttributes<HTMLElement>;
 
 const DEFAULT = {
   maxWidth: '100%',
@@ -35,11 +34,9 @@ const Layout = styled.div<ContainerProps>`
   min-height: 100vh;
   margin: 0 auto;
 
-  ${({ $maxWidth, $minWidth, background, style }) => css`
+  ${({ $maxWidth, $minWidth, background }) => css`
     max-width: ${$maxWidth ? WIDTH_SIZE[$maxWidth] : DEFAULT.maxWidth};
     min-width: ${$minWidth ? WIDTH_SIZE[$minWidth] : DEFAULT.minWidth};
     background: ${background || DEFAULT.background};
-
-    ${style}
   `}
 `;
