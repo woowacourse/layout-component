@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type Props = {
   rows: number;
-  columns?: number;
+  columns: number;
   gap?: number;
   rowGap?: number;
   colGap?: number;
