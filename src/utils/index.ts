@@ -1,1 +1,2 @@
-export { forwardRef } from './forward-ref';
+export * from './forward-ref';
+export * from './compact';

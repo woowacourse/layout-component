@@ -1,14 +1,15 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
+import { compact } from '../utils';
 
 type GridItemStyleProps = Pick<
   CSSProperties,
   'width' | 'height' | 'backgroundColor'
 > & {
   area?: CSSProperties['gridArea'];
-  row?: CSSProperties['gridRow'];
+  row?: number | 'auto';
   rowStart?: CSSProperties['gridRowStart'];
   rowEnd?: CSSProperties['gridRowEnd'];
-  col?: CSSProperties['gridColumn'];
+  col?: number | 'auto';
   colStart?: CSSProperties['gridColumnStart'];
   colEnd?: CSSProperties['gridColumnEnd'];
 };
@@ -33,8 +34,8 @@ const GridItem = ({
   const gridRow = row === 'auto' ? 'auto' : `span ${row}`;
 
   const style = area
-    ? { gridArea: area, backgroundColor }
-    : {
+    ? compact({ gridArea: area, backgroundColor })
+    : compact({
         gridRow,
         gridRowStart: rowStart,
         gridRowEnd: rowEnd,
@@ -44,7 +45,7 @@ const GridItem = ({
         width,
         height,
         backgroundColor,
-      };
+      });
 
   return (
     <div style={style} {...props}>
