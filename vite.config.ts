@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
+
 import react from '@vitejs/plugin-react';
-import * as path from 'path';
 import dts from 'vite-plugin-dts';
+import { visualizer } from 'rollup-plugin-visualizer';
+
+import * as path from 'path';
 
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/index.tsx'),
+      entry: path.resolve(__dirname, 'src/lib/index.ts'),
       name: 'index',
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['react'],
+      external: ['src/stories/**', 'react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
@@ -22,5 +25,5 @@ export default defineConfig({
       esmExternals: ['react'],
     },
   },
-  plugins: [react(), dts()],
+  plugins: [react(), dts(), visualizer() as PluginOption],
 });
