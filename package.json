@@ -7,14 +7,14 @@
     "layout"
   ],
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "repository": {
     "type": "git",
-    "url": "git://gitbub.com/documentcloud/test.git"
+    "url": "git://gitbub.com/inyeong-kang/jero-design-system"
   },
   "scripts": {
     "dev": "vite",
