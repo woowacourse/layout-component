@@ -1,0 +1,26 @@
+{
+  "name": "@yogjin/layout-component",
+  "type": "module",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "repository": "https://github.com/yogjin/layout-component.git",
+  "author": "Youngjin Park <youngjin988@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepack": "yarn build",
+    "build": "yarn tsc"
+  },
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/node": "^20.6.2",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.27",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.8"
+  }
+}
