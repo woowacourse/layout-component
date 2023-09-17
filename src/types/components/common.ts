@@ -1,1 +1,3 @@
-export type Gap = number;
+import { CSSProperties } from 'react';
+
+export type Gap = CSSProperties['gap'];

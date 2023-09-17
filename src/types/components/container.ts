@@ -1,2 +1,4 @@
-export type MinWidth = number;
-export type MaxWidth = number;
+import { CSSProperties } from 'react';
+
+export type MinWidth = CSSProperties['minWidth'];
+export type MaxWidth = CSSProperties['maxWidth'];
