@@ -11,10 +11,6 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
    */
   maxWidth?: string;
   /**
-   * Container의 margin값입니다.
-   */
-  margin?: string;
-  /**
    * Container의 padding값입니다.
    */
   padding?: string;
@@ -40,7 +36,6 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
 const Container = ({
   minWidth,
   maxWidth = '100%',
-  margin,
   padding,
   backgroundColor,
   borderRadius,
@@ -51,7 +46,7 @@ const Container = ({
   const containerStyles = {
     minWidth,
     maxWidth,
-    margin,
+    margin: '0 auto',
     padding,
     backgroundColor,
     borderRadius,
