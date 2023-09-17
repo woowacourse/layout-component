@@ -1,13 +1,20 @@
 {
-  "name": "layout-component",
-  "private": true,
-  "version": "0.0.0",
+  "name": "guridaek-layout-components",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "main": "dist/index.js",
+  "browser": "./browser/specific/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guridaek/layout-component"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "react": "^18.2.0",
