@@ -37,8 +37,11 @@ import Container from 'your-container-package';
 
 ### Props
 
-- `minWidth`: Minimum width of the container
-- `maxWidth`: Maximum width of the container
+| Prop     | Type            | Description                      |
+|----------|-----------------|----------------------------------|
+| minWidth | number \| string| Minimum width of the container   |
+| maxWidth | number \| string| Maximum width of the container   |
+| children | ReactNode       | The content inside the container |
 
 ---
 
@@ -64,9 +67,13 @@ import Flex from 'your-flex-package';
 
 ### Props
 
-- `direction`: Flex direction
-- `justify`: Justify content
-- `align`: Align items
+| Prop     | Type                 | Description                          |
+|----------|----------------------|--------------------------------------|
+| direction| 'row' \| 'row-reverse' \| 'column' \| 'column-reverse' \| 'inherit' \| 'initial' \| 'unset' | Flex direction |
+| justify  | 'start' \| 'center' \| 'space-between' \| 'space-around' \| 'space-evenly' | Justify content |
+| align    | 'stretch' \| 'center' \| 'start' \| 'end' | Align items    |
+| gap      | number \| string     | Gap between items                    |
+| children | ReactNode            | The content inside the flex container|
 
 ---
 
@@ -92,5 +99,9 @@ import Grid from 'your-grid-package';
 
 ### Props
 
-- `rows`: Number of rows
-- `columns`: Number of columns
+| Prop     | Type           | Description                          |
+|----------|----------------|--------------------------------------|
+| rows     | number \| string | Number of rows                       |
+| columns  | number \| string | Number of columns                    |
+| gap      | number \| string | Gap between items                    |
+| children | ReactNode       | The content inside the grid container|
