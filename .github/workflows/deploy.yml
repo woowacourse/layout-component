@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Components
+        run: npm run build -w packages/components
+
+      - name: Build Docs
+        run: npm run build -w packages/docs
+
+      - name: Build Storybook
+        run: npm run build-storybook -w packages/components
+
+      - name: Prepare distribution
+        run: |
+          mkdir ./dist
+          mv ./packages/docs/build ./dist/docs
+          mv ./packages/components/storybook-static ./dist/storybook
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
