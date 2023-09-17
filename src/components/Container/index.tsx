@@ -1,7 +1,7 @@
-import { CSSProperties, HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 import type { CommonProps } from '../../types';
 import type { MaxWidth, MinWidth } from '../../types/components/container';
-import { numToPixel } from '../../utils/numToPixel';
+import { generateContainerInlineStyle } from '../../utils/generateContainerInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Container.module.css';
 
@@ -19,11 +19,7 @@ const Container = ({
   ...rest
 }: ContainerProps) => {
   const { dynamicStyle, staticClassName } = parseClassName(className, styles);
-
-  const boxInlineStyle: CSSProperties = {
-    ...(minWidth && { minWidth: numToPixel(minWidth) }),
-    ...(maxWidth && { maxWidth: numToPixel(maxWidth) }),
-  };
+  const boxInlineStyle = generateContainerInlineStyle(minWidth, maxWidth);
 
   return (
     <div

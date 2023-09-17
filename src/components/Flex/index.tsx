@@ -1,8 +1,8 @@
-import { CSSProperties, HTMLProps } from 'react';
-import { flexCssPropMappings } from '../../constants/components/flex';
+import { HTMLProps } from 'react';
 import type { CommonProps } from '../../types';
 import { Gap } from '../../types/components/common';
 import { Align, Direction, Justify } from '../../types/components/flex';
+import { generateFlexInlineStyle } from '../../utils/generateFlexInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Flex.module.css';
 
@@ -24,14 +24,7 @@ const Flex = ({
   ...rest
 }: FlexProps) => {
   const { dynamicStyle, staticClassName } = parseClassName(className, styles);
-
-  const flexInlineStyle: CSSProperties = {
-    display: 'flex',
-    ...(direction && { flexDirection: flexCssPropMappings.direction[direction] }),
-    ...(justify && { justifyContent: flexCssPropMappings.justify[justify] }),
-    ...(align && { alignItems: flexCssPropMappings.align[align] }),
-    ...(gap && { gap }),
-  };
+  const flexInlineStyle = generateFlexInlineStyle(direction, justify, align, gap);
 
   return (
     <div
