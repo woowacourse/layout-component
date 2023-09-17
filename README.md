@@ -1,5 +1,3 @@
-# React Components Documentation
-
 - **Live Storybook**: [Storybook](https://step1--tiny-madeleine-f22f65.netlify.app/)
 - **NPM Package**: [react-layout-box](https://www.npmjs.com/package/react-layout-box)
 
