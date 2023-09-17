@@ -5,7 +5,7 @@ import { css, styled } from 'styled-components';
 type ContainerProps = {
   $maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   $minWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  background: CSSProperties['background'];
+  background?: CSSProperties['background'];
 } & HTMLAttributes<HTMLElement>;
 
 const DEFAULT = {
