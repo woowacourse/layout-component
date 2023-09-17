@@ -29,21 +29,23 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const gridColumn = `${col === 'auto' ? 'auto' : `span ${col}`}`;
-  const gridRow = `${row === 'auto' ? 'auto' : `span ${row}`}`;
+  const gridColumn = col === 'auto' ? 'auto' : `span ${col}`;
+  const gridRow = row === 'auto' ? 'auto' : `span ${row}`;
 
-  const style = {
-    gridArea: area,
-    gridRow,
-    gridRowStart: rowStart,
-    gridRowEnd: rowEnd,
-    gridColumn,
-    gridColumnStart: colStart,
-    gridColumnEnd: colEnd,
-    width,
-    height,
-    backgroundColor,
-  };
+  const style = area
+    ? { gridArea: area, backgroundColor }
+    : {
+        gridArea: area,
+        gridRow,
+        gridRowStart: rowStart,
+        gridRowEnd: rowEnd,
+        gridColumn,
+        gridColumnStart: colStart,
+        gridColumnEnd: colEnd,
+        width,
+        height,
+        backgroundColor,
+      };
 
   return (
     <div style={style} {...props}>
