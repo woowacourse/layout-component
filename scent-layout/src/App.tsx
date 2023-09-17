@@ -1,4 +1,5 @@
 import { Container, FlexBox } from '.';
+import Grid from './common/Grid/Grid';
 
 const companyWishList = [
   '네이버',
@@ -25,6 +26,11 @@ function App() {
             <div key={index}>{company}</div>
           ))}
         </FlexBox>
+        <Grid row={3} column={3} gap={10}>
+          {companyWishList.map((company, index) => (
+            <div key={index}>{company}</div>
+          ))}
+        </Grid>
       </Container>
     </>
   );
