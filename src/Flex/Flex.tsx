@@ -18,6 +18,14 @@ interface FlexProps extends ComponentPropsWithoutRef<'div'> {
    */
   align?: CSSProperties['alignItems'];
   /**
+   * Flex의 너비를 지정합니다.
+   */
+  width?: string;
+  /**
+   * Flex의 높이를 지정합니다.
+   */
+  height?: string;
+  /**
    * Flex Item 사이의 간격을 지정합니다.
    */
   gap?: number;
@@ -32,6 +40,8 @@ const Flex = ({
   wrap,
   justify,
   align,
+  width,
+  height,
   gap,
   children,
   ...props
@@ -42,6 +52,8 @@ const Flex = ({
     flexWrap: wrap,
     justifyContent: justify,
     alignItems: align,
+    width,
+    height,
     gap: `${gap}px`,
   };
 
