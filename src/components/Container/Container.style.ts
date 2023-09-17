@@ -13,6 +13,5 @@ export const containerStyle = (
     marginLeft: 'auto',
     marginRight: 'auto',
 
-    overflow: 'hidden',
     whiteSpace: 'normal',
   });
