@@ -2,10 +2,10 @@ import { PropsWithChildren } from 'react';
 import styled, { CSSProperties, css } from 'styled-components';
 
 type Props = {
-  direction: CSSProperties['flexDirection'];
-  justify: CSSProperties['justifyContent'];
-  align: CSSProperties['alignItems'];
-  gap: CSSProperties['gap'];
+  direction?: CSSProperties['flexDirection'];
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  gap?: CSSProperties['gap'];
 };
 
 const Flex = ({ children, ...rest }: PropsWithChildren<Props>) => {
@@ -15,7 +15,7 @@ const Flex = ({ children, ...rest }: PropsWithChildren<Props>) => {
 export default Flex;
 
 const StyledFlex = styled.div<Props>`
-  ${({ direction, justify, align, gap }) => css`
+  ${({ direction = 'row', justify = 'center', align = 'center', gap }) => css`
     flex-direction: ${direction};
     justify-content: ${justify};
     align-items: ${align};
