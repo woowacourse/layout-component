@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { compact } from '../utils/object';
 
 interface GridItemProps extends ComponentPropsWithoutRef<'div'> {
   /**
@@ -61,18 +62,23 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const itemStyles = {
-    gridArea: area || 'auto',
-    gridColumn: `${col && col !== 'auto' ? `span ${col} / span ${col}` : ''} ${
-      colStart && colEnd ? `${colStart} / ${colEnd}` : ''
-    }`,
-    gridRow: `${row && row !== 'auto' ? `span ${row} / span ${row}` : ''} ${
-      rowStart && rowEnd ? `${rowStart} / ${rowEnd}` : ''
-    }`,
-    width,
-    height,
-    backgroundColor,
-  };
+  const gridColumn =
+    typeof col === 'number' ? `span ${col} / span ${col}` : col;
+  const gridRow = typeof row === 'number' ? `span ${row} / span ${row}` : row;
+
+  const itemStyles = area
+    ? compact({ gridArea: area, backgroundColor })
+    : compact({
+        gridRow,
+        gridColumn,
+        gridRowStart: rowStart,
+        gridRowEnd: rowEnd,
+        gridColumnStart: colStart,
+        gridColumnEnd: colEnd,
+        width,
+        height,
+        backgroundColor,
+      });
 
   return (
     <div style={itemStyles} {...props}>
