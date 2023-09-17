@@ -140,4 +140,4 @@ export default App;
 
 ## Version
 
-- 0.0.1 (latest)
+- 0.0.2 (latest)
