@@ -171,7 +171,7 @@ export const Layout = () => {
   return (
     <>
       <SubTitle>➡️&nbsp; Direction: Row</SubTitle>
-      <FlexContainer gap="28px 12px" wrap css={{ marginBottom: 72 }}>
+      <FlexContainer tag="section" gap="28px 12px" wrap css={{ marginBottom: 72 }}>
         {layoutList.map((layout, index) => {
           return (
             <div key={index}>
@@ -186,7 +186,7 @@ export const Layout = () => {
       </FlexContainer>
 
       <SubTitle>⬇️&nbsp; Direction: Column</SubTitle>
-      <FlexContainer gap="28px 12px" wrap>
+      <FlexContainer tag="section" gap="28px 12px" wrap>
         {layoutList.map((layout, index) => {
           return (
             <div key={index}>
