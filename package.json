@@ -1,10 +1,22 @@
 {
   "name": "guridaek-layout-components",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.8",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "browser": "./browser/specific/main.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/guridaek/layout-component"
@@ -13,15 +25,21 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.8"
   },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.8",
+    "typescript": "^5.0.2"
+  },
   "devDependencies": {
+    "@types/node": "^20.6.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -30,7 +48,8 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "path": "^0.12.7",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3"
   }
 }
