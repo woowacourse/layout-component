@@ -21,7 +21,7 @@
 
 ## Flex 컴포넌트
 
-- [ ] `direction`, `justify`, `align`, `gap` 속성 적용
+- [x] `direction`, `justify`, `align`, `gap` 속성 적용
 - [ ] npm 배포
 - [ ] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
