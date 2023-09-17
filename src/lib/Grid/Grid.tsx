@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, Children } from 'react';
 
 type GridProps<C extends React.ElementType> = {
   as?: C;
@@ -19,12 +19,15 @@ const Grid = <C extends React.ElementType = 'div'>({
   columnGap,
   gap,
   children,
-  ...atributtes
+  ...attributes
 }: PropsWithChildren<GridProps<C>>) => {
+  const gridTemplateRows = typeof rows === 'number' ? `repeat(${rows}, minmax(auto, 1fr))` : rows;
+  const gridTemplateColumns = typeof columns === 'number' ? `repeat(${columns}, minmax(auto, 1fr))` : columns;
+
   const styles = {
     display: 'grid',
-    gridTemplateRows: `repeat(${rows}, 1fr)`,
-    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    gridTemplateRows,
+    gridTemplateColumns,
     gridTemplateArea: area,
     rowGap,
     columnGap,
@@ -34,7 +37,7 @@ const Grid = <C extends React.ElementType = 'div'>({
   const Component = as || 'div';
 
   return (
-    <Component style={styles} {...atributtes}>
+    <Component style={styles} {...attributes}>
       {children}
     </Component>
   );
