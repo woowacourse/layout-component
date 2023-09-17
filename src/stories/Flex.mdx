@@ -1,0 +1,30 @@
+import { Meta, Controls, Canvas  } from '@storybook/blocks';
+import * as FlexStory from './Flex.stories';
+
+<Meta of={FlexStory} />
+
+# Flex
+
+## 기능
+
+Flex는 자식 컴포넌트들을 감싸는 Flexbox를 제공합니다.
+
+## 미리보기
+
+분홍색은 Flex의 외곽을 보여주기 위해 칠한 것이며, 실제 컴포넌트에는 색상이 없습니다.
+
+<Canvas of={FlexStory.Example} />
+
+## props
+
+Flex는 아래에 적힌 props들을 기본적으로 받을 수 있습니다.
+- `direction`: CSS의 flex-direction에 들어갈 수 있는 문자열
+- `align`: CSS의 align-items에 들어갈 수 있는 문자열
+- `justify`: CSS의 justify-content에 들어갈 수 있는 문자열
+- `gap`: 내부 요소들 사이의 간격을 나타낼 수 있는 문자열
+- `wrap`: CSS의 flex-wrap에 들어갈 수 있는 문자열
+- `inline`: 설정 시 `display: inline-flex`를 적용
+
+추가적으로 `<div>` 태그에 들어갈 수 있는 모든 속성들 역시 prop으로 내려줄 수 있어요.
+
+<Controls of={FlexStory.Example} />

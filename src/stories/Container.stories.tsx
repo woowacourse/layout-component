@@ -1,8 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Container from '.';
+import Container from '../Container';
 
 const meta: Meta<typeof Container> = {
   component: Container,
+
+  argTypes: {
+    minWidth: {
+      description: 'Container의 최소 너비(min-width)',
+      defaultValue: { summary: "''" },
+    },
+
+    maxWidth: {
+      description: 'Container의 최대 너비(max-width)',
+      defaultValue: { summary: "''" },
+    },
+  },
 
   args: {
     minWidth: 'min-content',

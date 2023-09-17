@@ -1,8 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Flex from '.';
+import Flex from '../Flex';
 
 const meta: Meta<typeof Flex> = {
   component: Flex,
+
+  argTypes: {
+    direction: {
+      description: 'flex-direction',
+      defaultValue: { summary: 'row' },
+    },
+    align: {
+      description: 'align-items',
+      defaultValue: { summary: 'normal' },
+    },
+    justify: {
+      description: 'justify-center',
+      defaultValue: { summary: 'normal' },
+    },
+    inline: {
+      description: 'inline-flex를 원할 경우 true로 설정',
+      defaultValue: { summary: 'false' },
+    },
+    wrap: {
+      description: 'flex-wrap',
+      defaultValue: { summary: 'nowrap' },
+    },
+    gap: {
+      description: '하위 요소들 사이의 간격',
+      defaultValue: { summary: '' },
+    },
+  },
 
   args: {
     direction: 'row',
