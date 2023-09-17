@@ -1,3 +1,4 @@
+import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
 import type { Alignment, Size } from './style';
 import { positionStyle, widthStyle } from './style';
@@ -8,7 +9,7 @@ export interface WidthStyle {
   fluid?: boolean;
   gutter?: boolean;
 }
-export interface ContainerProps extends WidthStyle, CommonProps {
+export interface ContainerProps extends WidthStyle, Spacing, CommonProps {
   position?: Alignment;
 }
 

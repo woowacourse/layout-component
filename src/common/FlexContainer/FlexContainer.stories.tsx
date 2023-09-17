@@ -5,6 +5,7 @@ import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
 import { CONTAINER_WIDTH } from '../Container/style';
+import { spacingArgTypes } from '../styles/spacing';
 import type { FlexContainerProps } from './FlexContainer';
 import FlexContainer from './FlexContainer';
 import { LAYOUT } from './style';
@@ -127,6 +128,7 @@ const meta = {
       description: 'Flex Container 태그 변경 가능 (기본 태그: `div`)',
       control: false,
     },
+    ...spacingArgTypes,
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FlexContainer>;
@@ -171,7 +173,7 @@ export const Layout = () => {
   return (
     <>
       <SubTitle>➡️&nbsp; Direction: Row</SubTitle>
-      <FlexContainer tag="section" gap="28px 12px" wrap css={{ marginBottom: 72 }}>
+      <FlexContainer tag="section" gap="28px 12px" wrap mb={72}>
         {layoutList.map((layout, index) => {
           return (
             <div key={index}>
@@ -205,12 +207,7 @@ export const Layout = () => {
 
 export const ExampleHeader = () => {
   return (
-    <ContainerForStorybook
-      tag="header"
-      layout="centerLeft"
-      columnGap={12}
-      css={{ padding: '0 16px' }}
-    >
+    <ContainerForStorybook tag="header" layout="centerLeft" columnGap={12} px={16}>
       <h1 css={{ fontWeight: 600, fontSize: 16 }}>로고</h1>
       {Array.from({ length: 4 }, (_, index) => (
         <p key={index}>메뉴{index + 1}</p>

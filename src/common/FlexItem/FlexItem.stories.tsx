@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
 import FlexContainer from '../FlexContainer';
+import { spacingArgTypes } from '../styles/spacing';
 import type { FlexItemProps } from './FlexItem';
 import FlexItem from './FlexItem';
 
@@ -51,6 +52,7 @@ const meta = {
       description: 'Flex Item 태그 변경 가능',
       control: false,
     },
+    ...spacingArgTypes,
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FlexItem>;

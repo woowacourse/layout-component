@@ -4,6 +4,7 @@ import type { Meta } from '@storybook/react';
 import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
+import { spacingArgTypes } from '../styles/spacing';
 import type { ContainerProps } from './Container';
 import Container from './Container';
 import { ALIGNMENT, CONTAINER_WIDTH } from './style';
@@ -55,6 +56,7 @@ const meta = {
       description: 'Container 태그 변경 가능',
       control: false,
     },
+    ...spacingArgTypes,
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Container>;
