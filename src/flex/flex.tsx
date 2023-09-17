@@ -8,6 +8,8 @@ import FlexItem from './flex-item';
 
 import { forwardRef } from '../utils';
 
+import styles from './flex.module.css';
+
 type FlexStyleProps = Pick<CSSProperties, 'width' | 'height'> & {
   direction?: CSSProperties['flexDirection'];
   wrap?: CSSProperties['flexWrap'];
@@ -39,7 +41,6 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
     ref: FlexRef
   ) => {
     const style = {
-      display: 'flex',
       flexDirection: direction,
       flexWrap: wrap,
       justifyContent: justify,
@@ -50,7 +51,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
     };
 
     return (
-      <div style={style} ref={ref} {...props}>
+      <div className={styles.flex} style={style} ref={ref} {...props}>
         {children}
       </div>
     );
