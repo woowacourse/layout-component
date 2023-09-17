@@ -17,12 +17,10 @@
     "url": "git+https://github.com/hang-log-design-system/design-system.git"
   },
   "scripts": {
-    "start": "webpack --mode development",
-    "serve": "webpack serve --mode development --open --hot",
     "build": "webpack --mode production",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish:npm": "rm -rf dist && mkdir dist && tsc && rm -rf ./dist/stories && tsc-alias && npm publish",
+    "publish:npm": "rm -rf dist && mkdir dist && tsc && rm -rf ./dist/stories && tsc-alias && npm publish --access=public",
     "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN",
     "lint": "eslint src"
   },
@@ -68,6 +66,5 @@
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  },
-  "sideEffects": false
+  }
 }

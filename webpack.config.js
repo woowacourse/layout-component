@@ -1,9 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
-const prod = (process.env.NODE_ENV = 'production');
 
 module.exports = {
-  mode: prod ? 'production' : 'development',
   entry: './src/index.tsx',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -37,10 +34,4 @@ module.exports = {
       '@stories': path.resolve(__dirname, './src/stories'),
     },
   },
-
-  plugins: [
-    new webpack.ProvidePlugin({
-      React: 'react',
-    }),
-  ],
 };
