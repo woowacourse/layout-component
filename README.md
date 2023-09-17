@@ -144,7 +144,7 @@ import { Flex } from 'hae_on-layout-component';
 
 <br/>
 
-### Flex Item
+## Flex Item
 
 Flex 컴포넌트 내부에 들어가는 하나의 컴포넌트입니다.
 
