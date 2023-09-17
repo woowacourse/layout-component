@@ -27,6 +27,11 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
    */
   borderRadius?: string;
   /**
+   * Container의 자식 컴포넌트들의 중앙 정렬 여부입니다.
+   * @default false
+   */
+  centerContent?: boolean;
+  /**
    * Container의 자식 컴포넌트입니다.
    */
   children: ReactNode;
@@ -39,6 +44,7 @@ const Container = ({
   padding,
   bgColor,
   borderRadius,
+  centerContent = false,
   children,
   ...props
 }: ContainerProps) => {
@@ -49,6 +55,11 @@ const Container = ({
     padding: padding,
     backgroundColor: bgColor,
     borderRadius: borderRadius,
+    ...(centerContent && {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }),
   };
 
   return (
