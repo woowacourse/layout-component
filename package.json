@@ -2,7 +2,7 @@
   "name": "yeopto-react-layout-component",
   "description": "react basic layout component library",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/yeopto/layout-component/tree/step1.git"
+    "url": "https://github.com/yeopto/layout-component/tree/step1"
   },
   "scripts": {
     "dev": "vite",
