@@ -1,6 +1,6 @@
 {
-  "name": "layout-component",
-  "version": "1.0.0",
+  "name": "rulu-layout",
+  "version": "0.0.1",
   "description": "<p align=\"middle\" >\r   <img width=\"100px;\" src=\"https://em-content.zobj.net/source/skype/289/straight-ruler_1f4cf.png\"/>\r </p>\r <h2 align=\"middle\">누구나 사용할 수 있는 레이아웃 컴포넌트</h2>\r <p align=\"middle\">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>\r <br/>",
   "private": false,
   "main": "dist/index.js",
@@ -11,11 +11,11 @@
     "start": "webpack serve --open",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "publish": "rm -rf dist && mkdir dist && tsc && npm publish --access=public"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hafnium1923/layout-component"
+    "url": "git+https://github.com/hafnium1923/layout-component.git"
   },
   "keywords": [],
   "author": "hafnium1923",
