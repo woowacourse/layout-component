@@ -2,4 +2,6 @@ import Container from './Container';
 import Flex from './Flex';
 import Grid from './Grid';
 
-export default { Container, Flex, Grid };
+const LayoutComponent = { Container, Flex, Grid };
+
+export default LayoutComponent;
