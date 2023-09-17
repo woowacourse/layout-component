@@ -1,6 +1,6 @@
 {
-  "name": "@aiden/layout-component",
-  "version": "0.0.1",
+  "name": "@gyeongza/components",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
