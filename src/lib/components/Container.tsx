@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  minWidth?: number;
-  maxWidth?: number;
+  minWidth: number;
+  maxWidth: number;
   children: ReactNode;
 };
 
@@ -21,6 +21,6 @@ type LayoutProps = Omit<Props, 'children'>;
 
 const Layout = styled.div<LayoutProps>`
   margin: 0 auto;
-  min-width: ${props => (props.minWidth ? `${props.minWidth}px` : 'none')};
-  max-width: ${props => (props.maxWidth ? `${props.maxWidth}px` : 'none')};
+  min-width: ${props => `${props.minWidth}px`};
+  max-width: ${props => `${props.maxWidth}px`};
 `;
