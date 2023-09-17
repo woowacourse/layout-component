@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import {ReactNode} from "react";
+import {StyledFlex} from "./Flex.styles.ts";
 
 export interface FlexProps {
   children: ReactNode;
@@ -13,16 +13,8 @@ type JustifyContentOptions = 'center' | 'start' | 'end' | 'flex-start' | 'flex-e
 type AlignItemsOptions = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end';
 type DirectionOptions = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
-const FlexContainer = styled.div<FlexProps>`
-  display: flex;
-  ${({direction}) => direction && `flex-direction: ${direction};`}
-  ${({justify}) => justify && `justify-content: ${justify};`}
-  ${({align}) => align && `align-items: ${align};`}
-  ${({gap}) => gap && `gap: ${gap}px;`}
-`;
-
 const Flex = ({children, align, justify, direction, gap}: FlexProps) => {
-  return <FlexContainer align={align} justify={justify} direction={direction} gap={gap}>{children}</FlexContainer>;
+  return <StyledFlex align={align} justify={justify} direction={direction} gap={gap}>{children}</StyledFlex>;
 };
 
 export default Flex;
