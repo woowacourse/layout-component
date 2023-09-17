@@ -23,15 +23,11 @@ A highly customizable and responsive `Container` component designed to handle th
 
 ## Usage
 
-Here is a simple usage example:
-
-```jsx
 import Container from 'react-layout-box';
 
 <Container minWidth="200px" maxWidth="800px">
   <p>Your content here</p>
 </Container>
-```
 
 ## API
 
