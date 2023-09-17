@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 import styled, { CSSProperties, css } from 'styled-components';
 
 type Props = {
-  rows: CSSProperties['gridTemplateRows'];
-  columns: CSSProperties['gridTemplateColumns'];
+  rows: number;
+  columns: number;
   gap?: CSSProperties['gap'];
 };
 

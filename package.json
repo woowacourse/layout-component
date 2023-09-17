@@ -1,7 +1,7 @@
 {
   "name": "@yogjin/layout-component",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "repository": "https://github.com/yogjin/layout-component.git",
   "author": "Youngjin Park <youngjin988@gmail.com>",
