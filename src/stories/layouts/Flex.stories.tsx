@@ -8,9 +8,6 @@ const meta = {
 	parameters: {
 		layout: 'centered',
 	},
-	args: {
-		customCss: {},
-	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof Flex>;
 
@@ -25,6 +22,7 @@ export const Default: Story = {
 		align: 'center',
 		wrap: 'nowrap',
 		gap: 5,
+		customCss: {},
 	},
 	render: (args) => {
 		return (

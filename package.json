@@ -1,8 +1,19 @@
 {
-	"name": "layout-component",
-	"private": true,
-	"version": "0.0.0",
+	"name": "@hozzijeong/layout-component",
+	"version": "0.0.1",
 	"type": "module",
+	"main": "dist/index.umd.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.umd.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
@@ -26,6 +37,7 @@
 		"@storybook/react": "^7.4.2",
 		"@storybook/react-vite": "^7.4.2",
 		"@storybook/testing-library": "^0.2.1",
+		"@types/node": "^20.6.2",
 		"@types/react": "^18.2.15",
 		"@types/react-dom": "^18.2.7",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -35,6 +47,7 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.3",
 		"eslint-plugin-storybook": "^0.6.13",
+		"path": "^0.12.7",
 		"postcss-styled-syntax": "^0.5.0",
 		"storybook": "^7.4.2",
 		"stylelint": "^15.10.3",
@@ -43,6 +56,7 @@
 		"stylelint-order": "^6.0.3",
 		"typescript": "^5.0.2",
 		"vite": "^4.4.5",
+		"vite-plugin-dts": "^3.5.3",
 		"vite-plugin-stylelint": "^5.1.1"
 	}
 }

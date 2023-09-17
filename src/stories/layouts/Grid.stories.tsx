@@ -8,9 +8,6 @@ const meta = {
 	parameters: {
 		layout: 'centered',
 	},
-	args: {
-		customCss: {},
-	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof Grid>;
 
@@ -23,6 +20,7 @@ export const Default: Story = {
 		rows: 3,
 		cols: 3,
 		gap: 5,
+		customCss: {},
 	},
 	render: (args) => {
 		return (
