@@ -9,7 +9,7 @@ import { gapStyle, layoutStyle } from './style';
 
 type BasicLayoutProps = Gap & ContainerProps & HTMLAttributes<HTMLElement>;
 
-type FlexBasicLayout = 'start' | 'center' | 'end';
+export type FlexBasicLayout = 'start' | 'center' | 'end';
 type FlexContentLayout = FlexBasicLayout | 'space-between' | 'space-around' | 'space-evenly';
 export interface FlexLayoutStyle {
   layout?: Layout;
