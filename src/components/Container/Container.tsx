@@ -2,7 +2,8 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { containerStyle } from './Container.style';
 import React from 'react';
 
-interface ContainerProps extends ComponentPropsWithoutRef<React.ElementType> {
+export interface ContainerProps
+  extends ComponentPropsWithoutRef<React.ElementType> {
   /**
    * Container의 HTML 태그
    *
