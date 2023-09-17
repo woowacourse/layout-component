@@ -1,0 +1,28 @@
+---
+sidebar_position: 1
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Example from '../../src/components/Example';
+import Container from './examples/Container';
+import ContainerSource from '!!raw-loader!./examples/Container';
+
+# Container
+
+화면의 폭에 따라 내용의 최대 폭과 최소 폭을 제한할 수 있는 컴포넌트입니다.
+
+---
+
+<Example>
+  <Container />
+</Example>
+
+<br/>
+
+<CodeBlock language="tsx">
+  {ContainerSource}
+</CodeBlock>
+
+* `maxWidth` 와 `minWidth`를 설정하여 컨텐츠가 표시될 최소 혹은 최대 폭을 조절할 수 있습니다.
+
+> `maxWidth` 는 사용자가 몰입할 수 있을 정도로 컨텐츠를 모아줄 수 있는 값을 설정하시면 좋습니다.
