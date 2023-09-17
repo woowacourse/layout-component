@@ -63,9 +63,5 @@
     "typescript",
     "library"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HyeryongChoi/layout-component.git"
-  },
   "license": "MIT"
 }
