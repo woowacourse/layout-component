@@ -185,11 +185,11 @@ export const IgnoreGridItem: Story = {
         <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <div style={customGridItemStyle}>Item4 - ignore</div>
+        <div style={customGridItemStyle}>Item4 - error</div>
         <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <div style={customGridItemStyle}>Item8 - ignore</div>
+        <div style={customGridItemStyle}>Item8 - error</div>
       </Grid>
     );
   },

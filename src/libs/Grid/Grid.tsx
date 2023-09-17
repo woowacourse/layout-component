@@ -23,7 +23,12 @@ function Grid(props: PropsWithChildren<GridProps>) {
 
   const gridItemChildren = Children.map(children, (child) => {
     const item = child as ReactElement;
-    if (item.type === GridItem) return child;
+    if (item.type !== GridItem) {
+      console.error(
+        'Grid.Item 컴포넌트를 사용하면 Grid을 더욱 쉽고 편리하게 활용할 수 있습니다.'
+      );
+    }
+    return child;
   });
 
   return <Layout {...layoutProps}>{gridItemChildren}</Layout>;
