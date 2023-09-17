@@ -21,7 +21,7 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Container의 배경 색상입니다.
    */
-  bgColor?: string;
+  backgroundColor?: string;
   /**
    * Container의 border-radius값입니다.
    */
@@ -42,19 +42,19 @@ const Container = ({
   maxWidth = '100%',
   margin,
   padding,
-  bgColor,
+  backgroundColor,
   borderRadius,
   centerContent = false,
   children,
   ...props
 }: ContainerProps) => {
   const containerStyles = {
-    minWidth: minWidth,
-    maxWidth: maxWidth,
-    margin: margin,
-    padding: padding,
-    backgroundColor: bgColor,
-    borderRadius: borderRadius,
+    minWidth,
+    maxWidth,
+    margin,
+    padding,
+    backgroundColor,
+    borderRadius,
     ...(centerContent && {
       display: 'flex',
       justifyContent: 'center',

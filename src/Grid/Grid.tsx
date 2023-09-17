@@ -42,7 +42,7 @@ const Grid = ({
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
     gridGap: `${gap}px`,
-    height: height,
+    height,
   };
 
   return (

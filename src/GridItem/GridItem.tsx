@@ -40,7 +40,7 @@ interface GridItemProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * GridItem의 배경 색상입니다.
    */
-  bgColor?: string;
+  backgroundColor?: string;
   /**
    * GridItem의 자식 컴포넌트입니다.
    */
@@ -57,7 +57,7 @@ const GridItem = ({
   colEnd,
   width,
   height,
-  bgColor,
+  backgroundColor,
   children,
   ...props
 }: GridItemProps) => {
@@ -69,9 +69,9 @@ const GridItem = ({
     gridRow: `${row && row !== 'auto' ? `span ${row} / span ${row}` : ''} ${
       rowStart && rowEnd ? `${rowStart} / ${rowEnd}` : ''
     }`,
-    width: width,
-    height: height,
-    backgroundColor: bgColor,
+    width,
+    height,
+    backgroundColor,
   };
 
   return (
