@@ -2,10 +2,10 @@ interface GridProps {
   children: React.ReactNode;
   rows: number;
   columns: number;
-  gap: number;
+  gap?: number;
 }
 
-const Grid = ({ children, rows, columns, gap }: GridProps) => {
+const Grid = ({ children, rows, columns, gap = 0 }: GridProps) => {
   const gridStyle: React.CSSProperties = {
     display: "grid",
     gridTemplateRows: `repeat(${rows}, 1fr)`,

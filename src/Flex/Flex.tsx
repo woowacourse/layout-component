@@ -8,10 +8,10 @@ interface FlexProps {
     | "space-between"
     | "space-around";
   align: "flex-start" | "flex-end" | "center" | "stretch";
-  gap: number;
+  gap?: number;
 }
 
-const Flex = ({ children, direction, justify, align, gap }: FlexProps) => {
+const Flex = ({ children, direction, justify, align, gap = 0 }: FlexProps) => {
   const flexStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: direction,
