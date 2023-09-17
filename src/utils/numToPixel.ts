@@ -1,1 +1,1 @@
-export const numToPixel = (num: number) => `${num}px`;
+export const numToPixel = (num: number | string) => `${num}px`;
