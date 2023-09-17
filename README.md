@@ -5,5 +5,6 @@
 <p align="middle">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>
 <br/>
 
-[Storybook Chromatic 배포 페이지](https://65068c38c8cef469d3e5e634-mnopgfqwtw.chromatic.com/)
-[배포 페이지](https://gabrielyoon7.github.io/layout-component/)
+- [Storybook Chromatic 배포 페이지](https://65068c38c8cef469d3e5e634-mnopgfqwtw.chromatic.com/)
+
+- [배포 페이지](https://gabrielyoon7.github.io/layout-component/)
