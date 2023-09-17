@@ -1,5 +1,5 @@
 <h1 align="middle">React Layout Component HP</h1>
-<h3 align="middle">리액트와 타입스크립트를 사용한 재사용 가능한 레이아웃 컴포넌트</h3>
+<h3 align="middle">재사용 가능한 레이아웃 컴포넌트 with React, Typescript</h3>
 <br/>
 
 ## Installation
