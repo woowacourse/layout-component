@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
-import { compact } from '../utils/object';
+import { compact } from '../utils';
 
 interface GridItemProps extends ComponentPropsWithoutRef<'div'> {
   /**
