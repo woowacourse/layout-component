@@ -1,12 +1,30 @@
 {
-  "name": "layout-component",
+  "name": "@fine1012/react-layout-component",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "description": "React Layout Component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nangkyeonglim/layout-component"
+  },
+  "author": "nangkyeonglim <nangkyeonglim@gmail.com>",
+  "keywords": [
+    "react",
+    "layout-components",
+    "react-components",
+    "ui",
+    "react-ui"
+  ],
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "react": "^18.2.0",
