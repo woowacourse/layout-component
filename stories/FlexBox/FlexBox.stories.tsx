@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { FlexBox } from '../..';
+import { FlexBox } from '../../lib';
 
 const meta = {
   title: 'FlexBox',
