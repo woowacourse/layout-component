@@ -30,8 +30,16 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const gridColumn = !col ? undefined : col === 'auto' ? 'auto' : `span ${col}`;
-  const gridRow = !row ? undefined : row === 'auto' ? 'auto' : `span ${row}`;
+  const gridColumn = !col
+    ? undefined
+    : col === 'auto'
+    ? 'auto'
+    : `span ${col} / span ${col}`;
+  const gridRow = !row
+    ? undefined
+    : row === 'auto'
+    ? 'auto'
+    : `span ${row} / span ${row}`;
 
   const style = area
     ? compact({ gridArea: area, backgroundColor })
