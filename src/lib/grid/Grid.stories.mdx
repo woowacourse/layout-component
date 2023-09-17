@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Grid from './Grid';
+
+<Meta
+  title="Components/Grid"
+  component={Grid}
+  argTypes={{
+    rows: { control: 'number', description: 'Number of rows in the grid.' },
+    columns: { control: 'number', description: 'Number of columns in the grid.' },
+    gap: { control: 'number', description: 'Gap between grid items.' },
+  }}
+  args={{
+    rows: 3,
+    columns: 3,
+    gap: 10
+  }}
+/>
+
+# Grid Component
+Grid is a layout component that enables complex grid designs to be composed with ease. It leverages CSS Grid to offer a multitude of options for laying out child elements within rows and columns, ensuring that you have the ultimate flexibility when structuring your UI.
+
+## Properties
+
+<ArgsTable of={Grid} />
+
+## Live Examples
+
+<Canvas>
+  <Story name="Component">
+    {args => (
+      <Grid {...args}>
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
