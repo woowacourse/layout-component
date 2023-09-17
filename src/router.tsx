@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout.tsx";
+import ContainerExample from "./pages/container/ContainerExample.tsx";
 
 const router = createBrowserRouter(
   [
@@ -13,7 +14,7 @@ const router = createBrowserRouter(
         },
         {
           path: "container",
-          element: <div>container</div>,
+          element: <ContainerExample />,
         },
         {
           path: "grid",
