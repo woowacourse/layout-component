@@ -1,5 +1,6 @@
 {
   "name": "jero-design-system",
+  "version": "0.0.7",
   "description": "Jero's Design System",
   "keywords": [
     "react",
@@ -7,15 +8,16 @@
     "layout"
   ],
   "private": false,
-  "version": "0.0.6",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "repository": {
     "type": "git",
-    "url": "git://gitbub.com/inyeong-kang/jero-design-system"
+    "url": "git://gitbub.com/inyeong-kang/layout-component.git"
   },
+  "homepage": "https://github.com/inyeong-kang/layout-component#readme",
+  "license": "ISC",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

@@ -4,4 +4,3 @@ public/
 tsconfig.json
 .github
 .storybook
-tsconfig.node.json
