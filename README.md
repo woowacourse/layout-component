@@ -6,7 +6,7 @@
 # Installation
 
 ```bash
-npm install your-container-package
+npm install react-layout-box
 ```
 
 ---
@@ -26,7 +26,7 @@ A highly customizable and responsive `Container` component designed to handle th
 Here is a simple usage example:
 
 ```jsx
-import Container from 'your-container-package';
+import Container from 'react-layout-box';
 
 <Container minWidth="200px" maxWidth="800px">
   <p>Your content here</p>
@@ -55,7 +55,7 @@ A flexible and easy-to-use `Flex` component for building modern layouts with fle
 Here is a simple usage example:
 
 ```jsx
-import Flex from 'your-flex-package';
+import Flex from 'react-layout-box';
 
 <Flex direction="row" justify="center" align="center">
   <div>Item 1</div>
@@ -86,7 +86,7 @@ An intuitive `Grid` component that simplifies the creation of grid layouts in Re
 Here is a simple usage example:
 
 ```jsx
-import Grid from 'your-grid-package';
+import Grid from 'react-layout-box';
 
 <Grid rows={3} columns={3}>
   <div>Item 1</div>
