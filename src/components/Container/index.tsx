@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 import styled, { CSSProperties, css } from 'styled-components';
 
 type Props = {
-  minWidth: CSSProperties['minWidth'];
-  maxWidth: CSSProperties['maxWidth'];
+  minWidth?: CSSProperties['minWidth'];
+  maxWidth?: CSSProperties['maxWidth'];
 };
 
 const Container = ({ children, ...rest }: PropsWithChildren<Props>) => {
@@ -13,7 +13,7 @@ const Container = ({ children, ...rest }: PropsWithChildren<Props>) => {
 export default Container;
 
 const StyledContainer = styled.div<Props>`
-  ${({ minWidth, maxWidth }) => css`
+  ${({ minWidth, maxWidth = '100%' }) => css`
     min-width: ${minWidth};
     max-width: ${maxWidth};
   `};
