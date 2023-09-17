@@ -5,6 +5,7 @@
   "description": "It's a package made to use layout components comfortably",
   "keywords": [
     "components",
+    "component",
     "react",
     "ui"
   ],
@@ -13,7 +14,8 @@
   },
   "author": {
     "name": "Kim YoungGil",
-    "email": "wolfye@naver.com"
+    "email": "wolfye@naver.com",
+    "url": "https://github.com/Gilpop8663"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "react": "^18.2.0",
