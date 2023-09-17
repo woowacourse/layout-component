@@ -1,4 +1,3 @@
-import { HTMLProps } from 'react';
 import { generateContainerInlineStyle } from '../../utils/generateContainerInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Container.module.css';
@@ -6,34 +5,38 @@ import styles from './Container.module.css';
 import type { CommonProps } from '../../types';
 import type { MaxWidth, MinWidth } from '../../types/components/container';
 
-interface ContainerProps extends CommonProps, HTMLProps<HTMLDivElement> {
+interface ContainerProps<C extends React.ElementType> extends CommonProps {
+  as?: C;
   minWidth?: MinWidth;
   maxWidth?: MaxWidth;
 }
 
-const Container = ({
+const Container = <C extends React.ElementType = 'div'>({
+  as,
   minWidth,
   maxWidth,
   sx,
   children,
   className = '',
-  ...rest
-}: ContainerProps) => {
+  ...attributes
+}: ContainerProps<C>) => {
   const { dynamicStyle, staticClassName } = parseClassName(className, styles);
   const boxInlineStyle = generateContainerInlineStyle(minWidth, maxWidth);
 
+  const Component = as || 'div';
+
   return (
-    <div
+    <Component
       style={{
         ...boxInlineStyle,
         ...dynamicStyle,
         ...sx,
       }}
       className={`${staticClassName}`}
-      {...rest}
+      {...attributes}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 

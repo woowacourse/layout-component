@@ -1,4 +1,3 @@
-import { HTMLProps } from 'react';
 import { generateGridInlineStyle } from '../../utils/generateGridInlineStyle';
 import { parseClassName } from '../../utils/parseClassName';
 import styles from './Grid.module.css';
@@ -7,24 +6,36 @@ import type { CommonProps } from '../../types';
 import type { Gap } from '../../types/components/common';
 import type { Columns, Rows } from '../../types/components/grid';
 
-interface GridProps extends CommonProps, HTMLProps<HTMLDivElement> {
+interface GridProps<C extends React.ElementType> extends CommonProps {
+  as?: C;
   rows: Rows;
   columns: Columns;
   gap?: Gap;
 }
 
-const Grid = ({ rows, columns, gap, sx, children, className = '', ...rest }: GridProps) => {
+const Grid = <C extends React.ElementType = 'div'>({
+  as,
+  rows,
+  columns,
+  gap,
+  sx,
+  children,
+  className = '',
+  ...attributes
+}: GridProps<C>) => {
   const { dynamicStyle, staticClassName } = parseClassName(className, styles);
   const gridInlineStyle = generateGridInlineStyle(rows, columns, gap);
 
+  const Component = as || 'div';
+
   return (
-    <div
+    <Component
       style={{ ...gridInlineStyle, ...dynamicStyle, ...sx }}
       className={`${staticClassName}`}
-      {...rest}
+      {...attributes}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 
