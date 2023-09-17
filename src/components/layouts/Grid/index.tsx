@@ -1,23 +1,24 @@
 import { CSSObject } from '@emotion/react';
 import { Wrapper } from './Grid.styles';
 import { ContainerTagType } from '../../../models/TagTypes';
+import { ValueUnit } from '../../../models/utils';
 
-interface ContainerProps extends React.PropsWithChildren {
+export interface GridProps extends React.PropsWithChildren {
 	tag?: keyof ContainerTagType;
 	rows: number;
 	cols: number;
-	gap?: number;
+	gap?: ValueUnit;
 	rowLength?: string;
 	colLength?: string;
 	customCss?: CSSObject;
 }
 
-const Grid = (props: ContainerProps) => {
+const Grid = (props: GridProps) => {
 	const {
 		tag = 'div',
 		rows,
 		cols,
-		gap = 0,
+		gap = '0px',
 		rowLength = '1fr',
 		colLength = '1fr',
 		customCss,

@@ -19,7 +19,7 @@ export const Default: Story = {
 		tag: 'div',
 		rows: 3,
 		cols: 3,
-		gap: 5,
+		gap: '5px',
 		customCss: {},
 	},
 	render: (args) => {

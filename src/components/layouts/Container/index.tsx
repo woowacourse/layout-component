@@ -1,11 +1,12 @@
 import { CSSObject } from '@emotion/react';
 import { Wrapper } from './Container.styles';
 import { ContainerTagType } from '../../../models/TagTypes';
+import { ValueUnit } from '../../../models/utils';
 
-interface ContainerProps extends React.PropsWithChildren {
+export interface ContainerProps extends React.PropsWithChildren {
 	tag?: keyof ContainerTagType;
-	minWidth: number;
-	maxWidth: number;
+	minWidth: ValueUnit;
+	maxWidth: ValueUnit;
 	customCss?: CSSObject;
 }
 

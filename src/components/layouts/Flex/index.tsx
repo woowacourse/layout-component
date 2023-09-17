@@ -2,14 +2,15 @@ import { CSSObject } from '@emotion/react';
 import { ContainerTagType } from '../../../models/TagTypes';
 import { Wrapper } from './Flex.styles';
 import { Align, Direction, Justify, Wrap } from '../../../models/FlexTypes';
+import { ValueUnit } from '../../../models/utils';
 
-interface FlexProps extends React.PropsWithChildren {
+export interface FlexProps extends React.PropsWithChildren {
 	tag?: keyof ContainerTagType;
 	direction: Direction;
 	justify: Justify;
 	align: Align;
 	wrap: Wrap;
-	gap?: number;
+	gap?: ValueUnit;
 	customCss?: CSSObject;
 }
 
@@ -21,7 +22,7 @@ const Flex = (props: FlexProps) => {
 		justify,
 		align,
 		wrap,
-		gap = 0,
+		gap = '0px',
 		customCss,
 	} = props;
 	return (

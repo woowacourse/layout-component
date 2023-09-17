@@ -6,7 +6,6 @@ import stylelint from 'vite-plugin-stylelint';
 import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
-
 export default defineConfig({
 	build: {
 		lib: {
@@ -31,6 +30,8 @@ export default defineConfig({
 		stylelint({
 			fix: true,
 		}),
-		dts(),
+		dts({
+			rollupTypes: true,
+		}),
 	],
 });

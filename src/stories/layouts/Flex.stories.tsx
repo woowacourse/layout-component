@@ -21,7 +21,7 @@ export const Default: Story = {
 		justify: 'center',
 		align: 'center',
 		wrap: 'nowrap',
-		gap: 5,
+		gap: '5px',
 		customCss: {},
 	},
 	render: (args) => {

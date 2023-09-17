@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { CSSObject, css } from '@emotion/react';
+import { ValueUnit } from '../../../models/utils';
 interface WrapperProps {
 	rows: number;
 	cols: number;
-	gap?: number;
+	gap?: ValueUnit;
 	rowLength: string;
 	colLength: string;
 	customCss?: CSSObject;
@@ -18,7 +19,7 @@ export const Wrapper = styled.div<WrapperProps>`
 		${({ rows, rowLength }) => `${rows}, ${rowLength}`}
 	);
 	${({ customCss }) => customCss && css({ ...customCss })};
-	gap: ${({ gap }) => gap}px;
+	gap: ${({ gap }) => gap};
 
 	width: 100%;
 `;

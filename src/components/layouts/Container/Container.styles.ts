@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import { CSSObject, css } from '@emotion/react';
+import { ValueUnit } from '../../../models/utils';
 interface WrapperProps {
-	minWidth: number;
-	maxWidth: number;
+	minWidth: ValueUnit;
+	maxWidth: ValueUnit;
 	customCss?: CSSObject;
 }
 
@@ -12,8 +13,8 @@ export const Wrapper = styled.div<WrapperProps>`
 	justify-content: center;
 
 	width: 100%;
-	min-width: ${(props) => props.minWidth}px;
-	max-width: ${(props) => props.maxWidth}px;
+	min-width: ${(props) => props.minWidth};
+	max-width: ${(props) => props.maxWidth};
 
 	${({ customCss }) => customCss && css({ ...customCss })};
 `;

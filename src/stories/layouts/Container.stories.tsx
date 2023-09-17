@@ -15,8 +15,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {
-		maxWidth: 300,
-		minWidth: 100,
+		maxWidth: '300px',
+		minWidth: '100px',
 		tag: 'section',
 		customCss: {
 			background: 'red',
