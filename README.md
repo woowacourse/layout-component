@@ -23,11 +23,13 @@ A highly customizable and responsive `Container` component designed to handle th
 
 ## Usage
 
+```tsx
 import Container from 'react-layout-box';
 
 <Container minWidth="200px" maxWidth="800px">
   <p>Your content here</p>
 </Container>
+```
 
 ## API
 
@@ -50,7 +52,7 @@ A flexible and easy-to-use `Flex` component for building modern layouts with fle
 
 Here is a simple usage example:
 
-```jsx
+```tsx
 import Flex from 'react-layout-box';
 
 <Flex direction="row" justify="center" align="center">
@@ -81,7 +83,7 @@ An intuitive `Grid` component that simplifies the creation of grid layouts in Re
 
 Here is a simple usage example:
 
-```jsx
+```tsx
 import Grid from 'react-layout-box';
 
 <Grid rows={3} columns={3}>
