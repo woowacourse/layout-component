@@ -9,30 +9,44 @@ import {
   flexWrap,
 } from './Flex.css';
 
-type PositionalAlignment = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
-type JustifyContentPositionalAlignment = PositionalAlignment | 'left' | 'right';
-type AlignItemsPositionalAlignment = PositionalAlignment | 'self-start' | 'self-end';
+type OverflowPosition = 'unsafe' | 'safe';
+
+type BaselinePosition =
+  | 'baseline'
+  | 'first baseline'
+  | 'last baseline'
+  | 'baseline first'
+  | 'baseline last';
+type SelfPosition =
+  | 'center'
+  | 'start'
+  | 'end'
+  | 'self-start'
+  | 'self-end'
+  | 'flex-start'
+  | 'flex-end';
+type AlignItems =
+  | 'normal'
+  | 'stretch'
+  | BaselinePosition
+  | SelfPosition
+  | `${OverflowPosition} ${SelfPosition}`;
+
+type ContentDistribution = 'space-between' | 'space-evenly' | 'space-around' | 'stretch';
+type ContentPosition = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
+type Direction = 'left' | 'right';
+type JustifyContent =
+  | 'normal'
+  | ContentDistribution
+  | Direction
+  | ContentPosition
+  | `${OverflowPosition} ${ContentPosition}`
+  | `${OverflowPosition} ${Direction}`;
 
 interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justify?:
-    | JustifyContentPositionalAlignment
-    | `safe ${JustifyContentPositionalAlignment}`
-    | `unsafe ${JustifyContentPositionalAlignment}`
-    | 'normal'
-    | 'space-between'
-    | 'space-evenly'
-    | 'space-around'
-    | 'stretch';
-  align?:
-    | AlignItemsPositionalAlignment
-    | `first ${AlignItemsPositionalAlignment}`
-    | `last ${AlignItemsPositionalAlignment}`
-    | `safe ${AlignItemsPositionalAlignment}`
-    | `unsafe ${AlignItemsPositionalAlignment}`
-    | 'normal'
-    | 'stretch'
-    | 'baseline';
+  justify?: JustifyContent;
+  align?: AlignItems;
   wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
   gap?: string;
   inline?: boolean;
