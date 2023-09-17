@@ -1,5 +1,13 @@
+index.html
 node_modules/
 src/
 public/
 tsconfig.json
+tsconfig.node.json       
+vite.config.ts
+.nvmrc
+.gitignore
+.eslintrc.cjs
+.prettierrc
+.nvmrc
 .github/
