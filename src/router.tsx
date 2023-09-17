@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout.tsx";
 import ContainerExample from "./pages/container/ContainerExample.tsx";
+import GridExample from "./pages/grid/GridExample.tsx";
 
 const router = createBrowserRouter(
   [
@@ -18,7 +19,7 @@ const router = createBrowserRouter(
         },
         {
           path: "grid",
-          element: <div>grid</div>,
+          element: <GridExample />,
         },
         {
           path: "flex",
