@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import type { ContainerProps } from '../Container';
+import type { WidthStyle } from '../Container';
 
 export const ALIGNMENT = {
   left: '0',
@@ -23,9 +23,7 @@ export const CONTAINER_WIDTH = {
 };
 export type Size = keyof typeof CONTAINER_WIDTH;
 
-type WidthProps = Pick<ContainerProps, 'maxWidth' | 'minWidth' | 'fluid' | 'gutter'>;
-
-export const widthStyle = ({ maxWidth, minWidth, fluid, gutter }: WidthProps) => css`
+export const widthStyle = ({ maxWidth, minWidth, fluid, gutter }: WidthStyle) => css`
   ${gutter && 'margin: 0 24px'};
   ${fluid && `width: ${gutter ? 'calc(100% - 48px)' : '100%'}`};
 

@@ -4,12 +4,14 @@ import React from 'react';
 import type { Alignment, Size } from './style';
 import { positionStyle, widthStyle } from './style';
 
-export interface ContainerProps extends HTMLAttributes<HTMLElement> {
-  position?: Alignment;
+export interface WidthStyle {
   maxWidth?: Size;
   minWidth?: Size;
   fluid?: boolean;
   gutter?: boolean;
+}
+export interface ContainerProps extends WidthStyle, HTMLAttributes<HTMLElement> {
+  position?: Alignment;
   tag?: ElementType;
   children?: React.JSX.Element;
 }
