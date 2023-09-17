@@ -1,7 +1,12 @@
-import { Container, Flex, Grid } from './Layout';
+import React from 'react';
+import { Container, Flex, Grid } from './lib';
 
-const App = () => {
-  return <div>App</div>;
-};
+function App() {
+  return (
+    <Container maxWidth={800} minWidth={800}>
+      <div>Content</div>
+    </Container>
+  );
+}
 
 export default App;
