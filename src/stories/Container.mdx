@@ -1,0 +1,19 @@
+import { Canvas, Controls, Description, Meta, Source } from '@storybook/blocks';
+
+import * as ContainerStories from './Container.stories.tsx';
+
+<Meta of={ContainerStories} />
+
+# Container
+
+<Description />
+
+<Canvas of={ContainerStories.Example} sourceState="shown" />
+
+## Props
+
+<Controls exclude="children" />
+
+## Examples
+
+<Canvas of={ContainerStories.Example} />

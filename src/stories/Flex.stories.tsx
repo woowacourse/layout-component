@@ -8,11 +8,23 @@ import Flex from '@components/Flex';
 const meta = {
   title: 'Flex',
   component: Flex,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Flex 레이아웃을 만들기 위한 컴포넌트.',
+      },
+    },
+  },
   argTypes: {
     tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     rowGap: { control: { type: 'text' } },
     columnGap: { control: { type: 'text' } },
     gap: { control: { type: 'text' } },
+    css: {
+      control: { type: 'object' },
+      description: '스타일을 추가하거나 오버라이딩할 수 있는 방법',
+    },
+    children: { control: false },
   },
   args: {
     tag: 'div',

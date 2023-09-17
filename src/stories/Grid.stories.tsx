@@ -5,6 +5,13 @@ import Grid from '@components/Grid';
 const meta = {
   title: 'Grid',
   component: Grid,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Grid 레이아웃을 만들기 위한 컴포넌트.',
+      },
+    },
+  },
   argTypes: {
     tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     rows: { control: { type: 'text' } },
@@ -12,6 +19,11 @@ const meta = {
     rowGap: { control: { type: 'text' } },
     columnGap: { control: { type: 'text' } },
     gap: { control: { type: 'text' } },
+    css: {
+      control: { type: 'object' },
+      description: '스타일을 추가하거나 오버라이딩할 수 있는 방법',
+    },
+    children: { control: false },
   },
 } satisfies Meta<typeof Grid>;
 
@@ -35,28 +47,28 @@ export const Example1: Story = {
         <Grid.Item
           row="row1-start"
           column="col1-start / col3-start"
-          css={{ backgroundColor: '#a8d9ff', ...gridItemStyle }}
+          style={{ backgroundColor: '#a8d9ff', ...gridItemStyle }}
         >
           A
         </Grid.Item>
         <Grid.Item
           row="row1-start / row2-end"
           column="col3-start"
-          css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}
+          style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}
         >
           B
         </Grid.Item>
         <Grid.Item
           row="row2-start"
           column="col1-start"
-          css={{ backgroundColor: '#0085f0', ...gridItemStyle }}
+          style={{ backgroundColor: '#0085f0', ...gridItemStyle }}
         >
           C
         </Grid.Item>
         <Grid.Item
           row="row2-start"
           column="col2-start"
-          css={{ backgroundColor: '#249eff', ...gridItemStyle }}
+          style={{ backgroundColor: '#249eff', ...gridItemStyle }}
         >
           D
         </Grid.Item>
@@ -68,17 +80,17 @@ export const Example1: Story = {
 export const Example2: Story = {
   args: {
     tag: 'div',
-    columns: 'auto auto auto',
+    columns: 'auto auto',
     rowGap: '8px',
     columnGap: '16px',
     children: (
       <>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>A</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>B</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>C</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>D</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>E</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>F</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>A</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>B</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>C</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>D</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>E</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>F</Grid.Item>
       </>
     ),
   },
@@ -93,12 +105,12 @@ export const Example3: Story = {
     columnGap: '16px',
     children: (
       <>
-        <Grid.Item css={{ backgroundColor: '#a8d9ff', ...gridItemStyle }}>A</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>B</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#249eff', ...gridItemStyle }}>C</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#078fff', ...gridItemStyle }}>D</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#0082ed', ...gridItemStyle }}>E</Grid.Item>
-        <Grid.Item css={{ backgroundColor: '#006dc5', ...gridItemStyle }}>F</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#a8d9ff', ...gridItemStyle }}>A</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#65b9fc', ...gridItemStyle }}>B</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#249eff', ...gridItemStyle }}>C</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#078fff', ...gridItemStyle }}>D</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#0082ed', ...gridItemStyle }}>E</Grid.Item>
+        <Grid.Item style={{ backgroundColor: '#006dc5', ...gridItemStyle }}>F</Grid.Item>
       </>
     ),
   },

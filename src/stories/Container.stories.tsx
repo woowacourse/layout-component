@@ -5,6 +5,14 @@ import Container from '@components/Container';
 const meta = {
   title: 'Container',
   component: Container,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '화면의 폭에 따라 내용의 최대 폭을 제한하고 중앙에 배치하는 레이아웃을 만들기 위한 컴포넌트.',
+      },
+    },
+  },
   argTypes: {
     tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     width: { control: 'text' },
@@ -17,6 +25,10 @@ const meta = {
     padding: { control: 'text' },
     borderRadius: { control: 'text' },
     backgroundColor: { control: 'color' },
+    css: {
+      control: { type: 'object' },
+      description: '스타일을 추가하거나 오버라이딩할 수 있는 방법',
+    },
   },
 } satisfies Meta<typeof Container>;
 
