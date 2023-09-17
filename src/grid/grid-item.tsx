@@ -7,11 +7,11 @@ type GridItemStyleProps = Pick<
 > & {
   area?: CSSProperties['gridArea'];
   row?: number | 'auto';
-  rowStart?: CSSProperties['gridRowStart'];
-  rowEnd?: CSSProperties['gridRowEnd'];
+  rowStart?: number | 'auto';
+  rowEnd?: number | 'auto';
   col?: number | 'auto';
-  colStart?: CSSProperties['gridColumnStart'];
-  colEnd?: CSSProperties['gridColumnEnd'];
+  colStart?: number | 'auto';
+  colEnd?: number | 'auto';
 };
 
 type GridItemProps = ComponentPropsWithoutRef<'div'> & GridItemStyleProps;
@@ -30,8 +30,8 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const gridColumn = col === 'auto' ? 'auto' : `span ${col}`;
-  const gridRow = row === 'auto' ? 'auto' : `span ${row}`;
+  const gridColumn = !col ? undefined : col === 'auto' ? 'auto' : `span ${col}`;
+  const gridRow = !row ? undefined : row === 'auto' ? 'auto' : `span ${row}`;
 
   const style = area
     ? compact({ gridArea: area, backgroundColor })
