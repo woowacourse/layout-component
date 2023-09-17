@@ -88,7 +88,7 @@ const config = {
             items: [
               {
                 label: "소개",
-                to: "/docs",
+                to: "/layout-component/docs",
               },
             ],
           },
