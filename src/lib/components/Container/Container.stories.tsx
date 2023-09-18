@@ -20,8 +20,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    minWidth: '1920px',
+    minWidth: '780px',
     maxWidth: '1920px',
+    minHeight: '100px',
+    maxHeight: '1920px',
     width: '100px',
     height: '100px',
     children: <div>Container</div>,
