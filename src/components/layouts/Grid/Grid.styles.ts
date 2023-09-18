@@ -18,8 +18,9 @@ export const Wrapper = styled.div<WrapperProps>`
 	grid-template-rows: repeat(
 		${({ rows, rowLength }) => `${rows}, ${rowLength}`}
 	);
-	${({ customCss }) => customCss && css({ ...customCss })};
 	gap: ${({ gap }) => gap};
 
 	width: 100%;
+
+	${({ customCss }) => customCss && css({ ...customCss })};
 `;
