@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 interface ContainerProps extends React.PropsWithChildren {
     minWidth: string;
     maxWidth: string;

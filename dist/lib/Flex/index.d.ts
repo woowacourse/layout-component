@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 interface FlexProps extends React.PropsWithChildren {
     direction: "row" | "column";
     justify?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly";

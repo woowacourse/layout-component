@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 interface GridProps extends React.PropsWithChildren {
     rows: number;
     columns: number;
