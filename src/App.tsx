@@ -1,28 +1,14 @@
 import Container from './libs/Container/Container';
-import { styled } from 'styled-components';
+import Flex from './libs/Flex/Flex';
+
 function App() {
   return (
-    <Container>
-      <Layout>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-      </Layout>
-    </Container>
+    <Flex direction="column" align="center">
+      <Flex.Item>Item1</Flex.Item>
+      <Flex.Item>Item2</Flex.Item>
+      {/* ... */}
+    </Flex>
   );
 }
 
 export default App;
-
-const Layout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-items: center;
-`;
