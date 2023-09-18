@@ -20,6 +20,8 @@ export default defineConfig({
         },
       },
     },
+    commonjsOptions: {
+      esmExternals: ['react'],
+    },
   },
-  base: '/layout-component/',
 });
