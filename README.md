@@ -43,7 +43,7 @@
 | as        | `React.ElementType`                     | -          | Flex 컴포넌트의 `HTML Tag`. Tag에 맞춰 `attributes`의 자동 완성이 지원됩니다. |
 | direction | `React.CSSProperties['flexDirection']`  | row        | item의 주 축                                                                  |
 | justify   | `React.CSSProperties['justifyContent']` | flex-start | 주 축의 정렬 방법                                                             |
-| align     | `React.CSSProperties['alignItems']`     | stretch    | Container 컴포넌트의 배경색                                                   |
+| align     | `React.CSSProperties['alignItems']`     | stretch    | 교차 축의 정렬 방법                                                           |
 | gap       | `React.CSSProperties['gap']`            | -          | item 사이의 간격                                                              |
 | wrap      | `React.CSSProperties['wrap']`           | nowrap     | Items의 줄 바꿈                                                               |
 
