@@ -1,5 +1,6 @@
 import Container from "./components/common/Container";
 import FlexBox from "./components/common/FlexBox";
+import Grid from "./components/common/Grid";
 
 const favoriteFoods = [
   "삼겹살",
@@ -28,6 +29,11 @@ function App() {
           <div key={index}>{food}</div>
         ))}
       </FlexBox>
+      <Grid row={3} column={3} gap={10}>
+        {favoriteFoods.map((food, index) => (
+          <div key={index}>{food}</div>
+        ))}
+      </Grid>
     </Container>
   );
 }
