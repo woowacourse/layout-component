@@ -1,9 +1,2 @@
-node_modules
-src
-index.html
-package.json
-tsconfig.json
-tsconfig.node.json
-vite.config.ts
-.eslintrc.cjs
-fixup.sh
+**/*
+!/dist/**
