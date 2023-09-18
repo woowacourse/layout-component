@@ -21,6 +21,7 @@ const Flex = <C extends React.ElementType = 'div'>({
 }: PropsWithChildren<FlexProps<C>>) => {
   const styles = {
     display: 'flex',
+    flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
     gap,
