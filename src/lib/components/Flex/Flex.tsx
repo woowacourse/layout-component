@@ -6,6 +6,7 @@ import type {
   FlexWrap,
 } from './types';
 import styles from './Flex.module.css';
+import { elementSizes } from '../utils/elementSizes';
 
 type FlexProps = HTMLAttributes<HTMLDivElement> & {
   direction?: FlexDirection;
@@ -17,6 +18,8 @@ type FlexProps = HTMLAttributes<HTMLDivElement> & {
   columnGap?: number;
   verticalPadding?: number;
   horizontalPadding?: number;
+  width?: number | string;
+  height?: number | string;
   children: ReactNode;
 };
 
@@ -31,9 +34,16 @@ const Flex = (props: FlexProps) => {
     justify,
     align,
     wrap,
+    width,
+    height,
     children,
     ...rest
   } = props;
+
+  const flexSizes: CSSProperties = {
+    width: elementSizes.getWidth(width),
+    height: elementSizes.getHeight(height),
+  };
 
   const flexStyles: CSSProperties = {
     gap: `${gap ?? 0}px`,
@@ -51,7 +61,11 @@ const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div className={styles.flex} style={flexStyles} role="list">
+    <div
+      className={styles.flex}
+      style={{ ...flexSizes, ...flexStyles }}
+      role="list"
+    >
       {children}
     </div>
   );

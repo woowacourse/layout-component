@@ -45,6 +45,14 @@ const meta = {
       description:
         'Whether and how items should wrap to the next line when they exceed the available space along the main axis within the flex container. Same as the `flex-wrap` property.',
     },
+    width: {
+      description:
+        'The width of the flex. It is automatically set to px if the type of the width is `number`. If not specified, it defaults to `100%.`',
+    },
+    height: {
+      description:
+        'The height of the flex. It is automatically set to px if the type of the height is `number`. If not specified, it defaults to `auto.`',
+    },
   },
 } satisfies Meta<typeof Flex>;
 
@@ -62,6 +70,11 @@ const itemStyles: CSSProperties = {
   textAlign: 'center',
   fontSize: '20px',
   lineHeight: '60px',
+};
+
+const fullHeightItemStyles: CSSProperties = {
+  ...itemStyles,
+  height: '100%',
 };
 
 export const Default: Story = {
@@ -104,10 +117,10 @@ export const NestedFlex: Story = {
     children: (
       <>
         <div style={{ ...itemStyles, width: '100%' }}>Flex Item</div>
-        <Flex columnGap={5}>
-          <div style={{ ...itemStyles, width: '20%' }}>Flex Item</div>
-          <div style={{ ...itemStyles, width: '50%' }}>Flex Item</div>
-          <div style={{ ...itemStyles, width: '30%' }}>Flex Item</div>
+        <Flex columnGap={5} height={350}>
+          <div style={{ ...fullHeightItemStyles, width: '20%' }}>Flex Item</div>
+          <div style={{ ...fullHeightItemStyles, width: '50%' }}>Flex Item</div>
+          <div style={{ ...fullHeightItemStyles, width: '30%' }}>Flex Item</div>
         </Flex>
         <div style={{ ...itemStyles, width: '100%' }}>Flex Item</div>
       </>

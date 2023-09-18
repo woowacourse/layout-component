@@ -35,6 +35,14 @@ const meta = {
       description:
         'The column gap between cells of the grid. This property overwrites the `gap` property.',
     },
+    width: {
+      description:
+        'The width of the grid. It is automatically set to px if the type of the width is `number`. If not specified, it defaults to `100%.`',
+    },
+    height: {
+      description:
+        'The height of the grid. It is automatically set to px if the type of the height is `number`. If not specified, it defaults to `auto.`',
+    },
   },
 } satisfies Meta<typeof Grid>;
 

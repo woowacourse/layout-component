@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode, CSSProperties } from 'react';
+import { elementSizes } from '../utils/elementSizes';
 import styles from './Grid.module.css';
 
 type GridProps = HTMLAttributes<HTMLDivElement> & {
@@ -9,6 +10,8 @@ type GridProps = HTMLAttributes<HTMLDivElement> & {
   columnGap?: number;
   verticalPadding?: number;
   horizontalPadding?: number;
+  width?: number | string;
+  height?: number | string;
   children: ReactNode;
 };
 
@@ -21,9 +24,16 @@ const Grid = (props: GridProps) => {
     columnGap,
     verticalPadding,
     horizontalPadding,
+    width,
+    height,
     children,
     ...rest
   } = props;
+
+  const gridSizes: CSSProperties = {
+    width: elementSizes.getWidth(width),
+    height: elementSizes.getHeight(height),
+  };
 
   const gridStyles: CSSProperties = {
     gridTemplateRows: `repeat(${rows}, 1fr)`,
@@ -39,7 +49,11 @@ const Grid = (props: GridProps) => {
   };
 
   return (
-    <div className={styles.grid} style={gridStyles} role="grid">
+    <div
+      className={styles.grid}
+      style={{ ...gridSizes, ...gridStyles }}
+      role="grid"
+    >
       {children}
     </div>
   );
