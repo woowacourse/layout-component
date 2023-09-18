@@ -8,7 +8,7 @@ It's a package made to use layout components comfortably
 
 ## Documentation
 
-For full documentation, visit [wus-layout-component.com](링크).
+For full documentation, visit [wus-layout-component.com](https://gilpop8663.github.io/layout-component/).
 
 ## Contributing
 
