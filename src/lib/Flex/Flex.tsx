@@ -7,6 +7,7 @@ type FlexProps<C extends React.ElementType> = {
   align?: React.CSSProperties['alignItems'];
   gap?: React.CSSProperties['gap'];
   wrap?: React.CSSProperties['flexWrap'];
+  overrideStyle?: React.CSSProperties;
 } & React.ComponentPropsWithoutRef<C>;
 
 const Flex = <C extends React.ElementType = 'div'>({
@@ -16,6 +17,7 @@ const Flex = <C extends React.ElementType = 'div'>({
   align,
   gap,
   wrap,
+  overrideStyle,
   children,
   ...attributes
 }: PropsWithChildren<FlexProps<C>>) => {
@@ -26,6 +28,7 @@ const Flex = <C extends React.ElementType = 'div'>({
     alignItems: align,
     gap,
     flexWrap: wrap,
+    ...overrideStyle,
   };
 
   const Component = as || 'div';

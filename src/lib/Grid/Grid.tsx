@@ -8,6 +8,7 @@ type GridProps<C extends React.ElementType> = {
   rowGap?: React.CSSProperties['rowGap'];
   columnGap?: React.CSSProperties['columnGap'];
   gap?: React.CSSProperties['gap'];
+  overrideStyle?: React.CSSProperties;
 } & React.ComponentPropsWithoutRef<C>;
 
 const Grid = <C extends React.ElementType = 'div'>({
@@ -18,6 +19,7 @@ const Grid = <C extends React.ElementType = 'div'>({
   rowGap,
   columnGap,
   gap,
+  overrideStyle,
   children,
   ...attributes
 }: PropsWithChildren<GridProps<C>>) => {
@@ -32,6 +34,7 @@ const Grid = <C extends React.ElementType = 'div'>({
     rowGap,
     columnGap,
     gap,
+    ...overrideStyle,
   };
 
   const Component = as || 'div';
@@ -46,13 +49,20 @@ const Grid = <C extends React.ElementType = 'div'>({
 type ItemProps<C extends React.ElementType> = {
   as?: C;
   area?: React.CSSProperties['gridArea'];
+  overrideStyle?: React.CSSProperties;
 } & React.ComponentPropsWithoutRef<C>;
 
-const Item = <C extends React.ElementType = 'div'>({ as, area, children }: PropsWithChildren<ItemProps<C>>) => {
+const Item = <C extends React.ElementType = 'div'>({
+  as,
+  area,
+  overrideStyle,
+  children,
+}: PropsWithChildren<ItemProps<C>>) => {
   const Component = as || 'div';
 
   const styles = {
     gridArea: area,
+    ...overrideStyle,
   };
 
   return <Component style={styles}>{children}</Component>;

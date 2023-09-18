@@ -5,6 +5,7 @@ type ContainerProps<C extends React.ElementType> = {
   maxWidth?: React.CSSProperties['maxWidth'];
   minWidth?: React.CSSProperties['minWidth'];
   backgroundColor?: React.CSSProperties['backgroundColor'];
+  overrideStyle?: React.CSSProperties;
 } & React.ComponentPropsWithoutRef<C>;
 
 const Container = <C extends React.ElementType = 'div'>({
@@ -12,6 +13,7 @@ const Container = <C extends React.ElementType = 'div'>({
   maxWidth = '100%',
   minWidth,
   backgroundColor,
+  overrideStyle,
   children,
   ...attributes
 }: PropsWithChildren<ContainerProps<C>>) => {
@@ -20,6 +22,7 @@ const Container = <C extends React.ElementType = 'div'>({
     minWidth,
     margin: '0 auto',
     backgroundColor,
+    ...overrideStyle,
   };
 
   const Component = as || 'div';
