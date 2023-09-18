@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { StyledContainer } from "./Container.styles.ts";
-import { SizeType } from "../../types";
+import {ReactNode} from "react";
+import {StyledContainer} from "./Container.styles.ts";
+import {SizeType} from "../../types";
 
 export interface ContainerProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ export interface ContainerProps {
   maxWidth?: number | SizeType;
 }
 
-const Container = ({ children, minWidth, maxWidth }: ContainerProps) => {
+const Container = ({children, ...rest}: ContainerProps) => {
   return (
-    <StyledContainer maxWidth={maxWidth} minWidth={minWidth}>
+    <StyledContainer style={{...rest}}>
       {children}
     </StyledContainer>
   );
