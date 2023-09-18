@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "jsx": "react"
+    "declaration": true,
+    "jsx": "react",
+    "noEmit": false,
+    "outDir": "./dist"
   },
-  "include": ["src"]
+  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts"]
 }

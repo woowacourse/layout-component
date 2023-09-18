@@ -1,13 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import Container from "./Container";
+import Flex from "./Flex";
+import Grid from "./Grid";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export { Container, Flex, Grid };
