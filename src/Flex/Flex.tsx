@@ -42,7 +42,9 @@ const Flex = <T extends ElementType>(
 
     if (i === 0) return child;
 
-    return cloneElement(child, { style: gapStyleByDirection });
+    return cloneElement(child, {
+      style: { ...gapStyleByDirection, ...child.props.style },
+    });
   });
 
   return createElement(tag, resolvedProps, gappedChildren);
