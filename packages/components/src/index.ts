@@ -1,3 +1,3 @@
-export { default as Container } from './Container/index';
-export { default as Grid } from './Grid/index';
-export { default as Flex } from './Flex/index';
+export { default as Container } from './Container/Container';
+export { default as Grid } from './Grid/Grid';
+export { default as Flex } from './Flex/Flex';
