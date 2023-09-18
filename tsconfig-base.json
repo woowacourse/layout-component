@@ -21,8 +21,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": false,
+    "listEmittedFiles": false,
+    "listFiles": false
   },
-  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts"],
+  "compileOnSave": false,
+  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts", "./src/lib/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

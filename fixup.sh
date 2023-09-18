@@ -1,4 +1,4 @@
-cp ./dist/mjs/index.d.ts dist 
+cp ./src/lib/index.d.ts dist 
 
 rm -rf dist/*/index.d.ts 
 
