@@ -17,8 +17,11 @@ const meta = {
     minWidth: {
       description: 'The minimum width of the content',
     },
-    padding: {
-      description: 'The padding of the container',
+    verticalPadding: {
+      description: 'The vertical padding of the container',
+    },
+    horizontalPadding: {
+      description: 'The horizontal padding of the container',
     },
   },
 } satisfies Meta<typeof Container>;
@@ -47,13 +50,10 @@ export const MinWidthAndMaxWidth: Story = {
   },
 };
 
-/**
- * Useful when you want to arrange multiple `Container` components with gaps between them.
- */
 export const MaxWidthWithPadding: Story = {
   args: {
     maxWidth: 720,
-    padding: 40,
+    verticalPadding: 30,
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis libero lacus, gravida sed felis ac, consequat rutrum felis. Mauris et elementum velit. Praesent luctus feugiat convallis. Integer venenatis, nulla ac mattis semper, enim quam pretium sem, pretium commodo eros mi nec ligula. Nulla gravida urna vitae lectus pharetra, sed ultrices elit pellentesque. Donec vitae nisi eu ipsum pharetra fermentum a et eros. Fusce eget lacinia elit, in pellentesque lacus. Quisque pharetra laoreet libero, vel volutpat risus imperdiet eu. Donec vehicula mi in rutrum blandit. Vestibulum consequat mattis felis ac viverra. Sed bibendum tincidunt mattis. Curabitur ac tortor mollis, gravida tellus vehicula, elementum orci.',
   },
