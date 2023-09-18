@@ -1,8 +1,3 @@
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-const rootElement = document.getElementById('root');
-if (!rootElement) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(rootElement);
-
-root.render(<App />);
+export { default as Container } from '../src/layouts/Container';
+export { default as Flex } from '../src/layouts/Flex';
+export { default as Grid } from '../src/layouts/Grid';
