@@ -7,24 +7,11 @@ on: push
 # List of jobs
 jobs:
   test:
-    # Operating System
     runs-on: ubuntu-latest
-    # Job steps
     steps:
-      - name: Checkout Source Code
       - uses: actions/checkout@v1
-
-      - name: install package
-      - shell: bash
-      - run: npm i
-
-      - name: build storybook
-      - shell: bash
-      - run: npm run build-storybook
-
-      - name: deploy chromatic
+      - run: yarn
       - uses: chromaui/action@v1
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.TOKEN }}
