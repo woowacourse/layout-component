@@ -48,7 +48,8 @@ const ContainerLayout = styled.div<CSSContainerProps>`
   overflow: ${(props) => props.overflow};
   background: ${(props) => props.background};
 
-  ${(props) => props.padding && `padding: ${props.padding}px`};
+  padding: ${(props) => props.padding}px;
+
   ${(props) =>
     props.borderRadius
       ? typeof props.borderRadius === 'number'

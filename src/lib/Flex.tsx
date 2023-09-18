@@ -40,9 +40,9 @@ const FlexLayout = styled.div<CSSFlexProps>`
   flex-direction: ${(props) => props.direction};
   justify-content: ${(props) => props.justify};
   align-items: ${(props) => props.align};
-  ${(props) => props.gap && `padding: ${props.gap}px`}
+  gap: ${(props) => props.gap}px;
 
   width: 100%;
   height: 100%;
-  ${(props) => props.padding && `padding: ${props.padding}px`}
+  padding: ${(props) => props.padding}px;
 `;

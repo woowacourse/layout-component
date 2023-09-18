@@ -22,5 +22,5 @@ const GridLayout = styled.div<CSSGridProps>`
   grid-template-rows: ${(props) => `repeat(${props.row}, 1fr)`};
   gap: ${(props) => props.gap}px;
 
-  ${(props) => props.padding && `padding: ${props.padding}px`}
+  padding: ${(props) => props.padding}px;
 `;
