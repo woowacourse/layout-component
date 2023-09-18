@@ -18,7 +18,8 @@ export const FlexLayout: Story = {
   args: {
     direction: "column",
     justify: "center",
-    align: "center"
+    align: "center",
+    gap: 3
   },
   argTypes: {
     direction: {
@@ -29,6 +30,9 @@ export const FlexLayout: Story = {
     },
     align:{
       description: 'Flex에서 수직축을 중심으로 위치를 설정할 수 있습니다. 들어갈 수 있는 값은'
+    },
+    gap:{
+      description: 'Flex의 간격을 설정할 수 있습니다. 들어갈 수 있는 값은 숫자이고 px 단위로 설정됩니다.'
     },
   }
 };

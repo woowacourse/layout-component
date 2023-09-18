@@ -8,14 +8,18 @@ interface FlexProps {
   direction: Direction
   justify: Justify
   align: Align
+  gap: number
 }
 
-const Flex = ({direction, justify, align}:FlexProps) => {
+const Flex = ({direction, justify, align, gap}:FlexProps) => {
   return (
-    <FlexPat direction={direction} justify={justify} align={align} gap={5}>
+    <FlexPat direction={direction} justify={justify} align={align} gap={gap}>
       <div>Item 1</div>
       <div>Item 2</div>
       <div>Item 3</div>
+      <div>Item 4</div>
+      <div>Item 5</div>
+      <div>Item 6</div>
     </FlexPat>
   )
 }
