@@ -64,7 +64,7 @@ export default function Flex({
         flexGrow,
         flexShrink,
         flexBasis,
-        direction,
+        flexDirection: direction,
         flexWrap,
         flexFlow,
         justifyContent: justify,
