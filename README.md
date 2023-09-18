@@ -1,46 +1,118 @@
-# Getting Started with Create React App
+# react-tiny-layout
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Tiny, zero dependency layout components.
 
-## Available Scripts
+[![npm license](https://img.shields.io/npm/l/react-tiny-modal?style=flat-square)](https://github.com/Nfinished/react-tiny-modal/blob/master/LICENSE)
+![requires react >=16.8](https://img.shields.io/npm/dependency-version/react-tiny-modal/peer/react?style=flat-square)
 
-In the project directory, you can run:
+## API:
 
-### `npm start`
+### Flex
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Contains all the parts of a Flex.**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```tsx
+{
+  /** 태그(tag) 프로퍼티는 ReactHTML의 키(key) 중 하나를 가질 수 있습니다. 이 프로퍼티는 Flex 컴포넌트가 렌더링될 때 사용되는 HTML 요소의 태그를 지정하는데 사용됩니다. */
+  tag?: T;
+  /** direction 프로퍼티는 Flex 컴포넌트의 주축 방향을 지정합니다. */
+  direction?: CSSProperties['flexDirection'];
+  /** justify 프로퍼티는 Flex 컴포넌트의 자식 요소들을 주축을 따라 정렬하는 방법을 지정합니다. */
+  justify?: CSSProperties['justifyContent'];
+  /** align 프로퍼티는 Flex 컴포넌트의 자식 요소들을 교차 축을 따라 정렬하는 방법을 지정합니다. */
+  align?: CSSProperties['alignItems'];
+  /** gap 프로퍼티는 Flex 컴포넌트 내의 자식 요소들 사이의 간격을 설정합니다. */
+  gap?: string | number;
+  /** style 프로퍼티는 Flex 컴포넌트에 적용할 CSS 스타일을 지정합니다. */
+  style?: CSSProperties;
+}
+```
 
-### `npm test`
+### Usage:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```tsx
+import { Flex } from 'react-tiny-**dialog**';
 
-### `npm run build`
+export default function Sample() {
+  return (
+    <Flex direction="column">
+      <div>child1</div>
+      <div>child2</div>
+    </Flex>
+  );
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Grid
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Contains all the parts of a Grid.**
 
-### `npm run eject`
+```tsx
+{
+  /** 태그(tag) 프로퍼티는 ReactHTML의 키(key) 중 하나를 가질 수 있습니다. 이 프로퍼티는 Flex 컴포넌트가 렌더링될 때 사용되는 HTML 요소의 태그를 지정하는데 사용됩니다. */
+  tag?: keyof ReactHTML;
+  /** row 프로퍼티는 그리드 컨테이너의 행(row) 레이아웃을 설정합니다. */
+  row?: CSSProperties['gridTemplateRows'];
+  /** column 프로퍼티는 그리드 컨테이너의 열(column) 레이아웃을 설정합니다. */
+  column?: CSSProperties['gridTemplateColumns'];
+  /** rowGap 프로퍼티는 그리드 컨테이너의 행 간격을 설정합니다. */
+  rowGap?: CSSProperties['rowGap'];
+  /** rowGap 프로퍼티는 그리드 컨테이너의 열 간격을 설정합니다. */
+  columnGap?: CSSProperties['columnGap'];
+  /** style 프로퍼티는 Flex 컴포넌트에 적용할 CSS 스타일을 지정합니다. */
+  style?: CSSProperties;
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Usage:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```tsx
+import { Grid } from 'react-tiny-dialog';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export default function Sample() {
+  return (
+    <Grid column="1fr 1fr 1fr">
+      {Array(9)
+        .fill('')
+        .map((_, i) => (
+          <div>child {i + 1}</div>
+        ))}
+    </Grid>
+  );
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+### Container
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Contains all the parts of a Container.**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```tsx
+{
+  /** 태그(tag) 프로퍼티는 ReactHTML의 키(key) 중 하나를 가질 수 있습니다. */
+  tag?: keyof ReactHTML;
+  /** maxWidth 프로퍼티는 Flex 컴포넌트 내용물의 최대 너비를 제한합니다. */
+  maxWidth?: CSSProperties['maxWidth'];
+  /** minWidth 프로퍼티는 Flex 컴포넌트 내용물의 최소 너비를 지정합니다. */
+  minWidth?: CSSProperties['minWidth'];
+  /** style 프로퍼티는 Flex 컴포넌트에 적용할 CSS 스타일을 지정합니다. */
+  style?: CSSProperties;
+}
+```
+
+### Usage:
+
+```tsx
+import { Container } from 'react-tiny-dialog';
+
+export default function Sample() {
+  return (
+    <Container minWidth=300>
+      <div>child1</div>
+    </Container>
+  );
+}
+```
