@@ -46,7 +46,7 @@ Grid 를 만들 수 있는 컨테이너 박스 역할의 레이아웃 컴포넌�
 ```jsx
 import { Grid } from '@se-een/layout-component';
 
-<Grid tag="article" rows="auto" columns={3} gap={16}>
+<Grid as="section" rows="auto" columns={4} gap={20}>
   {/* children */}
 </Grid>;
 ```

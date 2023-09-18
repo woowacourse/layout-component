@@ -23,6 +23,8 @@ type JustifySelf = 'start' | 'end' | 'center' | 'stretch';
 type AlignSelf = 'start' | 'end' | 'center' | 'stretch';
 
 interface Props extends ContainerProps {
+  rows: number | string;
+  column: number | string;
   $justifyItems?: JustifyItems;
   $justifyContent?: JustifyContent;
   $alignItems?: AlignItems;
@@ -37,6 +39,8 @@ interface Props extends ContainerProps {
 
 const Grid = styled(Container)<Props>`
   display: grid;
+  grid-row: ${({ rows }) => rows};
+  grid-column: ${({ column }) => column};
   justify-items: ${({ $justifyItems }) => $justifyItems};
   justify-content: ${({ $justifyContent }) => $justifyContent};
   align-items: ${({ $alignItems }) => $alignItems};
