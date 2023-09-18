@@ -12,6 +12,13 @@ import { ALIGNMENT, CONTAINER_WIDTH } from './style';
 const meta = {
   title: 'Layout/Container',
   component: Container,
+  parameters: {
+    docs: {
+      description: {
+        component: '화면의 폭에 따라 내용의 최대 폭을 제한하고 중앙에 배치할 수 있습니다.',
+      },
+    },
+  },
   args: {
     position: 'center',
     fluid: false,
@@ -58,7 +65,6 @@ const meta = {
     },
     ...spacingArgTypes,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Container>;
 
 export default meta;

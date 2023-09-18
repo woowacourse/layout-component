@@ -1,8 +1,13 @@
+import { addons } from '@storybook/manager-api';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const { loadConfigFromFile, mergeConfig } = require('vite');
 
 const path = require('path');
+
+addons.setConfig({
+  panelPosition: 'right',
+});
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],

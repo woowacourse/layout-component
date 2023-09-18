@@ -9,6 +9,14 @@ import FlexItem from './FlexItem';
 const meta = {
   title: 'Layout/Flex/FlexItem',
   component: FlexItem,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Flex Container의 자식 컴포넌트입니다. 각각의 너비와 위치 등을 조절할 수 있습니다.',
+      },
+    },
+  },
   args: {
     children: 'Box',
     order: 0,
@@ -54,7 +62,6 @@ const meta = {
     },
     ...spacingArgTypes,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FlexItem>;
 
 export default meta;

@@ -14,7 +14,7 @@ const generateChildrenBoxes = () => {
   const BOX_COUNT = 6;
 
   const boxes = Array.from({ length: BOX_COUNT }, (_, index) => {
-    return <p key={index}>Box{index + 1}</p>;
+    return <div key={index}>Box{index + 1}</div>;
   });
 
   return boxes;
@@ -23,6 +23,13 @@ const generateChildrenBoxes = () => {
 const meta = {
   title: 'Layout/Flex/FlexContainer',
   component: FlexContainer,
+  parameters: {
+    docs: {
+      description: {
+        component: 'CSS Flex 속성을 이용해 자식 컴포넌트들을 유연하게 배열할 수 있습니다.',
+      },
+    },
+  },
   args: {
     direction: 'row',
     wrap: false,
@@ -130,7 +137,6 @@ const meta = {
     },
     ...spacingArgTypes,
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FlexContainer>;
 
 export default meta;
