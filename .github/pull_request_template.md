@@ -9,21 +9,21 @@
 
 - [x] `minWidth`, `maxWidth` 속성 적용
 - [x] npm 배포
-- [ ] README.md 작성
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## Grid 컴포넌트
 
 - [x] `rows`, `columns`, `gap` 속성 적용
 - [x] npm 배포
-- [ ] README.md 작성
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## Flex 컴포넌트
 
 - [x] `direction`, `justify`, `align`, `gap` 속성 적용
 - [x] npm 배포
-- [ ] README.md 작성
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## 📌 구현한 내용 설명
