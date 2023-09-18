@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import styled, { CSSProperties } from "styled-components";
+import styled, { CSSProp, CSSProperties } from "styled-components";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   children?: ReactNode;
@@ -9,6 +9,7 @@ interface Props extends ComponentPropsWithoutRef<"div"> {
   alignItems?: CSSProperties["alignItems"];
   alignContent?: CSSProperties["alignContent"];
   gap?: CSSProperties["gap"];
+  etc?: CSSProp;
 }
 
 const Flex = ({
@@ -19,6 +20,7 @@ const Flex = ({
   alignItems,
   alignContent,
   gap,
+  etc,
   ...rest
 }: Props) => {
   return (
@@ -29,6 +31,7 @@ const Flex = ({
       $alignItems={alignItems}
       $alignContent={alignContent}
       $gap={gap}
+      $etc={etc}
       {...rest}
     >
       {children}
@@ -46,6 +49,7 @@ const S = {
     $alignItems?: CSSProperties["alignItems"];
     $alignContent?: CSSProperties["alignContent"];
     $gap?: CSSProperties["gap"];
+    $etc: CSSProp;
   }>`
     display: flex;
     flex-direction: ${({ $direction }) => $direction};
@@ -54,5 +58,7 @@ const S = {
     align-items: ${({ $alignItems }) => $alignItems};
     align-content: ${({ $alignContent }) => $alignContent};
     gap: ${({ $gap }) => $gap};
+
+    ${({ $etc }) => $etc}
   `,
 };
