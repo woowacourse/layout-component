@@ -4,6 +4,7 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
   maxWidth: string;
   minWidth?: string;
+  height?: string;
   children: React.ReactNode;
 }
 
@@ -11,6 +12,7 @@ export default function Container({
   backgroundColor = 'white',
   maxWidth,
   minWidth = '270px',
+  height = '90vh',
   children,
   ...props
 }: ContainerProps) {
@@ -18,6 +20,7 @@ export default function Container({
     <StyledContainer
       $maxWidth={maxWidth}
       $minWidth={minWidth}
+      $height={height}
       $backgroundColor={backgroundColor}
       {...props}
     >
@@ -29,9 +32,10 @@ export default function Container({
 const StyledContainer = styled.div<{
   $maxWidth: string;
   $minWidth: string;
+  $height: string;
   $backgroundColor: string;
 }>`
-  height: 90vh;
+  height: ${(props) => props.$height};
   padding: 10px;
 
   max-width: ${(props) => props.$maxWidth};

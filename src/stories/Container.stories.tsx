@@ -22,6 +22,7 @@ export const Primary: Story = {
     backgroundColor: '#EAECEF',
     maxWidth: '600px',
     minWidth: '300px',
+    height: '80vh',
     children: <>This is Container</>,
   },
 };
@@ -31,6 +32,7 @@ export const Large: Story = {
     backgroundColor: '#EAECEF',
     maxWidth: '1080px',
     minWidth: '300px',
+    height: '80vh',
     children: <div style={{ width: '900px' }}>This is Large Container</div>,
   },
 };
@@ -40,6 +42,7 @@ export const Small: Story = {
     backgroundColor: '#EAECEF',
     maxWidth: '270px',
     minWidth: '200px',
+    height: '80vh',
     children: <div style={{ width: '250px' }}>This is Small Container</div>,
   },
 };
