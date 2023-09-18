@@ -14,24 +14,28 @@ const meta = {
   },
   argTypes: {
     justify: {
+      description: "justify-content 속성을 정합니다.",
       control: {
         type: "select",
         options: ["center", "start", "end", "flex-start", "flex-end", "left", "right"],
       }
     },
     align: {
+      description: "align-items 속성을 정합니다.",
       control: {
         type: "select",
         options: ["center", "start", "end", "flex-start", "flex-end", "self-start", "self-end"],
       }
     },
     direction: {
+      description: "flex-direction 속성을 정합니다.",
       control: {
         type: "select",
         options: ["row", "row-reverse", "column", "column-reverse"],
       }
     },
     gap: {
+      description: "컴포넌트 사이의 간격을 정합니다.",
       control: {
         type: "range",
         min: 0,
