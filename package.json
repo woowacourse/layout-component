@@ -11,11 +11,14 @@
     "React",
     "library"
   ],
-  "author": "Woody <evencoding@gmail.com>",
+  "author": {
+    "name": "Woody",
+    "email": "evencoding@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/evencoding/layout-component/"
+    "url": "git+https://github.com/evencoding/layout-component.git"
   },
   "bugs": {
     "url": "https://github.com/evencoding/layout-component/issues"
@@ -27,28 +30,47 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^7.4.2",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/preset-create-react-app": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "typescript": "^4.9.5",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.50",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^7.1.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.4.2",
     "stylelint": "^15.10.3",
-    "stylelint-config-clean-order": "^5.2.0"
+    "stylelint-config-clean-order": "^5.2.0",
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && mkdir -p dist/styles && tsc && cp -R src/lib/components/**/*.module.css dist/styles/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "rm -rf dist && mkdir -p dist/styles && tsc && cp -R src/lib/components/**/*.module.css dist/styles/"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_8e5b16de2f7a9d3"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -62,5 +84,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "woody-layout-component@1.0.1"
 }
