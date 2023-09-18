@@ -1,7 +1,7 @@
-import React from "react";
+import type { HTMLAttributes, PropsWithChildren } from "react";
 import styled from "styled-components";
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: number | string;
   minWidth?: number | string;
   width?: number | string;
@@ -20,7 +20,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   paddingRight?: number | string;
 }
 
-const Container = (props: ContainerProps) => {
+const Container = (props: PropsWithChildren<ContainerProps>) => {
   const {
     minWidth,
     maxWidth = "100%",
@@ -44,7 +44,7 @@ const Container = (props: ContainerProps) => {
   } = props;
 
   return (
-    <Wrapper
+    <ContainerWrapper
       style={{
         minWidth,
         maxWidth,
@@ -67,11 +67,11 @@ const Container = (props: ContainerProps) => {
       {...rest}
     >
       {children}
-    </Wrapper>
+    </ContainerWrapper>
   );
 };
 
-const Wrapper = styled.div`
+const ContainerWrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
 `;
