@@ -1,6 +1,15 @@
-<p align="middle" >
-  <img width="100px;" src="https://em-content.zobj.net/source/skype/289/straight-ruler_1f4cf.png"/>
+# Wus-Layout-Component
+
+## Introduce
+
+<p align="center">
+It's a package made to use layout components comfortably
 </p>
-<h2 align="middle">누구나 사용할 수 있는 레이아웃 컴포넌트</h2>
-<p align="middle">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>
-<br/>
+
+## Documentation
+
+For full documentation, visit [wus-layout-component.com](링크).
+
+## Contributing
+
+If you're interested in contributing to Wus-Layout-Component
