@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: (args) => {
     return (
-      <Container {...args} css={{ border: '1px solid black' }}>
+      <Container {...args} style={{ border: '1px solid black' }}>
         container
       </Container>
     );

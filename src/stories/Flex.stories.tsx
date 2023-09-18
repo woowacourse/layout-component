@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: (args) => {
     return (
-      <Flex {...args} css={{ border: '1px solid black' }}>
+      <Flex {...args} style={{ border: '1px solid black' }}>
         flexFlex
       </Flex>
     );

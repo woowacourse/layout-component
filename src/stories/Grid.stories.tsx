@@ -12,13 +12,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const SampleChild = () => {
-  return <div css={{ border: '1px solid pink' }}>item</div>;
+  return <div style={{ border: '1px solid pink' }}>item</div>;
 };
 
 export const Playground: Story = {
   render: (args) => {
     return (
-      <Grid {...args} css={{ border: '1px solid black' }}>
+      <Grid {...args} style={{ border: '1px solid black' }}>
         <SampleChild />
         <SampleChild />
         <SampleChild />
