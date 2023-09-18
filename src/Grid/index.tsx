@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 interface GridProps extends ComponentPropsWithoutRef<'div'> {
   rows?: number;
   columns?: number;
-  gap?: { row: number; column: number };
+  gap?: { row: string; column: string };
   children?: ReactNode;
 }
 
