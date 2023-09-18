@@ -1,9 +1,9 @@
 const theme = {
   breakpoints: {
-    sm: '380px',
-    md: '620px',
-    lg: '920px',
-    xl: '1080px',
+    sm: '540px',
+    md: '720px',
+    lg: '960px',
+    xl: '1140px',
     xxl: '1320px',
   },
 };
