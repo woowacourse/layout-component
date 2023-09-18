@@ -24,10 +24,10 @@ All props are optional.
 
 #### `children`?: ReactNode
 
-#### `as`?: "div" | "main" | "header" | "footer"
+#### `as`?: | "div" | "main" | "section" | "article" | "nav" | "header" | "footer" | "aside";
 
 - default value: "div"
-- a semantic html tag
+- a name of tag for semantic layout
 
 #### `mediaTarget`?: "mobile" | "tablet" | "desktop"
 
