@@ -12,6 +12,9 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   docs: {
     autodocs: true,
   },

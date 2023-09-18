@@ -1,6 +1,6 @@
 {
   "name": "layout-component-dahyeeee",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "기본 react layout을 사용할 수 있는 라이브러리",
   "license": "MIT",
   "author": {
@@ -44,6 +44,7 @@
     "@storybook/addon-links": "^7.4.1",
     "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.4.1",
+    "@storybook/builder-vite": "^7.4.2",
     "@storybook/react": "^7.4.1",
     "@storybook/react-vite": "^7.4.1",
     "@storybook/testing-library": "^0.2.0",
