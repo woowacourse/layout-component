@@ -1,7 +1,22 @@
 {
-  "name": "layout-component",
-  "version": "0.1.0",
-  "private": true,
+  "name": "luxo-layout-component",
+  "description": "룩소의 레이아웃 컴포넌트 모음입니다.",
+  "keywords": [
+    "react",
+    "component",
+    "layout"
+  ],
+  "version": "0.0.1",
+  "author": "woo-jk <wjk6044@naver.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woo-jk/layout-component.git"
+  },
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "license": "MIT",
   "dependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.52",
@@ -16,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "eslintConfig": {
     "extends": [
