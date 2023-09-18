@@ -1,21 +1,25 @@
 import type * as CSS from "csstype";
-import { HTMLAttributes } from "react";
 import { root, vars } from "./Flex.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import cssLength from "../cssLength";
+import { PropsWithHTMLElement } from "../types";
 
-export type FlexProps = HTMLAttributes<HTMLDivElement> & {
-  direction?: CSS.StandardLonghandProperties["flexDirection"];
-  justify?: CSS.StandardLonghandProperties["justifyContent"];
-  align?: CSS.StandardLonghandProperties["alignItems"];
-  gap?: number;
-};
+export type FlexProps<TElementType extends React.ElementType> =
+  PropsWithHTMLElement<
+    {
+      direction?: CSS.StandardLonghandProperties["flexDirection"];
+      justify?: CSS.StandardLonghandProperties["justifyContent"];
+      align?: CSS.StandardLonghandProperties["alignItems"];
+      gap?: number;
+    },
+    TElementType
+  >;
 
-const Flex = (props: FlexProps) => {
-  const { direction, justify, align, gap, ...divProps } = props;
+const Flex = <TElementType extends React.ElementType = 'div',>(props: FlexProps<TElementType>) => {
+  const { as: Element = 'div', direction, justify, align, gap, ...divProps } = props;
 
   return (
-    <div
+    <Element
       {...divProps}
       className={root}
       style={{

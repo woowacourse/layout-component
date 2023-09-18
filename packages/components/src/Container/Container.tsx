@@ -1,18 +1,24 @@
-import { HTMLAttributes } from "react";
 import { content, root, vars } from "./Container.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import cssLength from "../cssLength";
+import { PropsWithHTMLElement } from "../types";
 
-export type ContainerProps = HTMLAttributes<HTMLDivElement> & {
-  minWidth?: number;
-  maxWidth?: number;
-};
+export type ContainerProps<TElementType extends React.ElementType> =
+  PropsWithHTMLElement<
+    {
+      minWidth?: number;
+      maxWidth?: number;
+    },
+    TElementType
+  >;
 
-const Container = (props: ContainerProps) => {
-  const { minWidth, maxWidth, ...divProps } = props;
+const Container = <TElementType extends React.ElementType = "div">(
+  props: ContainerProps<TElementType>
+) => {
+  const { as: Element = 'div', minWidth, maxWidth, ...divProps } = props;
 
   return (
-    <div className={root}>
+    <Element className={root}>
       <div
         {...divProps}
         className={content}
@@ -24,7 +30,7 @@ const Container = (props: ContainerProps) => {
           }),
         }}
       />
-    </div>
+    </Element>
   );
 };
 
