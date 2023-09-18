@@ -27,10 +27,12 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "patch": "npm version patch",
-    "minor": "npm version minor",
-    "major": "npm version major",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish",
+    "prepatch": "rm -rf dist && mkdir dist && tsc",
+    "preminor": "rm -rf dist && mkdir dist && tsc",
+    "premajor": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "react": "^18.2.0",

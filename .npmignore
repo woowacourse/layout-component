@@ -1,7 +1,9 @@
 node_modules
-Develop
-DevelopWithExpo
-Example
-ExampleWithExpo
-.github
-demo
+src
+index.html
+package.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+.eslintrc.cjs
+
