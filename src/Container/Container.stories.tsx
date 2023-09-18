@@ -17,9 +17,6 @@ const meta: Meta<typeof Container> = {
     padding: {
       control: 'text',
     },
-    margin: {
-      control: 'text',
-    },
     children: {
       control: false,
     },
