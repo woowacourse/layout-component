@@ -8,7 +8,15 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Container = (props: React.PropsWithChildren<ContainerProps>) => {
-  const { maxWidth = '', minWidth = '', children, className, style, ...rest } = props;
+  const {
+    maxWidth = 'max-content',
+    minWidth = 'min-content',
+    children,
+    className,
+    style,
+    ...rest
+  } = props;
+
   return (
     <div
       className={`${className} ${center}`}

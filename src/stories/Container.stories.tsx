@@ -7,12 +7,12 @@ const meta: Meta<typeof Container> = {
   argTypes: {
     minWidth: {
       description: 'Container의 최소 너비(min-width)',
-      defaultValue: { summary: "''" },
+      defaultValue: { summary: 'min-content' },
     },
 
     maxWidth: {
       description: 'Container의 최대 너비(max-width)',
-      defaultValue: { summary: "''" },
+      defaultValue: { summary: 'max-content' },
     },
   },
 
