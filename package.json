@@ -1,6 +1,6 @@
 {
   "name": "@d0dam/react-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,19 +14,26 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@babel/runtime-corejs3": "^7.22.15"
+    "@babel/runtime-corejs3": "^7.22.15",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "storybook": "^7.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build": "babel src/lib --out-dir dist --copy-files --extensions \".ts,.tsx\"",
-    "type": "tsc"
+    "type": "tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_7c07b2ab9de6259"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -48,12 +55,26 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/preset-create-react-app": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@types/node": "^16.18.52",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^7.1.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
-  }
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.2"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@d0dam/react-ui@0.1.1"
 }
