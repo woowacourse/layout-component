@@ -1,4 +1,4 @@
-import Grid from "../../layouts/Grid";
+import {Grid} from "../../../lib";
 
 const GridExample = () => {
   return (
