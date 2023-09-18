@@ -4,6 +4,7 @@ import type { ContainerProps } from '~/components/Container/Container';
 import { toPx } from '~/utils/toPx';
 
 export const ContainerRoot = styled.div<ContainerProps>`
+  margin: 0 auto;
   ${({ maxWidth }) => {
     if (maxWidth) {
       const maxWidthToPx = toPx(maxWidth);
