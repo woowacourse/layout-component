@@ -3,6 +3,7 @@ import { flexCssPropMappings } from '../constants/flex';
 
 import type { Gap } from '../types/common';
 import type { Align, Direction, Justify } from '../types/flex';
+import { numToPixel } from './numToPixel';
 
 export const generateFlexInlineStyle = (
   direction?: Direction,
@@ -14,5 +15,5 @@ export const generateFlexInlineStyle = (
   ...(direction && { flexDirection: flexCssPropMappings.direction[direction] }),
   ...(justify && { justifyContent: flexCssPropMappings.justify[justify] }),
   ...(align && { alignItems: flexCssPropMappings.align[align] }),
-  ...(gap && { gap }),
+  ...(gap && { gap: numToPixel(gap) }),
 });

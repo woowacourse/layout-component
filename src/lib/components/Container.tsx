@@ -5,7 +5,7 @@ import styles from '../styles/Container.module.css';
 import type { CommonProps } from '../types';
 import type { MaxWidth, MinWidth } from '../types/container';
 
-interface ContainerProps<C extends React.ElementType> extends CommonProps {
+export interface ContainerProps<C extends React.ElementType> extends CommonProps {
   as?: C;
   minWidth?: MinWidth;
   maxWidth?: MaxWidth;

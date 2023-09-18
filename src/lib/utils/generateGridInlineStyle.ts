@@ -2,6 +2,7 @@ import { CSSProperties } from 'react';
 
 import type { Gap } from '../types/common';
 import type { Columns, Rows } from '../types/grid';
+import { numToPixel } from './numToPixel';
 
 export const generateGridInlineStyle = (
   rows: Rows,
@@ -11,5 +12,5 @@ export const generateGridInlineStyle = (
   display: 'grid',
   ...(rows && { gridTemplateRows: `repeat(${rows}, 1fr)` }),
   ...(columns && { gridTemplateColumns: `repeat(${columns}, 1fr)` }),
-  ...(gap && { gap }),
+  ...(gap && { gap: numToPixel(gap) }),
 });
