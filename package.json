@@ -1,6 +1,6 @@
 {
   "name": "rulu-layout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "<p align=\"middle\" >\r   <img width=\"100px;\" src=\"https://em-content.zobj.net/source/skype/289/straight-ruler_1f4cf.png\"/>\r </p>\r <h2 align=\"middle\">누구나 사용할 수 있는 레이아웃 컴포넌트</h2>\r <p align=\"middle\">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>\r <br/>",
   "private": false,
   "main": "dist/index.js",

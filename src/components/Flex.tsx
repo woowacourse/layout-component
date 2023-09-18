@@ -1,7 +1,7 @@
-import { Children, type HTMLAttributes, type PropsWithChildren } from "react";
+import { type HTMLAttributes, type PropsWithChildren } from "react";
 import styled from "styled-components";
 
-interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Flex 컨테이너에 Flex 항목이 배치되는 방식
    * @default row

@@ -1,7 +1,7 @@
 import type { HTMLAttributes, PropsWithChildren } from "react";
 import styled from "styled-components";
 
-interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Container 컴포넌트의 최대 너비
    */

@@ -1,7 +1,7 @@
 import type { HTMLAttributes, PropsWithChildren } from "react";
 import styled from "styled-components";
 
-interface GridProps extends HTMLAttributes<HTMLDivElement> {
+export interface GridProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Grid 컴포넌트의 열 개수
    */
@@ -59,8 +59,8 @@ const GridWrapper = styled.div<{
   columns: number | string;
 }>`
   display: grid;
-  grid-template-rows: ${({ rows }) => rows};
-  grid-template-columns: ${({ columns }) => columns};
+  grid-template-rows: ${({ rows = 1 }) => rows};
+  grid-template-columns: ${({ columns = 1 }) => columns};
 `;
 
 export default Grid;
