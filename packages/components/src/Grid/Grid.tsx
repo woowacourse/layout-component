@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
   rows?: number;
   cols?: number;
   gap?: number;
