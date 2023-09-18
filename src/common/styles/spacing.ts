@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 
+import { addUnit } from '@utils/addUnit';
+
 export interface Spacing {
   p?: number | string;
   px?: number | string;
@@ -16,12 +18,6 @@ export interface Spacing {
   mt?: number | string;
   mb?: number | string;
 }
-
-const addUnit = (prop: number | string) => {
-  if (typeof prop === 'string') return prop;
-
-  return `${prop}px`;
-};
 
 export const spacingStyle = ({
   p,
