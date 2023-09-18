@@ -1,7 +1,7 @@
 {
   "name": "react-tiny-layout",
   "description": "n0eyes-react-tiny-layout",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,7 +38,8 @@
     "eject": "react-scripts eject",
     "prepare": "rm -rf dist && mkdir dist && tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_b4c2a9a01dee78d"
   },
   "eslintConfig": {
     "extends": [
@@ -70,6 +71,7 @@
     "@storybook/react-webpack5": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^7.1.0",
     "eslint-plugin-storybook": "^0.6.13",
     "prop-types": "^15.8.1",
     "storybook": "^7.4.2",
