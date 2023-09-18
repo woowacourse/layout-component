@@ -26,6 +26,15 @@ export const Default: Story = {
   render,
 };
 
+export const MaxWidth: Story = {
+  args: {
+    columns: 6,
+    maxWidth: 256,
+    gap: 16,
+  },
+  render,
+};
+
 export const Row2Column3: Story = {
   args: {
     rows: 2,

@@ -27,8 +27,8 @@ export const MaxWidth: Story = {
   },
   render: (args) => (
     <Flex {...args}>
-      <TestItem size={256}>Left</TestItem>
-      <TestItem size={256}>Right</TestItem>
+      <TestItem>Left</TestItem>
+      <TestItem>Right</TestItem>
     </Flex>
   ),
 };

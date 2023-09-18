@@ -4,7 +4,7 @@ interface TestItemProps {
   size?: number;
 }
 
-const TestItem = ({ children, size = 128 }: PropsWithChildren<TestItemProps>) => {
+const TestItem = ({ children, size = 256 }: PropsWithChildren<TestItemProps>) => {
   const style: CSS = {
     display: 'flex',
     justifyContent: 'center',

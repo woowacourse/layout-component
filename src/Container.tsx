@@ -11,10 +11,9 @@ export const stylingContainer = (props: ContainerProps): CSS => {
   return {
     display: 'block',
     width: '100%',
-    margin: '0 auto',
-
     maxWidth: maxWidth ? `${maxWidth}px` : 'none',
     minWidth: minWidth ? `${minWidth}px` : 'none',
+    margin: '0 auto',
   };
 };
 
