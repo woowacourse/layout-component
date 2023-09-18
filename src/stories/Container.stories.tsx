@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Container } from '..';
+import Container from '../components/Container/Container';
 
 const meta = {
   title: 'Container',

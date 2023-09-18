@@ -12,8 +12,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "declaration": true,
-    "outDir": "./dist",
     "jsx": "react-jsx",
 
     /* Linting */
@@ -23,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "jsxImportSource": "@emotion/react"
   },
+  "outDir": "./dist",
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
