@@ -1946,7 +1946,7 @@
     memoizerific "^1.11.3"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-controls@7.4.2":
+"@storybook/addon-controls@7.4.2", "@storybook/addon-controls@^7.4.2":
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-7.4.2.tgz#6ab9486c493d6b1b6b75cdbe336fa5626bbe9b2b"
   integrity sha512-qzSac1bulSa7mqkfBfyAqbP9PbIio5CjGJ5VyT055ab50e13gj1eS3I9EJHCupYb19E3f465QatrGhoaTsE4hg==

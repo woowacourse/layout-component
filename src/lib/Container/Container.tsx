@@ -36,7 +36,7 @@ function Container(props: PropsWithChildren<ContainerProps>) {
     throw new Error('최소 폭은 최대 폭 보다 클 수 없습니다.');
   }
 
-  return <Layout {...layoutProps}>{props.children}</Layout>;
+  return <Layout {...layoutProps}>{children}</Layout>;
 }
 
 export default Container;

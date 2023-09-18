@@ -2,7 +2,7 @@
 
 ## Storybook
 
-[스토리북](https://65072b692164c6766d60a0ef-bzlfmhkzvp.chromatic.com/)
+[스토리북](https://step1--65072b692164c6766d60a0ef.chromatic.com/?path=/docs/layout-container--docs)
 
 ## 공통
 

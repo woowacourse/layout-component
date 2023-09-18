@@ -6,6 +6,11 @@ type Story = StoryObj<typeof Flex>;
 const meta: Meta<typeof Flex> = {
   title: 'LAYOUT/Flex',
   component: Flex,
+  argTypes: {
+    direction: {
+      control: { type: 'select' },
+    },
+  },
 };
 
 export default meta;
@@ -19,7 +24,7 @@ const customFlexItemStyle = {
 export const DefaultFlex: Story = {
   render: () => {
     return (
-      <Flex gap="10px">
+      <Flex gap="10px" direction="column">
         <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
@@ -86,7 +91,7 @@ export const NoWarpFlex: Story = {
       <Flex gap="10px">
         {Array.from({ length: 32 }).map((_, index) => (
           <Flex.Item key={index} style={customFlexItemStyle}>
-            Item1
+            {`Item${index}`}
           </Flex.Item>
         ))}
       </Flex>
@@ -100,7 +105,7 @@ export const WarpFlex: Story = {
       <Flex gap="10px" wrap="wrap">
         {Array.from({ length: 32 }).map((_, index) => (
           <Flex.Item key={index} style={customFlexItemStyle}>
-            Item1
+            {`Item${index}`}
           </Flex.Item>
         ))}
       </Flex>
