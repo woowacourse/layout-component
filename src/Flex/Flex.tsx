@@ -1,13 +1,28 @@
 import {
   CSSProperties,
   Children,
+  HTMLProps,
   PropsWithChildren,
   ReactHTML,
   cloneElement,
   createElement,
   isValidElement,
 } from 'react';
-import { FlexProps } from './Flex.type';
+
+interface FlexProps<T extends keyof ReactHTML> extends HTMLProps<T> {
+  /** 태그(tag) 프로퍼티는 ReactHTML의 키(key) 중 하나를 가질 수 있습니다. 이 프로퍼티는 Flex 컴포넌트가 렌더링될 때 사용되는 HTML 요소의 태그를 지정하는데 사용됩니다. */
+  tag?: T;
+  /** direction 프로퍼티는 Flex 컴포넌트의 주축 방향을 지정합니다.  */
+  direction?: CSSProperties['flexDirection'];
+  /** justify 프로퍼티는 Flex 컴포넌트의 자식 요소들을 주축을 따라 정렬하는 방법을 지정합니다. */
+  justify?: CSSProperties['justifyContent'];
+  /** align 프로퍼티는 Flex 컴포넌트의 자식 요소들을 교차 축을 따라 정렬하는 방법을 지정합니다. */
+  align?: CSSProperties['alignItems'];
+  /** gap 프로퍼티는 Flex 컴포넌트 내의 자식 요소들 사이의 간격을 설정합니다. */
+  gap?: string | number;
+  /** style 프로퍼티는 Flex 컴포넌트에 적용할 CSS 스타일을 지정합니다.  */
+  style?: CSSProperties;
+}
 
 const Flex = <T extends keyof ReactHTML>(
   props: PropsWithChildren<FlexProps<T>>
