@@ -1,6 +1,6 @@
-import type { Meta } from "@storybook/react";
-import Container, { ContainerProps } from "./Container.tsx";
-import { SizeType } from "../../types";
+import type {Meta} from "@storybook/react";
+import Container, {ContainerProps} from "./Container.tsx";
+import {SizeType} from "../../types";
 
 const meta = {
   title: "Components/Container",
@@ -8,11 +8,23 @@ const meta = {
   tags: ["autodocs"],
   args: {
     maxWidth: "md",
+    minWidth: "md",
   },
   argTypes: {
     maxWidth: {
-      description: "최대 가로 길이를 정합니다.",
+      description: "최대 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
+      control: {
+        type: "select",
+        options: ["sm", "md", "lg", "xl", "xxl"],
+      }
     },
+    minWidth: {
+      description: "최소 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
+      control: {
+        type: "select",
+        options: ["sm", "md", "lg", "xl", "xxl"],
+      }
+    }
   },
 } satisfies Meta<typeof Container>;
 
@@ -28,7 +40,7 @@ Morbi at orci mattis, consectetur enim id, pulvinar enim. Curabitur aliquam, era
 
 const LoremIpsumComponent = () => {
   return (
-    <div style={{ background: "lightblue" }}>
+    <div style={{background: "lightblue"}}>
       <h1>Lorem Ipsum</h1>
       <p>{loremIpsum}</p>
     </div>
@@ -40,7 +52,7 @@ const sizes: SizeType[] = ["sm", "md", "lg", "xl", "xxl"];
 export const Default = (args: ContainerProps) => (
   <>
     <Container {...args}>
-      <LoremIpsumComponent />
+      <LoremIpsumComponent/>
     </Container>
   </>
 );
@@ -48,9 +60,25 @@ export const Default = (args: ContainerProps) => (
 export const MaxWidth = () => (
   <>
     {sizes.map((size) => (
-      <Container maxWidth={size}>
-        <LoremIpsumComponent />
-      </Container>
+      <>
+        <div>{size}</div>
+        <Container maxWidth={size}>
+          <LoremIpsumComponent/>
+        </Container>
+      </>
+    ))}
+  </>
+);
+
+export const MinWidth = () => (
+  <>
+    {sizes.map((size) => (
+      <>
+        <div>{size}</div>
+        <Container minWidth={size}>
+          <LoremIpsumComponent/>
+        </Container>
+      </>
     ))}
   </>
 );
