@@ -7,12 +7,6 @@ interface ContainerProps extends PropsWithChildren {
   ref?: MutableRefObject<HTMLDivElement> | null;
   /**
    * This prop is used when you want to set CSS options
-   *    EX) 
-   *    css={{
-        backgroundColor: 'rgb(250,224,240)',
-        justifyContent: 'center',
-        display: 'flex',
-      }}
    */
   css?: CSSProperties;
   /**
