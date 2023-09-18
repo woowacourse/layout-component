@@ -26,10 +26,10 @@ export const FlexLayout: Story = {
       description: 'Flex의 방향을 설정할 수 있습니다. 들어갈 수 있는 값은',
     },
     justify:{
-      description: 'Flex에서 메인축을 중심으로 위치를 설정할 수 있습니다. 들어갈 수 있는 값은'
+      description: 'Flex에서 메인축 방향으로 정렬하는 속성입니다. 들어갈 수 있는 값은'
     },
     align:{
-      description: 'Flex에서 수직축을 중심으로 위치를 설정할 수 있습니다. 들어갈 수 있는 값은'
+      description: 'Flex에서 수직축 방향으로 정렬하는 속성입니다. 들어갈 수 있는 값은'
     },
     gap:{
       description: 'Flex의 간격을 설정할 수 있습니다. 들어갈 수 있는 값은 숫자이고 px 단위로 설정됩니다.'
