@@ -6,10 +6,10 @@ const meta: Meta<typeof Grid> = {
 
   argTypes: {
     rows: {
-      description: '열의 개수',
+      description: '행의 개수',
     },
     columns: {
-      description: '행의 개수',
+      description: '열의 개수',
     },
     gap: {
       description: '각 행과 열 사이의 간격',

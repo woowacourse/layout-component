@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import {
   flex,
@@ -9,46 +10,12 @@ import {
   flexWrap,
 } from './Flex.css';
 
-type OverflowPosition = 'unsafe' | 'safe';
-
-type BaselinePosition =
-  | 'baseline'
-  | 'first baseline'
-  | 'last baseline'
-  | 'baseline first'
-  | 'baseline last';
-type SelfPosition =
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'self-start'
-  | 'self-end'
-  | 'flex-start'
-  | 'flex-end';
-type AlignItems =
-  | 'normal'
-  | 'stretch'
-  | BaselinePosition
-  | SelfPosition
-  | `${OverflowPosition} ${SelfPosition}`;
-
-type ContentDistribution = 'space-between' | 'space-evenly' | 'space-around' | 'stretch';
-type ContentPosition = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
-type Direction = 'left' | 'right';
-type JustifyContent =
-  | 'normal'
-  | ContentDistribution
-  | Direction
-  | ContentPosition
-  | `${OverflowPosition} ${ContentPosition}`
-  | `${OverflowPosition} ${Direction}`;
-
 interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
-  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justify?: JustifyContent;
-  align?: AlignItems;
-  wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  gap?: string;
+  direction?: CSSProperties['flexDirection'];
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  wrap?: CSSProperties['flexWrap'];
+  gap?: CSSProperties['gap'];
   inline?: boolean;
 }
 
@@ -72,11 +39,11 @@ const Flex = (props: React.PropsWithChildren<FlexProps>) => {
       style={{
         ...style,
         ...assignInlineVars({
-          [flexDirection]: direction,
-          [justifyContent]: justify,
-          [alignItems]: align,
-          [flexGap]: gap,
-          [flexWrap]: wrap,
+          [flexDirection]: direction.toString(),
+          [justifyContent]: justify.toString(),
+          [alignItems]: align.toString(),
+          [flexGap]: gap.toString(),
+          [flexWrap]: wrap.toString(),
         }),
       }}
       {...rest}

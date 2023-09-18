@@ -1,10 +1,11 @@
+import type { CSSProperties } from 'react';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { grid, rowCount, columnCount, gridGap } from './Grid.css';
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   rows: number;
   columns: number;
-  gap?: string;
+  gap?: CSSProperties['gap'];
 }
 
 const Grid = (props: React.PropsWithChildren<GridProps>) => {
@@ -17,7 +18,7 @@ const Grid = (props: React.PropsWithChildren<GridProps>) => {
         ...assignInlineVars({
           [rowCount]: rows.toString(),
           [columnCount]: columns.toString(),
-          [gridGap]: gap,
+          [gridGap]: gap.toString(),
         }),
       }}
       {...rest}

@@ -1,55 +1,23 @@
-declare type OverflowPosition = 'unsafe' | 'safe';
-
-declare type BaselinePosition =
-  | 'baseline'
-  | 'first baseline'
-  | 'last baseline'
-  | 'baseline first'
-  | 'baseline last';
-declare type SelfPosition =
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'self-start'
-  | 'self-end'
-  | 'flex-start'
-  | 'flex-end';
-export declare type AlignItems =
-  | 'normal'
-  | 'stretch'
-  | BaselinePosition
-  | SelfPosition
-  | `${OverflowPosition} ${SelfPosition}`;
-
-declare type ContentDistribution = 'space-between' | 'space-evenly' | 'space-around' | 'stretch';
-declare type ContentPosition = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end';
-declare type Direction = 'left' | 'right';
-export declare type JustifyContent =
-  | 'normal'
-  | ContentDistribution
-  | Direction
-  | ContentPosition
-  | `${OverflowPosition} ${ContentPosition}`
-  | `${OverflowPosition} ${Direction}`;
+import type { CSSProperties } from 'react';
 
 export declare interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  minWidth?: string;
-  maxWidth?: string;
+  minWidth?: CSSProperties['minWidth'];
+  maxWidth?: CSSProperties['maxWidth'];
 }
 
 export declare interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
-  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justify?: JustifyContent;
-  align?: AlignItems;
-  wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  gap?: string;
+  direction?: CSSProperties['flexDirection'];
+  justify?: CSSProperties['justifyContent'];
+  align?: CSSProperties['alignItems'];
+  wrap?: CSSProperties['flexWrap'];
+  gap?: CSSProperties['gap'];
   inline?: boolean;
 }
 
 export declare interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   rows: number;
   columns: number;
-  gap?: string;
+  gap?: CSSProperties['gap'];
 }
 
 declare const Container: (props: React.PropsWithChildren<ContainerProps>) => JSX.Element;
