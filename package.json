@@ -8,14 +8,29 @@
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
-    "build": "yarn tsc"
+    "build": "yarn tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-vite": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@types/node": "^20.6.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/styled-components": "^5.1.27",
+    "storybook": "^7.4.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {
