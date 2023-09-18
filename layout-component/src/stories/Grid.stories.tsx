@@ -10,33 +10,41 @@ const meta = {
       control: { type: "text" },
       description: "rows",
       table: {
-        type: { summary: "string" },
+        type: { summary: "number" },
       },
     },
     columns: {
       control: { type: "text" },
       description: "columns",
       table: {
-        type: { summary: "string" },
+        type: { summary: "number" },
       },
     },
     gap: {
       control: { type: "text" },
       description: "gap",
       table: {
-        type: { summary: "string" },
+        type: { summary: "number" },
       },
     },
   },
 } as Meta;
 
 export default meta;
+
 type Story = StoryObj<typeof Grid>;
 
-export const Default: any = {
+export const GridDefault: Story = {
   args: {
-    rows: 3,
-    columns: 3,
-    gap: 3,
+    backgroundColor: "red",
+    width: "50vw",
+    height: "50vh",
+    children: [
+      <div>item1</div>,
+      <div>item2</div>,
+      <div>item3</div>,
+      <div>item4</div>,
+    ],
   },
+  decorators: [(Story) => <Story />],
 };

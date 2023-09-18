@@ -49,11 +49,14 @@ const meta = {
 
 export default meta;
 
-export const Default: any = {
+type Story = StoryObj<typeof Flex>;
+
+export const Primary: Story = {
   args: {
-    direction: "row",
-    justify: "flex-start",
-    align: "flex-start",
-    gap: 0,
+    backgroundColor: "blue",
+    width: "50vw",
+    height: "100vh",
+    children: [<div>item1</div>, <div>items</div>],
   },
+  decorators: [(Story) => <Story />],
 };

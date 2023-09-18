@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Flex } from "./lib/components/Flex";
 import { Grid } from "./lib/components/Grid";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
