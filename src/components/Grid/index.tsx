@@ -5,10 +5,15 @@ type Props = {
   rows: number;
   columns: number;
   gap?: CSSProperties['gap'];
+  style?: CSSProperties;
 };
 
-const Grid = ({ children, ...rest }: PropsWithChildren<Props>) => {
-  return <StyledGrid {...rest}>{children}</StyledGrid>;
+const Grid = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
+  return (
+    <StyledGrid style={style} {...rest}>
+      {children}
+    </StyledGrid>
+  );
 };
 
 export default Grid;

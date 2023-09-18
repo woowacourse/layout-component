@@ -4,10 +4,15 @@ import styled, { CSSProperties, css } from 'styled-components';
 type Props = {
   minWidth?: CSSProperties['minWidth'];
   maxWidth?: CSSProperties['maxWidth'];
+  style?: CSSProperties;
 };
 
-const Container = ({ children, ...rest }: PropsWithChildren<Props>) => {
-  return <StyledContainer {...rest}>{children}</StyledContainer>;
+const Container = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
+  return (
+    <StyledContainer style={style} {...rest}>
+      {children}
+    </StyledContainer>
+  );
 };
 
 export default Container;

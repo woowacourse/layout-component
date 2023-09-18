@@ -6,10 +6,15 @@ type Props = {
   justify?: CSSProperties['justifyContent'];
   align?: CSSProperties['alignItems'];
   gap?: CSSProperties['gap'];
+  style?: CSSProperties;
 };
 
-const Flex = ({ children, ...rest }: PropsWithChildren<Props>) => {
-  return <StyledFlex {...rest}>{children}</StyledFlex>;
+const Flex = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
+  return (
+    <StyledFlex style={style} {...rest}>
+      {children}
+    </StyledFlex>
+  );
 };
 
 export default Flex;
