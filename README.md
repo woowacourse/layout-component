@@ -115,6 +115,8 @@ import { Grid } from '@se-een/layout-component';
 </Grid>;
 ```
 
+- Container 인터페이스를 상속 받습니다.
+
 - row: 그리드 아이템의 행 위치를 설정합니다. 숫자 또는 문자열로 표현됩니다.
 
 - column: 그리드 아이템의 열 위치를 설정합니다. 숫자 또는 문자열로 표현됩니다.
