@@ -28,7 +28,6 @@ const GridCss = css<GridCssProps>`
   grid-template-columns: repeat(${(props) => props.columns}, 1fr);
   grid-template-rows: repeat(${(props) => props.rows}, 1fr);
   gap: ${(props) => props.gap};
-  background: skyblue;
 `;
 
 const Div = styled.div<GridCssProps>`
