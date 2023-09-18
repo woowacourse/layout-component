@@ -7,12 +7,12 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@styles/*": ["src/styles/*"],
-      "@types": ["src/types"],
-      "@types/*": ["src/types/*"],
-      "@constants": ["src/constants/index"],
-      "@constants/*": ["src/constants/*"],
-      "@utils/*": ["src/utils/*"]
+      "@styles/*": ["src/lib/styles/*"],
+      "@types": ["src/lib/types"],
+      "@types/*": ["src/lib/types/*"],
+      "@constants": ["src/lib/constants/index"],
+      "@constants/*": ["src/lib/constants/*"],
+      "@utils/*": ["src/lib/utils/*"]
     },
 
     /* Bundler mode */
@@ -31,6 +31,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src/lib"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

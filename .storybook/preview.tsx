@@ -3,8 +3,8 @@ import type { Preview } from '@storybook/react';
 
 import React from 'react';
 
-import { common } from '../src/styles/common';
-import { reset } from '../src/styles/reset';
+import { common } from '../src/lib/styles/common';
+import { reset } from '../src/lib/styles/reset';
 
 const preview: Preview = {
   parameters: {
