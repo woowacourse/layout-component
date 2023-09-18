@@ -1,6 +1,6 @@
 {
   "name": "seeen-layout-component",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "woowacourse layout component mission",
   "main": "index.tsx",
   "scripts": {
