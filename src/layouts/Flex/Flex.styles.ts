@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import {FlexProps} from "./Flex.tsx";
 
-export const StyledFlex = styled.div<FlexProps>`
+export const StyledFlex = styled.div<{ styles: Omit<FlexProps, 'children'> }>`
   display: flex;
-  ${({direction}) => direction && `flex-direction: ${direction};`}
-  ${({justify}) => justify && `justify-content: ${justify};`}
-  ${({align}) => align && `align-items: ${align};`}
-  ${({theme, gap}) => gap && `gap: ${gap * theme.spacingUnit}px;`}
+  ${({styles}) => styles.direction && `flex-direction: ${styles.direction};`}
+  ${({styles}) => styles.justify && `justify-content: ${styles.justify};`}
+  ${({styles}) => styles.align && `align-items: ${styles.align};`}
+  ${({theme, styles}) => styles.gap && `gap: ${styles.gap * theme.spacingUnit}px;`}
 `;

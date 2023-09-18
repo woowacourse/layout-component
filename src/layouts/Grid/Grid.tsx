@@ -8,9 +8,9 @@ export interface GridProps {
   children: ReactNode;
 }
 
-const Grid = ({rows, columns, gap, children}: GridProps) => {
+const Grid = ({children, ...rest}: GridProps) => {
   return (
-    <StyledGrid rows={rows} columns={columns} gap={gap}>
+    <StyledGrid styles={{...rest}}>
       {children}
     </StyledGrid>
   );

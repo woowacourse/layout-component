@@ -13,8 +13,8 @@ type JustifyContentOptions = 'center' | 'start' | 'end' | 'flex-start' | 'flex-e
 type AlignItemsOptions = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end';
 type DirectionOptions = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
-const Flex = ({children, align, justify, direction, gap}: FlexProps) => {
-  return <StyledFlex align={align} justify={justify} direction={direction} gap={gap}>{children}</StyledFlex>;
+const Flex = ({children, ...rest}: FlexProps) => {
+  return <StyledFlex styles={{...rest}}>{children}</StyledFlex>;
 };
 
 export default Flex;
