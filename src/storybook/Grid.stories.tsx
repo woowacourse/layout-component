@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Grid from '.';
+import Grid from '../layouts/Grid';
 
 const meta = {
   title: 'Layout/Grid',

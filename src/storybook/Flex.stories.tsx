@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Flex from '.';
+import Flex from '../layouts/Flex';
 
 const meta = {
   title: 'Layout/Flex',
@@ -49,6 +49,7 @@ export const FlexLayout: Story = {
     flex: '',
     $gap: '',
   },
+
   argTypes: {
     display: {
       description:
