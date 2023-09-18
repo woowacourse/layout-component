@@ -71,8 +71,8 @@ import { Grid } from 'hae_on-layout-component';
 
 ```jsx
 <Grid columns={5} gap={4}>
-  <GridItem col={2} height='30px' bgColor='#D8EAFF' />
-  <GridItem colStart={4} colEnd={6} height='30px' bgColor='#FFEC99' />
+  <GridItem col={2} height='30px' backgroundColor='#D8EAFF' />
+  <GridItem colStart={4} colEnd={6} height='30px' backgroundColor='#FFEC99' />
 </Grid>
 ```
 
