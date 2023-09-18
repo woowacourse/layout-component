@@ -56,13 +56,11 @@ const GridWrapper = styled.div<GirdSCProps>`
   min-width: ${({ $minWidth }) => convertToPixel($minWidth) ?? 0};
   max-width: ${({ $maxWidth }) => convertToPixel($maxWidth) ?? 'unset'};
 
-  ${({ $margin }) => generateDirectionStyle('margin', $margin)};
   ${({ $padding }) => generateDirectionStyle('padding', $padding)}
+  ${({ $margin }) => generateDirectionStyle('margin', $margin)};
 
-  grid-template-rows: ${({ $row }) =>
-    $row ? `repeat(${$row}, 1fr)` : 'initial'};
-  grid-template-columns: ${({ $column }) =>
-    $column ? `repeat(${$column}, 1fr)` : 'initial'};
+  grid-template-rows: ${({ $row }) => $row ?? 'initial'};
+  grid-template-columns: ${({ $column }) => $column ?? 'initial'};
   grid-row-gap: ${({ $gap }) =>
     ($gap && convertToPixel($gap.row)) ?? 'initial'};
   grid-column-gap: ${({ $gap }) =>
