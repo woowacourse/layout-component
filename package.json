@@ -1,7 +1,11 @@
 {
-  "name": "cra",
+  "name": "@chsua/layout-component",
   "version": "0.1.0",
   "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "description": "일반적인 레이아웃 컴포넌트 라이브러리",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "eslintConfig": {
     "extends": [
@@ -53,5 +58,20 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.4.2",
     "webpack": "^5.88.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chsua/layout-component.git"
+  },
+  "keywords": [
+    "React",
+    "typescript",
+    "layout"
+  ],
+  "author": "chsua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chsua/layout-component/issues"
+  },
+  "homepage": "https://github.com/chsua/layout-component#readme"
 }
