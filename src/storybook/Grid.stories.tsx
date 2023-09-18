@@ -37,6 +37,8 @@ export const GridLayout: Story = {
     $backgroundColor: 'blue',
     responsive: true,
 
+    rows: 0,
+    column: 0,
     $justifyItems: 'start',
     $justifyContent: 'start',
     $alignItems: 'start',
