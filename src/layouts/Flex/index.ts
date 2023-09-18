@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Container, { Props as BoxProps } from '../Container';
+import Container, { Props as ContainerProps } from '../Container';
 
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
@@ -32,7 +32,7 @@ type JustifyItems =
   | 'left'
   | 'right';
 
-interface Props extends BoxProps {
+interface Props extends ContainerProps {
   $flexDirection?: FlexDirection;
   $flexWrap?: FlexWrap;
   $flexBasis?: string | number;
