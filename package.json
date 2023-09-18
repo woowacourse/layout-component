@@ -1,17 +1,16 @@
 {
   "name": "jero-design-system",
-  "version": "0.0.12",
+  "version": "0.0.13",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "description": "Jero's Design System",
   "keywords": [
     "react",
     "emotion",
     "layout"
   ],
-  "private": false,
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "browser": "./browser/specific/main.js",
   "repository": {
     "type": "git",
     "url": "git://gitbub.com/inyeong-kang/layout-component.git"
@@ -26,9 +25,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "mkdir dist && tsc"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
