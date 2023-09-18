@@ -38,7 +38,8 @@ const Tag = styled.div<Props>`
 
   width: ${({ width }) => (width ? `${width}` : 'auto')};
   height: ${({ height }) => (height ? `${height}` : 'auto')};
-  background-color: ${({ backgroundColor }) => (backgroundColor ? `${backgroundColor}` : '#fff')};
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ? `${backgroundColor}` : 'transparent'};
 
   min-width: ${({ minWidth }) => (minWidth ? `${minWidth}` : 'auto')};
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : 'none')};
