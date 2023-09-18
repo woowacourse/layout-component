@@ -1,6 +1,6 @@
 {
   "name": "wus-layout-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "It's a package made to use layout components comfortably",
   "keywords": [
