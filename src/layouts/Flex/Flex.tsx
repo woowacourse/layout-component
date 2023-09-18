@@ -14,7 +14,7 @@ type AlignItemsOptions = 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' 
 type DirectionOptions = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
 const Flex = ({children, ...rest}: FlexProps) => {
-  return <StyledFlex styles={{...rest}}>{children}</StyledFlex>;
+  return <StyledFlex $styles={{...rest}}>{children}</StyledFlex>;
 };
 
 export default Flex;

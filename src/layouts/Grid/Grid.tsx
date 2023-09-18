@@ -10,7 +10,7 @@ export interface GridProps {
 
 const Grid = ({children, ...rest}: GridProps) => {
   return (
-    <StyledGrid styles={{...rest}}>
+    <StyledGrid $styles={{...rest}}>
       {children}
     </StyledGrid>
   );

@@ -10,7 +10,7 @@ export interface ContainerProps {
 
 const Container = ({children, ...rest}: ContainerProps) => {
   return (
-    <StyledContainer styles={{...rest}}>
+    <StyledContainer $styles={{...rest}}>
       {children}
     </StyledContainer>
   );
