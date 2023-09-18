@@ -2,28 +2,28 @@
 
 ## 공통
 
-- [ ] 의미있는 커밋 메시지 작성
+- [x] 의미있는 커밋 메시지 작성
 - [ ] PR에 관련 없는 변경 사항이 포함 유무 확인
 
 ## Container 컴포넌트
 
-- [ ] `minWidth`, `maxWidth` 속성 적용
-- [ ] npm 배포
-- [ ] README.md 작성
+- [x] `minWidth`, `maxWidth` 속성 적용
+- [x] npm 배포
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## Grid 컴포넌트
 
-- [ ] `rows`, `columns`, `gap` 속성 적용
-- [ ] npm 배포
-- [ ] README.md 작성
+- [x] `rows`, `columns`, `gap` 속성 적용
+- [x] npm 배포
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## Flex 컴포넌트
 
-- [ ] `direction`, `justify`, `align`, `gap` 속성 적용
-- [ ] npm 배포
-- [ ] README.md 작성
+- [x] `direction`, `justify`, `align`, `gap` 속성 적용
+- [x] npm 배포
+- [x] README.md 작성
 - [ ] 테스트 코드를 작성하였나요? (선택 사항)
 
 ## 📌 구현한 내용 설명
