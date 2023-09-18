@@ -27,6 +27,18 @@ yarn add @suyoungj/react-layout-component
 
 ## Flex
 
+- CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴포넌트입니다.
+- direction, justify, align 프로퍼티로 통해 배열 방향과 정렬을 조절할 수 있습니다.
+- `gap` 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있습니다.
+
+```tsx
+<Flex direction="row" justify="center" align="center" gap={5}>
+  <div>Content 1</div>
+  <div>Content 2</div>
+  <div>Content 3</div>
+</Flex>
+```
+
 ## Grid
 
 - `rows, columns` 속성을 통해 격자의 형태를 지정할 수 있습니다.
