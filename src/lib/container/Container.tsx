@@ -19,8 +19,10 @@ const Container = styled.div<ContainerProps>`
   padding: 0 16px;
   background-color: ${({ backgroundColor }) =>
     backgroundColor || 'transparent'};
-  min-width: ${({ minWidth, theme: { breakpoints } }) =>
-    minWidth && minWidth > breakpoints.sm ? `${minWidth}px` : breakpoints.sm};
+  min-width: ${({ minWidth }) =>
+    minWidth && minWidth > Number(breakpoints.sm.slice(0, -2))
+      ? `${minWidth}px`
+      : breakpoints.sm};
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : '100%')};
 
   @media (min-width: ${breakpoints.sm}) and (max-width: ${breakpoints.md}) {
@@ -36,7 +38,7 @@ const Container = styled.div<ContainerProps>`
     width: calc(${breakpoints.xl} - 32px);
   }
   @media (min-width: ${breakpoints.xxl}) {
-    max-width: calc(${breakpoints.xxl} - 32px);
+    width: calc(${breakpoints.xxl} - 32px);
   }
 `;
 
