@@ -12,6 +12,7 @@ function Container({ minWidth, maxWidth, children, css }: ContainerProps) {
 
 const ContainerLayout = styled.div<ContainerLayoutProps>`
   ${({ css }) => css};
+
   margin: 0 auto;
   min-width: ${({ $minWidth }) => $minWidth}px;
   max-width: ${({ $maxWidth }) => $maxWidth}px;
