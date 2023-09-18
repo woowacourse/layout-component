@@ -1,13 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export { default as Container } from './Container';
+export { default as Flex } from './Flex';
+export { default as FlexItem } from './FlexItem';
+export { default as Grid } from './Grid';
+export { default as GridItem } from './GridItem';
