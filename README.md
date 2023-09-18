@@ -41,7 +41,7 @@ const Demo = () => {
   return (
     <Container maxWidth={100} minWidth={100} padding={{ top: 200 }}>
       <div>
-        <h1>Test</h1>
+        <p1>Test</p1>
       </div>
     </Container>
   );
@@ -93,7 +93,7 @@ const Demo = () => {
       flexDirection="column"
     >
       <div>
-        <h1>Test</h1>
+        <p1>Test</p1>
       </div>
     </Flex>
   );
@@ -143,7 +143,7 @@ const Demo = () => {
       gap={{ row: 30, column: 20 }}
     >
       <div>
-        <h1>Test</h1>
+        <p1>Test</p1>
       </div>
     </Grid>
   );
