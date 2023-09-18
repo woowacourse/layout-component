@@ -1,7 +1,17 @@
 {
-  "name": "cra",
-  "version": "0.1.0",
-  "private": true,
+  "name": "light-layout-component",
+  "version": "0.1.2",
+  "private": false,
+  "main": "dist/index.js",
+  "description": "easy and useful layout component",
+  "keywords": [
+    "react",
+    "layout",
+    "component",
+    "Container",
+    "Flex",
+    "Grid"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -15,10 +25,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf dist && tsc && cp package.json README.md ./dist",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "publish:npm": "tsc && rm -rf dist && mkdir dist && babel src/lib -d dist --copy-files"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
