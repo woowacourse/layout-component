@@ -9,9 +9,11 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_fb0427b6deff179"
   },
   "dependencies": {
+    "chromatic": "^7.1.0",
     "navrary-layout": "^0.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -59,5 +61,7 @@
       "plugin:storybook/recommended",
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "navrary-layout@0.0.4"
 }
