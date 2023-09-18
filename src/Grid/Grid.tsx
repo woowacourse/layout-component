@@ -1,7 +1,7 @@
-import { ElementType, PropsWithChildren, createElement } from 'react';
+import { PropsWithChildren, ReactHTML, createElement } from 'react';
 import { GridProps } from './Grid.type';
 
-const Grid = <T extends ElementType>(
+const Grid = <T extends keyof ReactHTML>(
   props: PropsWithChildren<GridProps<T>>
 ) => {
   const {
@@ -15,7 +15,7 @@ const Grid = <T extends ElementType>(
     ...restProps
   } = props;
 
-  const resolvedProps: Pick<GridProps<ElementType>, 'style'> = {
+  const resolvedProps: Pick<GridProps<T>, 'style'> = {
     style: {
       display: 'grid',
       gridTemplateRows: row,

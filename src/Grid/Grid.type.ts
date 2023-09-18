@@ -1,6 +1,6 @@
-import { CSSProperties, ElementType, HTMLProps } from 'react';
+import { CSSProperties, HTMLProps, ReactHTML } from 'react';
 
-interface GridProps<T extends ElementType> extends HTMLProps<T> {
+interface GridProps<T extends keyof ReactHTML> extends HTMLProps<T> {
   tag?: T;
   row?: CSSProperties['gridTemplateRows'];
   column?: CSSProperties['gridTemplateColumns'];

@@ -1,8 +1,13 @@
-import { CSSProperties, ElementType, PropsWithChildren } from 'react';
+import {
+  CSSProperties,
+  ElementType,
+  PropsWithChildren,
+  ReactHTML,
+} from 'react';
 import { ContainerProps } from './Container.type';
 import Flex from '../Flex/Flex';
 
-const Container = <T extends ElementType>(
+const Container = <T extends keyof ReactHTML>(
   props: PropsWithChildren<ContainerProps<T>>
 ) => {
   const {

@@ -1,6 +1,6 @@
-import { CSSProperties, ElementType, HTMLProps } from 'react';
+import { CSSProperties, ElementType, HTMLProps, ReactHTML } from 'react';
 
-interface ContainerProps<T extends ElementType> extends HTMLProps<T> {
+interface ContainerProps<T extends keyof ReactHTML> extends HTMLProps<T> {
   tag?: T;
   maxWidth?: CSSProperties['maxWidth'];
   minWidth?: CSSProperties['minWidth'];

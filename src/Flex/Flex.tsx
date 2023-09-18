@@ -1,15 +1,15 @@
 import {
   CSSProperties,
   Children,
-  ElementType,
   PropsWithChildren,
+  ReactHTML,
   cloneElement,
   createElement,
   isValidElement,
 } from 'react';
 import { FlexProps } from './Flex.type';
 
-const Flex = <T extends ElementType>(
+const Flex = <T extends keyof ReactHTML>(
   props: PropsWithChildren<FlexProps<T>>
 ) => {
   const {
@@ -25,7 +25,7 @@ const Flex = <T extends ElementType>(
 
   const gapStyleByDirection = getGapStyleByDirection({ direction, gap });
 
-  const resolvedProps: Pick<FlexProps<ElementType>, 'style'> = {
+  const resolvedProps: Pick<FlexProps<T>, 'style'> = {
     style: {
       display: 'flex',
       flexDirection: direction,
@@ -52,7 +52,7 @@ const Flex = <T extends ElementType>(
 
 export default Flex;
 
-const getGapStyleByDirection = <T extends ElementType>({
+const getGapStyleByDirection = <T extends keyof ReactHTML>({
   direction,
   gap,
 }: Pick<FlexProps<T>, 'direction' | 'gap'>): CSSProperties => {

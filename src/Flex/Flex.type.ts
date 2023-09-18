@@ -1,6 +1,6 @@
-import { CSSProperties, ElementType, HTMLProps } from 'react';
+import { CSSProperties, HTMLProps, ReactHTML } from 'react';
 
-interface FlexProps<T extends ElementType> extends HTMLProps<T> {
+interface FlexProps<T extends keyof ReactHTML> extends HTMLProps<T> {
   tag?: T;
   direction?: CSSProperties['flexDirection'];
   justify?: CSSProperties['justifyContent'];
