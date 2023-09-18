@@ -4,7 +4,8 @@
 `.js`, `.cjs`, 타입스크립트를 위한 `.d.ts` 파일을 제공합니다.
 
 - [npm](https://www.npmjs.com/package/@wainaat/react-layout-component)
-- [demo: storybook](https://wainaat.github.io/layout-component/)
+- [demo: Storybook](https://wainaat.github.io/layout-component/)
+- [demo: CodeSandbox](https://codesandbox.io/s/example-wainaat-react-layout-component-57vgc7?file=/src/App.js)
 
 ## 설치하기
 
@@ -25,8 +26,8 @@ Container 내부 요소들에 대한 중앙 정렬과 overflow 처리는 보장�
 
 |props 이름|설명|기본값|
 |:-:|:-:|:-:|
-|`minWidth`| Container의 최소 너비 <br /> CSS의 min-width에 들어갈 수 있는 값 |`''`|
-|`maxWidth`| Container의 최대 너비 <br /> CSS의 max-width에 들어갈 수 있는 값 |`''`|
+|`minWidth`| Container의 최소 너비 <br /> CSS의 min-width에 들어갈 수 있는 값 |`min-content`|
+|`maxWidth`| Container의 최대 너비 <br /> CSS의 max-width에 들어갈 수 있는 값 |`max-content`|
 
 표에 나와 있는 것 외에도 `<div>`태그에 들어갈 수 있는 모든 props를 사용 가능합니다.
 
