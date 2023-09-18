@@ -1,6 +1,7 @@
 import {ReactNode} from "react";
 import {StyledContainer} from "./Container.styles.ts";
-import {SizeType} from "../../types";
+
+export type SizeType = "sm" | "md" | "lg" | "xl" | "xxl";
 
 export interface ContainerProps {
   children: ReactNode;

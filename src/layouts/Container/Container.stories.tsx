@@ -1,6 +1,5 @@
 import type {Meta} from "@storybook/react";
-import Container, {ContainerProps} from "./Container.tsx";
-import {SizeType} from "../../types";
+import Container, {ContainerProps, SizeType} from "./Container.tsx";
 import {Fragment} from "react";
 
 const meta = {
