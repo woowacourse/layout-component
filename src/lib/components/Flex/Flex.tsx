@@ -2,7 +2,7 @@ import { ComponentPropsWithRef, ElementType } from 'react';
 import { CSSProp, styled } from 'styled-components';
 
 interface Props extends ComponentPropsWithRef<ElementType> {
-  /** 컴포넌트의 HTML 태그를 지정하는 속성입니다. 예를 들어, tag="div"로 설정하면 컴포넌트가 <div> 태그로 렌더링됩니다. */
+  /** 컴포넌트의 HTML 태그를 지정하는 속성입니다. 예를 들어, tag="div"로 설정하면 컴포넌트가 \<div\> 태그로 렌더링됩니다. */
   tag?: keyof JSX.IntrinsicElements;
   /** 컨테이너의 표시 방식을 지정하는 속성입니다. 'flex'는 블록요소, 'inline-flex'는 인라인요소로 설정합니다. */
   display?: 'flex' | 'inline-flex';
