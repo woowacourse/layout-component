@@ -24,4 +24,5 @@ export const ContainerRoot = styled.div<ContainerProps>`
       `;
     }
   }}
+  ${({ css }) => css}
 `;

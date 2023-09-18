@@ -76,3 +76,28 @@ export const Grid4X2: Story = {
     gap: 10,
   },
 };
+
+export const WithOtherProps: Story = {
+  args: {
+    rows: 3,
+    columns: 3,
+    children: (
+      <>
+        <div style={ChildStyle}>Child 1</div>
+        <div style={ChildStyle}>Child 2</div>
+        <div style={ChildStyle}>Child 3</div>
+        <div style={ChildStyle}>Child 4</div>
+        <div style={ChildStyle}>Child 5</div>
+        <div style={ChildStyle}>Child 6</div>
+        <div style={ChildStyle}>Child 7</div>
+        <div style={ChildStyle}>Child 8</div>
+        <div style={ChildStyle}>Child 9</div>
+      </>
+    ),
+    gap: 10,
+    css: {
+      padding: '20px',
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    },
+  },
+};

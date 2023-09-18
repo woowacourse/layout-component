@@ -60,9 +60,6 @@ export const Center: Story = {
     children: <div style={ChildStyle}>Child 1</div>,
     justify: 'center',
     align: 'center',
-    css: {
-      backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    },
   },
 };
 
@@ -76,5 +73,8 @@ export const WithOtherProps: Story = {
       </>
     ),
     direction: 'column',
+    css: {
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    },
   },
 };

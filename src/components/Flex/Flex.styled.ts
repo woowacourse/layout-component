@@ -28,4 +28,5 @@ export const FlexRoot = styled.div<FlexProps>`
       `;
     }
   }}
+  ${({ css }) => css}
 `;

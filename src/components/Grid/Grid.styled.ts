@@ -18,4 +18,5 @@ export const GridRoot = styled.div<GridProps>`
       `;
     }
   }}
+  ${({ css }) => css}
 `;

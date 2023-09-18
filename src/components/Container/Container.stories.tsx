@@ -70,3 +70,18 @@ export const WithPercentageMaxWidth: Story = {
     maxWidth: '50%',
   },
 };
+
+export const WithOtherProps: Story = {
+  args: {
+    children: (
+      <>
+        <div style={ChildStyle}>Content</div>
+      </>
+    ),
+    minWidth: 300,
+    maxWidth: 600,
+    css: {
+      padding: '20px',
+    },
+  },
+};

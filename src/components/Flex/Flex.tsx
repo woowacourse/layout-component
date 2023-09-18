@@ -1,3 +1,4 @@
+import type { CSSInterpolation } from '@emotion/serialize';
 import type { ContentSectioningTags } from '~/types';
 import * as S from './Flex.styled';
 
@@ -9,7 +10,7 @@ export interface FlexProps {
   align?: React.CSSProperties['alignItems'];
   wrap?: React.CSSProperties['flexWrap'];
   gap?: React.CSSProperties['gap'];
-  css?: React.CSSProperties;
+  css?: CSSInterpolation;
 }
 
 export const Flex = (props: FlexProps) => {
