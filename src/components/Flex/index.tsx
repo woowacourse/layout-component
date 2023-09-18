@@ -8,7 +8,7 @@ interface Props extends Omit<ContainerProps, 'display'> {
   flexGrow?: CSSProperties['flexGrow'];
   flexShrink?: CSSProperties['flexShrink'];
   flexBasis?: CSSProperties['flexBasis'];
-  direction?: CSSProperties['flexDirection'];
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   flexWrap?: CSSProperties['flexWrap'];
   flexFlow?: CSSProperties['flexFlow'];
   justify?: CSSProperties['justifyContent'];
