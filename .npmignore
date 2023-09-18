@@ -6,4 +6,4 @@ tsconfig.json
 tsconfig.node.json
 vite.config.ts
 .eslintrc.cjs
-
+fixup.sh
