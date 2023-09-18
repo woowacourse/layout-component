@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-type Display = 'none' | 'block' | 'inline' | 'inline-block';
+type Display = 'none' | 'block' | 'inline' | 'inline-block' | 'flex' | 'grid';
 type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible';
 type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 type Cursor =
