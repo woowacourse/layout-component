@@ -60,6 +60,7 @@ export interface Props {
   cursor?: Cursor;
   opacity?: string;
   $zIndex?: number;
+  $backgroundColor?: string;
   responsive?: boolean;
 }
 
@@ -82,6 +83,7 @@ const Container = styled.div<Props>`
   cursor: ${({ cursor }) => cursor};
   opacity: ${({ opacity }) => opacity};
   z-index: ${({ $zIndex }) => $zIndex};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
 
   ${({ responsive, $minWidth, width, $maxWidth }) =>
     responsive &&
@@ -89,7 +91,7 @@ const Container = styled.div<Props>`
       @media (max-width: ${$minWidth || width || $maxWidth}) {
         width: 100%;
       }
-    `}
+    `};
 `;
 
 export default Container;
