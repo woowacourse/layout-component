@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Flex from './Flex';
 
 const meta = {
-  title: 'Components/Cart/Order',
+  title: 'Components/Layout/Flex',
   component: Flex,
   tags: ['autodocs'],
   parameters: {
@@ -29,7 +29,7 @@ export const FlexLayout: Story = {
     },
     align:{
       description: 'Flex에서 수직축을 중심으로 위치를 설정할 수 있습니다. 들어갈 수 있는 값은'
-    }
+    },
   }
 };
 
