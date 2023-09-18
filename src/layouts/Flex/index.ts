@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Container, { Props as BoxProps } from './Container';
+import Container, { Props as BoxProps } from '../Container';
 
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Container, { Props as ContainerProps } from './Container';
+import Container, { Props as ContainerProps } from '../Container';
 
 type JustifyItems = 'start' | 'end' | 'center' | 'stretch';
 type JustifyContent =
