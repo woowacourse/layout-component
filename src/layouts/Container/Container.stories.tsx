@@ -1,6 +1,7 @@
 import type {Meta} from "@storybook/react";
 import Container, {ContainerProps} from "./Container.tsx";
 import {SizeType} from "../../types";
+import {Fragment} from "react";
 
 const meta = {
   title: "Components/Container",
@@ -60,12 +61,12 @@ export const Default = (args: ContainerProps) => (
 export const MaxWidth = () => (
   <>
     {sizes.map((size) => (
-      <>
+      <Fragment key={size}>
         <div>{size}</div>
         <Container maxWidth={size}>
           <LoremIpsumComponent/>
         </Container>
-      </>
+      </Fragment>
     ))}
   </>
 );
@@ -73,12 +74,12 @@ export const MaxWidth = () => (
 export const MinWidth = () => (
   <>
     {sizes.map((size) => (
-      <>
+      <Fragment key={size}>
         <div>{size}</div>
         <Container minWidth={size}>
           <LoremIpsumComponent/>
         </Container>
-      </>
+      </Fragment>
     ))}
   </>
 );
