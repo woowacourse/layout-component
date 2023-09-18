@@ -6,10 +6,10 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-const Container = ({ minWidth, maxWidth, children }: Props) => {
+const Container = ({ minWidth, maxWidth, children, ...props }: Props) => {
   return (
     <Layout>
-      <ChildrenContainer $minWidth={minWidth} $maxWidth={maxWidth}>
+      <ChildrenContainer $minWidth={minWidth} $maxWidth={maxWidth} {...props}>
         {children}
       </ChildrenContainer>
     </Layout>

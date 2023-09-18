@@ -7,9 +7,9 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-const Grid = ({ rows, cols, gap, children }: Props) => {
+const Grid = ({ rows, cols, gap, children, ...props }: Props) => {
   return (
-    <Layout $rows={rows} $cols={cols} $gap={gap}>
+    <Layout $rows={rows} $cols={cols} $gap={gap} {...props}>
       {children}
     </Layout>
   );

@@ -8,9 +8,22 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-const Flex = ({ direction, justify, align, gap, children }: Props) => {
+const Flex = ({
+  direction,
+  justify,
+  align,
+  gap,
+  children,
+  ...props
+}: Props) => {
   return (
-    <Layout $direction={direction} $justify={justify} $align={align} $gap={gap}>
+    <Layout
+      $direction={direction}
+      $justify={justify}
+      $align={align}
+      $gap={gap}
+      {...props}
+    >
       {children}
     </Layout>
   );
