@@ -41,19 +41,19 @@ const render = (args: ComponentProps<typeof Flex>) => (
   </div>
 );
 
-export const Flex_Row: Story = {
+export const Basic: Story = {
   args: {},
   render,
 };
 
-export const Flex_Column: Story = {
+export const Column: Story = {
   args: {
     direction: 'column',
   },
   render,
 };
 
-export const Flex_Row_Justify_Center_Gap: Story = {
+export const Row_Justify_Center_Gap: Story = {
   args: {
     justify: 'center',
     gap: 10,
@@ -61,7 +61,7 @@ export const Flex_Row_Justify_Center_Gap: Story = {
   render,
 };
 
-export const Flex_Column_Align_Center_Gap: Story = {
+export const Column_Align_Center_Gap: Story = {
   args: {
     direction: 'column',
     align: 'center',
