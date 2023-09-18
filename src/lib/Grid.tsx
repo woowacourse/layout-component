@@ -7,9 +7,11 @@ type Props = {
   rowGap?: number;
   columnGap?: number;
   gap?: number;
+
+  $style?: CSSProperties;
 };
 
-const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, children }: PropsWithChildren<Props>) => {
+const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, $style, children }: PropsWithChildren<Props>) => {
   const defaultStyle: CSSProperties = {
     display: "grid",
     gridTemplateRows: `repeat(${rows}, 1fr)`,
@@ -18,6 +20,8 @@ const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, children }: P
     rowGap: `${rowGap}px`,
     columnGap: `${columnGap}px`,
     gap: `${gap}px`,
+
+    ...$style,
   };
 
   return <div style={defaultStyle}>{children}</div>;

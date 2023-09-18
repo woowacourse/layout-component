@@ -9,9 +9,11 @@ type Props = {
 
   gap?: number;
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
+
+  $style?: CSSProperties;
 };
 
-const Flex = ({ direction, justify, align, gap = 0, wrap, children }: PropsWithChildren<Props>) => {
+const Flex = ({ direction, justify, align, gap = 0, wrap, $style, children }: PropsWithChildren<Props>) => {
   const defaultStyle: CSSProperties = {
     display: "flex",
 
@@ -21,6 +23,8 @@ const Flex = ({ direction, justify, align, gap = 0, wrap, children }: PropsWithC
 
     gap: `${gap}px`,
     flexWrap: wrap,
+
+    ...$style,
   };
 
   return <div style={defaultStyle}>{children}</div>;
