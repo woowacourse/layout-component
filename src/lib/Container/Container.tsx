@@ -13,7 +13,7 @@ const Container = <C extends React.ElementType = 'div'>({
   minWidth,
   backgroundColor,
   children,
-  ...atributtes
+  ...attributes
 }: PropsWithChildren<ContainerProps<C>>) => {
   const styles = {
     maxWidth,
@@ -25,7 +25,7 @@ const Container = <C extends React.ElementType = 'div'>({
   const Component = as || 'div';
 
   return (
-    <Component style={styles} {...atributtes}>
+    <Component style={styles} {...attributes}>
       {children}
     </Component>
   );

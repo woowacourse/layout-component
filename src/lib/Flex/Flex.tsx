@@ -17,7 +17,7 @@ const Flex = <C extends React.ElementType = 'div'>({
   gap,
   wrap,
   children,
-  ...atributtes
+  ...attributes
 }: PropsWithChildren<FlexProps<C>>) => {
   const styles = {
     display: 'flex',
@@ -30,7 +30,7 @@ const Flex = <C extends React.ElementType = 'div'>({
   const Component = as || 'div';
 
   return (
-    <Component style={styles} {...atributtes}>
+    <Component style={styles} {...attributes}>
       {children}
     </Component>
   );
