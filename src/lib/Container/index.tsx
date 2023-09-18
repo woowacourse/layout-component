@@ -1,12 +1,35 @@
 import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
 
 interface ContainerProps extends PropsWithChildren {
+  /**
+   * This prop is used when the container needs events
+   */
   ref?: MutableRefObject<HTMLDivElement> | null;
+  /**
+   * This prop is used when you want to set CSS options
+   *    EX) 
+   *    css={{
+        backgroundColor: 'rgb(250,224,240)',
+        justifyContent: 'center',
+        display: 'flex',
+      }}
+   */
   css?: CSSProperties;
+  /**
+   * This prop is used when you want to specify the minimum width
+   * ${minWidth}px
+   */
   minWidth?: number;
+  /**
+   * This prop is used when you want to specify the maximum width
+   * ${manWidth}px
+   */
   maxWidth?: number;
 }
 
+/**
+ * This is the container layout
+ */
 export default function Container({
   ref,
   css,
