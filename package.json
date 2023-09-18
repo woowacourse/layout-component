@@ -1,7 +1,7 @@
 {
   "name": "react-layout-component-pat",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
