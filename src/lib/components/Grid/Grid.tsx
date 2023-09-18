@@ -27,11 +27,11 @@ interface Props extends ComponentPropsWithRef<ElementType> {
    *  "footer footer"`)
    */
   areas?: string;
-  /** 그리드 아이템 사이의 간격을 지정하는 속성입니다. */
+  /** 그리드 아이템 사이의 간격을 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
   gap?: string;
-  /** 행 간격을 지정하는 속성입니다. */
+  /** 행 간격을 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
   rowGap?: string;
-  /** 열 간격을 지정하는 속성입니다. */
+  /** 열 간격을 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
   columnGap?: string;
   /** 그리드 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다. */
   css?: CSSProp;

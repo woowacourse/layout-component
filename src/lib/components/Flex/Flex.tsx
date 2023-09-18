@@ -18,7 +18,7 @@ interface Props extends ComponentPropsWithRef<ElementType> {
     | 'space-evenly';
   /** 교차축(cross axis)의 정렬 방법을 설정하는 속성입니다. 'flex-start'는 시작점 정렬, 'flex-end'는 끝점 정렬, 'center'는 가운데 정렬, 'stretch'는 아이템을 교차축에 맞게 늘리는 설정입니다. */
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
-  /** Flex 아이템 사이의 간격을 지정하는 속성입니다. */
+  /** Flex 아이템 사이의 간격을 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
   gap?: string;
   /** Flex 아이템이 한 줄에 나타날지 여러 줄로 나타날지를 결정하는 속성입니다. 'nowrap'는 한 줄에 모두 표시, 'wrap'은 여러 줄로 나누어 표시, 'wrap-reverse'는 여러 줄로 나누되 역순으로 표시합니다. */
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';

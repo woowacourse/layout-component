@@ -48,7 +48,6 @@ export const Display: Story = {
     css: css`
       height: 5rem;
       padding: 1rem;
-      margin-bottom: 2rem;
 
       background-color: white;
       border: 1px solid #636363;
@@ -172,8 +171,6 @@ const FlexWrapper = styled.div<{ width?: string; height?: string }>`
 
   padding: 2rem;
   border-radius: 4px;
-
-  margin-bottom: 2rem;
 `;
 
 const Item = styled.div<{ minHeight?: string }>`
