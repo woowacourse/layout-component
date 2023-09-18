@@ -18,13 +18,16 @@
     "copy-files": "copyfiles README.md lib",
     "build-storybook": "storybook build",
     "tsc-build": "npm run clean && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && npm run copy-files",
-    "publish:npm": "npm run tsc-build && npm publish"
+    "publish:npm": "npm run tsc-build && npm publish",
+    "chromatic": "npx chromatic --project-token=chpt_61c07aa6ff01713"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/semnil5202/layout-component.git"
   },
-  "author": "seeen",
+  "author": {
+    "name": "seeen"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/semnil5202/layout-component/issues"
@@ -53,6 +56,7 @@
     "@types/styled-components": "^5.1.26",
     "babel-loader": "^9.1.3",
     "babel-plugin-styled-components": "^2.1.4",
+    "chromatic": "^7.1.0",
     "copy-webpack-plugin": "^9.0.1",
     "copyfiles": "^2.4.1",
     "css-loader": "^6.2.0",
@@ -74,5 +78,7 @@
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "seeen-layout-component@0.1.3"
 }
