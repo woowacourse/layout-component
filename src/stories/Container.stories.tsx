@@ -29,9 +29,9 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const MaxContainer: Story = {
-  render: ({ css, maxWidth }) => (
+  render: ({ css, maxWidth, minWidth }) => (
     <Container css={css}>
-      <Container maxWidth={maxWidth}>
+      <Container maxWidth={maxWidth} minWidth={minWidth}>
         <div
           style={{
             height: '600px',
@@ -58,8 +58,8 @@ export const MaxContainer: Story = {
 };
 
 export const MinContainer: Story = {
-  render: ({ minWidth }) => (
-    <Container minWidth={minWidth}>
+  render: ({ css, maxWidth, minWidth }) => (
+    <Container css={css} maxWidth={maxWidth} minWidth={minWidth}>
       <div
         style={{
           backgroundColor: 'rgb(253,247,251)',
