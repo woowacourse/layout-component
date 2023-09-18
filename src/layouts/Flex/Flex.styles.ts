@@ -6,5 +6,5 @@ export const StyledFlex = styled.div<FlexProps>`
   ${({direction}) => direction && `flex-direction: ${direction};`}
   ${({justify}) => justify && `justify-content: ${justify};`}
   ${({align}) => align && `align-items: ${align};`}
-  ${({gap}) => gap && `gap: ${gap}px;`}
+  ${({theme, gap}) => gap && `gap: ${gap * theme.spacingUnit}px;`}
 `;
