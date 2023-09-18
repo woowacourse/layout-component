@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import styled from 'styled-components';
 import IntroductionUI from './component/IntrodutionUI';
 import UsageFlexUI from './component/UsageFlexUI';
