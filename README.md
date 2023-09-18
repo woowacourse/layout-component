@@ -1,4 +1,4 @@
-# jero-payments-modal
+# jero-design-system
 
 > A library to design common components built in React & TypeScript
 
@@ -68,7 +68,7 @@ import { Button, Flex } from 'jero-design-system';
 
 ### Container
 
-<img src="./public/img/jero-container.png"/>
+![jero-container](https://github.com/inyeong-kang/layout-component/assets/81199414/87f1e985-65b5-4840-b0a7-0adf5d7c7443)
 
 ```JavaScript
 import { Container } from 'jero-design-system';
@@ -103,7 +103,7 @@ function App() {
 
 ### Grid
 
-<img src="./public/img/jero-grid.png"/>
+![jero-grid](https://github.com/inyeong-kang/layout-component/assets/81199414/b162c756-2a68-4be0-ae40-0ec08e937b56)
 
 ```JavaScript
 import { Grid } from 'jero-design-system';
@@ -132,8 +132,7 @@ function App() {
 | children        | `React.ReactNode` | Element or Node of Grid                             |
 
 ### Flex
-
-<img src="./public/img/jero-flex.png"/>
+![jero-flex](https://github.com/inyeong-kang/layout-component/assets/81199414/f449a5ba-1f9a-4638-8554-b24f960fb895)
 
 ```JavaScript
 import { Flex } from 'jero-design-system';
@@ -163,8 +162,7 @@ function App() {
 | children        | `React.ReactNode` | Element or Node of Flex                                    |
 
 ### Button
-
-<img src="./public/img/jero-button.png"/>
+![jero-button](https://github.com/inyeong-kang/layout-component/assets/81199414/53a2b7ef-316b-41e6-ab06-3849cc1af00f)
 
 ```JavaScript
 
