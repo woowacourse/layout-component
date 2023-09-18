@@ -1,17 +1,27 @@
+import { CSSProperties, ReactNode, createElement } from "react";
+import { Unit } from "../types";
 interface ContainerProps {
-  children: React.ReactNode;
-  minWidth: number;
-  maxWidth: number;
+  children: ReactNode;
+  minWidth: `${number}${Unit}`;
+  maxWidth: `${number}${Unit}`;
+  style?: CSSProperties;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-const Container = ({ children, minWidth, maxWidth }: ContainerProps) => {
-  const containerStyle: React.CSSProperties = {
-    minWidth: `${minWidth}px`,
-    maxWidth: `${maxWidth}px`,
-    margin: "0 auto",
+const Container = ({
+  children,
+  minWidth,
+  maxWidth,
+  style,
+  as: Element = "div",
+}: ContainerProps) => {
+  const containerStyle: CSSProperties = {
+    minWidth,
+    maxWidth,
+    ...style,
   };
 
-  return <div style={containerStyle}>{children}</div>;
+  return createElement(Element, { style: containerStyle }, children);
 };
 
 export default Container;
