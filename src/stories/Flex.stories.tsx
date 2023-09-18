@@ -23,6 +23,7 @@ const meta = {
     alignItems: { control: 'text', defaultValue: 'start' },
     flexWrap: { control: 'text', defaultValue: 'nowrap' },
     justifyContent: { control: 'text', defaultValue: 'start' },
+    gap: { control: 'number', defaultValue: 0 },
   },
 } satisfies Meta<typeof Flex>;
 
@@ -31,13 +32,14 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const RowFlex: Story = {
-  render: ({ css, justifyContent, direction, alignItems, flexWrap }) => (
+  render: ({ css, justifyContent, direction, alignItems, flexWrap, gap }) => (
     <Flex
       css={css}
       justifyContent={justifyContent}
       direction={direction}
       alignItems={alignItems}
       flexWrap={flexWrap}
+      gap={gap}
     >
       <div
         style={{ width: '100px', height: '100px', backgroundColor: 'pink' }}
@@ -57,20 +59,21 @@ export const RowFlex: Story = {
   args: {
     css: {
       backgroundColor: 'rgb(255,255,255)',
-      gap: '30px',
     },
     direction: 'row',
+    gap: 30,
   },
 };
 
 export const ColumnFlex: Story = {
-  render: ({ css, justifyContent, direction, alignItems, flexWrap }) => (
+  render: ({ css, justifyContent, direction, alignItems, flexWrap, gap }) => (
     <Flex
       css={css}
       justifyContent={justifyContent}
       direction={direction}
       alignItems={alignItems}
       flexWrap={flexWrap}
+      gap={gap}
     >
       <div
         style={{ width: '100px', height: '100px', backgroundColor: 'pink' }}
@@ -90,20 +93,21 @@ export const ColumnFlex: Story = {
   args: {
     css: {
       backgroundColor: 'rgb(255,255,255)',
-      gap: '30px',
     },
     direction: 'column',
+    gap: 30,
   },
 };
 
 export const CenterFlex: Story = {
-  render: ({ css, justifyContent, direction, alignItems, flexWrap }) => (
+  render: ({ css, justifyContent, direction, alignItems, flexWrap, gap }) => (
     <Flex
       css={css}
       justifyContent={justifyContent}
       direction={direction}
       alignItems={alignItems}
       flexWrap={flexWrap}
+      gap={gap}
     >
       <div
         style={{

@@ -26,6 +26,10 @@ interface FlexProps extends PropsWithChildren {
    * This prop is used when you want to specify the flex-wrap
    */
   flexWrap?: CSSProperties['flexWrap'];
+  /**
+   * This prop is used when you want to specify the gap
+   */
+  gap?: number;
 }
 
 export default function Flex({
@@ -35,6 +39,7 @@ export default function Flex({
   alignItems = 'start',
   flexWrap = 'nowrap',
   justifyContent = 'start',
+  gap = 0,
   children,
 }: FlexProps) {
   return (
@@ -46,6 +51,7 @@ export default function Flex({
         alignItems,
         flexWrap,
         flexDirection: direction,
+        gap: `${gap}px`,
         ...css,
       }}
     >
