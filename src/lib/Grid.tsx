@@ -5,8 +5,6 @@ interface GridCssProps {
   rows: string;
   columns: string;
   gap: string;
-  rowFraction?: string;
-  columnFraction?: string;
 }
 
 interface GridProps extends GridCssProps {
@@ -16,17 +14,10 @@ interface GridProps extends GridCssProps {
 const Grid = ({
   columns,
   isAutoFill,
-  rowFraction = "1fr",
-  columnFraction = "1fr",
   ...props
 }: PropsWithChildren<GridProps>) => {
   return (
-    <Div
-      columns={isAutoFill ? "auto-fill" : columns}
-      columnFraction={columnFraction}
-      rowFraction={rowFraction}
-      {...props}
-    >
+    <Div columns={isAutoFill ? "auto-fill" : columns} {...props}>
       {props.children}
     </Div>
   );
@@ -34,14 +25,8 @@ const Grid = ({
 
 const GridCss = css<GridCssProps>`
   display: grid;
-  grid-template-columns: repeat(
-    ${(props) => props.columns},
-    ${(props) => props.columnFraction}
-  );
-  grid-template-rows: repeat(
-    ${(props) => props.rows},
-    ${(props) => props.rowFraction}
-  );
+  grid-template-columns: repeat(${(props) => props.columns}, 1fr);
+  grid-template-rows: repeat(${(props) => props.rows}, 1fr);
   gap: ${(props) => props.gap};
   background: skyblue;
 `;
