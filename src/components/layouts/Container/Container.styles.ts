@@ -8,13 +8,9 @@ interface WrapperProps {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
 	width: 100%;
 	min-width: ${(props) => props.minWidth};
 	max-width: ${(props) => props.maxWidth};
-
+	margin: 0 auto;
 	${({ customCss }) => customCss && css({ ...customCss })};
 `;
