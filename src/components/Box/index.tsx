@@ -1,4 +1,6 @@
-const Box = () => {
+import { PropsWithChildren } from 'react';
+
+const Box = ({ children }: PropsWithChildren) => {
 	return (
 		<div
 			style={{
@@ -6,7 +8,9 @@ const Box = () => {
 				height: 100,
 				background: 'red',
 			}}
-		></div>
+		>
+			{children}
+		</div>
 	);
 };
 
