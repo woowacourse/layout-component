@@ -21,4 +21,5 @@ export default defineConfig({
       },
     },
   },
+  base: '/layout-component/',
 });
