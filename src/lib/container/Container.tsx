@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import {
+  CommonLayoutStyleProps,
+  commonLayoutStyle,
+} from '../common/commonLayout';
 
-type ContainerProps = {
-  backgroundColor?: string;
+interface ContainerProps extends CommonLayoutStyleProps {
   minWidth?: number;
   maxWidth?: number;
-};
+}
 
 const breakpoints = {
   sm: '540px',
@@ -15,6 +18,7 @@ const breakpoints = {
 };
 
 const Container = styled.div<ContainerProps>`
+  ${commonLayoutStyle}
   margin: 0 auto;
   padding: 0 16px;
   background-color: ${({ backgroundColor }) =>

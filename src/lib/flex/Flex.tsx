@@ -1,7 +1,11 @@
 // Flex.tsx
 import styled from 'styled-components';
+import {
+  CommonLayoutStyleProps,
+  commonLayoutStyle,
+} from '../common/commonLayout';
 
-interface FlexProps {
+interface FlexProps extends CommonLayoutStyleProps {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   justify?:
     | 'flex-start'
@@ -15,6 +19,7 @@ interface FlexProps {
 }
 
 const Flex = styled.div<FlexProps>`
+  ${commonLayoutStyle}
   display: flex;
   flex-direction: ${(props) => props.direction || 'row'};
   justify-content: ${(props) => props.justify || 'flex-start'};
