@@ -2,6 +2,8 @@
 
 간단한 레이아웃 컴포넌트입니다.
 
+[Storybook](https://6507e70242c4a95757b61d3a-zyyiztqalq.chromatic.com/)
+
 ## 설치 방법
 
 ```sh
