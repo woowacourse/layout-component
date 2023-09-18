@@ -1,6 +1,5 @@
 {
   "name": "@gabrielyoon7/layout-component",
-  "private": false,
   "version": "0.0.1",
   "description": "A layout component for React (with wooteco)",
   "type": "module",
