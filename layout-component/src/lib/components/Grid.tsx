@@ -7,7 +7,7 @@ interface GridProps extends ContainerProps {
   gap: number;
 }
 
-const Grid = styled(Container)<GridProps>`
+export const Grid = styled(Container)<GridProps>`
   display: grid;
 
   margin-left: ${({ marginLeft }) => (marginLeft ? `${marginLeft}px` : "0")};
@@ -19,5 +19,3 @@ const Grid = styled(Container)<GridProps>`
 
   gap: ${({ gap }) => `${gap}px`};
 `;
-
-export default Grid;

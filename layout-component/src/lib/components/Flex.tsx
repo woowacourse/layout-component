@@ -14,7 +14,7 @@ interface FlexProps extends ContainerProps {
   gap?: number;
 }
 
-const Flex = styled(Container)<FlexProps>`
+export const Flex = styled(Container)<FlexProps>`
   display: flex;
   margin-left: ${({ marginLeft }) => marginLeft || "0"};
   margin-right: ${({ marginRight }) => marginRight || "0"};
@@ -24,5 +24,3 @@ const Flex = styled(Container)<FlexProps>`
 
   gap: ${({ gap }) => (gap ? `${gap}px` : null)};
 `;
-
-export default Flex;

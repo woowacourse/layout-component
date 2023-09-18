@@ -1,7 +1,7 @@
 {
   "name": "eyk-layout-component",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,7 +22,6 @@
     }
   },
   "dependencies": {
-    "dist": "link:dist",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.8"

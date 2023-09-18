@@ -15,7 +15,7 @@ export interface ContainerProps {
   marginRight?: number;
 }
 
-const Container = styled.div<ContainerProps>`
+export const Container = styled.div<ContainerProps>`
   display: ${({ display }) => display || "block"};
   margin-left: auto;
   margin-right: auto;
@@ -36,5 +36,3 @@ const Container = styled.div<ContainerProps>`
     backgroundColor ? backgroundColor : "transparent"};
   overflow: ${({ overflow }) => overflow};
 `;
-
-export default Container;

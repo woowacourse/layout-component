@@ -1,3 +1,3 @@
-export { default as Container } from "./components/Container";
-export { default as Flex } from "./components/Flex";
-export { default as Grid } from "./components/Grid";
+export { Container } from "./components/Container";
+export { Flex } from "./components/Flex";
+export { Grid } from "./components/Grid";

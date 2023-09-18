@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  dist:
-    specifier: link:dist
-    version: link:dist
+  eyk-layout-component:
+    specifier: ^1.0.2
+    version: 1.0.2
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2513,6 +2513,17 @@ packages:
   /esutils@2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
+
+  /eyk-layout-component@1.0.2:
+    resolution: {integrity: sha512-CZ587V16n4cM0I0a3LSyAWbAhhvdHfSvCOkztB2RMWu5O1zi6zLS4J934cWPsuzyYDKHX9PRzg75eNkEiCjSDQ==}
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      styled-components: 6.0.8(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - babel-plugin-styled-components
+      - supports-color
+    dev: false
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
