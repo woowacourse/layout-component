@@ -3,14 +3,21 @@
   "type": "module",
   "version": "0.0.3",
   "main": "dist/index.js",
-  "repository": "https://github.com/yogjin/layout-component.git",
-  "author": "Youngjin Park <youngjin988@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogjin/layout-component.git"
+  },
+  "author": {
+    "name": "Youngjin Park",
+    "email": "youngjin988@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "prepack": "yarn build",
     "build": "yarn tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_6744a69bf2949fe"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
@@ -30,6 +37,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/styled-components": "^5.1.27",
+    "chromatic": "^7.1.0",
     "storybook": "^7.4.2",
     "typescript": "^5.2.2"
   },
@@ -37,5 +45,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.8"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yogjin/layout-component/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/yogjin/layout-component#readme",
+  "_id": "@yogjin/layout-component@0.0.3"
 }
