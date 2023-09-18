@@ -1,4 +1,5 @@
 import type { Spacing } from '../styles/spacing';
+import { spacingStyle } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
 import type { Alignment, Size } from './style';
 import { positionStyle, widthStyle } from './style';
@@ -27,7 +28,11 @@ const Container = ({
 
   return (
     <Tag
-      css={[positionStyle(position), widthStyle({ maxWidth, minWidth, fluid, gutter })]}
+      css={[
+        positionStyle(position),
+        widthStyle({ maxWidth, minWidth, fluid, gutter }),
+        spacingStyle({ ...attributes }),
+      ]}
       {...attributes}
     >
       {children}
