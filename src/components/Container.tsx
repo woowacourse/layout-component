@@ -27,6 +27,8 @@ const S = {
     min-width: ${({ $minWidth }) => $minWidth};
     max-width: ${({ $maxWidth }) => $maxWidth};
 
+    margin: 0 auto;
+
     ${({ $etc }) => $etc}
   `,
 };
