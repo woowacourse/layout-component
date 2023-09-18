@@ -10,13 +10,19 @@
     "react",
     "layout component"
   ],
+  "author": "turtle601 <turtle601@naver.com>",
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "contributors": [
     "poomaneoung",
     "turtle601"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/turtle601/layout-component/tree/step1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
