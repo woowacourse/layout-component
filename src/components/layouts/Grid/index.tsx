@@ -5,8 +5,8 @@ import { ValueUnit } from '../../../models/utils';
 
 export interface GridProps extends React.PropsWithChildren {
 	tag?: keyof ContainerTagType;
-	rows: number;
-	cols: number;
+	rows?: number;
+	cols?: number;
 	gap?: ValueUnit;
 	rowLength?: string;
 	colLength?: string;
@@ -16,8 +16,8 @@ export interface GridProps extends React.PropsWithChildren {
 const Grid = (props: GridProps) => {
 	const {
 		tag = 'div',
-		rows,
-		cols,
+		rows = 0,
+		cols = 0,
 		gap = '0px',
 		rowLength = '1fr',
 		colLength = '1fr',
