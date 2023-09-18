@@ -1,5 +1,5 @@
-import {ReactNode} from "react";
-import {StyledGrid} from "./Grid.styles.ts";
+import { ReactNode } from "react";
+import { StyledGrid } from "./Grid.styles.ts";
 
 export interface GridProps {
   rows: number;
@@ -8,12 +8,8 @@ export interface GridProps {
   children: ReactNode;
 }
 
-const Grid = ({children, ...rest}: GridProps) => {
-  return (
-    <StyledGrid $styles={{...rest}}>
-      {children}
-    </StyledGrid>
-  );
+const Grid = ({ children, ...rest }: GridProps) => {
+  return <StyledGrid $styles={{ ...rest }}>{children}</StyledGrid>;
 };
 
 export default Grid;

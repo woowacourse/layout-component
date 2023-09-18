@@ -1,6 +1,6 @@
-import type {Meta} from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import Container from "./Grid.tsx";
-import Grid, {GridProps} from "./Grid.tsx";
+import Grid, { GridProps } from "./Grid.tsx";
 
 const meta = {
   title: "Components/Grid",
@@ -33,10 +33,9 @@ const meta = {
         type: "range",
         min: 1,
         max: 10,
-
       },
       description: "컴포넌트 사이의 간격",
-    }
+    },
   },
 } satisfies Meta<typeof Grid>;
 
@@ -46,22 +45,18 @@ const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui
 
 const LoremIpsumComponent = () => {
   return (
-    <div style={{background: "lightblue"}}>
+    <div style={{ background: "lightblue" }}>
       <p>{loremIpsum}</p>
     </div>
   );
 };
 
-
 export const Default = (args: GridProps) => (
-  <div style={{background: 'yellow'}}>
+  <div style={{ background: "yellow" }}>
     <Container {...args}>
-      {
-        Array.from({length: 30}, (_, i) => i).map((i) => (
-          <LoremIpsumComponent key={i}/>
-        ))
-      }
+      {Array.from({ length: 30 }, (_, i) => i).map((i) => (
+        <LoremIpsumComponent key={i} />
+      ))}
     </Container>
   </div>
 );
-

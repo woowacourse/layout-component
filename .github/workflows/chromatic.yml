@@ -1,8 +1,8 @@
-name: 'Chromatic Deployment'
+name: "Chromatic Deployment"
 
 on:
   push:
-    branches: ['main','gabrielyoon7']
+    branches: ["main", "gabrielyoon7"]
 
 jobs:
   test:

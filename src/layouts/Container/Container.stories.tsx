@@ -1,6 +1,6 @@
-import type {Meta} from "@storybook/react";
-import Container, {ContainerProps, SizeType} from "./Container.tsx";
-import {Fragment} from "react";
+import type { Meta } from "@storybook/react";
+import Container, { ContainerProps, SizeType } from "./Container.tsx";
+import { Fragment } from "react";
 
 const meta = {
   title: "Components/Container",
@@ -12,19 +12,21 @@ const meta = {
   },
   argTypes: {
     maxWidth: {
-      description: "최대 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
+      description:
+        "최대 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
       control: {
         type: "select",
         options: ["sm", "md", "lg", "xl", "xxl"],
-      }
+      },
     },
     minWidth: {
-      description: "최소 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
+      description:
+        "최소 가로 너비를 정합니다. 사이즈로는 sm, md, lg, xl, xxl을 사용할 수 있습니다. 숫자로 값을 직접 입력할 수도 있습니다. 이 경우에는 px 단위로 적용됩니다.",
       control: {
         type: "select",
         options: ["sm", "md", "lg", "xl", "xxl"],
-      }
-    }
+      },
+    },
   },
 } satisfies Meta<typeof Container>;
 
@@ -40,7 +42,7 @@ Morbi at orci mattis, consectetur enim id, pulvinar enim. Curabitur aliquam, era
 
 const LoremIpsumComponent = () => {
   return (
-    <div style={{background: "lightblue"}}>
+    <div style={{ background: "lightblue" }}>
       <h1>Lorem Ipsum</h1>
       <p>{loremIpsum}</p>
     </div>
@@ -50,20 +52,20 @@ const LoremIpsumComponent = () => {
 const sizes: SizeType[] = ["sm", "md", "lg", "xl", "xxl"];
 
 export const Default = (args: ContainerProps) => (
-  <div style={{background: 'yellow'}}>
+  <div style={{ background: "yellow" }}>
     <Container {...args}>
-      <LoremIpsumComponent/>
+      <LoremIpsumComponent />
     </Container>
   </div>
 );
 
 export const MaxWidth = () => (
-  <div style={{background: 'yellow'}}>
+  <div style={{ background: "yellow" }}>
     {sizes.map((size) => (
       <Fragment key={size}>
         <div>{size}</div>
         <Container maxWidth={size}>
-          <LoremIpsumComponent/>
+          <LoremIpsumComponent />
         </Container>
       </Fragment>
     ))}
@@ -71,12 +73,12 @@ export const MaxWidth = () => (
 );
 
 export const MinWidth = () => (
-  <div style={{background: 'yellow'}}>
+  <div style={{ background: "yellow" }}>
     {sizes.map((size) => (
       <Fragment key={size}>
         <div>{size}</div>
         <Container minWidth={size}>
-          <LoremIpsumComponent/>
+          <LoremIpsumComponent />
         </Container>
       </Fragment>
     ))}
