@@ -1,7 +1,15 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
-type AsType = "div" | "main" | "header" | "footer";
+type AsType =
+  | "div"
+  | "main"
+  | "section"
+  | "article"
+  | "nav"
+  | "header"
+  | "footer"
+  | "aside";
 type MediaTargetType = "mobile" | "tablet" | "desktop";
 
 interface ContainerCssProps {
