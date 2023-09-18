@@ -1,19 +1,15 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
+import { CSS } from "styled-components/dist/types";
 
-type DirectionType = "row" | "column";
-type OrderWayType =
-  | "center"
-  | "flex-start"
-  | "flex-end"
-  | "space-between"
-  | "space-around"
-  | "space-evenly";
+type DirectionType = CSS.Property.FlexDirection;
+type JustifyType = CSS.Property.JustifyContent;
+type AlignType = CSS.Property.AlignItems;
 
 interface FlexCssProps {
   direction?: DirectionType;
-  justify?: OrderWayType;
-  align?: OrderWayType;
+  justify?: JustifyType;
+  align?: AlignType;
   gap?: string;
 }
 
