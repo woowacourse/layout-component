@@ -2,7 +2,7 @@ name: "Chromatic Deployment"
 
 on:
   push:
-    branches: [ "main", "gabrielyoon7", "step1", "step2" ]
+    branches: ["main", "gabrielyoon7", "step1", "step2"]
 
 jobs:
   test:
