@@ -11,6 +11,7 @@ const meta = {
 } satisfies Meta<typeof Container>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const ContainerLayout: Story = {
@@ -92,6 +93,10 @@ export const ContainerLayout: Story = {
     bottom: {
       description:
         'container의 position bottom 값을 설정합니다. 숫자 또는 문자열을 전달할 수 있습니다.',
+    },
+    overflow: {
+      description:
+        'container의 overflow 값을 설정합니다. overflow에 해당하는 옵션 값만 전달할 수 있습니다.',
     },
     cursor: {
       description:
