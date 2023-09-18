@@ -17,23 +17,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const render = (args: ComponentProps<typeof Flex>) => (
-  <div
-    style={{ width: '300px', border: '1px solid dodgerblue', padding: '40px' }}>
+  <div style={{ width: 300, padding: 40, border: '1px solid dodgerblue' }}>
     <Flex {...args}>
       <div
         style={{
-          width: '100px',
+          width: 100,
+          padding: 5,
           border: '1px solid crimson',
-          padding: '5px',
           textAlign: 'center',
         }}>
         child1
       </div>
       <div
         style={{
-          width: '100px',
+          width: 100,
+          padding: 5,
           border: '1px solid crimson',
-          padding: '5px',
           textAlign: 'center',
         }}>
         child2
