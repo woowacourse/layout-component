@@ -1,6 +1,6 @@
 {
   "name": "layout-component-dahyeeee",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "기본 react layout을 사용할 수 있는 라이브러리",
   "homepage": "http://dahyeeee.github.io/layout-component",
   "license": "MIT",
@@ -37,8 +37,7 @@
     "@emotion/styled": "^11.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "styled-components": "^6.0.8"
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
