@@ -1,4 +1,4 @@
-import {Grid} from "../../../lib";
+import {Grid} from "../../lib";
 
 const GridExample = () => {
   return (

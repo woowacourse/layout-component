@@ -1,4 +1,4 @@
-import {Container} from "../../../lib";
+import {Container} from "../../lib";
 
 function ContainerExample() {
   return (
