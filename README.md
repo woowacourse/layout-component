@@ -2,19 +2,23 @@
 
 재사용 가능한 기본 레이아웃 컴포넌트를 모아놓은 라이브러리입니다.
 
-- Container
-- Grid
-- Flex
+> - Container
+> - Grid
+> - Flex
 
 ## Installation
 
 ### npm
 
-`npm install chex-layout-component`
+```
+npm install chex-layout-component
+```
 
 ### yarn
 
-`yarn add chex-layout-component`
+```
+yarn add chex-layout-component
+```
 
 ## Container
 
