@@ -1,19 +1,32 @@
+import { CSSProperties, ReactNode, createElement } from "react";
+import { Unit } from "../types";
+
 interface GridProps {
-  children: React.ReactNode;
-  rows: number;
-  columns: number;
-  gap?: number;
+  children: ReactNode;
+  rows: string;
+  columns: string;
+  gap: `${number}${Unit}`;
+  style?: CSSProperties;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-const Grid = ({ children, rows, columns, gap = 0 }: GridProps) => {
-  const gridStyle: React.CSSProperties = {
+const Grid = ({
+  children,
+  rows,
+  columns,
+  gap,
+  style,
+  as: Element = "div",
+}: GridProps) => {
+  const gridStyle: CSSProperties = {
     display: "grid",
-    gridTemplateRows: `repeat(${rows}, 1fr)`,
-    gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    gap: `${gap}px`,
+    gridTemplateRows: rows,
+    gridTemplateColumns: columns,
+    gap,
+    ...style,
   };
 
-  return <div style={gridStyle}>{children}</div>;
+  return createElement(Element, { style: gridStyle }, children);
 };
 
 export default Grid;
