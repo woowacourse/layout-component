@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks';
+import * as GridStories from './Grid.stories';
+
+<Meta title='Grid' of={GridStories} />
+
+# Grid
+
+Grid 레이아웃 (2차원 정렬)을 생성하기 위한 컴포넌트
+
+## Props
+
+<Controls />
+
+## Default
+
+<Canvas>
+  <Story of={GridStories.Default} />
+</Canvas>
+
+## SpanningColumns
+
+<Canvas>
+  <Story of={GridStories.SpanningColumns} />
+</Canvas>
+
+## TemplateAreas
+
+<Canvas>
+  <Story of={GridStories.TemplateAreas} />
+</Canvas>

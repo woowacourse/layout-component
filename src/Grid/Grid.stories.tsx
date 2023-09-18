@@ -6,6 +6,9 @@ const meta: Meta<typeof Grid> = {
   title: 'Grid',
   component: Grid,
   argTypes: {
+    areas: {
+      control: 'text',
+    },
     children: {
       control: false,
     },
@@ -80,31 +83,4 @@ export const TemplateAreas: Story = {
       </>
     ),
   },
-};
-
-export const Temp: Story = {
-  render: () => (
-    <Grid
-      areas={`"header header"
-      "nav main"
-      "nav footer"`}
-      rows={3}
-      columns={4}
-      gap={2}
-      height='200px'
-    >
-      <GridItem area={'header'} backgroundColor='#FF727B'>
-        Header
-      </GridItem>
-      <GridItem area={'nav'} backgroundColor='#FFC37B'>
-        Nav
-      </GridItem>
-      <GridItem area={'main'} backgroundColor='#F5FF91'>
-        Main
-      </GridItem>
-      <GridItem area={'footer'} backgroundColor='#6FFFCB'>
-        Footer
-      </GridItem>
-    </Grid>
-  ),
 };

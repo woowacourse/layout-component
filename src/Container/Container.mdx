@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks';
+import * as ContainerStories from './Container.stories';
+
+<Meta title='Container' of={ContainerStories} />
+
+# Container
+
+화면의 폭에 따라 내용의 폭을 조절하고 레이아웃을 배치하는 컴포넌트
+
+## Props
+
+<Controls />
+
+## Default
+
+<Canvas>
+  <Story of={ContainerStories.Default} />
+</Canvas>
+
+## Center
+
+<Canvas>
+  <Story of={ContainerStories.CenterContainer} />
+</Canvas>
+
+## BorderRadius
+
+<Canvas>
+  <Story of={ContainerStories.BorderRadiusContainer} />
+</Canvas>

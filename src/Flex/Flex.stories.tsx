@@ -56,11 +56,13 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     direction: 'row',
+    gap: 12,
+    width: '300px',
     children: (
       <>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
+        <div style={{ background: '#D8EAFF' }}>Item 1</div>
+        <div style={{ background: '#D8EAFF' }}>Item 2</div>
+        <div style={{ background: '#D8EAFF' }}>Item 3</div>
       </>
     ),
   },
@@ -72,9 +74,9 @@ export const Column: Story = {
     gap: 20,
     children: (
       <>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
+        <div style={{ background: '#FFEC99' }}>Item 1</div>
+        <div style={{ background: '#FFEC99' }}>Item 2</div>
+        <div style={{ background: '#FFEC99' }}>Item 3</div>
       </>
     ),
   },
