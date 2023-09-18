@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 
 interface FlexProps extends React.PropsWithChildren {
   direction: "row" | "column";
@@ -23,15 +22,12 @@ export default function Flex({
   children,
 }: FlexProps) {
   const style = {
+    display: "flex",
     flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
     gap: `${gap}px`,
   };
 
-  return (
-    <div className="flex" style={style}>
-      {children}
-    </div>
-  );
+  return <div style={style}>{children}</div>;
 }

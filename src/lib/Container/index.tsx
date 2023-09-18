@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 
 interface ContainerProps extends React.PropsWithChildren {
   minWidth: string;
@@ -20,7 +19,7 @@ export default function Container({
   };
 
   return (
-    <div className="container">
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div style={style}>{children}</div>
     </div>
   );
