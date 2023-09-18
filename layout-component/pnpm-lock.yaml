@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   eyk-layout-component:
-    specifier: ^1.0.2
-    version: 1.0.2
+    specifier: ^1.0.4
+    version: 1.0.4
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2514,8 +2514,8 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
-  /eyk-layout-component@1.0.2:
-    resolution: {integrity: sha512-CZ587V16n4cM0I0a3LSyAWbAhhvdHfSvCOkztB2RMWu5O1zi6zLS4J934cWPsuzyYDKHX9PRzg75eNkEiCjSDQ==}
+  /eyk-layout-component@1.0.4:
+    resolution: {integrity: sha512-pmCaMX7t0fENKEnsJZZrv+0h8yqKBNQ/v2ya5KqkEEfyLZxkl+INgypl8E7CaAY1euuvjbfSqVbxC7JON53pzg==}
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

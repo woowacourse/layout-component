@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container, { ContainerProps } from "./Container";
+import { Container, ContainerProps } from "./Container";
 
 interface GridProps extends ContainerProps {
   rows: number;

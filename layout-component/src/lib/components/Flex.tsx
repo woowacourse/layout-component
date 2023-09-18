@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container, { ContainerProps } from "./Container";
+import { Container, ContainerProps } from "./Container";
 
 interface FlexProps extends ContainerProps {
   direction?: "row" | "row-reverse" | "column" | "column-reverse";
