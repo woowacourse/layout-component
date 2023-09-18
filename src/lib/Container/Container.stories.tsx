@@ -87,3 +87,11 @@ export const CustomContainer: Story = {
     },
   },
 };
+
+export const WidthErrorContainer: Story = {
+  args: {
+    $minWidth: 'md',
+    $maxWidth: 'sm',
+    children: 'Error',
+  },
+};

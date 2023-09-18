@@ -22,8 +22,19 @@ const WIDTH_SIZE = {
   xl: '1500px',
 } as const;
 
+const WIDTH_SIZES = Object.keys(WIDTH_SIZE);
+
 function Container(props: PropsWithChildren<ContainerProps>) {
   const { children, ...layoutProps } = props;
+
+  if (
+    layoutProps.$maxWidth &&
+    layoutProps.$minWidth &&
+    WIDTH_SIZES.indexOf(layoutProps.$maxWidth) <
+      WIDTH_SIZES.indexOf(layoutProps.$minWidth)
+  ) {
+    throw new Error('최소 폭은 최대 폭 보다 클 수 없습니다.');
+  }
 
   return <Layout {...layoutProps}>{props.children}</Layout>;
 }
