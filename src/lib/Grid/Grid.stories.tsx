@@ -17,6 +17,12 @@ const customGridItemStyle = {
 };
 
 export const DefaultGrid: Story = {
+  argTypes: {
+    align: {
+      control: 'select',
+      options: [1, 2, 3],
+    },
+  },
   render: () => {
     return (
       <Grid columns={4} gap="20px">

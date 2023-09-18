@@ -6,6 +6,23 @@ type Story = StoryObj<typeof Container>;
 const meta: Meta<typeof Container> = {
   title: 'LAYOUT/Container',
   component: Container,
+  argTypes: {
+    $maxWidth: {
+      control: 'select',
+      description: 'Container의 최대 폭을 정합니다.',
+    },
+    $minWidth: {
+      control: 'select',
+      description: 'Container의 최소 폭을 정합니다.',
+    },
+    background: {
+      control: 'text',
+      description: 'Container의 배경을 정합니다.',
+    },
+    children: {
+      description: 'Container의 자식 요소입니다.',
+    },
+  },
 };
 
 export default meta;

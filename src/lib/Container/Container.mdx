@@ -1,0 +1,19 @@
+import {
+  Meta,
+  ArgTypes,
+  Canvas,
+  Controls,
+  Source,
+  Title,
+  Description,
+} from '@storybook/blocks';
+import * as ContainerStories from './Container.stories';
+
+<Title>Container</Title>
+<Description>
+  {`화면의 폭에 따라 내용의 최대 폭을 제한하고 중앙에 배치하는 레이아웃입니다.`}
+</Description>
+<Canvas of={ContainerStories.XSmallContainer} />
+<Meta of={ContainerStories} />
+<Source of={ContainerStories.XSmallContainer} />
+<Controls of={ContainerStories.XSmallContainer} />
