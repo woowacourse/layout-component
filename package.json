@@ -1,11 +1,11 @@
 {
   "name": "bobs-layout",
   "private": false,
-  "version": "0.0.1",
-  "type": "module",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
   "description": "bob's layout library. supports Container, Flex, Grid",
   "keywords": [
     "react",
@@ -20,8 +20,7 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
   "dependencies": {
@@ -43,7 +42,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "publish": "rm -rf dist && mkdir dist && tsc && npm publish"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "bobs-layout": "^0.0.3",
     "prettier": "^3.0.3"
   }
 }
