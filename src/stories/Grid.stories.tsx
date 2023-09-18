@@ -11,22 +11,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const SampleChild = () => {
-  return <div style={{ border: '1px solid pink' }}>item</div>;
+const SampleChild = ({ id }: { id: number }) => {
+  return (
+    <div style={{ border: '1px solid pink', margin: '5px' }}>item{id}</div>
+  );
 };
 
 export const Playground: Story = {
   render: (args) => {
     return (
       <Grid {...args} style={{ border: '1px solid black' }}>
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
-        <SampleChild />
+        {[1, 2, 3, 4, 5, 6, 7].map((id) => (
+          <SampleChild id={id} />
+        ))}
       </Grid>
     );
   },

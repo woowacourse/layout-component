@@ -11,11 +11,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const SampleChild = ({ id }: { id: number }) => {
+  return (
+    <Container
+      maxWidth={100}
+      style={{ padding: '5px', border: '1px solid gray' }}
+    >
+      Child{id}
+    </Container>
+  );
+};
+
 export const Playground: Story = {
   render: (args) => {
     return (
       <Container {...args} style={{ border: '1px solid black' }}>
-        container
+        {[1, 2, 3, 4].map((id) => (
+          <SampleChild id={id} />
+        ))}
       </Container>
     );
   },

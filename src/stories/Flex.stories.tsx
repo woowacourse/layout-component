@@ -11,11 +11,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const SampleChild = ({ id }: { id: number }) => {
+  return (
+    <div style={{ padding: '5px', border: '1px solid gray' }}>Child{id}</div>
+  );
+};
+
 export const Playground: Story = {
   render: (args) => {
     return (
       <Flex {...args} style={{ border: '1px solid black' }}>
-        flexFlex
+        {[1, 2, 3, 4].map((id) => (
+          <SampleChild id={id} />
+        ))}
       </Flex>
     );
   },
