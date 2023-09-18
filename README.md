@@ -30,6 +30,8 @@ import { Flex } from "slinky-layout-component";
 </Flex>;
 ```
 
+## Grid 컴포넌트
+
 ```tsx
 import { Grid } from "slinky-layout-component";
 
