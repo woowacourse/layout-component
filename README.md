@@ -20,7 +20,9 @@ It's the most basic layout element. You can wrap childrens or design background.
 
 ## `Props`
 
-All props is optional.
+All props are optional.
+
+#### `children`?: ReactNode
 
 #### `as`?: "div" | "main" | "header" | "footer"
 
@@ -29,7 +31,7 @@ All props is optional.
 
 #### `mediaTarget`?: "mobile" | "tablet" | "desktop"
 
-- It provides appropiate width responding to media target.
+- It provides appropiate minWidth and maxWidth responding to media target.
 
 #### `minWidth`?: string
 
@@ -74,7 +76,9 @@ Flex component can quickly manage the alignment of its children components.
 
 ## `Props`
 
-All props is optional.
+All props are optional.
+
+#### `children`?: ReactNode
 
 #### `direction`?: "column" | "column-reverse" | "row" | "row-reverse"
 
@@ -112,6 +116,8 @@ Grid layout is a two-dimensional layout system. This feature allows you to conte
 ## `Props`
 
 `rows` and `columns` are required.
+
+#### `children`?: ReactNode
 
 #### `rows`: string
 
