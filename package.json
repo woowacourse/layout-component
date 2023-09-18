@@ -1,7 +1,22 @@
 {
-  "name": "layout-component",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-tiny-layout",
+  "description": "n0eyes-react-tiny-layout",
+  "version": "1.0.0",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "keywords": [
+    "react",
+    "component",
+    "layout",
+    "tiny"
+  ],
+  "author": "n0eyes <seyeon4199@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n0eyes/layout-component.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -21,6 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
