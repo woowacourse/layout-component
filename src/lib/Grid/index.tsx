@@ -4,7 +4,7 @@ import { css, styled } from "styled-components";
 interface GridCssProps {
   rows: string;
   columns: string;
-  gap: string;
+  gap?: string;
 }
 
 interface GridProps extends GridCssProps {

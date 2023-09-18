@@ -18,7 +18,7 @@ interface ContainerCssProps {
 }
 
 interface ContainerProps extends ContainerCssProps {
-  as: AsType;
+  as?: AsType;
   mediaTarget?: MediaTargetType;
 }
 
