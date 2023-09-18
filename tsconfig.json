@@ -4,12 +4,14 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
+    "outDir": "dist",
 
     "strict": true,
     "exactOptionalPropertyTypes": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "declaration": true
   },
 
-  "include": ["src/**/*"]
+  "include": ["src/index.ts"]
 }
