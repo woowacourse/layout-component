@@ -51,4 +51,4 @@ import { Grid } from '@se-een/layout-component';
 </Grid>;
 ```
 
-더 자세한 사용 방법은 스토리북에서 확인해 보세요.
+더 자세한 사용 방법은 [스토리북](https://650806462077bdd1feb62ede-spowudpzwg.chromatic.com/?path=/docs/layout-container--docs)에서 확인해 보세요.
