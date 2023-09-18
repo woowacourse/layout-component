@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-            - name: Install dependencies
+      - name: Install dependencies
         run: npm install
       - uses: chromaui/action@v1
         with:
