@@ -1,10 +1,10 @@
-import { PropsWithChildren, Children } from 'react';
+import { PropsWithChildren } from 'react';
 
 type GridProps<C extends React.ElementType> = {
   as?: C;
   rows?: React.CSSProperties['gridTemplateRows'];
   columns?: React.CSSProperties['gridTemplateColumns'];
-  area?: React.CSSProperties['gridTemplateAreas'];
+  areas?: React.CSSProperties['gridTemplateAreas'];
   rowGap?: React.CSSProperties['rowGap'];
   columnGap?: React.CSSProperties['columnGap'];
   gap?: React.CSSProperties['gap'];
@@ -14,7 +14,7 @@ const Grid = <C extends React.ElementType = 'div'>({
   as,
   rows,
   columns,
-  area,
+  areas,
   rowGap,
   columnGap,
   gap,
@@ -28,7 +28,7 @@ const Grid = <C extends React.ElementType = 'div'>({
     display: 'grid',
     gridTemplateRows,
     gridTemplateColumns,
-    gridTemplateArea: area,
+    gridTemplateAreas: areas,
     rowGap,
     columnGap,
     gap,
@@ -42,5 +42,22 @@ const Grid = <C extends React.ElementType = 'div'>({
     </Component>
   );
 };
+
+type ItemProps<C extends React.ElementType> = {
+  as?: C;
+  area?: React.CSSProperties['gridArea'];
+} & React.ComponentPropsWithoutRef<C>;
+
+const Item = <C extends React.ElementType = 'div'>({ as, area, children }: PropsWithChildren<ItemProps<C>>) => {
+  const Component = as || 'div';
+
+  const styles = {
+    gridArea: area,
+  };
+
+  return <Component style={styles}>{children}</Component>;
+};
+
+Grid.Item = Item;
 
 export default Grid;
