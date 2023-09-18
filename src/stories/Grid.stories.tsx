@@ -6,6 +6,7 @@ type Story = StoryObj<typeof Grid>;
 
 const meta: Meta<typeof Grid> = {
   title: "LAYOUT/Grid",
+  tags: ["autodocs"],
   component: Grid,
 };
 
@@ -26,5 +27,22 @@ export const Default: Story = {
         <div>Item6</div>
       </>
     ),
+  },
+  argTypes: {
+    rows: {
+      description: "격자의 행 수를 지정합니다.",
+    },
+    columns: {
+      description: "격자의 열 수를 지정합니다.",
+    },
+    rowGap: {
+      description: "행 사이의 간격을 지정합니다. px 단위로 설정됩니다.",
+    },
+    columnGap: {
+      description: "열 사이의 간격을 지정합니다. px 단위로 설정됩니다.",
+    },
+    gap: {
+      description: "행과 열 사이 간격을 지정합니다. px 단위로 설정됩니다.",
+    },
   },
 };
