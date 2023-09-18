@@ -1,4 +1,5 @@
 import * as path from "path";
+import react from '@vitejs/plugin-react';
 
 import {defineConfig} from "vite";
 import dts from "vite-plugin-dts";
@@ -6,7 +7,7 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/lib/index.ts"),
+      entry: path.resolve(__dirname, "src/lib/index.tsx"),
       name: "index",
       fileName: "index",
     },
@@ -22,6 +23,6 @@ export default defineConfig({
       esmExternals: ["react"],
     },
   },
-  plugins: [dts()],
+  plugins: [react(), dts()],
   base: "/layout-component/",
 });
