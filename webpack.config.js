@@ -3,7 +3,7 @@ const { join } = require('path');
 module.exports = {
   entry: join(__dirname, 'src', 'index.tsx'),
   output: {
-    path: join(__dirname, 'lib'),
+    path: join(__dirname, 'dist'),
     filename: 'index.js',
     clean: true,
   },

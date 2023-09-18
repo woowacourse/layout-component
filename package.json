@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/bassyu/layout-component#readme",
   "scripts": {
+    "build": "webpack --mode production",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -37,6 +38,7 @@
     "storybook": "^7.4.2",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
