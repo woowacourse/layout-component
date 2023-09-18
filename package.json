@@ -1,7 +1,7 @@
 {
-  "name": "layout-component",
-  "version": "0.0.1",
-  "description": "layout-component",
+  "name": "slinky-layout-component",
+  "version": "0.0.4",
+  "description": "slinky-layout-component",
   "homepage": "https://github.com/dladncks1217/layout-component",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -14,13 +14,14 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "publish:npm": "rm -rf dist && mkdir dist && tsc && rm -rf ./dist/stories && cp -r ./src/assets ./dist && tsc-alias",
-    "chromatic": "npx chromatic --project-token=chpt_9e90f3a3f28a532",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "chromatic": "npx chromatic --project-token=chpt_f3c42b4fef063bf"
   },
   "keywords": [
     "react",
     "ui",
-    "react-components"
+    "react-components",
+    "slinky-layout-component"
   ],
   "contributor": {
     "name": "Woochan Lim",
@@ -57,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "babel-plugin-react-require": "^4.0.0",
-    "chromatic": "^6.19.9",
+    "chromatic": "^6.24.1",
     "eslint": "^8.44.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
@@ -80,5 +81,7 @@
   },
   "bugs": {
     "url": "https://https://github.com/dladncks1217/layout-component/issues"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "layout-component@0.0.1"
 }
