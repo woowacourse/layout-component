@@ -2,6 +2,7 @@
   "name": "layout-component-dahyeeee",
   "version": "0.0.9",
   "description": "기본 react layout을 사용할 수 있는 라이브러리",
+  "homepage": "http://dahyeeee.github.io/layout-component",
   "license": "MIT",
   "author": {
     "name": "Dahye Yun",
@@ -29,6 +30,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "deploy-storybook": "gh-pages -d storybook-static",
     "chromatic": "npx chromatic --project-token=chpt_bd24d1d7a80d004"
   },
   "dependencies": {
@@ -59,6 +61,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "gh-pages": "^6.0.0",
     "storybook": "^7.4.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
