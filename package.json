@@ -1,6 +1,6 @@
 {
   "name": "slinky-layout-component",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "slinky-layout-component",
   "homepage": "https://github.com/dladncks1217/layout-component",
   "main": "dist/index.js",
