@@ -4,7 +4,7 @@ import Container, { ContainerProps } from './Container'
 interface FlexProps extends ContainerProps {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
-  justify: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around'
+  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around'
   align?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline'
 
   flexBasis?: number
