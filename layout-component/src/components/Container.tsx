@@ -10,6 +10,8 @@ export interface ContainerProps {
   minHeight?: string;
   backgroundColor?: string;
   overflow?: "hidden" | "scroll" | "auto" | "visible";
+  marginLeft?: number;
+  marginRight?: number;
 }
 
 const Container = styled.div<ContainerProps>`
