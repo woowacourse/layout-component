@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 interface FlexProps extends HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
-  direction: string;
+  direction: 'row' | 'column';
   justify: string;
   align: string;
   gap?: string;

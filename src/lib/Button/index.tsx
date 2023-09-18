@@ -5,7 +5,6 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   primary?: boolean;
   size?: 'sm' | 'md' | 'lg';
   label: string;
-  onClick?: () => void;
 }
 
 export default function Button({
