@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {GlobalStyle} from "./styles/GlobalStyle.ts";
-import router from "./router.tsx";
-import {RouterProvider} from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GlobalStyle/>
-    <RouterProvider router={router}/>
+    <a href="https://65068c38c8cef469d3e5e634-mnopgfqwtw.chromatic.com/?path=/docs/configure-your-project--docs">
+      스토리북에서 보기
+    </a>
   </React.StrictMode>
 );
