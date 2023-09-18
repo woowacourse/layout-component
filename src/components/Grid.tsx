@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   children?: ReactNode;
   rows?: number;
   columns?: number;
-  gap?: string;
+  gap?: CSSProperties["gap"];
 }
 
 const Grid = ({ children, rows, columns, gap, ...rest }: Props) => {
@@ -22,7 +22,7 @@ const S = {
   Wrapper: styled.div<{
     $rows?: number;
     $columns?: number;
-    $gap?: string;
+    $gap?: CSSProperties["gap"];
   }>`
     display: grid;
     grid-template-rows: ${({ $rows }) => `repeat(${$rows}, 1fr)`};

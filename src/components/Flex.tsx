@@ -1,14 +1,14 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
 interface Props extends ComponentPropsWithoutRef<"div"> {
   children?: ReactNode;
-  direction?: string;
-  flexWrap?: string;
-  justifyContent?: string;
-  alignItems?: string;
-  alignContent?: string;
-  gap?: string;
+  direction?: CSSProperties["flexDirection"];
+  flexWrap?: CSSProperties["flexWrap"];
+  justifyContent?: CSSProperties["justifyContent"];
+  alignItems?: CSSProperties["alignItems"];
+  alignContent?: CSSProperties["alignContent"];
+  gap?: CSSProperties["gap"];
 }
 
 const Flex = ({
@@ -40,12 +40,12 @@ export default Flex;
 
 const S = {
   Wrapper: styled.div<{
-    $direction?: string;
-    $flexWrap?: string;
-    $justifyContent?: string;
-    $alignItems?: string;
-    $alignContent?: string;
-    $gap?: string;
+    $direction?: CSSProperties["flexDirection"];
+    $flexWrap?: CSSProperties["flexWrap"];
+    $justifyContent?: CSSProperties["justifyContent"];
+    $alignItems?: CSSProperties["alignItems"];
+    $alignContent?: CSSProperties["alignContent"];
+    $gap?: CSSProperties["gap"];
   }>`
     display: flex;
     flex-direction: ${({ $direction }) => $direction};
