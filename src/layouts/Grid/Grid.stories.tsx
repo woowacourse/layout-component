@@ -1,6 +1,6 @@
-import type { Meta } from "@storybook/react";
-import Container, { GridProps } from "./Grid.tsx";
-import Grid from "./Grid.tsx";
+import type {Meta} from "@storybook/react";
+import Container from "./Grid.tsx";
+import Grid, {GridProps} from "./Grid.tsx";
 
 const meta = {
   title: "Components/Grid",
@@ -46,7 +46,7 @@ const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui
 
 const LoremIpsumComponent = () => {
   return (
-    <div style={{ background: "lightblue" }}>
+    <div style={{background: "lightblue"}}>
       <p>{loremIpsum}</p>
     </div>
   );
@@ -54,14 +54,14 @@ const LoremIpsumComponent = () => {
 
 
 export const Default = (args: GridProps) => (
-  <>
+  <div style={{background: 'yellow'}}>
     <Container {...args}>
       {
-        Array.from({ length: 30 }, (_, i) => i).map((i) => (
-          <LoremIpsumComponent key={i} />
+        Array.from({length: 30}, (_, i) => i).map((i) => (
+          <LoremIpsumComponent key={i}/>
         ))
       }
     </Container>
-  </>
+  </div>
 );
 

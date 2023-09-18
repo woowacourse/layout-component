@@ -51,15 +51,15 @@ const LoremIpsumComponent = () => {
 const sizes: SizeType[] = ["sm", "md", "lg", "xl", "xxl"];
 
 export const Default = (args: ContainerProps) => (
-  <>
+  <div style={{background: 'yellow'}}>
     <Container {...args}>
       <LoremIpsumComponent/>
     </Container>
-  </>
+  </div>
 );
 
 export const MaxWidth = () => (
-  <>
+  <div style={{background: 'yellow'}}>
     {sizes.map((size) => (
       <Fragment key={size}>
         <div>{size}</div>
@@ -68,11 +68,11 @@ export const MaxWidth = () => (
         </Container>
       </Fragment>
     ))}
-  </>
+  </div>
 );
 
 export const MinWidth = () => (
-  <>
+  <div style={{background: 'yellow'}}>
     {sizes.map((size) => (
       <Fragment key={size}>
         <div>{size}</div>
@@ -81,5 +81,5 @@ export const MinWidth = () => (
         </Container>
       </Fragment>
     ))}
-  </>
+  </div>
 );

@@ -55,7 +55,7 @@ const LoremIpsumComponent = () => {
 
 
 export const Default = (args: FlexProps) => (
-  <>
+  <div style={{background: 'yellow'}}>
     <Container {...args}>
       {
         Array.from({length: 3}, (_, i) => i).map((i) => (
@@ -63,6 +63,6 @@ export const Default = (args: FlexProps) => (
         ))
       }
     </Container>
-  </>
+  </div>
 );
 
