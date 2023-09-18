@@ -1,6 +1,43 @@
-<p align="middle" >
-  <img width="100px;" src="https://em-content.zobj.net/source/skype/289/straight-ruler_1f4cf.png"/>
-</p>
-<h2 align="middle">누구나 사용할 수 있는 레이아웃 컴포넌트</h2>
-<p align="middle">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>
-<br/>
+# @bassyu/layout-component
+
+## Example
+
+### Container
+
+```tsx
+import { Container } from '@bassyu/layout-component';
+
+const App = () => (
+  <Container minWidth={600} maxWidth={960}>
+    <div>Content</div>
+  </Container>
+);
+```
+
+### Grid
+
+```tsx
+import { Grid } from '@bassyu/layout-component';
+
+const App = () => (
+  <Grid rows={3} columns={3} gap={10} minWidth={600} maxWidth={960}>
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </Grid>
+);
+```
+
+### Flex
+
+```tsx
+import { Flex } from '@bassyu/layout-component';
+
+const App = () => (
+  <Flex direction="row" justify="center" align="center" gap={5} minWidth={600} maxWidth={960}>
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </Flex>;
+);
+```
