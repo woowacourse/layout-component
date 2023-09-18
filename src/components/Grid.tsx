@@ -2,10 +2,25 @@ import type { HTMLAttributes, PropsWithChildren } from "react";
 import styled from "styled-components";
 
 interface GridProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Grid 컴포넌트의 열 개수
+   */
   rows?: number | string;
+  /**
+   * Grid 컴포넌트의 행 개수
+   */
   columns?: number | string;
+  /**
+   * Grid 컴포넌트의 gap 크기
+   */
   gap?: number | string;
+  /**
+   * Grid 컴포넌트의 row gap 크기
+   */
   rowGap?: number | string;
+  /**
+   * Grid 컴포넌트의 column gap 크기
+   */
   columnGap?: number | string;
 }
 
