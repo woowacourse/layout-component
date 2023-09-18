@@ -1,11 +1,11 @@
 {
   "name": "@gabrielyoon7/layout-component",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A layout component for React (with woowacourse)",
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
