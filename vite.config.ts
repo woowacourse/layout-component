@@ -24,5 +24,6 @@ export default defineConfig({
       esmExternals: ['react'],
     },
   },
-  plugins: [dts(), react(), tsconfigPaths()],
+  plugins: [react(), dts(), tsconfigPaths()],
+  base: '/layout-component/',
 });
