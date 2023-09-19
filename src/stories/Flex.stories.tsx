@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Flex from "~/components/Flex";
+import Flex from "../components/Flex";
 
 const meta = {
   title: "Layout/Flex",

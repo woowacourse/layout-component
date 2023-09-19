@@ -18,7 +18,6 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx"],
     modules: ["node_modules"],
-    alias: { "~": join(__dirname, ".", "src/") },
   },
   module: {
     rules: [{ test: /\.tsx?$/, use: "ts-loader", exclude: /node_modules/ }],
