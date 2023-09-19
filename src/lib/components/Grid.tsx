@@ -13,9 +13,10 @@ interface Props {
   columns: number;
   gap: Gap;
   children?: React.ReactNode;
+  display: "grid" | "inline-grid";
 }
 
-function Grid({ rows, columns, gap, children }: Props) {
+function Grid({ rows, columns, gap, children, display = "grid" }: Props) {
   let rowGap: GapFormat = 0;
   let columnGap: GapFormat = 0;
 
@@ -27,7 +28,7 @@ function Grid({ rows, columns, gap, children }: Props) {
   }
 
   const gridStyle = {
-    display: "grid",
+    display,
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
     rowGap: rowGap || "0",

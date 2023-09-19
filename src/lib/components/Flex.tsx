@@ -5,6 +5,7 @@ interface Props {
   justify?: CSSProperties["justifyContent"];
   align?: CSSProperties["alignItems"];
   wrap?: CSSProperties["flexWrap"];
+  display?: "flex" | "inline-flex";
   gap?: GapFormat;
   children?: ReactNode;
 }
@@ -15,10 +16,11 @@ function Flex({
   align = "stretch",
   gap = 0,
   wrap = "nowrap",
+  display = "flex",
   children,
 }: Props) {
   const flexContainerStyle = {
-    display: "flex",
+    display,
     flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
