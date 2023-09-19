@@ -1,54 +1,50 @@
 import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
+import Flex from "./Flex";
 
-type Border = "s";
-type Direction = "t" | "r" | "l" | "b";
-type Position = "r" | "a" | "f" | "s";
-
-type CSSPropertiesType =
-  | "mxw"
-  | "mxh"
-  | "mnw"
-  | "mnh"
-  | "w"
-  | "h"
-  | "mt"
-  | "mr"
-  | "ml"
-  | "mb"
-  | "pt"
-  | "pr"
-  | "pl"
-  | "pb"
-  | "p"
-  | "bg"
-  | "bd"
-  | "bdr";
-
-type NumberOrStringPropertyType<T extends string> = Record<
-  `${T}-${number | string}`,
-  boolean
->;
-
-type NumberOrStringPropertyKey =
-  | "mxw"
-  | "mxh"
-  | "mnw"
-  | "mnh"
-  | "w"
-  | "h"
-  | "bg"
-  | "bdr";
-
-interface ContainerProps
-  extends HTMLAttributes<HTMLElement>,
-    NumberOrStringPropertyType<NumberOrStringPropertyKey>,
-    NumberOrStringPropertyType<`m${Direction}` | `p${Direction}`>,
-    Record<`p-${Position}`, boolean>,
-    Record<`bd-${number}-${Border}-${string | number}`, boolean> {
-  style: CSSProperties;
-}
+type CSSUnit = "rem" | "em" | "px" | "vh" | "vw" | "%";
+type SizeCSSType = "mxw" | "mxh" | "mnw" | "mnh" | "w" | "h";
+type BoxCSSType = "mt" | "mr" | "ml" | "mb" | "pt" | "pr" | "pl" | "pb";
+type BorderCSSType = "bw" | "bs" | "bc" | "br";
+type StyleCSSType = "bgc";
+type PositionCSSType = "p" | "t" | "r" | "l" | "b";
 
 type CSSType = Record<CSSPropertiesType, keyof CSSProperties>;
+
+type SizeCSSPropertyType = Record<
+  `${SizeCSSType}-${number}-${CSSUnit}`,
+  boolean
+>;
+type BoxCSSPropertyType = Record<`${BoxCSSType}-${number}-${CSSUnit}`, boolean>;
+type BorderCSSPropertyType = Record<
+  `${
+    | Extract<BorderCSSType, "bw">
+    | Extract<BorderCSSType, "br">}-${number}-${CSSUnit}`,
+  boolean
+> &
+  Record<
+    `${Extract<BorderCSSType, "bs"> | Extract<BorderCSSType, "bc">}-${string}`,
+    boolean
+  >;
+type StyleCSSPropertyType = Record<`${StyleCSSType}-${string}`, boolean>;
+type PositionCSSPropertyType = Record<
+  `${PositionCSSType}-${number}-${CSSUnit}`,
+  boolean
+> &
+  Record<`${PositionCSSType}-${string}`, boolean>;
+
+type CSSPropertiesType = SizeCSSType &
+  BoxCSSType &
+  BorderCSSType &
+  StyleCSSType &
+  PositionCSSType;
+
+interface ContainerProps
+  extends Omit<HTMLAttributes<HTMLElement>, "style">,
+    SizeCSSPropertyType,
+    BoxCSSPropertyType,
+    BorderCSSPropertyType,
+    StyleCSSPropertyType,
+    PositionCSSPropertyType {}
 
 const CSS: CSSType = {
   mxw: "maxWidth",
@@ -72,25 +68,29 @@ const CSS: CSSType = {
 } as const;
 
 const Container = (props: PropsWithChildren<Partial<ContainerProps>>) => {
-  const { children, style, ...restProps } = props;
+  const { children, ...restProps } = props;
   const styles = Object.keys(restProps).reduce((obj, item) => {
-    obj[CSS[item.split("-")[0] as CSSPropertiesType]] = `${
-      item.split("-")[1]
-    }px`;
+    const properties = item.split("-");
+    if (properties.length === 3) {
+      obj[
+        CSS[properties[0] as CSSPropertiesType]
+      ] = `${properties[1]}${properties[2]}`;
+    } else {
+      obj[CSS[properties[0] as CSSPropertiesType]] = `${properties[1]}`;
+    }
+
     return obj;
   }, {} as Record<string, string>);
 
   return (
     <section
       style={{
-        ...style,
         ...styles,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
-      <div>{children}</div>
+      <Flex js-center ai-center>
+        {children}
+      </Flex>
     </section>
   );
 };
