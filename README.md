@@ -1,18 +1,16 @@
 # 우코 레이아웃 컴포넌트
 
-Container, Flex, Grid와 같은 레이아웃을 담당하는 컴포넌트가 포함되어 있습니다. 해단 라이브러리는 styled-component에 의존하고 있습니다. styled-component를 함께 설치해주세요.
+Container, Flex, Grid와 같은 레이아웃을 담당하는 컴포넌트가 포함되어 있습니다.
 
 ## 설치
 
 ```bash
-npm install styled-components
 npm install ukko-layout-component
 ```
 
 혹은
 
 ```bash
-yarn add styled-components
 yarn add ukko-layout-component
 ```
 
@@ -22,8 +20,8 @@ yarn add ukko-layout-component
 
 다음은 아래 공통적으로 포함된 선택 속성입니다.
 
-- width: (선택사항) 레이아웃 컨테이너의 폭
-- height: (선택사항) 레이아웃 컨테이너의 높이
+- width: (선택사항) 레이아웃 컨테이너의 폭. number와 string 타입을 받습니다. number의 경우 px단위로 적용되며 string의 경우 그대로 스타일 적용이 됩니다.
+- height: (선택사항) 레이아웃 컨테이너의 높이. number와 string 타입을 받습니다. number의 경우 px단위로 적용되며 string의 경우 그대로 스타일 적용이 됩니다.
 - padding: (선택사항) 레이아웃 컨테이너의 패딩값
 - margin: (선택사항) 레이아웃 컨테이너의 마진값
 - background-color: (선택사항) 레이아웃 컨테이너의 배경 색. 기본값은 투명입니다.
