@@ -33,13 +33,7 @@ function Grid({ rows, columns, gap, children }: Props) {
     columnGap: columnGap ? `${columnGap}px` : "0",
   };
 
-  return (
-    <div style={gridStyle}>
-      {React.Children.map(children, (child) => (
-        <>{child}</>
-      ))}
-    </div>
-  );
+  return <div style={gridStyle}>{children}</div>;
 }
 
 export default Grid;

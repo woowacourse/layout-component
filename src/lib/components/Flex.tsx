@@ -28,13 +28,7 @@ function Flex({
     gap: `${gap}px`,
   };
 
-  return (
-    <div style={flexContainerStyle}>
-      {React.Children.map(children, (child) => (
-        <>{child}</>
-      ))}
-    </div>
-  );
+  return <div style={flexContainerStyle}>{children}</div>;
 }
 
 export default Flex;
