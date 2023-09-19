@@ -74,7 +74,5 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "webpack": "^5.88.2"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "@d0dam/react-ui@0.1.1"
+  }
 }
