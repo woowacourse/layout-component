@@ -1,14 +1,16 @@
 import React from "react";
 
-interface Gap {
-  row: number;
-  column: number;
-}
+type Gap =
+  | {
+      row: number;
+      column: number;
+    }
+  | number;
 
 interface Props {
   rows: number;
   columns: number;
-  gap: Gap | number;
+  gap: Gap;
   children?: React.ReactNode;
 }
 
