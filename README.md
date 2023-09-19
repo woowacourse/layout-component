@@ -12,12 +12,17 @@ npm install goni-layout-component
 
 ## **Container 컴포넌트**
 
-**Container** 컴포넌트는 화면의 폭에 따라 내용의 최대 폭을 제한하고 중앙에 배치하는 레이아웃을 구현합니다.
+**Container** 컴포넌트는 화면의 폭에 따라 내용의 최대 폭을 제한하는 레이아웃을 구현합니다.
 
 ### **Props**
 
-- **`minWidth`** (number): 최소 폭을 지정합니다.
-- **`maxWidth`** (number): 최대 폭을 지정합니다.
+> `type Unit = "px" | "rem" | "%" | "vw";`
+
+- **`children`** (ReactNode): 컨테이너 내부에 포함될 컨텐츠입니다.
+- **`minWidth`** (**`"${number}${Unit}"`**): 컨테이너의 최소 폭을 지정합니다.
+- **`maxWidth`** (**`"${number}${Unit}"`**): 컨테이너의 최대 폭을 지정합니다.
+- **`style`** (CSSProperties, 선택적): 컨테이너에 추가적인 스타일을 적용합니다.
+- **`as`** (keyof JSX.IntrinsicElements, 선택적): 렌더링할 HTML 요소의 타입을 지정합니다. 기본값은 "div"입니다.
 
 ### **사용 예제**
 
@@ -27,8 +32,8 @@ import { Container } from "goni-layout-component";
 
 const App = () => {
   return (
-    <Container minWidth={600} maxWidth={960}>
-      <div>Content</div>
+    <Container minWidth="400px" maxWidth="800px">
+      <div>내용</div>
     </Container>
   );
 };
@@ -42,14 +47,14 @@ export default App;
 
 ### **Props**
 
-**필수**
+> `type Unit = "px" | "rem" | "%" | "vw";`
 
-- **`rows`** (number): 격자의 행 수를 지정합니다.
-- **`columns`** (number): 격자의 열 수를 지정합니다.
-
-**선택 (기본값 0)**
-
-- **`gap`** (number): 자식 컴포넌트 간의 간격을 조절합니다.
+- **`children`** (ReactNode): 그리드 내부에 포함될 컴포넌트입니다.
+- **`rows`** (string): 그리드의 행 정의를 지정합니다.
+- **`columns`** (string): 그리드의 열 정의를 지정합니다.
+- **`gap`** (**`"${number}${Unit}"`**, 선택적): 자식 컴포넌트 간의 간격을 조절합니다.
+- **`style`** (CSSProperties, 선택적): 그리드에 추가적인 스타일을 적용합니다.
+- **`as`** (keyof JSX.IntrinsicElements, 선택적): 렌더링할 HTML 요소의 타입을 지정합니다. 기본값은 "div"입니다.
 
 ### **사용 예제**
 
@@ -59,10 +64,10 @@ import { Grid } from "goni-layout-component";
 
 const App = () => {
   return (
-    <Grid rows={3} columns={3} gap={10}>
-      <div>Item 1</div>
-      <div>Item 2</div>
-      <div>Item 3</div>
+    <Grid rows="1fr 1fr" columns="1fr 1fr" gap="16px">
+      <div>아이템 1</div>
+      <div>아이템 2</div>
+      <div>아이템 3</div>
     </Grid>
   );
 };
@@ -76,15 +81,15 @@ export default App;
 
 ### **Props**
 
-**필수**
+> `type Unit = "px" | "rem" | "%" | "vw";`
 
-- **`direction`** ('row' | 'column'): 배열 방향을 지정합니다.
-- **`justify`** ('flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around'): 주 축 정렬을 지정합니다.
-- **`align`** ('flex-start' | 'flex-end' | 'center' | 'stretch'): 교차 축 정렬을 지정합니다.
-
-**선택 (기본값 0)**
-
-- **`gap`** (number): 자식 컴포넌트 간의 간격을 조절합니다.
+- **`children`** (ReactNode): 플렉스 컨테이너 내부에 포함될 컴포넌트입니다.
+- **`direction`** ("row" | "column"): 배열 방향을 지정합니다.
+- **`justify`** ("flex-start" | "flex-end" | "center" | "space-between" | "space-around"): 주 축 정렬을 지정합니다.
+- **`align`** ("flex-start" | "flex-end" | "center" | "stretch"): 교차 축 정렬을 지정합니다.
+- **`gap`** (**`${number}${Unit}`**, 선택적): 자식 컴포넌트 간의 간격을 조절합니다.
+- **`style`** (CSSProperties, 선택적): 플렉스 컨테이너에 추가적인 스타일을 적용합니다.
+- **`as`** (keyof JSX.IntrinsicElements, 선택적): 렌더링할 HTML 요소의 타입을 지정합니다. 기본값은 "div"입니다.
 
 ### **사용 예제**
 
@@ -94,10 +99,10 @@ import { Flex } from "goni-layout-component";
 
 const App = () => {
   return (
-    <Flex direction="row" justify="center" align="center" gap={5}>
-      <div>Item 1</div>
-      <div>Item 2</div>
-      <div>Item 3</div>
+    <Flex direction="row" justify="center" align="center" gap="8px">
+      <div>아이템 1</div>
+      <div>아이템 2</div>
+      <div>아이템 3</div>
     </Flex>
   );
 };
