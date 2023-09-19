@@ -30,8 +30,8 @@ function Grid({ rows, columns, gap, children }: Props) {
     display: "grid",
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    rowGap: rowGap ? `${rowGap}px` : "0",
-    columnGap: columnGap ? `${columnGap}px` : "0",
+    rowGap: rowGap || "0",
+    columnGap: columnGap || "0",
   };
 
   return <div style={gridStyle}>{children}</div>;

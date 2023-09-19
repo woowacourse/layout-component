@@ -4,6 +4,7 @@ interface Props {
   direction?: CSSProperties["flexDirection"];
   justify?: CSSProperties["justifyContent"];
   align?: CSSProperties["alignItems"];
+  wrap?: CSSProperties["flexWrap"];
   gap?: GapFormat;
   children?: ReactNode;
 }
@@ -13,6 +14,7 @@ function Flex({
   justify = "flex-start",
   align = "stretch",
   gap = 0,
+  wrap = "nowrap",
   children,
 }: Props) {
   const flexContainerStyle = {
@@ -20,7 +22,8 @@ function Flex({
     flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
-    gap: `${gap}px`,
+    gap,
+    flexWrap: wrap,
   };
 
   return <div style={flexContainerStyle}>{children}</div>;
