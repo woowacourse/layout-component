@@ -1,9 +1,10 @@
 import { PropsWithChildren } from 'react';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 interface ContainerProps extends PropsWithChildren {
   maxWidth?: number;
   minWidth?: number;
+  backgroundColor: CSSProperties['backgroundColor'];
 }
 
 const ContainerComponent = styled.div`
@@ -20,17 +21,23 @@ const ContainerContentComponent = styled.div<ContainerProps>`
     return `${!minWidth ? maxWidthParams : `${minWidth}px`}`;
   }};
   width: ${({ maxWidth }) => (!maxWidth ? '100%' : `${maxWidth}px`)};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   height: 100%;
 `;
 
 const Container = ({
   minWidth,
   maxWidth,
+  backgroundColor = 'transparent',
   children,
 }: Partial<ContainerProps>) => {
   return (
     <ContainerComponent>
-      <ContainerContentComponent maxWidth={maxWidth} minWidth={minWidth}>
+      <ContainerContentComponent
+        maxWidth={maxWidth}
+        minWidth={minWidth}
+        backgroundColor={backgroundColor}
+      >
         {children}
       </ContainerContentComponent>
     </ContainerComponent>
