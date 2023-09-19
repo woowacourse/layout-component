@@ -1,15 +1,9 @@
-import React, { ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 import type { GapFormat } from "../types";
-
 interface Props {
-  direction?: "row" | "column";
-  justify?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-between"
-    | "space-around";
-  align?: "flex-start" | "flex-end" | "center" | "stretch";
+  direction?: CSSProperties["flexDirection"];
+  justify?: CSSProperties["justifyContent"];
+  align?: CSSProperties["alignItems"];
   gap?: GapFormat;
   children?: ReactNode;
 }
