@@ -2,14 +2,7 @@ import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 type DIRECTION = 'row' | 'column';
-type JUSTIFY =
-  | 'center'
-  | 'baseline'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-around'
-  | 'space-between'
-  | 'space-evenly';
+type JUSTIFY = 'center' | 'flex-start' | 'flex-end' | 'space-between';
 type ALIGN = 'center' | 'flex-start' | 'flex-end';
 
 interface CSSFlexProps extends PropsWithChildren {
