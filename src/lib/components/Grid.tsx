@@ -1,11 +1,12 @@
 import React from "react";
+import type { GapFormat } from "../types";
 
 type Gap =
   | {
-      row: number;
-      column: number;
+      row: GapFormat;
+      column: GapFormat;
     }
-  | number;
+  | GapFormat;
 
 interface Props {
   rows: number;
@@ -15,10 +16,10 @@ interface Props {
 }
 
 function Grid({ rows, columns, gap, children }: Props) {
-  let rowGap = 0;
-  let columnGap = 0;
+  let rowGap: GapFormat = 0;
+  let columnGap: GapFormat = 0;
 
-  if (typeof gap === "number") {
+  if (typeof gap !== "object") {
     rowGap = gap;
     columnGap = gap;
   } else {

@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import type { GapFormat } from "../types";
 
 interface Props {
   direction?: "row" | "column";
@@ -9,7 +10,7 @@ interface Props {
     | "space-between"
     | "space-around";
   align?: "flex-start" | "flex-end" | "center" | "stretch";
-  gap?: number;
+  gap?: GapFormat;
   children?: ReactNode;
 }
 
