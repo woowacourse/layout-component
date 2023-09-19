@@ -7,8 +7,8 @@
 - tag 속성을 통해 tag를 변경 할 수 있습니다.
   - default tag는 div입니다.
 
-```html
-<Container minWidth="{600}" maxWidth="{960}" tag="main">
+```tsx
+<Container minWidth={600} maxWidth={960} tag="main">
   <div>Content</div>
 </Container>
 ```
@@ -20,8 +20,8 @@
 - gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있습니다.
   - `number` 혹은 `{ row: number, column: number }` 타입 형태로 속성을 설정 할 수 있습니다.
 
-```html
-<Grid rows="{3}" columns="{3}" gap="{10}">
+```tsx
+<Grid rows={3} columns={3} gap={10}>
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
@@ -34,8 +34,8 @@
 - direction, justify, align 속성을 통해 배열 방향과 정렬을 조절할 수 있습니다.
 - gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있습니다.
 
-```html
-<Flex direction="row" justify="center" align="center" gap="{5}">
+```tsx
+<Flex direction="row" justify="center" align="center" gap={5}>
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
