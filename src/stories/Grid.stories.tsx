@@ -3,15 +3,22 @@ import Grid from '../lib/Grid/Grid';
 import React from 'react';
 
 const children = [
-  { content: 'content1', color: '#d5d2ff', area: 1 },
-  { content: 'content2', color: '#b5aeff', area: 1 },
-  { content: 'content3', color: '#9f98ff', area: 2 },
-  { content: 'content4', color: '#7d74ff', area: 2 },
-  { content: 'content5', color: '#6f65ff', area: 3 },
-  { content: 'content6', color: '#6054fd', area: 3 },
-  { content: 'content7', color: '#5e52fd', area: 4 },
-  { content: 'content8', color: '#4d40ff', area: 4 },
-  { content: 'content9', color: '#493cff', area: 5 },
+  { content: 'content1', color: '#d5d2ff' },
+  { content: 'content2', color: '#b5aeff' },
+  { content: 'content3', color: '#9f98ff' },
+  { content: 'content4', color: '#7d74ff' },
+  { content: 'content5', color: '#6f65ff' },
+  { content: 'content6', color: '#6054fd' },
+  { content: 'content7', color: '#5e52fd' },
+  { content: 'content8', color: '#4d40ff' },
+  { content: 'content9', color: '#493cff' },
+];
+
+const childrenWithArea = [
+  { content: 'content1', color: '#d5d2ff', area: 'a' },
+  { content: 'content2', color: '#b5aeff', area: 'b' },
+  { content: 'content3', color: '#9f98ff', area: 'c' },
+  { content: 'content4', color: '#7d74ff', area: 'd' },
 ];
 
 const meta = {
@@ -63,11 +70,12 @@ export const Default: Story = {
 export const AreasWithItems: Story = {
   args: {
     as: 'div',
-    areas: "'1 1' '2 2' '3 3' '4 4'",
-    gap: 10,
+    areas: `"a a b" "a a b" "c d d" "c d d"`,
+    rows: 3,
+    columns: 3,
     children: (
       <>
-        {children.map(({ color, content, area }) => (
+        {childrenWithArea.map(({ color, content, area }) => (
           <Grid.Item area={area} overrideStyle={{ backgroundColor: color }}>
             {content}
           </Grid.Item>
