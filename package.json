@@ -1,7 +1,7 @@
 {
   "name": "react-layout-box",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.2.9",
   "type": "module",
   "description": "React-based Layout Components",
   "keywords": [
@@ -24,7 +24,15 @@
     "email": "sh981013s@gmail.com",
     "url": "https://seunghwanportfolio.netlify.app/"
   },
-  "main": "dist/index.js",
+  "main": "./dist/react-layout-box.umd.js",
+  "module": "./dist/react-layout-box.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-layout-box.es.js",
+      "require": "./dist/react-layout-box.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -63,6 +71,7 @@
     "prettier": "^3.0.3",
     "storybook": "^7.4.1",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3"
   }
 }

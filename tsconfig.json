@@ -6,6 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -18,8 +19,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "declaration": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src"],
+  "outDir": "./dist",
   "references": [{ "path": "./tsconfig.node.json" }]
 }
