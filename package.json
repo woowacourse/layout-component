@@ -1,6 +1,6 @@
 {
   "name": "yunseong-layout-component",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "yunseong's layout components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -51,6 +51,5 @@
     "README.md"
   ],
   "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/2yunseong/layout-component#readme",
-  "_id": "yunseong-layout-component@1.1.0"
+  "homepage": "https://github.com/2yunseong/layout-component#readme"
 }
