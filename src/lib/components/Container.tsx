@@ -1,17 +1,19 @@
-interface Props extends React.HTMLAttributes<HTMLOrSVGElement> {
+import type { ElementType, ReactNode } from "react";
+
+type Props<Tag extends ElementType> = React.ComponentPropsWithoutRef<Tag> & {
   minWidth?: number;
   maxWidth?: number;
-  children?: React.ReactNode;
-  tag?: React.ElementType;
-}
+  children?: ReactNode;
+  tag?: Tag;
+};
 
 function Container({
   minWidth,
   maxWidth,
-  tag: Tag = "div",
+  tag: ElementType = "div",
   children,
   ...restProps
-}: Props) {
+}: Props<ElementType>) {
   const containerStyle = {
     minWidth: minWidth ? `${minWidth}px` : "auto",
     maxWidth: maxWidth ? `${maxWidth}px` : "100%",
@@ -19,9 +21,9 @@ function Container({
   };
 
   return (
-    <Tag className="container" style={containerStyle} {...restProps}>
+    <ElementType className="container" style={containerStyle} {...restProps}>
       {children}
-    </Tag>
+    </ElementType>
   );
 }
 
