@@ -1,0 +1,56 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as FlexStories from './Flex.stories';
+
+<Meta of={FlexStories} />
+
+# Flex
+
+## 설명
+
+요소를 선형적으로 배치하기 위한 Flex 레이아웃 입니다. 너비와 높이는 부모 요소의 값을 상속합니다.
+
+<Canvas of={FlexStories.Default} />
+
+## 속성
+
+`direction?:'row' | 'row-reverse' | 'column' | 'column-reverse'` : flex layout의 메인 축의 정렬 방향을 지정합니다. 기본 값은 row 입니다.
+
+`justify: 'start' | 'center' | 'space-between' | 'space-around' | 'space-evenly'` : flex에 속하는 아이템의 메인 축에 따른 정렬 방식을 지정합니다. 기본값은 start 입니다.
+
+`align: 'center' | 'start' | 'end'`: 메인 축과 교차하는 축의 정렬 방식을 지정합니다. 기본 값은 start입니다.
+
+`gap:number`: 픽셀 단위의 간격을 지정합니다. 기본값은 0 입니다.
+
+## 사용 예시
+
+```tsx
+<Flex direction='column' justify='center' align='center' gap={4}>
+  <FlexItem>1</FlexItem>
+  <FlexItem>2</FlexItem>
+  <FlexItem>3</FlexItem>
+</Flex>
+```
+
+<Canvas of={FlexStories.Stack} />
+
+# FlexItem
+
+## 설명
+
+Flex 레이아웃의 개별 요소를 배치시킬 수 있는 레이아웃 입니다.
+
+## 속성
+
+`align: 'auto' | 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline'`: 개별 요소에 지정되는 정렬 기준입니다. 기본 값은 auto이며, 부모의 정렬 기준(align-items)을 상속합니다.
+
+## 사용 예시
+
+```tsx
+<Flex direction='column' justify='center' align='center' gap={4}>
+  <FlexItem align='center'>1</FlexItem>
+  <FlexItem>2</FlexItem>
+  <FlexItem>3</FlexItem>
+</Flex>
+```
+
+<Canvas of={FlexStories.AlignSelf} />
