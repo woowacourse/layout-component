@@ -4,6 +4,8 @@ export const vars = {
   rows: createVar(),
   columns: createVar(),
   gap: createVar(),
+  rowGap: createVar(),
+  columnGap: createVar(),
 };
 
 export const root = style({
@@ -11,4 +13,6 @@ export const root = style({
   gridTemplateRows: vars.rows,
   gridTemplateColumns: vars.columns,
   gap: vars.gap,
+  rowGap: vars.rowGap,
+  columnGap: vars.columnGap,
 });

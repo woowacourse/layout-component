@@ -7,6 +7,8 @@ export const vars = {
   alignContent: createVar(),
   flexWrap: createVar(),
   gap: createVar(),
+  rowGap: createVar(),
+  columnGap: createVar(),
 };
 
 export const root = style({

@@ -4,3 +4,10 @@ export type PropsWithHTMLElement<
 > = React.ComponentPropsWithoutRef<TElementType> & {
   as?: TElementType;
 } & Props;
+
+export type Gap =
+  | {
+      row: number | string;
+      column: number | string;
+    }
+  | (number | string);
