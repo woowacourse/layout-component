@@ -23,8 +23,8 @@ const Grid = <TElementType extends React.ElementType = 'div'>(props: GridProps<T
       style={{
         ...divProps.style,
         ...assignInlineVars({
-          [vars.rows]: String((rows && `repeat(${rows}, 1fr)`) ?? "initial"),
-          [vars.columns]: String((columns && `repeat(${columns}, 1fr)`) ?? "initial"),
+          [vars.rows]: String((typeof rows === 'number' && `repeat(${rows}, 1fr)`) || "initial"),
+          [vars.columns]: String((typeof columns === 'number' && `repeat(${columns}, 1fr)`) || "initial"),
           [vars.gap]: asCssLength(gap ?? "initial"),
         }),
       }}
