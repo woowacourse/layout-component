@@ -1,6 +1,6 @@
 {
   "name": "yummy-design-component",
-  "version": "0.0.3",
+  "version": "0.1.3",
   "type": "module",
   "description": "편리하게 레이아웃 작업을 할 수 있는 디자인 컴포넌트입니다.",
   "repository": {
@@ -35,6 +35,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
     "@storybook/addon-a11y": "^7.4.2",
     "@storybook/addon-essentials": "7.4.2",
     "@storybook/addon-interactions": "7.4.2",
