@@ -1,7 +1,7 @@
 import type * as CSS from "csstype";
 import { root, vars } from "./Flex.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import cssLength from "../cssLength";
+import asCssLength from "../asCssLength";
 import { PropsWithHTMLElement } from "../types";
 
 export type FlexProps<TElementType extends React.ElementType> =
@@ -28,7 +28,7 @@ const Flex = <TElementType extends React.ElementType = 'div',>(props: FlexProps<
           [vars.flexDirection]: direction ?? "initial",
           [vars.justifyContent]: justify ?? "initial",
           [vars.alignItems]: align ?? "initial",
-          [vars.gap]: cssLength(gap ?? "initial"),
+          [vars.gap]: asCssLength(gap ?? "initial"),
         }),
       }}
     />

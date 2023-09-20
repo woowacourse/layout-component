@@ -1,6 +1,6 @@
 import { root, vars } from "./Grid.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import cssLength from "../cssLength";
+import asCssLength from "../asCssLength";
 import { PropsWithHTMLElement } from "../types";
 
 export type GridProps<TElementType extends React.ElementType> =
@@ -25,7 +25,7 @@ const Grid = <TElementType extends React.ElementType = 'div'>(props: GridProps<T
         ...assignInlineVars({
           [vars.rows]: String((rows && `repeat(${rows}, 1fr)`) ?? "initial"),
           [vars.columns]: String((columns && `repeat(${columns}, 1fr)`) ?? "initial"),
-          [vars.gap]: cssLength(gap ?? "initial"),
+          [vars.gap]: asCssLength(gap ?? "initial"),
         }),
       }}
     />

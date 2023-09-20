@@ -1,6 +1,6 @@
 import { content, root, vars } from "./Container.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import cssLength from "../cssLength";
+import asCssLength from "../asCssLength";
 import { PropsWithHTMLElement } from "../types";
 
 export type ContainerProps<TElementType extends React.ElementType> =
@@ -25,8 +25,8 @@ const Container = <TElementType extends React.ElementType = "div">(
         style={{
           ...divProps.style,
           ...assignInlineVars({
-            [vars.minWidth]: cssLength(minWidth ?? "initial"),
-            [vars.maxWidth]: cssLength(maxWidth ?? "initial"),
+            [vars.minWidth]: asCssLength(minWidth ?? "initial"),
+            [vars.maxWidth]: asCssLength(maxWidth ?? "initial"),
           }),
         }}
       />
