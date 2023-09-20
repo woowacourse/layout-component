@@ -33,3 +33,10 @@ export const MinWidth: Story = {
   },
   render,
 };
+
+export const AsSection: Story = {
+  args: {
+    as: 'header',
+  },
+  render,
+};

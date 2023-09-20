@@ -1,7 +1,7 @@
-import type { CSSProperties as CSS, PropsWithChildren, ReactHTML } from 'react';
+import type { CSSProperties as CSS, PropsWithChildren } from 'react';
 
 export interface ContainerProps {
-  as?: keyof ReactHTML;
+  as?: BlockLevelElement;
   maxWidth?: number;
   minWidth?: number;
 }
