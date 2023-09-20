@@ -44,8 +44,6 @@ export const Example: Story = {
     height: '400px',
     maxWidth: '100%',
     maxHeight: '100%',
-    minWidth: '400px',
-    minHeight: '100px',
     margin: '0',
     padding: '24px',
     borderRadius: '0',
