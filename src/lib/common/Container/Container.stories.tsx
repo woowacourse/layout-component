@@ -50,7 +50,7 @@ const meta = {
       description: 'Container 최소 너비 변경 가능',
     },
     fluid: {
-      description: 'Container의 너비가 화면 너비에 맞춰(100%) 유동적으로 변함',
+      description: 'Container의 너비가 부모 박스 너비에 맞춰(100%) 유동적으로 변함',
     },
     gutter: {
       description: 'Container 양 옆에 마진(24px)이 생김',
