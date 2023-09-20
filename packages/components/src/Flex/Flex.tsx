@@ -17,7 +17,7 @@ export type FlexProps<TElementType extends React.ElementType> =
     TElementType
   >;
 
-const Flex = <TElementType extends React.ElementType = 'div',>(props: FlexProps<TElementType>) => {
+const Flex = <TElementType extends React.ElementType = 'div'>(props: FlexProps<TElementType>) => {
   const { as: Element = 'div', direction, justify, align, alignContent, wrap, gap, ...divProps } = props;
 
   return (
