@@ -10,7 +10,7 @@ export type FlexProps<TElementType extends React.ElementType> =
       direction?: CSS.StandardLonghandProperties["flexDirection"];
       justify?: CSS.StandardLonghandProperties["justifyContent"];
       align?: CSS.StandardLonghandProperties["alignItems"];
-      gap?: number;
+      gap?: number | string;
     },
     TElementType
   >;

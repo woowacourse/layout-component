@@ -6,8 +6,8 @@ import { PropsWithHTMLElement } from "../types";
 export type ContainerProps<TElementType extends React.ElementType> =
   PropsWithHTMLElement<
     {
-      minWidth?: number;
-      maxWidth?: number;
+      minWidth?: number | string;
+      maxWidth?: number | string;
     },
     TElementType
   >;

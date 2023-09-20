@@ -6,9 +6,9 @@ import { PropsWithHTMLElement } from "../types";
 export type GridProps<TElementType extends React.ElementType> =
   PropsWithHTMLElement<
     {
-      rows?: number;
-      columns?: number;
-      gap?: number;
+      rows?: number | string;
+      columns?: number | string;
+      gap?: number | string;
     },
     TElementType
   >;
