@@ -43,17 +43,17 @@ const ContainerLayout = styled.div<CSSContainerProps>`
 
   height: 100vh;
   margin: 0 auto;
-  min-width: ${(props) => props.minWidth}px;
-  max-width: ${(props) => props.maxWidth}px;
+  min-width: ${(props) =>
+    typeof props.minWidth === 'number' ? `${props.minWidth}px` : props.minWidth};
+  max-width: ${(props) =>
+    typeof props.maxWidth === 'number' ? `${props.maxWidth}px` : props.maxWidth};
   overflow: ${(props) => props.overflow};
   background: ${(props) => props.background};
 
   padding: ${(props) => props.padding}px;
 
-  ${(props) =>
-    props.borderRadius
-      ? typeof props.borderRadius === 'number'
-        ? `border-radius: ${props.borderRadius}px`
-        : `border-radius: ${props.borderRadius}`
-      : null};
+  border-radius: ${(props) =>
+    props.borderRadius && typeof props.borderRadius === 'number'
+      ? `${props.borderRadius}px`
+      : `${props.borderRadius}`};
 `;

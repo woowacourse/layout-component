@@ -31,7 +31,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    maxWidth: '240px',
     background: '#ffffad',
     children: <div>Hello, World!</div>,
   },
