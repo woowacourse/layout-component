@@ -51,4 +51,4 @@ import { Grid } from '@ashleysyheo/layout-component';
 
 <br>
 
-더 자세한 사용 방법은 [스토리북](https://6502b9dcc6bfd98bc2197bb9-hgfjnaelaw.chromatic.com)에서 확인해 보세요.
+더 자세한 사용 방법은 [스토리북](https://6502b9dcc6bfd98bc2197bb9-uxfezcgzsn.chromatic.com)에서 확인해 보세요.
