@@ -21,7 +21,7 @@ create-react-app 혹은 vite를 사용한다면 아래와 같이 CSS를 적용�
 
 ```tsx
 import React from 'react';
-import 'layout-component/style.css';
+import '@solo5star/layout-component/dist/style.css';
 
 const App = () => {
   // your code here
