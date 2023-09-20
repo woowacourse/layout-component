@@ -15,13 +15,13 @@ Before using this, look through Storybook.
 **npm**
 
 ```
-npm i yummy-design-component @emotion/react @emotion/styled
+npm i yummy-design-component
 ```
 
 **yarn**
 
 ```
-yarn add yummy-design-component @emotion/react @emotion/styled
+yarn add yummy-design-component
 ```
 
 ### ✅ 2. Import components into your file.
@@ -61,13 +61,6 @@ const Header = () => {
 };
 ```
 
-<br />
-
-### ⭐ CSS Props
-
-To use `CSS Props`, you need to install emotion!
-
-<br />
 <br />
 
 ## Development Environment
