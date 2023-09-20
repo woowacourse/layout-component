@@ -5,7 +5,6 @@ import TestItem from './TestItem';
 const meta: Meta<typeof Grid> = {
   title: 'Example/Grid',
   component: Grid,
-  tags: ['autodocs'],
 };
 
 export default meta;

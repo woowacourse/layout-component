@@ -5,7 +5,6 @@ import TestItem from './TestItem';
 const meta: Meta<typeof Flex> = {
   title: 'Example/Flex',
   component: Flex,
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -5,7 +5,6 @@ import TestItem from './TestItem';
 const meta: Meta<typeof Container> = {
   title: 'Example/Container',
   component: Container,
-  tags: ['autodocs'],
 };
 
 export default meta;
