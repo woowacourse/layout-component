@@ -67,7 +67,7 @@ export const Default: Story = {
 		direction: 'column',
 		justify: 'center',
 		align: 'center',
-		wrap: 'nowrap',
+		wrap: 'wrap',
 		gap: '5px',
 		customCss: {},
 	},
