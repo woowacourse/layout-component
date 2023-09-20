@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'layout-component-dahyeeee',
-      fileName: (format) => `layout-component-dahyeeee.${format}.js`,
+      name: 'index',
+      fileName: 'index',
     },
     rollupOptions: {
       external: ['react'],

@@ -51,6 +51,7 @@ const Grid = ({
   ...attribute
 }: GridProps) => {
   const Tag = as;
+
   return (
     <Tag
       {...attribute}

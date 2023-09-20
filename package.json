@@ -1,6 +1,6 @@
 {
   "name": "layout-component-dahyeeee",
-  "version": "1.0.1",
+  "version": "1.0.23",
   "description": "기본 react layout을 사용할 수 있는 라이브러리",
   "homepage": "http://dahyeeee.github.io/layout-component",
   "license": "MIT",
@@ -14,13 +14,14 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/layout-component-dahyeeee.umd.js",
-  "module": "./dist/layout-component-dahyeeee.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/layout-component-dahyeeee.es.js",
-      "require": "./dist/layout-component-dahyeeee.umd.js"
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
   "scripts": {
