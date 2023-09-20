@@ -5,6 +5,7 @@ import styled from 'styled-components';
 type OVERFLOW = 'auto' | 'scroll' | 'hidden' | 'visible' | 'clip';
 
 interface CSSContainerProps extends PropsWithChildren {
+  as?: string;
   minWidth?: number | string;
   maxWidth?: number | string;
   padding?: number;
@@ -14,6 +15,7 @@ interface CSSContainerProps extends PropsWithChildren {
 }
 
 export const Container = ({
+  as = 'div',
   minWidth = '100%',
   maxWidth = '100%',
   padding,
@@ -24,6 +26,7 @@ export const Container = ({
 }: CSSContainerProps) => {
   return (
     <ContainerLayout
+      as={as}
       minWidth={minWidth}
       maxWidth={maxWidth}
       padding={padding}

@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-type DIRECTION = 'row' | 'column';
+type DIRECTION = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type JUSTIFY = 'center' | 'flex-start' | 'flex-end' | 'space-between';
 type ALIGN = 'center' | 'flex-start' | 'flex-end';
 
