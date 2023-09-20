@@ -1,6 +1,6 @@
 {
   "name": "woody-layout-component",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple UI library for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -59,7 +59,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && mkdir -p dist/styles && tsc && cp -R src/lib/components/**/*.module.css dist/styles/",
+    "build": "rm -rf dist && mkdir -p dist/ && tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
