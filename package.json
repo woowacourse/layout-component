@@ -1,6 +1,6 @@
 {
   "name": "chex-layout-component",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "재사용 가능한 레이아웃 컴포넌트",
   "type": "module",
   "main": "dist/index.umd.cjs",
