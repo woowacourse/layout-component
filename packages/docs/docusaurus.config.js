@@ -46,7 +46,7 @@ const config = {
         theme: {
           customCss: [
             path.join(
-              path.dirname(require.resolve("layout-component")),
+              path.dirname(require.resolve("@solo5star/layout-component")),
               "style.css"
             ),
           ],
