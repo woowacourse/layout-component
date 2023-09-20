@@ -10,13 +10,15 @@ export type FlexProps<TElementType extends React.ElementType> =
       direction?: CSS.StandardLonghandProperties["flexDirection"];
       justify?: CSS.StandardLonghandProperties["justifyContent"];
       align?: CSS.StandardLonghandProperties["alignItems"];
+      wrap?: CSS.StandardLonghandProperties['flexWrap'];
+      alignContent?: CSS.StandardLonghandProperties['alignContent'];
       gap?: number | string;
     },
     TElementType
   >;
 
 const Flex = <TElementType extends React.ElementType = 'div',>(props: FlexProps<TElementType>) => {
-  const { as: Element = 'div', direction, justify, align, gap, ...divProps } = props;
+  const { as: Element = 'div', direction, justify, align, alignContent, wrap, gap, ...divProps } = props;
 
   return (
     <Element
@@ -28,6 +30,8 @@ const Flex = <TElementType extends React.ElementType = 'div',>(props: FlexProps<
           [vars.flexDirection]: direction ?? "initial",
           [vars.justifyContent]: justify ?? "initial",
           [vars.alignItems]: align ?? "initial",
+          [vars.alignContent]: alignContent ?? 'initial',
+          [vars.flexWrap]: wrap ?? 'initial',
           [vars.gap]: asCssLength(gap ?? "initial"),
         }),
       }}

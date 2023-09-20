@@ -4,12 +4,12 @@ export const vars = {
   flexDirection: createVar(),
   justifyContent: createVar(),
   alignItems: createVar(),
+  alignContent: createVar(),
+  flexWrap: createVar(),
   gap: createVar(),
 };
 
 export const root = style({
   display: "flex",
-  flexDirection: vars.flexDirection,
-  justifyContent: vars.justifyContent,
-  alignItems: vars.alignItems,
+  ...vars,
 });

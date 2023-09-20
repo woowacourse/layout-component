@@ -12,6 +12,5 @@ export const root = style({
 export const content = style({
   margin: "0 auto",
   width: "100%",
-  minWidth: vars.minWidth,
-  maxWidth: vars.maxWidth,
+  ...vars,
 });
