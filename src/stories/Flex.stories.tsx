@@ -1,9 +1,9 @@
-import { getRandomHexColor, getRandomNumber } from '@utils/random';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Container from '@components/Container';
 import Flex from '@components/Flex';
+
+import { getRandomHexColor, getRandomNumber } from '@utils/random';
 
 const meta = {
   title: 'Flex',
