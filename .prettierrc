@@ -11,6 +11,7 @@
     "^@components/(.*)$",
     "^@type/(.*)$",
     "^@constants/(.*)$",
+    "^@utils/(.*)$",
     "^@styles/(.*)$",
     "^@stories/(.*)$",
     "^[./]"

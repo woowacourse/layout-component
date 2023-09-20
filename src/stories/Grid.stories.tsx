@@ -14,11 +14,6 @@ const meta = {
   },
   argTypes: {
     tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
-    rows: { control: { type: 'text' } },
-    columns: { control: { type: 'text' } },
-    rowGap: { control: { type: 'text' } },
-    columnGap: { control: { type: 'text' } },
-    gap: { control: { type: 'text' } },
     css: {
       control: { type: 'object' },
       description: '스타일을 추가하거나 오버라이딩할 수 있는 방법',
@@ -38,7 +33,12 @@ export const Example1: Story = {
   args: {
     tag: 'div',
     rows: 'auto',
-    columns: '3',
+    columns: {
+      xs: 'repeat(1, 1fr)',
+      sm: 'repeat(2, 1fr)',
+      md: 'repeat(3, 1fr)',
+      lg: 'repeat(6, 1fr)',
+    },
     rowGap: '8px',
     columnGap: '16px',
     children: (
