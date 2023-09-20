@@ -1,9 +1,9 @@
-import { ComponentPropsWithRef, ElementType } from 'react';
+import { ComponentPropsWithRef, ReactHTML } from 'react';
 import { CSSProp, styled } from 'styled-components';
 
-interface Props extends ComponentPropsWithRef<ElementType> {
+type Props<T extends keyof ReactHTML> = ComponentPropsWithRef<T> & {
   /** 컴포넌트의 HTML 태그를 지정하는 속성입니다. 예를 들어, tag="div"로 설정하면 컴포넌트가 \<div\> 태그로 렌더링됩니다. */
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: T;
   /**
    * 행 개수를 지정하는 속성입니다.
    */
@@ -35,10 +35,10 @@ interface Props extends ComponentPropsWithRef<ElementType> {
   columnGap?: string;
   /** 그리드 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다. */
   css?: CSSProp;
-}
+};
 
-const Grid = (props: Props) => {
-  const { tag, ...restProps } = props;
+const Grid = <T extends keyof ReactHTML>(props: Props<T>) => {
+  const { tag = 'div', ...restProps } = props;
 
   return (
     <Tag as={tag} {...restProps}>
@@ -49,7 +49,8 @@ const Grid = (props: Props) => {
 
 export default Grid;
 
-const Tag = styled.div<Props>`
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Tag = styled.div<Props<any>>`
   display: grid;
   grid-template-rows: ${({ rows }) => (rows ? `repeat(${rows}, 1fr)` : '')};
   grid-template-columns: ${({ columns }) => (columns ? `repeat(${columns}, 1fr)` : '')};
