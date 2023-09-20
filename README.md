@@ -18,8 +18,8 @@
 ```tsx
 <Container
 	tag='div'
-	minWidth={600}
-	maxWidth={960}
+	minWidth='600px'
+	maxWidth='960px'
 	customCss={{
 		background: 'black',
 	}}
@@ -42,9 +42,9 @@ CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 
 	wrap='nowrap'
 	customCss={{ width: '500px', height: '500px' }}
 >
-	<Box> 1</Box>
-	<Box> 2</Box>
-	<Box> 3</Box>
+	<div> 1</div>
+	<div> 2</div>
+	<div> 3</div>
 </Flex>
 ```
 
@@ -58,7 +58,7 @@ CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는
 <Grid
 	tag='section'
 	rows={3}
-	columns={3}
+	cols={3}
 	gap='10px'
 	rowLength='200px'
 	colLength='200px'
@@ -66,9 +66,9 @@ CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는
 		background: 'black',
 	}}
 >
-	<Box>1</Box>
-	<Box>2</Box>
-	<Box>3</Box>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
 </Grid>
 ```
 
