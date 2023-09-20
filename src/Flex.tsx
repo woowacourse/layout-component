@@ -9,7 +9,7 @@ interface FlexProps extends ContainerProps {
 }
 
 export const Flex = (props: PropsWithChildren<FlexProps>) => {
-  const { children, direction, justify, align, gap = 0 } = props;
+  const { children, as: Element = 'div', direction, justify, align, gap = 0 } = props;
 
   const style: CSS = {
     ...stylingContainer(props),
@@ -21,5 +21,5 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
     gap: `${gap}px`,
   };
 
-  return <div style={style}>{children}</div>;
+  return <Element style={style}>{children}</Element>;
 };

@@ -8,7 +8,7 @@ interface GridProps extends ContainerProps {
 }
 
 export const Grid = (props: PropsWithChildren<GridProps>) => {
-  const { children, rows = 1, columns = 1, gap = 0 } = props;
+  const { children, as: Element = 'div', rows = 1, columns = 1, gap = 0 } = props;
 
   const style: CSS = {
     ...stylingContainer(props),
@@ -19,5 +19,5 @@ export const Grid = (props: PropsWithChildren<GridProps>) => {
     gap: `${gap}px`,
   };
 
-  return <div style={style}>{children}</div>;
+  return <Element style={style}>{children}</Element>;
 };

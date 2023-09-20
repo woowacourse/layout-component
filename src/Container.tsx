@@ -1,6 +1,7 @@
-import type { CSSProperties as CSS, PropsWithChildren } from 'react';
+import type { CSSProperties as CSS, PropsWithChildren, ReactHTML } from 'react';
 
 export interface ContainerProps {
+  as?: keyof ReactHTML;
   maxWidth?: number;
   minWidth?: number;
 }
@@ -17,6 +18,8 @@ export const stylingContainer = (props: ContainerProps): CSS => {
   };
 };
 
-export const Container = (props: PropsWithChildren<ContainerProps>) => (
-  <div style={stylingContainer(props)}>{props.children}</div>
-);
+export const Container = (props: PropsWithChildren<ContainerProps>) => {
+  const { children, as: Element = 'div' } = props;
+
+  return <Element style={stylingContainer(props)}>{children}</Element>;
+};
