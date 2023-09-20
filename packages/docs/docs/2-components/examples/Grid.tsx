@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "layout-component";
+import { Grid } from "@solo5star/layout-component";
 
 const App = () => {
   return (

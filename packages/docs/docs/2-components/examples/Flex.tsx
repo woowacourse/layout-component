@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "layout-component";
+import { Flex } from "@solo5star/layout-component";
 
 const App = () => {
   return (

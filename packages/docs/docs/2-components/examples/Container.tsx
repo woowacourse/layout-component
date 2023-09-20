@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "layout-component";
+import { Container } from "@solo5star/layout-component";
 
 const App = () => {
   return (
