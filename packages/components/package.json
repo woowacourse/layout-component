@@ -1,5 +1,6 @@
 {
   "name": "@solo5star/layout-component",
+  "private": false,
   "version": "0.0.5",
   "main": "./dist/index.js",
   "type": "module",
