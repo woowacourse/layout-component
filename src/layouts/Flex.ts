@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Container, { Props as ContainerProps } from '../Container';
+import Container, { Props as ContainerProps } from './Container';
 
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
@@ -43,7 +43,7 @@ interface Props extends ContainerProps {
   $justifyContent?: JustifyContent;
   $justifyItems?: JustifyItems;
   flex?: string;
-  $gap?: string;
+  gap?: string;
 }
 
 const Flex = styled(Container)<Props>`
@@ -58,7 +58,7 @@ const Flex = styled(Container)<Props>`
   justify-content: ${({ $justifyContent }) => $justifyContent};
   justify-items: ${({ $justifyItems }) => $justifyItems};
   flex: ${({ flex }) => flex};
-  gap: ${({ $gap }) => $gap};
+  gap: ${({ gap }) => gap};
 `;
 
 export default Flex;

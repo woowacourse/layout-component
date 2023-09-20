@@ -1,10 +1,9 @@
 {
   "name": "seeen-layout-component",
-  "version": "0.1.7",
+  "version": "0.1.16",
   "description": "woowacourse layout component mission",
-  "type": "module",
-  "module": "./lib/esm/index.js",
-  "main": "./lib/cjs/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/"
   ],
@@ -17,7 +16,7 @@
     "clean": "rimraf lib",
     "copy-files": "copyfiles README.md lib",
     "build-storybook": "storybook build",
-    "tsc-build": "npm run clean && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && npm run copy-files",
+    "tsc-build": "npm run clean && tsc -p tsconfig.json && npm run copy-files",
     "publish:npm": "npm run tsc-build && npm publish",
     "chromatic": "npx chromatic --project-token=chpt_61c07aa6ff01713"
   },
@@ -35,7 +34,8 @@
   "homepage": "https://github.com/semnil5202/layout-component#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",

@@ -5,8 +5,8 @@ Container, Flex, Grid 레이아웃 컴포넌트를 사용할 수 있는 React �
 # 설치 방법
 
 ```
-$ npm install @se-een/layout-component
-$ yarn add @se-een/layout-component
+$ npm install se-een-layout-component
+$ yarn add seeen-layout-component
 ```
 
 ## Container 컴포넌트
@@ -101,7 +101,7 @@ import { Flex } from '@se-een/layout-component';
 
 - flex: flex 속성을 직접 설정하여 아이템에 대한 flex-grow, flex-shrink, 그리고 flex-basis 값을 동시에 지정할 수 있습니다. (ex: "1 1 50%")
 
-- $gap: 그리드나 플렉스 컨테이너 내 아이템들 사이의 간격을 설정합니다. 문자열 값으로 지정됩니다.
+- gap: 그리드나 플렉스 컨테이너 내 아이템들 사이의 간격을 설정합니다. 문자열 값으로 지정됩니다.
 
 ## Grid 컴포넌트
 
