@@ -25,21 +25,10 @@ const meta = {
     gutter: false,
   },
   argTypes: {
-    position: {
-      description: 'Container의 가로 위치 변경 가능',
-    },
-    fluid: {
-      description: 'Container의 너비가 부모 박스 너비에 맞춰(100%) 유동적으로 변함',
-    },
-    gutter: {
-      description: 'Container 양 옆에 마진(24px)이 생김',
-    },
     children: {
-      description: 'Container 안 박스<br />하나의 리액트 컴포넌트만 넣을 수 있음',
       control: false,
     },
     tag: {
-      description: 'Container 태그 변경 가능',
       control: false,
     },
     css: {

@@ -61,8 +61,23 @@ export const layoutStyle = ({
 
 type NumberAndString = number | string;
 export interface Gap {
+  /**
+   * 자식 박스가 여러 개일 경우, 박스 사이의 행/열 여백 변경 가능
+      - [string] 단위까지 적어줘야 함 (ex. 8px, 10px 20px)
+      - [number] 숫자만 적을 경우 px로 자동 변환
+   */
   gap?: NumberAndString;
+  /**
+   * 자식 박스가 여러 개일 경우, 박스 사이의 행 여백 변경 가능
+      - [string] 단위까지 적어줘야 함 (ex. 8px, 10px 20px)
+      - [number] 숫자만 적을 경우 px로 자동 변환
+   */
   rowGap?: NumberAndString;
+  /**
+   * 자식 박스가 여러 개일 경우, 박스 사이의 열 여백 변경 가능
+      - [string] 단위까지 적어줘야 함 (ex. 8px, 10px 20px)
+      - [number] 숫자만 적을 경우 px로 자동 변환
+   */
   columnGap?: NumberAndString;
 }
 

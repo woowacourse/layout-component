@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
 import FlexContainer from '../FlexContainer';
+import { sizeArgTypes } from '../styles/size';
 import { spacingArgTypes } from '../styles/spacing';
 import type { FlexItemProps } from './FlexItem';
 import FlexItem from './FlexItem';
-import { sizeArgTypes } from '../styles/size';
 
 const meta = {
   title: 'Layout/Flex/FlexItem',
@@ -23,15 +23,6 @@ const meta = {
     order: 0,
   },
   argTypes: {
-    order: {
-      description: 'Flex Item 순서 변경 가능',
-    },
-    shrink: {
-      description: 'Flex Item 크기를 줄일 수 있음',
-    },
-    grow: {
-      description: 'Flex Item 크기를 늘릴 수 있음',
-    },
     flex: {
       description: `Flex Item 크기를 조절할 수 있음
       <br />숫자 하나만 입력할 경우 (flex="8"),
@@ -45,20 +36,12 @@ const meta = {
       <br />세 개를 입력할 경우 (flex="1 2 30px"),
       <br />-&nbsp; **flex-grow | flex-shrink | flex-basis**`,
     },
-    alignSelf: {
-      description: `Flex Item 배치 변경 가능
-      <br />- Flex Container Direction Row: column 축 기준
-      <br />- Flex Container Direction Column: row 축 기준
-      `,
-    },
     children: {
-      description: 'Flex Item 안의 문구 변경 가능<br />컴포넌트도 추가 가능',
       control: {
         type: 'text',
       },
     },
     tag: {
-      description: 'Flex Item 태그 변경 가능',
       control: false,
     },
     css: {

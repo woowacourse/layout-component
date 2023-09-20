@@ -41,38 +41,11 @@ const meta = {
     children: generateChildrenBoxes(),
   },
   argTypes: {
-    layout: {
-      description: 'Flex Container 안의 박스 위치 변경 가능',
-    },
-    direction: {
-      description: `정렬 방향
-      <br />- row: Flex Container 안의 박스 가로 정렬
-      <br />- column: Flex Container 안의 박스 세로 정렬`,
-    },
-    wrap: {
-      description: `감싸기 여부
-      <br />- true: Flex Container 안의 박스가 Flex Container 바깥으로 나가지 않게 함
-      <br />- false: Flex Container 안의 박스의 너비가 Flex Container 보다 클 경우 바깥으로 빠져 나감`,
-    },
-    reverse: {
-      description: `Flex Container 안의 박스 순서를 거꾸로 변경 가능
-      <br />- true: Flex Container 안의 박스 순서가 정반대가 됨
-      <br />- false: Flex Container 안의 박스 순서가 원래와 같음`,
-    },
-    justify: {
-      description: `Flex Container 박스 justify-content 속성 사용 가능`,
-    },
-    alignItems: {
-      description: `Flex Container 박스 align-items 속성 사용 가능`,
-    },
-    alignContent: {
-      description: `Flex Container 박스 align-content 속성 사용 가능`,
-    },
     gap: {
       control: {
         type: 'text',
       },
-      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 가로/세로 여백 변경 가능
+      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 행/열 여백 변경 가능
       <br />- [string] 단위까지 적어줘야 함 (ex. 8px, 10px 20px)
       <br />&nbsp; 🔶 스토리북에서는 string 🔶
       <br />- [number] 숫자만 적을 경우 px로 자동 변환`,
@@ -81,7 +54,7 @@ const meta = {
       control: {
         type: 'text',
       },
-      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 가로 여백 변경 가능
+      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 행 여백 변경 가능
       <br />- [string] 단위까지 적어줘야 함 (ex. 8px)
       <br />&nbsp; 🔶 스토리북에서는 string 🔶
       <br />- [number] 숫자만 적을 경우 px로 자동 변환`,
@@ -90,27 +63,15 @@ const meta = {
       control: {
         type: 'text',
       },
-      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 세로 여백 변경 가능
+      description: `Flex Container 안의 박스가 여러 개일 경우, 박스 사이의 열 여백 변경 가능
       <br />- [string] 단위까지 적어줘야 함 (ex. 8px)
       <br />&nbsp; 🔶 스토리북에서는 string 🔶
       <br />- [number] 숫자만 적을 경우 px로 자동 변환`,
     },
-    position: {
-      description: 'Flex Container의 가로 위치 변경 가능',
-    },
-    fluid: {
-      description: 'Flex Container의 너비가 화면 너비에 맞춰 유동적으로 변함',
-    },
-    gutter: {
-      description: 'Flex Container 양 옆에 마진(24px)이 생김',
-    },
     children: {
-      description: 'Flex Container 안 박스<br />- 하나 또는 여러 개의 리액트 컴포넌트 넣을 수 있음',
       control: false,
     },
     tag: {
-      defaultValue: 'div',
-      description: 'Flex Container 태그 변경 가능 (기본 태그: `div`)',
       control: false,
     },
     css: {

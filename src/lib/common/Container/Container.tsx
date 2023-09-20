@@ -6,10 +6,19 @@ import type { Alignment } from './style';
 import { positionStyle, widthStyle } from './style';
 
 export interface WidthStyle {
+  /** 너비가 부모 박스 너비에 맞춰(100%) 유동적으로 변함
+   * @default false
+   */
   fluid?: boolean;
+  /** 양 옆에 마진(24px)이 생김
+   * @default false
+   */
   gutter?: boolean;
 }
 export interface ContainerProps extends WidthStyle, Size, Spacing, CommonProps {
+  /** Container의 가로 위치 변경 가능
+   * @default 'center'
+   */
   position?: Alignment;
 }
 

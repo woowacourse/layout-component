@@ -41,15 +41,6 @@ const meta = {
       <br />&nbsp; 🔷 스토리북에서는 string 🔷
       <br />- [number] 숫자만 적을 경우 px로 자동 변환`,
     },
-    item: {
-      description: `Item 속성을 줄 경우, Grid Item으로 사용 가능
-      <br />- true : Grid Item으로 사용 가능
-      <br />- false : Grid Item으로 사용 불가`,
-    },
-    areaName: {
-      description: `**Grid Item일 경우**, grid-area 속성 사용 가능
-      <br />areaName을 이용해 Grid Container에서 templateAreas 속성으로 Item 배치 가능`,
-    },
     rows: {
       control: {
         type: 'number',
@@ -112,21 +103,10 @@ const meta = {
       <br />&nbsp; 🔷 스토리북에서는 string 🔷
       <br />- [number] 숫자만 적을 경우 px로 자동 변환`,
     },
-    position: {
-      description: 'Grid의 가로 위치 변경 가능',
-    },
-    fluid: {
-      description: 'Grid의 너비가 화면 너비에 맞춰 유동적으로 변함',
-    },
-    gutter: {
-      description: 'Grid 양 옆에 마진(24px)이 생김',
-    },
     children: {
-      description: 'Grid 안 박스<br />- 하나 또는 여러 개의 리액트 컴포넌트 넣을 수 있음',
       control: false,
     },
     tag: {
-      description: 'Grid 태그 변경 가능',
       control: false,
     },
     css: {
