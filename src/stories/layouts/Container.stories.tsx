@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Container from '../../components/layouts/Container';
-import Box from '../../components/Box';
+import { useState } from 'react';
 
 const meta = {
 	title: 'Layout/Container',
@@ -41,18 +41,48 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		maxWidth: '300px',
-		minWidth: '100px',
-		tag: 'section',
-	},
-	render: ({ ...args }) => {
+	args: { maxWidth: '500px', minWidth: '100px', tag: 'section' },
+	render: (args) => {
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		const [width, setWidth] = useState(100);
+
 		return (
-			<Container {...args}>
-				{Array.from({ length: 10 }).map((_, idx) => (
-					<Box>{idx + 1}번 박스</Box>
-				))}
-			</Container>
+			<div
+				style={{
+					width: width,
+					height: width,
+					margin: '0 auto',
+				}}
+			>
+				<Container
+					{...args}
+					customCss={{
+						height: width,
+						maxHeight: args.maxWidth,
+						background: '#f8ade9',
+					}}
+				>
+					박스입니다~
+				</Container>
+				<div
+					style={{
+						width: 200,
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						margin: '0 auto',
+					}}
+				>
+					<button onClick={() => setWidth((prev) => prev + 100)}>
+						사이즈 업
+					</button>
+					<button
+						onClick={() => setWidth((prev) => (prev > 100 ? prev - 100 : 100))}
+					>
+						사이즈 다운
+					</button>
+				</div>
+			</div>
 		);
 	},
 };
