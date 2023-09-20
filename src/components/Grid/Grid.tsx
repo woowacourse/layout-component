@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { gridBoxStyle } from './Grid.style';
 
-export interface GridProps extends ComponentPropsWithoutRef<'div'> {
+export interface GridProps extends ComponentPropsWithoutRef<ElementType> {
   /**
    * Grid의 HTML 태그
    *

@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { getFlexStyle } from './Flex.style';
 
-export interface FlexProps extends ComponentPropsWithoutRef<'div'> {
+export interface FlexProps extends ComponentPropsWithoutRef<ElementType> {
   /**
    * Flex의 HTML 태그
    *
