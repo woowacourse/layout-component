@@ -46,5 +46,5 @@ const Tag = styled.div<Props>`
   gap: ${({ gap }) => gap || '0'};
   flex-wrap: ${({ wrap }) => wrap || 'nowrap'};
 
-  ${({ css }) => (css ? `${css}` : '')};
+  ${({ css }) => css}
 `;

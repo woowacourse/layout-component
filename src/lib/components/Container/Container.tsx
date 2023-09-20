@@ -47,5 +47,5 @@ const Tag = styled.div<Props>`
   min-height: ${({ minHeight }) => (minHeight ? `${minHeight}` : 'auto')};
   max-height: ${({ maxHeight }) => (maxHeight ? `${maxHeight}` : 'none')};
 
-  ${({ css }) => (css ? `${css}` : '')};
+  ${({ css }) => css};
 `;

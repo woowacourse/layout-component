@@ -60,5 +60,5 @@ const Tag = styled.div<Props>`
   row-gap: ${({ rowGap, gap }) => rowGap || gap || '0'};
   column-gap: ${({ columnGap, gap }) => columnGap || gap || '0'};
 
-  ${({ css }) => (css ? css : '')};
+  ${({ css }) => css};
 `;
