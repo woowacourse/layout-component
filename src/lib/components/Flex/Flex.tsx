@@ -1,9 +1,9 @@
 import { ComponentPropsWithRef, ElementType } from 'react';
 import { CSSProp, styled } from 'styled-components';
 
-type Props<T extends ElementType> = ComponentPropsWithRef<T> & {
+interface Props extends ComponentPropsWithRef<ElementType> {
   /** 컴포넌트의 HTML 태그를 지정하는 속성입니다. 예를 들어, tag="div"로 설정하면 컴포넌트가 \<div\> 태그로 렌더링됩니다. */
-  tag?: T;
+  tag?: keyof JSX.IntrinsicElements;
   /** 컨테이너의 표시 방식을 지정하는 속성입니다. 'flex'는 블록요소, 'inline-flex'는 인라인요소로 설정합니다. */
   display?: 'flex' | 'inline-flex';
   /** 컨테이너의 주축(main axis)을 설정하는 속성입니다. 'row'는 수평 방향, 'column'은 수직 방향을 나타냅니다. 'row-reverse' 및 'column-reverse'는 주축 방향의 반대 방향을 나타냅니다. */
@@ -18,9 +18,9 @@ type Props<T extends ElementType> = ComponentPropsWithRef<T> & {
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   /** Flex 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다. */
   css?: CSSProp;
-};
+}
 
-const Flex = <T extends ElementType>(props: Props<T>) => {
+const Flex = (props: Props) => {
   const { tag = 'div', ...restProps } = props;
 
   return (
@@ -32,8 +32,7 @@ const Flex = <T extends ElementType>(props: Props<T>) => {
 
 export default Flex;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Tag = styled.div<Props<any>>`
+const Tag = styled.div<Props>`
   display: ${({ display }) => display || 'flex'};
   flex-direction: ${({ direction }) => direction || 'row'};
   justify-content: ${({ justify }) => justify || 'flex-start'};

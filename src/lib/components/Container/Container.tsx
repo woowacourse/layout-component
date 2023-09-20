@@ -1,9 +1,9 @@
-import { ComponentPropsWithRef, ReactHTML } from 'react';
+import { ComponentPropsWithRef, ElementType } from 'react';
 import { CSSProp, CSSProperties, styled } from 'styled-components';
 
-type Props<T extends keyof ReactHTML> = ComponentPropsWithRef<T> & {
+interface Props extends ComponentPropsWithRef<ElementType> {
   /** 컴포넌트의 HTML 태그를 지정하는 속성입니다. 예를 들어, tag="div"로 설정하면 컴포넌트가 \<div\> 태그로 렌더링됩니다. */
-  tag?: T;
+  tag?: keyof JSX.IntrinsicElements;
   /** 컴포넌트의 최소 너비를 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
   minWidth?: string;
   /** 컴포넌트의 최대 너비를 지정하는 속성입니다. 단위를 포함하여 입력해주세요.*/
@@ -16,9 +16,9 @@ type Props<T extends keyof ReactHTML> = ComponentPropsWithRef<T> & {
   backgroundColor?: CSSProperties['backgroundColor'];
   /** 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다. */
   css?: CSSProp;
-};
+}
 
-const Container = <T extends keyof ReactHTML>(props: Props<T>) => {
+const Container = (props: Props) => {
   const { tag = 'div', ...restProps } = props;
 
   return (
@@ -30,8 +30,7 @@ const Container = <T extends keyof ReactHTML>(props: Props<T>) => {
 
 export default Container;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Tag = styled.div<Props<any>>`
+const Tag = styled.div<Props>`
   display: flex;
   flex-direction: column;
   justify-content: center;
