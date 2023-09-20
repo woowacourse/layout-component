@@ -1,9 +1,10 @@
 import type { FlexBasicLayout } from '../FlexContainer/FlexContainer';
+import type { Size } from '../styles/size';
 import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
 import { flexItemStyle } from './style';
 
-export interface FlexItemProps extends Spacing, CommonProps {
+export interface FlexItemProps extends Size, Spacing, CommonProps {
   order?: number;
   shrink?: number;
   grow?: number;

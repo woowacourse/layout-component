@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
-import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
+import { sizeArgTypes } from '../styles/size';
 import { spacingArgTypes } from '../styles/spacing';
 import type { ContainerProps } from './Container';
 import Container from './Container';
-import { ALIGNMENT, CONTAINER_WIDTH } from './style';
+import { ALIGNMENT } from './style';
 
 const meta = {
   title: 'Layout/Container',
@@ -28,27 +28,6 @@ const meta = {
     position: {
       description: 'Container의 가로 위치 변경 가능',
     },
-    maxWidth: {
-      options: Object.assign(
-        { none: false },
-        ...getTypedObjectEntries(CONTAINER_WIDTH).map(([key, value]) => ({
-          [`${key} (${value})`]: key,
-        }))
-      ),
-      control: {
-        type: 'select',
-      },
-      description: 'Container 최대 너비 변경 가능',
-    },
-    minWidth: {
-      options: Object.assign(
-        { none: false },
-        ...getTypedObjectEntries(CONTAINER_WIDTH).map(([key, value]) => ({
-          [`${key} (${value})`]: key,
-        }))
-      ),
-      description: 'Container 최소 너비 변경 가능',
-    },
     fluid: {
       description: 'Container의 너비가 부모 박스 너비에 맞춰(100%) 유동적으로 변함',
     },
@@ -66,6 +45,7 @@ const meta = {
     css: {
       description: 'CSS 속성을 직접 입력할 수 있습니다.',
     },
+    ...sizeArgTypes,
     ...spacingArgTypes,
   },
 } satisfies Meta<typeof Container>;

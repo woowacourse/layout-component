@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
-import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
-import { CONTAINER_WIDTH } from '../Container/style';
+import { sizeArgTypes } from '../styles/size';
 import { spacingArgTypes } from '../styles/spacing';
 import type { FlexContainerProps } from './FlexContainer';
 import FlexContainer from './FlexContainer';
@@ -99,27 +98,6 @@ const meta = {
     position: {
       description: 'Flex Container의 가로 위치 변경 가능',
     },
-    maxWidth: {
-      options: Object.assign(
-        { none: false },
-        ...getTypedObjectEntries(CONTAINER_WIDTH).map(([key, value]) => ({
-          [`${key} (${value})`]: key,
-        }))
-      ),
-      control: {
-        type: 'select',
-      },
-      description: 'Flex Container 최대 너비 변경 가능',
-    },
-    minWidth: {
-      options: Object.assign(
-        { none: false },
-        ...getTypedObjectEntries(CONTAINER_WIDTH).map(([key, value]) => ({
-          [`${key} (${value})`]: key,
-        }))
-      ),
-      description: 'Flex Container 최소 너비 변경 가능',
-    },
     fluid: {
       description: 'Flex Container의 너비가 화면 너비에 맞춰 유동적으로 변함',
     },
@@ -138,6 +116,7 @@ const meta = {
     css: {
       description: 'CSS 속성을 직접 입력할 수 있습니다.',
     },
+    ...sizeArgTypes,
     ...spacingArgTypes,
   },
 } satisfies Meta<typeof FlexContainer>;

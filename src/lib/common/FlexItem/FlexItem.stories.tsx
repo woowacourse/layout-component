@@ -5,6 +5,7 @@ import FlexContainer from '../FlexContainer';
 import { spacingArgTypes } from '../styles/spacing';
 import type { FlexItemProps } from './FlexItem';
 import FlexItem from './FlexItem';
+import { sizeArgTypes } from '../styles/size';
 
 const meta = {
   title: 'Layout/Flex/FlexItem',
@@ -63,6 +64,7 @@ const meta = {
     css: {
       description: 'CSS 속성을 직접 입력할 수 있습니다.',
     },
+    ...sizeArgTypes,
     ...spacingArgTypes,
   },
 } satisfies Meta<typeof FlexItem>;
