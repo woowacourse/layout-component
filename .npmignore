@@ -1,6 +1,7 @@
 /.github
 /.storybook
 /src
+/dist/stories
 
 .babelrc.json
 .prettierrc
