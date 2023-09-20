@@ -1,6 +1,6 @@
-import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 
-export interface CommonProps extends HTMLAttributes<HTMLDivElement> {
+export interface CommonProps extends ComponentPropsWithoutRef<ElementType> {
   tag?: ElementType;
   children?: ReactNode;
 }

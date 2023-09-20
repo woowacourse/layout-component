@@ -63,8 +63,7 @@ const meta = {
       description: 'Container 태그 변경 가능',
       control: false,
     },
-    style: {
-      name: 'css',
+    css: {
       description: 'CSS 속성을 직접 입력할 수 있습니다.',
     },
     ...spacingArgTypes,
