@@ -126,21 +126,9 @@ If you want to create a responsive layout, you can pass the value corresponding 
 function App() {
   return (
     <Container
-      $minWidth={
-        desktop: '900px',
-        tablet: '600px',
-        mobile: '450px',
-      }
-      $maxWidth={
-        desktop: '900px',
-        tablet: '600px',
-        mobile: '450px',
-      }
-      background={
-        desktop: 'blue',
-        tablet: 'yellow',
-        mobile: 'red',
-      }
+      $minWidth={{ desktop: '900px', tablet: '600px', mobile: '450px' }}
+      $maxWidth={{ desktop: '900px', tablet: '600px', mobile: '450px' }}
+      background={{ desktop: 'blue', tablet: 'yellow', mobile: 'red' }}
     >
       Children
     </Container>
