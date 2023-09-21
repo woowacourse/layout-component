@@ -1,0 +1,8 @@
+{
+  "label": "components",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "컴포넌트들의 사용법과 정보를 제공합니다"
+  }
+}
