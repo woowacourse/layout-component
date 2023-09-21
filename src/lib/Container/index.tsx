@@ -37,54 +37,26 @@ const Container = ({
   maxWidth,
   ...props
 }: PropsWithChildren<ContainerProps>) => {
+  const TagName = as;
+  const StyledTagName = styled(TagName)<ContainerCssProps>`
+    ${ContainerCss}
+  `;
+
   const getMediaTargetMinWidth = () =>
     mediaTarget ? MEDIA_TARGET_WIDTH[mediaTarget].minWidth : minWidth;
 
   const getMediaTargetMaxWidth = () =>
     mediaTarget ? MEDIA_TARGET_WIDTH[mediaTarget].maxWidth : maxWidth;
 
-  switch (as) {
-    case "div":
-      return (
-        <Div
-          minWidth={getMediaTargetMinWidth()}
-          maxWidth={getMediaTargetMaxWidth()}
-          {...props}
-        >
-          {props.children}
-        </Div>
-      );
-    case "main":
-      return (
-        <Main
-          minWidth={getMediaTargetMinWidth()}
-          maxWidth={getMediaTargetMaxWidth()}
-          {...props}
-        >
-          {props.children}
-        </Main>
-      );
-    case "header":
-      return (
-        <Header
-          minWidth={getMediaTargetMinWidth()}
-          maxWidth={getMediaTargetMaxWidth()}
-          {...props}
-        >
-          {props.children}
-        </Header>
-      );
-    case "footer":
-      return (
-        <Footer
-          minWidth={getMediaTargetMinWidth()}
-          maxWidth={getMediaTargetMaxWidth()}
-          {...props}
-        >
-          {props.children}
-        </Footer>
-      );
-  }
+  return (
+    <StyledTagName
+      minWidth={getMediaTargetMinWidth()}
+      maxWidth={getMediaTargetMaxWidth()}
+      {...props}
+    >
+      {props.children}
+    </StyledTagName>
+  );
 };
 
 const MEDIA_TARGET_WIDTH: Record<string, Record<string, string>> = {
@@ -113,22 +85,6 @@ const ContainerCss = css<ContainerCssProps>`
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};
   overflow: ${(props) => props.overflow};
-`;
-
-const Div = styled.div<ContainerCssProps>`
-  ${ContainerCss}
-`;
-
-const Main = styled.main<ContainerCssProps>`
-  ${ContainerCss}
-`;
-
-const Header = styled.header<ContainerCssProps>`
-  ${ContainerCss}
-`;
-
-const Footer = styled.footer<ContainerCssProps>`
-  ${ContainerCss}
 `;
 
 export default Container;

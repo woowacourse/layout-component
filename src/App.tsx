@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">hello world~~</header>
       <Container
-        as="div"
+        as="article"
         minWidth="100px"
         maxWidth="110px"
         minHeight="200px"
