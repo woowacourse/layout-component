@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/lib", "src/stories/Box.tsx"],
+  "include": ["src/lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
