@@ -1,7 +1,8 @@
 import {
   CSSProperties,
   Children,
-  HTMLAttributes,
+  ComponentPropsWithoutRef,
+  ElementType,
   PropsWithChildren,
   ReactElement,
 } from 'react';
@@ -17,19 +18,59 @@ import {
 } from '../utils';
 
 type GridProps = {
+  /**
+   * HTML Tag를 지정하는 속성
+   *
+   *  * @default 'div'
+   */
+  tag?: ElementType;
+  /**
+   *  Grid Container 열(Track)의 크기를 정의하는 속성
+   *
+   *  * @default 'none'
+   */
   columns?: number | string | ResponsiveStyleType<number | string>;
+  /**
+   *  Grid Container 행(Track)의 크기를 정의하는 속성
+   *
+   *  * @default 'none'
+   */
   rows?: number | string | ResponsiveStyleType<number | string>;
+  /**
+   *  행과 열 사이의 간격을 설정하는 속성
+   *
+   *  * @default '0px'
+   */
   gap?: CSSProperties['gap'] | ResponsiveStyleType<CSSProperties['gap']>;
+  /**
+   *  Grid Item의 수직 방향 정렬 방식을 결정하는 속성
+   *
+   *  * @default 'stretch'
+   */
   align?:
     | CSSProperties['alignItems']
     | ResponsiveStyleType<CSSProperties['alignItems']>;
+  /**
+   *  Grid Item의 수평 방향 정렬 방식을 결정하는 속성
+   *
+   *  * @default 'stretch'
+   */
   justify?:
     | CSSProperties['justifyItems']
     | ResponsiveStyleType<CSSProperties['justifyItems']>;
-} & HTMLAttributes<HTMLElement>;
+} & ComponentPropsWithoutRef<ElementType>;
 
-function Grid(props: PropsWithChildren<GridProps>) {
-  const { children, ...layoutProps } = props;
+function Grid({
+  children,
+  tag,
+  columns,
+  rows,
+  gap,
+  align,
+  justify,
+  ...rest
+}: PropsWithChildren<GridProps>) {
+  const styleProps = { columns, rows, gap, align, justify };
 
   const gridItemChildren = Children.map(children, (child) => {
     const item = child as ReactElement;
@@ -41,7 +82,11 @@ function Grid(props: PropsWithChildren<GridProps>) {
     return child;
   });
 
-  return <Layout {...layoutProps}>{gridItemChildren}</Layout>;
+  return (
+    <Layout as={tag} {...rest} {...styleProps}>
+      {gridItemChildren}
+    </Layout>
+  );
 }
 
 Grid.Item = GridItem;

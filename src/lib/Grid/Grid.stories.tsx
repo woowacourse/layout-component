@@ -3,29 +3,18 @@ import Grid from './Grid';
 
 type Story = StoryObj<typeof Grid>;
 
-const meta: Meta<typeof Grid> = {
-  title: 'LAYOUT/Grid',
-  component: Grid,
-};
-
-export default meta;
-
 const customGridItemStyle = {
   background: 'rgba(245, 245, 245)',
   padding: '10px',
   borderRadius: '5px',
 };
 
-export const DefaultGrid: Story = {
-  argTypes: {
-    align: {
-      control: 'select',
-      options: [1, 2, 3],
-    },
-  },
-  render: () => {
-    return (
-      <Grid columns={4} gap="20px">
+const meta: Meta<typeof Grid> = {
+  title: 'LAYOUT/Grid',
+  component: Grid,
+  args: {
+    children: (
+      <>
         <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
@@ -34,124 +23,152 @@ export const DefaultGrid: Story = {
         <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-      </Grid>
-    );
+      </>
+    ),
+  },
+  argTypes: {
+    columns: {
+      options: Array.from({ length: 12 }, (_, index) => index + 1),
+      control: {
+        type: 'select',
+      },
+    },
+    rows: {
+      options: Array.from({ length: 3 }, (_, index) => index + 1),
+      control: {
+        type: 'select',
+      },
+    },
+    align: {
+      options: [
+        'center',
+        'end',
+        'flex-end',
+        'flex-start',
+        'self-end',
+        'self-start',
+        'start',
+        'stretch',
+      ],
+      control: {
+        type: 'select',
+      },
+    },
+    justify: {
+      options: [
+        'center',
+        'end',
+        'flex-end',
+        'flex-start',
+        'self-end',
+        'self-start',
+        'start',
+        'stretch',
+      ],
+    },
+  },
+};
+
+export default meta;
+
+export const DefaultGrid: Story = {
+  args: {
+    columns: 4,
+    gap: '20px',
   },
 };
 
 export const CommonGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={12} gap="10px">
-        <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item9</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item10</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item11</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item12</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item13</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item14</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item15</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item16</Grid.Item>
-      </Grid>
-    );
+  args: {
+    columns: 12,
+    gap: '10px',
   },
 };
 
 export const CustomColumGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} gap="20px">
-        <Grid.Item $gridColumn={'1/4'} style={customGridItemStyle}>
+  args: {
+    columns: 4,
+    gap: '20px',
+    children: (
+      <>
+        <Grid.Item column={'1/4'} style={customGridItemStyle}>
           Item1 - column 1 / 4
         </Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item $gridColumn={'3/5'} style={customGridItemStyle}>
+        <Grid.Item column={'3/5'} style={customGridItemStyle}>
           Item5 - column 3 / 5
         </Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item $gridColumn={'3/5'} style={customGridItemStyle}>
+        <Grid.Item column={'3/5'} style={customGridItemStyle}>
           Item8 - column 3 / 5
         </Grid.Item>
-      </Grid>
-    );
+      </>
+    ),
   },
 };
 
 export const CustomRowGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} rows={2} gap="20px">
-        <Grid.Item $gridRow={'1/3'} style={customGridItemStyle}>
+  args: {
+    columns: 4,
+    rows: 2,
+    gap: '20px',
+    children: (
+      <>
+        <Grid.Item row={'1/3'} style={customGridItemStyle}>
           Item1 - row 1 / 3
         </Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item $gridRow={'2/4'} style={customGridItemStyle}>
+        <Grid.Item row={'2/4'} style={customGridItemStyle}>
           Item5 - row 2 / 4
         </Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
         <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-      </Grid>
-    );
+      </>
+    ),
   },
 };
 
 export const CustomColumnRowGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} rows={2} gap="20px">
-        <Grid.Item
-          $gridRow={'1/4'}
-          $gridColumn={'1/4'}
-          style={customGridItemStyle}
-        >
+  args: {
+    columns: 4,
+    rows: 2,
+    gap: '20px',
+    children: (
+      <>
+        <Grid.Item row={'1/4'} column={'1/4'} style={customGridItemStyle}>
           Item1 - row 1 / 4, column 1 / 4
         </Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-      </Grid>
-    );
+        {Array.from({ length: 7 }).map((_, index) => (
+          <Grid.Item style={customGridItemStyle}>{`Item${
+            index + 2
+          }`}</Grid.Item>
+        ))}
+      </>
+    ),
   },
 };
 
 export const CustomLayoutDirectionGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} rows={2} gap="20px" justify="center">
-        <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-      </Grid>
-    );
+  args: {
+    columns: 4,
+    rows: 2,
+    gap: '20px',
+    justify: 'center',
   },
 };
 
 export const CustomItemDirectionGrid: Story = {
-  render: () => {
-    return (
-      <Grid columns={3} gap="20px">
+  args: {
+    columns: 3,
+    gap: '20px',
+    children: (
+      <>
         <Grid.Item style={customGridItemStyle} align="center">
           Item1 - justify flex-end
         </Grid.Item>
@@ -174,142 +191,76 @@ export const CustomItemDirectionGrid: Story = {
         <Grid.Item style={customGridItemStyle} justify="center">
           Item4 - justify center
         </Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item9</Grid.Item>
-      </Grid>
-    );
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Grid.Item style={customGridItemStyle}>{`Item${
+            index + 5
+          }`}</Grid.Item>
+        ))}
+      </>
+    ),
   },
 };
 
 export const GenerateErrorGridItem: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} gap="20px">
-        <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <div style={customGridItemStyle}>Item4 - error</div>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <div style={customGridItemStyle}>Item8 - error</div>
-      </Grid>
-    );
+  args: {
+    columns: 4,
+    gap: '20px',
+    children: (
+      <>
+        {Array.from({ length: 8 }).map((_, index) => {
+          if (index === 3 || index === 7) {
+            return <div>Error</div>;
+          }
+          return (
+            <Grid.Item
+              key={index}
+              justify={{
+                desktop: 'stretch',
+                tablet: 'flex-end',
+                mobile: 'flex-start',
+              }}
+              style={customGridItemStyle}
+            >
+              {`Item${index}`}
+            </Grid.Item>
+          );
+        })}
+      </>
+    ),
   },
 };
 
 export const ResponsiveGrid1: Story = {
-  render: () => {
-    return (
-      <Grid
-        columns={{
-          desktop: 8,
-          tablet: 4,
-          mobile: 2,
-        }}
-        gap="20px"
-      >
-        <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
-        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
-      </Grid>
-    );
+  args: {
+    columns: {
+      desktop: 8,
+      tablet: 4,
+      mobile: 2,
+    },
+    gap: '20px',
   },
 };
 
 export const ResponsiveGrid2: Story = {
-  render: () => {
-    return (
-      <Grid columns={4} gap="20px">
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item1
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item2
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item3
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item4
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item5
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item6
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item7
-        </Grid.Item>
-        <Grid.Item
-          justify={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customGridItemStyle}
-        >
-          Item8
-        </Grid.Item>
-      </Grid>
-    );
+  args: {
+    columns: 4,
+    gap: '20px',
+    children: (
+      <>
+        {Array.from({ length: 32 }).map((_, index) => (
+          <Grid.Item
+            key={index}
+            justify={{
+              desktop: 'stretch',
+              tablet: 'flex-end',
+              mobile: 'flex-start',
+            }}
+            style={customGridItemStyle}
+          >
+            {`Item${index}`}
+          </Grid.Item>
+        ))}
+      </>
+    ),
   },
 };
