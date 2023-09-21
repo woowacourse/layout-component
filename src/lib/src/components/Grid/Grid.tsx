@@ -17,7 +17,7 @@ const GridLayout = styled.div<GridLayoutProps>`
   display: grid;
   grid-template-columns: repeat(${({ $column }) => $column}, 1fr);
   grid-template-rows: repeat(${({ $row }) => $row}, 1fr);
-  gap: ${({ $gap }) => ($gap ? $gap : 0)}px;
+  gap: ${({ $gap }) => (typeof $gap === 'number' ? `${$gap}px` : $gap)};
 `;
 
 export default Grid;
