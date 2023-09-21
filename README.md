@@ -28,15 +28,14 @@ import { Container } from 'layout-component-hp';
 
 ### Props
 
-| props            | type                             | description                                     |
-| ---------------- | -------------------------------- | ----------------------------------------------- |
-| minWidth?        | number                           | Container의 min-width값입니다.                  |
-| maxWidth?        | number                           | Container의 max-width값입니다.                  |
-| padding?         | number                           | Container의 padding값입니다.                    |
-| centerContent?   | boolean (default: false)         | Container 자식 컴포넌트의 중앙 정렬 여부입니다. |
-| backgroundColor? | CSSProperties['backgroundColor'] | Container의 배경색입니다.                       |
-| borderRadius?    | CSSProperties['borderRadius']    | Container의 border-radius값입니다.              |
-| children         | ReactNode                        | Container의 자식 컴포넌트입니다.                |
+| props          | type                        | description                                     |
+| -------------- | --------------------------- | ----------------------------------------------- |
+| minWidth?      | number                      | Container의 min-width값입니다.                  |
+| maxWidth?      | number                      | Container의 max-width값입니다.                  |
+| padding?       | number                      | Container의 padding값입니다.                    |
+| centerContent? | boolean (default: false)    | Container 자식 컴포넌트의 중앙 정렬 여부입니다. |
+| css?           | CSSProperties (default: {}) | Container의 기타 스타일 속성입니다.             |
+| children       | ReactNode                   | Container의 자식 컴포넌트입니다.                |
 
 ### Usage
 
@@ -65,30 +64,30 @@ import { Grid } from 'layout-component-hp';
 
 ### Grid Props
 
-| props    | value                  | description                              |
-| -------- | ---------------------- | ---------------------------------------- |
-| areas?   | string                 | Grid의 영역을 정의합니다.                |
-| rows?    | number                 | Grid의 행 수를 지정합니다.               |
-| columns? | number                 | Grid의 열 수를 지정합니다.               |
-| gap?     | number                 | Grid 내 아이템 사이의 간격을 지정합니다. |
-| height?  | CSSProperties['height] | Grid의 높이를 지정합니다.                |
-| children | ReactNode              | Grid의 자식 컴포넌트입니다.              |
+| props      | value                       | description                              |
+| ---------- | --------------------------- | ---------------------------------------- |
+| areas?     | string                      | Grid의 영역을 정의합니다.                |
+| rows?      | number                      | Grid의 행 수를 지정합니다.               |
+| columns?   | number                      | Grid의 열 수를 지정합니다.               |
+| gap?       | number                      | Grid 내 아이템 사이의 간격을 지정합니다. |
+| rowGap?    | number                      | Grid의 행 사이의 간격을 지정합니다.      |
+| columnGap? | number                      | Grid의 열 사이의 간격을 지정합니다.      |
+| css?       | CSSProperties (default: {}) | Grid의 기타 스타일 속성입니다.           |
+| children   | ReactNode                   | Grid의 자식 컴포넌트입니다.              |
 
 ### Grid.Item Props
 
-| props            | value                            | description                                  |
-| ---------------- | -------------------------------- | -------------------------------------------- |
-| area?            | string                           | Grid.Item의 영역을 정의합니다.               |
-| row?             | number / 'auto'                  | Grid.Item의 행 수를 지정합니다.              |
-| col?             | number / 'auto'                  | Grid.Item의 열 수를 지정합니다.              |
-| rowStart?        | number / 'auto'                  | Grid.Item의 행이 시작하는 위치를 지정합니다. |
-| rowEnd?          | number / 'auto'                  | Grid.Item의 행이 끝나는 위치를 지정합니다.   |
-| colStart?        | number / 'auto'                  | Grid.Item의 열이 시작하는 위치를 지정합니다. |
-| colEnd?          | number / 'auto'                  | Grid.Item의 열이 끝나는 위치를 지정합니다.   |
-| width?           | CSSProperties['width']           | Grid.Item의 너비를 지정합니다.               |
-| height?          | CSSProperties['height']          | Grid.Item의 높이를 지정합니다.               |
-| backgroundColor? | CSSProperties['backgroundColor'] | Grid.Item의 배경 색상입니다.                 |
-| children?        | ReactNode                        | Grid.Item의 자식 컴포넌트입니다.             |
+| props     | value                       | description                                  |
+| --------- | --------------------------- | -------------------------------------------- |
+| area?     | string                      | Grid.Item의 영역을 정의합니다.               |
+| row?      | number / 'auto'             | Grid.Item의 행 수를 지정합니다.              |
+| col?      | number / 'auto'             | Grid.Item의 열 수를 지정합니다.              |
+| rowStart? | number / 'auto'             | Grid.Item의 행이 시작하는 위치를 지정합니다. |
+| rowEnd?   | number / 'auto'             | Grid.Item의 행이 끝나는 위치를 지정합니다.   |
+| colStart? | number / 'auto'             | Grid.Item의 열이 시작하는 위치를 지정합니다. |
+| colEnd?   | number / 'auto'             | Grid.Item의 열이 끝나는 위치를 지정합니다.   |
+| css?      | CSSProperties (default: {}) | Grid.Item의 기타 스타일 속성입니다.          |
+| children? | ReactNode                   | Grid.Item의 자식 컴포넌트입니다.             |
 
 ### Usage
 
@@ -127,20 +126,20 @@ import { Flex } from 'layout-component-hp';
 | justify?   | CSSProperties['justifyContent'] | Flex의 메인축 방향 정렬을 지정합니다. |
 | align?     | CSSProperties['alignItems']     | Flex의 수직축 방향 정렬을 지정합니다. |
 | gap?       | number                          | Flex의 콘텐츠 사이 간격을 지정합니다. |
-| width?     | CSSProperties['width']          | Flex의 너비를 지정합니다.             |
-| height?    | CSSProperties['height']         | Flex의 높이를 지정합니다.             |
+| css?       | CSSProperties (default: {})     | Flex의 기타 스타일 속성입니다.        |
 | children   | ReactNode                       | Flex의 자식 컴포넌트입니다.           |
 
 ### Flex.Item Props
 
-| props      | value                      | description                                |
-| ---------- | -------------------------- | ------------------------------------------ |
-| order?     | number                     | Flex.Item의 배치 순서를 지정합니다.        |
-| basis?     | CSSProperties['flexBasis'] | Flex.Item의 기본 크기를 지정합니다.        |
-| grow?      | number                     | basis 값보다 커질 수 있도록 지정합니다.    |
-| shrink?    | number                     | basis 값보다 작아질 수 있도록 지정합니다.  |
-| alignSelf? | CSSProperties['alignSelf'] | Flex.Item의 수직축 방향 정렬을 지정합니다. |
-| children   | ReactNode                  | Flex.Item의 자식 컴포넌트입니다.           |
+| props    | value                       | description                                |
+| -------- | --------------------------- | ------------------------------------------ |
+| order?   | number                      | Flex.Item의 배치 순서를 지정합니다.        |
+| basis?   | CSSProperties['flexBasis']  | Flex.Item의 기본 크기를 지정합니다.        |
+| grow?    | number                      | basis 값보다 커질 수 있도록 지정합니다.    |
+| shrink?  | number                      | basis 값보다 작아질 수 있도록 지정합니다.  |
+| align?   | CSSProperties['alignSelf']  | Flex.Item의 수직축 방향 정렬을 지정합니다. |
+| css?     | CSSProperties (default: {}) | Flex.Item의 기타 스타일 속성입니다.        |
+| children | ReactNode                   | Flex.Item의 자식 컴포넌트입니다.           |
 
 ### Usage
 
