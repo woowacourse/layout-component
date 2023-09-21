@@ -100,9 +100,9 @@ The `Flex` component implements a layout that flexibly arranges child components
 
 ### Props
 
-- `direction`: type is `row` | `column`. Sets the flex direction.
-- `justify`: type is `flex-start` | `flex-end` | `center` | `space-between` | `space-around`. aligns items along the main axis.
-- `align`: type is `flex-start` | `flex-end` | `center` | `stretch`. aligns items along the cross-axis.
+- `direction(optional)`: type is `row` | `column`. Sets the flex direction. default value is `row`
+- `justify(optional)`: type is `flex-start` | `flex-end` | `center` | `space-between` | `space-around`. aligns items along the main axis. default value is `flex-start`
+- `align(optional)`: type is `flex-start` | `flex-end` | `center` | `stretch`. aligns items along the cross-axis. default value is `stretch`
 - `gap(optional)`: type is number. Adjusts the spacing between child components.
 - `children`: type is React.ReactNode. A child component of the Container component.
 

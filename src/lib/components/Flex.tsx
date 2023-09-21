@@ -2,14 +2,14 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  direction: 'row' | 'column';
-  justify: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
-  align: 'flex-start' | 'flex-end' | 'center' | 'stretch';
+  direction?: 'row' | 'column';
+  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+  align?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
   gap?: number;
   children: ReactNode;
 };
 
-const Flex = ({ direction, justify, align, gap, children }: Props) => {
+const Flex = ({ direction='row', justify='flex-start', align='stretch', gap, children }: Props) => {
   return (
     <Layout direction={direction} justify={justify} align={align} gap={gap}>
       {children}

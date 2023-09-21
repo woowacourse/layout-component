@@ -41,16 +41,16 @@ export const FlexLayout: Story = {
       description: '자식 컴포넌트입니다.',
     },
     direction: {
-      description: '정렬할 방향을 설정합니다.',
+      description: '정렬할 방향을 설정합니다. default 값은 `row` 입니다.',
     },
     gap: {
       description: '자식 컴포넌트 간의 간격을 조절합니다.',
     },
     justify: {
-      description: '주축을 따라 항목들을 정렬합니다.',
+      description: '주축을 따라 항목들을 정렬합니다. default 값은 `flex-start` 입니다',
     },
     align: {
-      description: '교차축을 따라 항목들을 정렬합니다.',
+      description: '교차축을 따라 항목들을 정렬합니다. default 값은 `stretch` 입니다',
     },
   },
 };
