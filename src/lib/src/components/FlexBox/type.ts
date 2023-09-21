@@ -11,7 +11,7 @@ export interface Props extends PropsWithChildren {
     | 'space-around'
     | 'space-evenly';
   align?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-  gap?: number;
+  gap?: number | string;
   css?: CSSProp;
 }
 
@@ -25,6 +25,6 @@ export interface FlexBoxLayoutProps {
     | 'space-around'
     | 'space-evenly';
   $align?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-  $gap?: number;
+  $gap?: number | string;
   css?: CSSProp;
 }
