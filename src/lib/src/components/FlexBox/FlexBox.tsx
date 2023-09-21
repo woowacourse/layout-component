@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import type { FlexBoxLayoutProps, Props } from './type';
 
 function FlexBox({
+  width = '100%',
+  height = 'fit-content',
   direction = 'row',
   justify = 'flex-start',
   align = 'flex-start',
@@ -10,7 +12,15 @@ function FlexBox({
   children,
 }: Props) {
   return (
-    <FlexBoxLayout $direction={direction} $justify={justify} $align={align} $gap={gap} css={css}>
+    <FlexBoxLayout
+      $width={width}
+      $height={height}
+      $direction={direction}
+      $justify={justify}
+      $align={align}
+      $gap={gap}
+      css={css}
+    >
       {children}
     </FlexBoxLayout>
   );
@@ -18,6 +28,9 @@ function FlexBox({
 
 const FlexBoxLayout = styled.div<FlexBoxLayoutProps>`
   ${({ css }) => css}
+
+  width: ${({ $width }) => (typeof $width === 'number' ? `${$width}px` : $width)};
+  height: ${({ $height }) => (typeof $height === 'number' ? `${$height}px` : $height)};
 
   display: flex;
   flex-direction: ${({ $direction }) => $direction};

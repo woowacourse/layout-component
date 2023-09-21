@@ -2,6 +2,8 @@ import { PropsWithChildren } from 'react';
 import { CSSProp } from 'styled-components';
 
 export interface Props extends PropsWithChildren {
+  width?: number | string;
+  height?: number | string;
   direction?: 'row' | 'column';
   justify?:
     | 'flex-start'
@@ -16,6 +18,8 @@ export interface Props extends PropsWithChildren {
 }
 
 export interface FlexBoxLayoutProps {
+  $width?: number | string;
+  $height?: number | string;
   $direction?: 'row' | 'column';
   $justify?:
     | 'flex-start'
