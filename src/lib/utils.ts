@@ -1,3 +1,5 @@
+import type { Gap, GapFormat } from "./types";
+
 export function getRandomNumberInRange(first: number, second: number) {
   if (first > second) [first, second] = [second, first];
 
@@ -16,4 +18,13 @@ export function findIndexOfSmallest(array: number[]) {
 
 export function createArrayOfArrays<T>(length: number): T[][] {
   return Array.from({ length }, () => [] as T[]);
+}
+
+export function parseGap(gap: Gap) {
+  if (typeof gap !== "object") {
+    return { rowGap: gap, columnGap: gap };
+  }
+
+  const { row = 0, column = 0 } = gap;
+  return { rowGap: row, columnGap: column };
 }
