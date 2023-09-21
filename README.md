@@ -24,21 +24,9 @@ The `Container` component is a layout component that limits the maximum width of
 
 ### Props
 
-- `maxWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Maximum width of container
-- `minWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Minimum width of container
-- `background` (string): Container background
-
-> The types of maxWidth and minWidth follow `Container Width Type`.
-
-### Container Width Type
-
-| size | width  |
-| :--: | :----: |
-| `xs` | 450px  |
-| `sm` | 600px  |
-| `md` | 900px  |
-| `lg` | 1200px |
-| `xl` | 1500px |
+- `maxWidth` (string | ResponsiveStyleType<T>): Maximum width of container
+- `minWidth` (string | ResponsiveStyleType<T>): Minimum width of container
+- `background` (string | ResponsiveStyleType<T>): Container background
 
 ### Example of use
 
@@ -46,8 +34,8 @@ The `Container` component is a layout component that limits the maximum width of
 function App() {
   return (
     <Container
-      maxWidth="md"
-      minWidth="sm"
+      maxWidth="600px"
+      minWidth="600px"
       background="rgba(250,250,250)"
     ></Container>
   );
@@ -64,18 +52,18 @@ The `Grid` component is a component that arranges child components in a grid.
 
 ### Grid Component Props
 
-- `columns` (number): number of columns
-- `rows` (number): number of rows
-- `align` (string): Determine how to vertically align children
-- `justify` (string): Decide how to horizontally align children
-- `gap` (string): Spacing between child components
+- `columns` (number | string | ResponsiveStyleType<T>): number of columns
+- `rows` (number | string | ResponsiveStyleType<T>): number of rows
+- `align` (string | ResponsiveStyleType<T>): Determine how to vertically align children
+- `justify` (string | ResponsiveStyleType<T>): Decide how to horizontally align children
+- `gap` (string | ResponsiveStyleType<T>): Spacing between child components
 
 ### Grid Item Component Props
 
-- `$gridColumn` (string): Size (position) of the area occupied by the column
-- `$gridRow` (string): Size (position) of the area occupied by the row
-- `align` (string): Determine how to vertically align
-- `justify` (string): Decide how to horizontally align
+- `$gridColumn` (string | ResponsiveStyleType<T>): Size (position) of the area occupied by the column
+- `$gridRow` (string | ResponsiveStyleType<T>): Size (position) of the area occupied by the row
+- `align` (string | ResponsiveStyleType<T>): Determine how to vertically align
+- `justify` (string | ResponsiveStyleType<T>): Decide how to horizontally align
 
 ### Example of use
 
@@ -103,16 +91,16 @@ A `Flex` component is a component that flexibly arranges child components.
 
 ### Flex Component Props
 
-- `direction` (string): Direction of flex
-- `wrap` (string): Decide whether to force `flex-item` elements to be placed on a single line, or to express them in multiple parts outside of their containing scope.
-- `align` (string): Determine how to vertically align children
-- `justify` (string): Decide how to horizontally align children
-- `gap` (string): Spacing between child components
+- `direction` (string | ResponsiveStyleType<T>): Direction of flex
+- `wrap` (string | ResponsiveStyleType<T>): Decide whether to force `flex-item` elements to be placed on a single line, or to express them in multiple parts outside of their containing scope.
+- `align` (string | ResponsiveStyleType<T>): Determine how to vertically align children
+- `justify` (string | ResponsiveStyleType<T>): Decide how to horizontally align children
+- `gap` (string | ResponsiveStyleType<T>): Spacing between child components
 
 ### Flex Item Component Props
 
-- `align` (string): Determine how to vertically align
-- `justify` (string): Decide how to horizontally align
+- `align` (string | ResponsiveStyleType<T>): Determine how to vertically align
+- `justify` (string | ResponsiveStyleType<T>): Decide how to horizontally align
 
 ### Example of use
 
@@ -127,6 +115,44 @@ function App() {
   );
 }
 ```
+
+<br/>
+
+## ResponsiveStyle
+
+If you want to create a responsive layout, you can pass the value corresponding to ResponsiveStyleType as an argument.
+
+```tsx
+function App() {
+  return (
+    <Container
+      $minWidth={
+        desktop: '900px',
+        tablet: '600px',
+        mobile: '450px',
+      }
+      $maxWidth={
+        desktop: '900px',
+        tablet: '600px',
+        mobile: '450px',
+      }
+      background={
+        desktop: 'blue',
+        tablet: 'yellow',
+        mobile: 'red',
+      }
+    >
+      Children
+    </Container>
+  );
+}
+```
+
+|   size    |       width       |
+| :-------: | :---------------: |
+| `desktop` |         -         |
+| `tablet`  | max-width: 1024px |
+| `mobile`  | max-width: 768px  |
 
 <br/>
 
