@@ -9,13 +9,23 @@ import {
 import { styled, css } from 'styled-components';
 
 import GridItem from './GridItem';
+import { ResponsiveStyleType } from '../type';
+import {
+  calculateResponsiveGridTemplateStyle,
+  calculateResponsiveStyle,
+  isCommonStyle,
+} from '../utils';
 
 type GridProps = {
-  columns?: number;
-  rows?: number;
-  gap?: CSSProperties['gap'];
-  align?: CSSProperties['alignItems'];
-  justify?: CSSProperties['justifyItems'];
+  columns?: number | string | ResponsiveStyleType<number | string>;
+  rows?: number | string | ResponsiveStyleType<number | string>;
+  gap?: CSSProperties['gap'] | ResponsiveStyleType<CSSProperties['gap']>;
+  align?:
+    | CSSProperties['alignItems']
+    | ResponsiveStyleType<CSSProperties['alignItems']>;
+  justify?:
+    | CSSProperties['justifyItems']
+    | ResponsiveStyleType<CSSProperties['justifyItems']>;
 } & HTMLAttributes<HTMLElement>;
 
 function Grid(props: PropsWithChildren<GridProps>) {
@@ -42,10 +52,23 @@ const Layout = styled.div<GridProps>`
   display: grid;
 
   ${({ columns, rows, gap, align, justify }) => css`
-    grid-template-columns: ${`repeat(${columns}, 1fr)` || 'repeat(12, 1fr)'};
-    grid-template-rows: ${`repeat(${rows}, 1fr)` || '1fr'};
-    grid-gap: ${gap || '0px'};
-    align-items: ${align};
-    justify-items: ${justify};
+    grid-template-columns: ${isCommonStyle<number | string>(columns) &&
+    typeof columns === 'number'
+      ? `repeat(${columns}, 1fr)`
+      : typeof columns === 'string' && columns};
+    grid-template-rows: ${isCommonStyle<number | string>(rows) &&
+    typeof rows === 'number'
+      ? `repeat(${rows}, 1fr)`
+      : typeof rows === 'string' && rows};
+    gap: ${isCommonStyle<CSSProperties['gap']>(gap) && gap};
+    align-items: ${isCommonStyle<CSSProperties['alignItems']>(align) && align};
+    justify-items: ${isCommonStyle<CSSProperties['alignItems']>(justify) &&
+    justify};
+
+    ${calculateResponsiveGridTemplateStyle('grid-template-columns', columns)}
+    ${calculateResponsiveGridTemplateStyle('grid-template-rows', rows)}
+    ${calculateResponsiveStyle('gap', gap)}
+    ${calculateResponsiveStyle('align', align)}
+    ${calculateResponsiveStyle('justify', justify)}
   `}
 `;

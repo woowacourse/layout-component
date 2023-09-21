@@ -35,48 +35,48 @@ export const DefaultContainer: Story = {
 
 export const XSmallContainer: Story = {
   args: {
-    $minWidth: 'xs',
-    $maxWidth: 'xs',
+    $minWidth: '450px',
+    $maxWidth: '450px',
     children: 'X Small Size',
   },
 };
 
 export const SmallContainer: Story = {
   args: {
-    $minWidth: 'sm',
-    $maxWidth: 'sm',
+    $minWidth: '600px',
+    $maxWidth: '600px',
     children: 'Small Size',
   },
 };
 
 export const MediumContainer: Story = {
   args: {
-    $minWidth: 'md',
-    $maxWidth: 'md',
+    $minWidth: '900px',
+    $maxWidth: '900px',
     children: 'Medium Size',
   },
 };
 
 export const LargeContainer: Story = {
   args: {
-    $minWidth: 'lg',
-    $maxWidth: 'lg',
+    $minWidth: '1200px',
+    $maxWidth: '1200px',
     children: 'Large Size',
   },
 };
 
 export const XLargeContainer: Story = {
   args: {
-    $minWidth: 'xl',
-    $maxWidth: 'xl',
+    $minWidth: '1500px',
+    $maxWidth: '1500px',
     children: 'X Large Size',
   },
 };
 
 export const BlueContainer: Story = {
   args: {
-    $minWidth: 'md',
-    $maxWidth: 'md',
+    $minWidth: '900px',
+    $maxWidth: '900px',
     children: 'Blue Background',
     background: '#cfe8fc',
   },
@@ -84,8 +84,8 @@ export const BlueContainer: Story = {
 
 export const ImageContainer: Story = {
   args: {
-    $minWidth: 'md',
-    $maxWidth: 'md',
+    $minWidth: '900px',
+    $maxWidth: '900px',
     children: 'Image Background',
     background:
       "center / cover no-repeat url('https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60')",
@@ -94,8 +94,8 @@ export const ImageContainer: Story = {
 
 export const CustomContainer: Story = {
   args: {
-    $minWidth: 'md',
-    $maxWidth: 'md',
+    $minWidth: '900px',
+    $maxWidth: '900px',
     children: 'Custom',
     style: {
       padding: '20px',
@@ -105,10 +105,23 @@ export const CustomContainer: Story = {
   },
 };
 
-// export const WidthErrorContainer: Story = {
-//   args: {
-//     $minWidth: 'md',
-//     $maxWidth: 'sm',
-//     children: 'Error',
-//   },
-// };
+export const ResponsiveContainer: Story = {
+  args: {
+    $minWidth: {
+      desktop: '900px',
+      tablet: '600px',
+      mobile: '450px',
+    },
+    $maxWidth: {
+      desktop: '900px',
+      tablet: '600px',
+      mobile: '450px',
+    },
+    background: {
+      desktop: 'blue',
+      tablet: 'yellow',
+      mobile: 'red',
+    },
+    children: 'Responsive',
+  },
+};

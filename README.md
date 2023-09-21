@@ -24,11 +24,11 @@ The `Container` component is a layout component that limits the maximum width of
 
 ### Props
 
-- `$maxWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Maximum width of container
-- `$minWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Minimum width of container
+- `maxWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Maximum width of container
+- `minWidth` ('xs'| 'sm' | 'md' | 'lg' | 'xl'): Minimum width of container
 - `background` (string): Container background
 
-> The types of $maxWidth and $minWidth follow `Container Width Type`.
+> The types of maxWidth and minWidth follow `Container Width Type`.
 
 ### Container Width Type
 
@@ -46,8 +46,8 @@ The `Container` component is a layout component that limits the maximum width of
 function App() {
   return (
     <Container
-      $maxWidth="md"
-      $minWidth="sm"
+      maxWidth="md"
+      minWidth="sm"
       background="rgba(250,250,250)"
     ></Container>
   );

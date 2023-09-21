@@ -200,3 +200,116 @@ export const GenerateErrorGridItem: Story = {
     );
   },
 };
+
+export const ResponsiveGrid1: Story = {
+  render: () => {
+    return (
+      <Grid
+        columns={{
+          desktop: 8,
+          tablet: 4,
+          mobile: 2,
+        }}
+        gap="20px"
+      >
+        <Grid.Item style={customGridItemStyle}>Item1</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item2</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item3</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item4</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item5</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item6</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item7</Grid.Item>
+        <Grid.Item style={customGridItemStyle}>Item8</Grid.Item>
+      </Grid>
+    );
+  },
+};
+
+export const ResponsiveGrid2: Story = {
+  render: () => {
+    return (
+      <Grid columns={4} gap="20px">
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item1
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item2
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item3
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item4
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item5
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item6
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item7
+        </Grid.Item>
+        <Grid.Item
+          justify={{
+            desktop: 'stretch',
+            tablet: 'flex-end',
+            mobile: 'flex-start',
+          }}
+          style={customGridItemStyle}
+        >
+          Item8
+        </Grid.Item>
+      </Grid>
+    );
+  },
+};

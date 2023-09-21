@@ -9,13 +9,23 @@ import {
 import { styled, css } from 'styled-components';
 
 import FlexItem from './FlexItem';
+import { calculateResponsiveStyle, isCommonStyle } from '../utils';
+import { ResponsiveStyleType } from '../type';
 
 type FlexProps = {
-  direction?: CSSProperties['flexDirection'];
-  wrap?: CSSProperties['flexWrap'];
-  justify?: CSSProperties['justifyContent'];
-  align?: CSSProperties['alignItems'];
-  gap?: CSSProperties['gap'];
+  direction?:
+    | CSSProperties['flexDirection']
+    | ResponsiveStyleType<CSSProperties['flexDirection']>;
+  wrap?:
+    | CSSProperties['flexWrap']
+    | ResponsiveStyleType<CSSProperties['flexWrap']>;
+  justify?:
+    | CSSProperties['justifyContent']
+    | ResponsiveStyleType<CSSProperties['justifyContent']>;
+  align?:
+    | CSSProperties['alignItems']
+    | ResponsiveStyleType<CSSProperties['alignItems']>;
+  gap?: CSSProperties['gap'] | ResponsiveStyleType<CSSProperties['gap']>;
 } & HTMLAttributes<HTMLElement>;
 
 function Flex(props: PropsWithChildren<FlexProps>) {
@@ -42,10 +52,20 @@ const Layout = styled.div<FlexProps>`
   display: flex;
 
   ${({ direction, gap, align, justify, wrap }) => css`
-    flex-direction: ${direction || 'row'};
-    flex-wrap: ${wrap || 'nowrap'};
-    grid-gap: ${gap || '0px'};
-    align-items: ${align};
-    justify-content: ${justify};
+    flex-direction: ${isCommonStyle<CSSProperties['flexDirection']>(
+      direction
+    ) && direction};
+    flex-wrap: ${isCommonStyle<CSSProperties['flexWrap']>(wrap) && wrap};
+    gap: ${isCommonStyle<CSSProperties['gap']>(gap) && gap};
+    align-items: ${isCommonStyle<CSSProperties['alignItems']>(align) && align};
+    justify-content: ${isCommonStyle<CSSProperties['justifyContent']>(
+      justify
+    ) && justify};
+
+    ${calculateResponsiveStyle('flex-direction', direction)}
+    ${calculateResponsiveStyle('flex-wrap', gap)}
+    ${calculateResponsiveStyle('gap', align)}
+    ${calculateResponsiveStyle('align-items', justify)}
+    ${calculateResponsiveStyle('justify-content', wrap)}
   `}
 `;
