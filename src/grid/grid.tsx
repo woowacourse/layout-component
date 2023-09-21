@@ -12,13 +12,20 @@ import styles from './grid.module.css';
 
 type GridCSS = Omit<
   CSSProperties,
-  'gridTemplateAreas' | 'gridTemplateRows' | 'gridTemplateColumns' | 'gap'
+  | 'gridTemplateAreas'
+  | 'gridTemplateRows'
+  | 'gridTemplateColumns'
+  | 'gap'
+  | 'rowGap'
+  | 'columnGap'
 >;
 type GridStyleProps = {
   areas?: CSSProperties['gridTemplateAreas'];
   rows?: number;
   columns?: number;
   gap?: number;
+  rowGap?: number;
+  columnGap?: number;
   css?: GridCSS;
 };
 
@@ -31,14 +38,29 @@ type CompoundGrid = {
 
 const Grid = forwardRef<GridProps, CompoundGrid>(
   (
-    { areas, rows, columns, gap, css = {}, children, ...props }: GridProps,
+    {
+      areas,
+      rows,
+      columns,
+      gap,
+      rowGap,
+      columnGap,
+      css = {},
+      children,
+      ...props
+    }: GridProps,
     ref: GridRef
   ) => {
+    const convertGap = (gap?: number) =>
+      typeof gap === 'number' ? `${gap}px` : gap;
+
     const style = {
       gridTemplateAreas: areas,
       gridTemplateRows: `repeat(${rows}, 1fr)`,
       gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      gap: `${gap}px`,
+      gap: convertGap(gap),
+      rowGap: convertGap(rowGap),
+      columnGap: convertGap(columnGap),
       ...css,
     };
 
