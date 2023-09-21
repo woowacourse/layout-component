@@ -4,28 +4,16 @@ export function getRandomNumberInRange(first: number, second: number) {
   return Math.floor(Math.random() * (second - first + 1)) + first;
 }
 
-export function findIndexOfSmallest(arr: number[]) {
-  if (arr.length === 0) return -1;
+export function findIndexOfSmallest(array: number[]) {
+  if (array.length === 0) return -1;
 
-  let smallestIndex = 0;
-  let smallestValue = arr[0];
-
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < smallestValue) {
-      smallestValue = arr[i];
-      smallestIndex = i;
-    }
-  }
-
-  return smallestIndex;
+  return array.reduce(
+    (smallestIndex, currentValue, currentIndex, array) =>
+      currentValue < array[smallestIndex] ? currentIndex : smallestIndex,
+    0
+  );
 }
 
-export function createArrayOfArrays<T>(length: number) {
-  const arrayOfArrays: T[][] = [];
-
-  for (let i = 0; i < length; i++) {
-    arrayOfArrays.push([]);
-  }
-
-  return arrayOfArrays;
+export function createArrayOfArrays<T>(length: number): T[][] {
+  return Array.from({ length }, () => [] as T[]);
 }
