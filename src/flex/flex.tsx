@@ -10,12 +10,17 @@ import { forwardRef } from '../utils';
 
 import styles from './flex.module.css';
 
-type FlexStyleProps = Pick<CSSProperties, 'width' | 'height'> & {
+type FlexCSS = Omit<
+  CSSProperties,
+  'flexDirection' | 'flexWrap' | 'justifyContent' | 'alignItems' | 'gap'
+>;
+type FlexStyleProps = {
   direction?: CSSProperties['flexDirection'];
   wrap?: CSSProperties['flexWrap'];
   justify?: CSSProperties['justifyContent'];
   align?: CSSProperties['alignItems'];
   gap?: number;
+  css?: FlexCSS;
 };
 
 type FlexProps = ComponentPropsWithoutRef<'div'> & FlexStyleProps;
@@ -33,8 +38,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
       justify,
       align,
       gap,
-      width,
-      height,
+      css = {},
       children,
       ...props
     }: FlexProps,
@@ -46,8 +50,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
       justifyContent: justify,
       alignItems: align,
       gap: `${gap}px`,
-      width,
-      height,
+      ...css,
     };
 
     return (

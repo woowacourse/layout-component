@@ -1,9 +1,16 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
-type FlexItemStyleProps = Pick<CSSProperties, 'order' | 'alignSelf'> & {
+type FlexItemCSS = Omit<
+  CSSProperties,
+  'order' | 'flexGrow' | 'flexShrink' | 'flexBasis' | 'alignSelf'
+>;
+type FlexItemStyleProps = {
+  order?: CSSProperties['order'];
   grow?: CSSProperties['flexGrow'];
   shrink?: CSSProperties['flexShrink'];
   basis?: CSSProperties['flexBasis'];
+  align?: CSSProperties['alignSelf'];
+  css?: FlexItemCSS;
 };
 
 type FlexItemProps = ComponentPropsWithoutRef<'div'> & FlexItemStyleProps;
@@ -13,8 +20,9 @@ const FlexItem = ({
   grow,
   shrink,
   basis,
-  alignSelf,
+  align,
   children,
+  css = {},
   ...props
 }: FlexItemProps) => {
   const style = {
@@ -22,7 +30,8 @@ const FlexItem = ({
     flexGrow: grow,
     flexShrink: shrink,
     flexBasis: basis,
-    alignSelf,
+    alignSelf: align,
+    ...css,
   };
 
   return (

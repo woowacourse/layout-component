@@ -1,10 +1,17 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
 import { compact } from '../utils';
 
-type GridItemStyleProps = Pick<
+type GridItemCSS = Omit<
   CSSProperties,
-  'width' | 'height' | 'backgroundColor'
-> & {
+  | 'gridArea'
+  | 'gridRow'
+  | 'gridColumn'
+  | 'gridRowStart'
+  | 'gridRowEnd'
+  | 'gridColumnStart'
+  | 'gridColumnEnd'
+>;
+type GridItemStyleProps = {
   area?: CSSProperties['gridArea'];
   row?: number | 'auto';
   rowStart?: number | 'auto';
@@ -12,6 +19,7 @@ type GridItemStyleProps = Pick<
   col?: number | 'auto';
   colStart?: number | 'auto';
   colEnd?: number | 'auto';
+  css?: GridItemCSS;
 };
 
 type GridItemProps = ComponentPropsWithoutRef<'div'> & GridItemStyleProps;
@@ -24,9 +32,7 @@ const GridItem = ({
   col,
   colStart,
   colEnd,
-  width,
-  height,
-  backgroundColor,
+  css = {},
   children,
   ...props
 }: GridItemProps) => {
@@ -35,7 +41,7 @@ const GridItem = ({
   const gridRow = typeof row === 'number' ? `span ${row} / span ${row}` : row;
 
   const style = area
-    ? compact({ gridArea: area, backgroundColor })
+    ? compact({ gridArea: area, ...css })
     : compact({
         gridRow,
         gridRowStart: rowStart,
@@ -43,9 +49,7 @@ const GridItem = ({
         gridColumn,
         gridColumnStart: colStart,
         gridColumnEnd: colEnd,
-        width,
-        height,
-        backgroundColor,
+        ...css
       });
 
   return (

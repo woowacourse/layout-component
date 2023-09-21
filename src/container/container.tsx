@@ -9,14 +9,13 @@ import { forwardRef } from '../utils';
 
 import styles from './container.module.css';
 
-type ContainerStyleProps = Pick<
-  CSSProperties,
-  'backgroundColor' | 'borderRadius'
-> & {
+type ContainerCSS = Omit<CSSProperties, 'minWidth' | 'maxWidth' | 'padding'>;
+type ContainerStyleProps = {
   minWidth?: number;
   maxWidth?: number;
   padding?: number;
   centerContent?: boolean;
+  css?: ContainerCSS;
 };
 
 type ContainerProps = ComponentPropsWithoutRef<'div'> & ContainerStyleProps;
@@ -27,11 +26,10 @@ const Container = forwardRef<ContainerProps>(
     {
       minWidth,
       maxWidth,
-      backgroundColor,
-      borderRadius,
       padding,
       centerContent = false,
       children,
+      css = {},
       ...props
     }: ContainerProps,
     ref: ContainerRef
@@ -40,9 +38,7 @@ const Container = forwardRef<ContainerProps>(
       minWidth: `${minWidth}px`,
       maxWidth: `${maxWidth}px`,
       padding: `${padding}px`,
-      backgroundColor,
-      borderRadius:
-        typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius,
+      ...css,
     };
 
     return (

@@ -10,11 +10,16 @@ import { forwardRef } from '../utils';
 
 import styles from './grid.module.css';
 
-type GridStyleProps = Pick<CSSProperties, 'height'> & {
+type GridCSS = Omit<
+  CSSProperties,
+  'gridTemplateAreas' | 'gridTemplateRows' | 'gridTemplateColumns' | 'gap'
+>;
+type GridStyleProps = {
   areas?: CSSProperties['gridTemplateAreas'];
   rows?: number;
   columns?: number;
   gap?: number;
+  css?: GridCSS;
 };
 
 type GridProps = ComponentPropsWithoutRef<'div'> & GridStyleProps;
@@ -26,15 +31,15 @@ type CompoundGrid = {
 
 const Grid = forwardRef<GridProps, CompoundGrid>(
   (
-    { areas, rows, columns, gap, height, children, ...props }: GridProps,
+    { areas, rows, columns, gap, css = {}, children, ...props }: GridProps,
     ref: GridRef
   ) => {
     const style = {
       gridTemplateAreas: areas,
       gridTemplateRows: `repeat(${rows}, 1fr)`,
       gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      gridGap: `${gap}px`,
-      height,
+      gap: `${gap}px`,
+      ...css,
     };
 
     return (
