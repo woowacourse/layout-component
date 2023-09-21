@@ -21,7 +21,7 @@ export default meta;
  * reset CSS를 적용하지 않은 상태입니다. 사용처에서 reset CSS를 적용해야 html 태그에 margin이 생기지 않습니다.
  */
 
-export const GridLayout: Story = {
+export const FlexLayout: Story = {
   args: {
     children: (
       <>
