@@ -1,4 +1,5 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
+
 import { compact } from '../utils';
 
 type GridItemCSS = Omit<
@@ -24,6 +25,9 @@ type GridItemStyleProps = {
 
 type GridItemProps = ComponentPropsWithoutRef<'div'> & GridItemStyleProps;
 
+const convertSpan = (span?: number | 'auto') =>
+  typeof span === 'number' ? `span ${span} / span ${span}` : span;
+
 const GridItem = ({
   area,
   row,
@@ -36,20 +40,16 @@ const GridItem = ({
   children,
   ...props
 }: GridItemProps) => {
-  const gridColumn =
-    typeof col === 'number' ? `span ${col} / span ${col}` : col;
-  const gridRow = typeof row === 'number' ? `span ${row} / span ${row}` : row;
-
   const style = area
     ? compact({ gridArea: area, ...css })
     : compact({
-        gridRow,
+        gridRow: convertSpan(row),
         gridRowStart: rowStart,
         gridRowEnd: rowEnd,
-        gridColumn,
+        gridColumn: convertSpan(col),
         gridColumnStart: colStart,
         gridColumnEnd: colEnd,
-        ...css
+        ...css,
       });
 
   return (

@@ -36,6 +36,9 @@ type CompoundGrid = {
   Item: typeof GridItem;
 };
 
+const convertGap = (gap?: number) =>
+  typeof gap === 'number' ? `${gap}px` : gap;
+
 const Grid = forwardRef<GridProps, CompoundGrid>(
   (
     {
@@ -51,9 +54,6 @@ const Grid = forwardRef<GridProps, CompoundGrid>(
     }: GridProps,
     ref: GridRef
   ) => {
-    const convertGap = (gap?: number) =>
-      typeof gap === 'number' ? `${gap}px` : gap;
-
     const style = {
       gridTemplateAreas: areas,
       gridTemplateRows: `repeat(${rows}, 1fr)`,
