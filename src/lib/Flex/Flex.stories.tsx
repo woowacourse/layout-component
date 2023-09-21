@@ -3,28 +3,18 @@ import Flex from './Flex';
 
 type Story = StoryObj<typeof Flex>;
 
-const meta: Meta<typeof Flex> = {
-  title: 'LAYOUT/Flex',
-  component: Flex,
-  argTypes: {
-    direction: {
-      control: { type: 'select' },
-    },
-  },
-};
-
-export default meta;
-
 const customFlexItemStyle = {
   background: 'rgba(245, 245, 245)',
   padding: '10px',
   borderRadius: '5px',
 };
 
-export const DefaultFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" direction="column">
+const meta: Meta<typeof Flex> = {
+  title: 'LAYOUT/Flex',
+  component: Flex,
+  args: {
+    children: (
+      <>
         <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
@@ -33,117 +23,167 @@ export const DefaultFlex: Story = {
         <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item7</Flex.Item>
         <Flex.Item style={customFlexItemStyle}>Item8</Flex.Item>
-      </Flex>
-    );
+      </>
+    ),
+  },
+  argTypes: {
+    direction: {
+      options: ['column', 'column-reverse', 'row', 'row-reverse'],
+      control: {
+        type: 'select',
+      },
+    },
+    tag: {
+      options: ['div', 'span', 'section', 'main'],
+      control: {
+        type: 'select',
+      },
+    },
+    wrap: {
+      options: ['nowrap', 'wrap', 'wrap-reverse'],
+      control: {
+        type: 'select',
+      },
+    },
+    justify: {
+      options: [
+        'space-around',
+        'space-between',
+        'space-evenly',
+        'stretch',
+        'center',
+        'end',
+        'flex-end',
+        'flex-start',
+        'start',
+      ],
+      control: {
+        type: 'select',
+      },
+    },
+    align: {
+      options: [
+        'center',
+        'end',
+        'flex-end',
+        'flex-start',
+        'self-end',
+        'self-start',
+        'start',
+      ],
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};
+
+export default meta;
+
+export const DefaultFlex: Story = {
+  args: {
+    gap: '10px',
+    direction: 'column',
   },
 };
 
 export const ColumnDirectionFlex: Story = {
-  render: () => {
-    return (
-      <Flex direction="column" gap="10px">
-        <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item4</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item5</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item7</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item8</Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    direction: 'column',
   },
 };
 
 export const JustifySpaceAroundFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" justify="space-around">
-        <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item4</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item5</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    justify: 'space-around',
   },
 };
 
 export const JustifySpaceBetweenFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" justify="space-between">
-        <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item4</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item5</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    justify: 'space-between',
   },
 };
 
 export const NoWarpFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px">
+  args: {
+    gap: '10px',
+    children: (
+      <>
         {Array.from({ length: 32 }).map((_, index) => (
           <Flex.Item key={index} style={customFlexItemStyle}>
             {`Item${index}`}
           </Flex.Item>
         ))}
-      </Flex>
-    );
+      </>
+    ),
   },
 };
 
 export const WarpFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" wrap="wrap">
+  args: {
+    gap: '10px',
+    wrap: 'wrap',
+    children: (
+      <>
         {Array.from({ length: 32 }).map((_, index) => (
           <Flex.Item key={index} style={customFlexItemStyle}>
             {`Item${index}`}
           </Flex.Item>
         ))}
-      </Flex>
-    );
+      </>
+    ),
   },
 };
 
 export const AlginSelfEndFlex: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" justify="space-between" direction="column">
-        <Flex.Item style={customFlexItemStyle} align="flex-start">
-          Item1 - align flex-start
-        </Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item4</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item5</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    justify: 'space-between',
+    direction: 'column',
+    children: (
+      <>
+        {Array.from({ length: 6 }).map((_, index) => {
+          if (index === 0) {
+            return (
+              <Flex.Item style={customFlexItemStyle} align="flex-start">
+                Item1 - align flex-start
+              </Flex.Item>
+            );
+          }
+
+          return (
+            <Flex.Item key={index} style={customFlexItemStyle}>
+              {`Item${index}`}
+            </Flex.Item>
+          );
+        })}
+      </>
+    ),
   },
 };
 
 export const GenerateErrorFlexItem: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px">
-        <Flex.Item style={customFlexItemStyle}>Item1</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item2</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item3</Flex.Item>
-        <div style={customFlexItemStyle}>Item4 - error</div>
-        <Flex.Item style={customFlexItemStyle}>Item5</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item6</Flex.Item>
-        <Flex.Item style={customFlexItemStyle}>Item7</Flex.Item>
-        <div style={customFlexItemStyle}>Item8 - error</div>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    children: (
+      <>
+        {Array.from({ length: 8 }).map((_, index) => {
+          if (index === 3 || index === 7) {
+            return <div style={customFlexItemStyle}>Item{index} - error</div>;
+          }
+
+          return (
+            <Flex.Item key={index} style={customFlexItemStyle}>
+              {`Item${index}`}
+            </Flex.Item>
+          );
+        })}
+      </>
+    ),
   },
 };
 
@@ -159,22 +199,18 @@ const responsiveStyle = {
  * 모바일 환경: direction = column
  */
 export const ResponsiveFlex1: Story = {
-  render: () => {
-    return (
-      <Flex
-        gap="10px"
-        direction={{ desktop: 'row', tablet: 'row', mobile: 'column' }}
-      >
-        <Flex.Item style={responsiveStyle}>Item1</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item2</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item3</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item4</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item5</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item6</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item7</Flex.Item>
-        <Flex.Item style={responsiveStyle}>Item8</Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    direction: { desktop: 'row', tablet: 'row', mobile: 'column' },
+    children: (
+      <>
+        {Array.from({ length: 8 }).map((_, index) => (
+          <Flex.Item key={index} style={responsiveStyle}>
+            {`Item${index}`}
+          </Flex.Item>
+        ))}
+      </>
+    ),
   },
 };
 
@@ -183,90 +219,25 @@ export const ResponsiveFlex1: Story = {
  * 기기에 따라 자식의 align 정렬이 바뀝니다.
  */
 export const ResponsiveFlex2: Story = {
-  render: () => {
-    return (
-      <Flex gap="10px" direction="column">
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item1
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item2
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item3
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item4
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item5
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item6
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item7
-        </Flex.Item>
-        <Flex.Item
-          align={{
-            desktop: 'stretch',
-            tablet: 'flex-end',
-            mobile: 'flex-start',
-          }}
-          style={customFlexItemStyle}
-        >
-          Item8
-        </Flex.Item>
-      </Flex>
-    );
+  args: {
+    gap: '10px',
+    direction: 'column',
+    children: (
+      <>
+        {Array.from({ length: 8 }).map((_, index) => (
+          <Flex.Item
+            key={index}
+            align={{
+              desktop: 'stretch',
+              tablet: 'flex-end',
+              mobile: 'flex-start',
+            }}
+            style={customFlexItemStyle}
+          >
+            {`Item${index}`}
+          </Flex.Item>
+        ))}
+      </>
+    ),
   },
 };

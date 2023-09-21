@@ -1,22 +1,53 @@
-import { CSSProperties, HTMLAttributes, PropsWithChildren } from 'react';
+import {
+  CSSProperties,
+  ComponentPropsWithoutRef,
+  ElementType,
+  PropsWithChildren,
+} from 'react';
 
 import { styled, css } from 'styled-components';
 import { calculateResponsiveStyle, isCommonStyle } from '../utils';
 import { ResponsiveStyleType } from '../type';
 
 type FlexItemProps = {
+  /**
+   * HTML Tag를 지정하는 속성
+   *
+   *  * @default 'div'
+   */
+  tag?: ElementType;
+  /**
+   * 자기 자신의 수직 정렬을 지정하는 속성
+   *
+   *  * @default 'stretch'
+   */
   align?:
     | CSSProperties['alignSelf']
     | ResponsiveStyleType<CSSProperties['alignSelf']>;
+  /**
+   * 자기 자신의 수평 정렬을 지정하는 속성
+   *
+   *  * @default 'stretch'
+   */
   justify?:
     | CSSProperties['justifySelf']
     | ResponsiveStyleType<CSSProperties['justifySelf']>;
-} & HTMLAttributes<HTMLElement>;
+} & ComponentPropsWithoutRef<ElementType>;
 
-function FlexItem(props: PropsWithChildren<FlexItemProps>) {
-  const { children, ...layoutProps } = props;
+function FlexItem({
+  children,
+  tag = 'div',
+  align = 'stretch',
+  justify = 'stretch',
+  ...rest
+}: PropsWithChildren<FlexItemProps>) {
+  const styleProps = { align, justify };
 
-  return <Item {...layoutProps}>{children}</Item>;
+  return (
+    <Item as={tag} {...rest} {...styleProps}>
+      {children}
+    </Item>
+  );
 }
 
 export default FlexItem;
