@@ -1,4 +1,4 @@
-import type { Gap, GapFormat } from "./types";
+import type { Gap } from "./types";
 
 export function getRandomNumberInRange(first: number, second: number) {
   if (first > second) [first, second] = [second, first];
