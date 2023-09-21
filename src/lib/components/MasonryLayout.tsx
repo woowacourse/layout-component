@@ -1,6 +1,7 @@
 import React from "react";
-import { createArrayOfArrays, findIndexOfSmallest } from "../utils";
-import type { Gap, GapFormat } from "../types";
+import { createArrayOfArrays, findIndexOfSmallest, parseGap } from "../utils";
+
+import type { Gap } from "../types";
 
 interface Props {
   direction?: "column" | "row";
@@ -15,36 +16,33 @@ interface MasonryChild {
 }
 
 function MasonryLayout({ direction = "column", gap, line, children }: Props) {
+  const dimensionProperty = direction === "column" ? "height" : "width";
   const layoutArrayList = createArrayOfArrays<MasonryChild>(line);
-  let rowGap: GapFormat = 0;
-  let columnGap: GapFormat = 0;
+  const { rowGap, columnGap } = parseGap(gap);
 
-  if (typeof gap !== "object") {
-    rowGap = gap;
-    columnGap = gap;
-  } else {
-    ({ row: rowGap, column: columnGap } = gap);
-  }
+  const rowGrid = { gridTemplateRows: `repeat(${line}, 1fr)`, height: "100%" };
+  const columnGrid = { gridTemplateColumns: `repeat(${line}, 1fr)` };
 
   const gridStyle = {
     display: "grid",
-    gridTemplateColumns: `repeat(${line}, 1fr)`,
-    gap: columnGap || "0",
+    gap: direction === "column" ? columnGap : rowGap,
+    ...(direction === "row" && rowGrid),
+    ...(direction === "column" && columnGrid),
   };
 
   const lineStyle = {
     display: "flex",
     flexDirection: direction,
-    gap: rowGap || "0",
+    gap: direction === "column" ? rowGap : columnGap,
   };
 
   children.forEach((child) => {
-    const heightSumArray = layoutArrayList.map((array: MasonryChild[]) =>
-      array.reduce((sum, item) => sum + item.height, 0)
+    const height = parseInt(child.props.style[dimensionProperty], 10);
+    const heightSumArray = layoutArrayList.map((children: MasonryChild[]) =>
+      children.reduce((sum, child) => sum + child.height, 0)
     );
     const targetIndex = findIndexOfSmallest(heightSumArray);
-    const value = { height: parseInt(child.props.style.height, 10), child };
-    layoutArrayList[targetIndex].push(value);
+    layoutArrayList[targetIndex].push({ height, child });
   });
 
   return (

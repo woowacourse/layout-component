@@ -25,6 +25,20 @@ const childrenDefault: React.ReactElement[] = Array.from(
   )
 );
 
+const childrenRow: React.ReactElement[] = Array.from(
+  { length: 100 },
+  (_, index) => (
+    <div
+      key={index}
+      style={{
+        background: `#${getRandomNumberInRange(100000, 999999)}`,
+        width: `${getRandomNumberInRange(100, 400)}px`,
+        height: "30vh",
+      }}
+    />
+  )
+);
+
 export const Default: Story = {
   args: {
     children: childrenDefault,
@@ -39,6 +53,15 @@ export const ConfigGap: Story = {
     children: childrenDefault,
     direction: "column",
     gap: { row: 8, column: 20 },
+    line: 3,
+  },
+};
+
+export const ConfigRow: Story = {
+  args: {
+    children: childrenRow,
+    direction: "row",
+    gap: 8,
     line: 3,
   },
 };
