@@ -1,12 +1,5 @@
 import React from "react";
-import type { GapFormat } from "../types";
-
-type Gap =
-  | {
-      row: GapFormat;
-      column: GapFormat;
-    }
-  | GapFormat;
+import type { Gap, GapFormat } from "../types";
 
 interface Props {
   rows: number;
