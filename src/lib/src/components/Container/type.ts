@@ -2,13 +2,13 @@ import { PropsWithChildren } from 'react';
 import { CSSProp } from 'styled-components';
 
 export interface Props extends PropsWithChildren {
-  minWidth: number;
-  maxWidth: number;
+  minWidth: number | string;
+  maxWidth: number | string;
   css?: CSSProp;
 }
 
 export interface ContainerLayoutProps {
-  $minWidth: number;
-  $maxWidth: number;
+  $minWidth: number | string;
+  $maxWidth: number | string;
   css?: CSSProp;
 }

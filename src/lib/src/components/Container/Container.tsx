@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import type { ContainerLayoutProps, Props } from './type';
 
-function Container({ minWidth, maxWidth, children, css }: Props) {
+function Container({ minWidth = 'fit-content', maxWidth = '100%', children, css }: Props) {
   return (
     <ContainerLayout $minWidth={minWidth} $maxWidth={maxWidth} css={css}>
       {children}
@@ -15,8 +15,8 @@ const ContainerLayout = styled.div<ContainerLayoutProps>`
 
   margin: 0 auto;
 
-  min-width: ${({ $minWidth }) => $minWidth}px;
-  max-width: ${({ $maxWidth }) => $maxWidth}px;
+  min-width: ${({ $minWidth }) => (typeof $minWidth === 'string' ? $minWidth : `${$minWidth}px`)};
+  max-width: ${({ $maxWidth }) => (typeof $maxWidth === 'string' ? $maxWidth : `${$maxWidth}px`)};
 `;
 
 export default Container;
