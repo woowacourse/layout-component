@@ -49,18 +49,18 @@ CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는
 <br>
 <br>
 
-## Flex 컴포넌트
+## FlexBox 컴포넌트
 
-CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴포넌트입니다.
+CSS FlexBox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴포넌트입니다.
 
 - direction, justify, align 속성을 통해 배열 방향과 정렬을 조절할 수 있습니다.
 - 자식 컴포넌트 간의 간격을 조절할 수 있는 기능을 제공합니다.
 
 ```tsx
 // 사용 예시
-<Flex direction="row" justify="center" align="center" gap={5}>
+<FlexBox direction="row" justify="center" align="center" gap={5}>
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
-</Flex>
+</FlexBox>
 ```
