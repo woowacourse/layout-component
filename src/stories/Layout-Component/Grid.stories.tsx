@@ -29,10 +29,15 @@ export const GridLayout: Story = {
         <div>content 2</div>
         <div>content 3</div>
         <div>content 4</div>
+        <div>content 5</div>
+        <div>content 6</div>
+        <div>content 7</div>
+        <div>content 8</div>
+        <div>content 9</div>
       </>
     ),
-    columns: 2,
-    rows: 2,
+    columns: 3,
+    rows: 3,
     justifyItems: 'center',
     gap: 10,
   },
