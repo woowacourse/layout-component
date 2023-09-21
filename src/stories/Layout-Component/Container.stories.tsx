@@ -27,6 +27,7 @@ export const ContainerLayout: Story = {
     children: <Box />,
     minWidth: 600,
     maxWidth: 950,
+    unit: 'px',
   },
   argTypes: {
     children: {
@@ -37,6 +38,9 @@ export const ContainerLayout: Story = {
     },
     maxWidth: {
       description: 'container의 최대 width값을 설정할 수 있습니다.',
+    },
+    unit: {
+      description: 'width와 height의 단위를 설정할 수 있습니다.',
     },
   },
 };

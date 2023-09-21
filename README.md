@@ -24,6 +24,7 @@ The `Container` component implements a layout that restricts the maximum width o
 
 - `minWidth`: type is number. Specifies the minimum width.
 - `maxWidth`: type is number. Specifies the maximum width.
+- `unit`: type is `'%'` | `'px'` | `'rem'` | `'vh'` | `'vw'` | `'vmin'` | `'vmax'` | `'ex'` | `'ch'`
 - `children`: type is React.ReactNode. A child component of the Container component.
 
 ### User Guide
@@ -42,7 +43,7 @@ import { Container } from 'yeopto-react-layout-component';
 
 const App = () => {
   return (
-    <Container minWidth={600} maxWidth={960}>
+    <Container minWidth={600} maxWidth={960} unit='px'>
       <div>Content</div>
     </Container>
   );
