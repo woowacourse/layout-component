@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   minWidth: string;
@@ -16,17 +16,8 @@ const Container = ({ minWidth, maxWidth, children }: ContainerProps) => {
 };
 
 const Wrapper = styled.div<ContainerProps>`
-  ${({ minWidth }) =>
-    minWidth &&
-    css`
-      min-width: ${minWidth};
-    `}
-
-  ${({ maxWidth }) =>
-    maxWidth &&
-    css`
-      max-width: ${maxWidth};
-    `}
+  min-width: ${({ minWidth }) => minWidth};
+  max-width: ${({ maxWidth }) => maxWidth};
 `;
 
 export default Container;
