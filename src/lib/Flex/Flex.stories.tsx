@@ -27,6 +27,9 @@ const meta: Meta<typeof Flex> = {
     ),
   },
   argTypes: {
+    children: {
+      description: 'Flex Layout의 자식 요소',
+    },
     direction: {
       options: ['column', 'column-reverse', 'row', 'row-reverse'],
       control: {

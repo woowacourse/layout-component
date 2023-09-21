@@ -27,6 +27,15 @@ const meta: Meta<typeof Grid> = {
     ),
   },
   argTypes: {
+    children: {
+      description: 'Grid Layout의 자식 요소',
+    },
+    tag: {
+      options: ['div', 'span', 'section', 'main'],
+      control: {
+        type: 'select',
+      },
+    },
     columns: {
       options: Array.from({ length: 12 }, (_, index) => index + 1),
       control: {
