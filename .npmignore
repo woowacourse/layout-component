@@ -1,0 +1,12 @@
+.github/
+.storybook
+
+node_modules/
+src/
+public/
+
+tsconfig.json
+
+.gitignore
+.prettierrc
+.stylelintrc
