@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 레이아웃을 위한 React 컴포넌트 소개
 
-## Available Scripts
+웹 페이지 레이아웃 구성은 종종 복잡하고 시간이 많이 소요됩니다. 이를 해결하기 위해, 우리는 React와 styled-components를 활용한 세 가지 주요 컴포넌트를 소개합니다:
 
-In the project directory, you can run:
+- Container: 웹 페이지의 내용을 감싸는 역할을 하며, 최소 및 최대 너비를 지정하여 반응형 디자인을 지원합니다.
 
-### `npm start`
+- Grid: CSS Grid Layout을 기반으로, 사용자 지정 행, 열 및 간격을 통해 복잡한 레이아웃을 쉽게 구성할 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Flex: Flexbox의 특징을 최대한 활용하여, 방향, 정렬, 간격 등의 주요 속성을 제공하며, 빠르고 유연한 레이아웃 조절이 가능합니다.
+  이 세 가지 컴포넌트를 활용하면, 웹 페이지의 레이아웃을 효과적으로 구성하고 조절할 수 있습니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 설치 방법
 
-### `npm test`
+```
+$ npm install @jeremy-component
+$ yarn add @jeremy-component
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Container 컴포넌트
 
-### `npm run build`
+### 개요
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React와 styled-components 라이브러리를 활용하여 개발된 Container 컴포넌트는 웹 페이지 레이아웃 구성에 유용한 도구입니다. 이 컴포넌트는 특정 minWidth와 maxWidth 속성을 받아, 해당 값에 따라 컨테이너의 최소 및 최대 너비를 설정하는 기능을 제공합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 사용법
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Container 컴포넌트는 React의 Functional Component 형태로 구현되어 있으며, minWidth, maxWidth, 그리고 children 세 가지 props를 받을 수 있습니다.
 
-### `npm run eject`
+```jsx
+import { Container } from '@jeremy-component';
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<Container minWidth='300px' maxWidth='1200px'>
+  <p>이것은 Container 내부의 내용입니다.</p>
+</Container>;
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Flex
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 개요
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Flex 컴포넌트는 React와 styled-components 라이브러리를 기반으로, CSS Flexbox의 특징과 유용성을 최대한 활용하여 웹 페이지 레이아웃을 간편하게 구성하기 위한 도구입니다. 이 컴포넌트를 사용하면 Flexbox의 주요 속성들을 직관적으로 적용할 수 있습니다.
 
-## Learn More
+### 사용법
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Flex 컴포넌트는 다양한 속성(props)를 받아들입니다:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- direction: Flexbox의 방향을 지정합니다. (row, column 등)
+- justify: 주축에서 아이템들을 어떻게 정렬할지 지정합니다. (flex-start, center, flex-end 등)
+- align: 교차축에서 아이템들을 어떻게 정렬할지 지정합니다. (flex-start, center, flex-end 등)
+- gap: Flex 아이템 간의 간격을 지정합니다.
+- children: Flex 컨테이너 내부에 배치할 컴포넌트나 요소들을 지정합니다.
+
+```jsx
+import { Flex } from '@jeremy-component';
+
+<Flex direction='row' justify='center' align='center' gap='10px'>
+  <div>첫 번째 아이템</div>
+  <div>두 번째 아이템</div>
+  {/* ... */}
+</Flex>;
+```
+
+## Grid 컴포넌트
+
+### 개요
+
+우리의 새로운 Grid 컴포넌트는 React와 styled-components 라이브러리를 활용하여 웹 페이지의 레이아웃을 유연하게 구성할 수 있도록 제작되었습니다. 이 컴포넌트는 CSS Grid Layout을 기반으로 하며, 사용자가 지정한 행과 열의 수, 그리고 간격을 통해 그리드 레이아웃을 쉽게 생성할 수 있습니다.
+
+### 사용법
+
+Grid 컴포넌트는 여러 개의 속성(props)를 받을 수 있습니다:
+
+- rows: 그리드의 행 수를 지정합니다.
+- columns: 그리드의 열 수를 지정합니다.
+- gap: 행과 열 사이의 간격을 지정합니다. { row: '간격', column: '간격' } 형태로 값을 받습니다.
+- children: 그리드 내부에 배치할 컴포넌트나 요소들을 지정합니다.
+
+```jsx
+import { Grid } from '@jeremy-component';
+
+<Grid rows={3} columns={2} gap={{ row: '10px', column: '20px' }}>
+  <div>첫 번째 아이템</div>
+  <div>두 번째 아이템</div>
+  <div>세 번째 아이템</div>
+  {/* ... */}
+</Grid>;
+```
+
+### 구조 및 스타일링
+
+컴포넌트의 핵심은 styled.div를 활용한 Wrapper입니다. display: grid; 스타일을 적용하여 그리드 레이아웃을 생성하며, 각 속성에 따라 동적으로 그리드의 행, 열, 간격을 설정합니다.
+
+행과 열의 수는 각각 grid-template-rows와 grid-template-columns 속성을 통해 설정됩니다. 1fr 단위를 사용하여 각 행과 열의 크기를 동일하게 유지합니다.
+
+간격은 grid-column-gap과 grid-row-gap 속성을 통해 지정됩니다.
+
+이러한 동적 스타일링은 styled-components의 css 함수와 JavaScript의 템플릿 리터럴을 활용하여 구현됩니다.
