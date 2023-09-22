@@ -24,10 +24,10 @@ import { Container, Grid, Flex } from 'tkdrb15-layout-component';
 
 ### Container
 
-| props    | 타입           |
-| -------- | -------------- |
-| maxWidth | number, string |
-| minWidth | number, string |
+| props    | 타입           | 설명                             |
+| -------- | -------------- | -------------------------------- |
+| maxWidth | number, string | max-width of Container component |
+| minWidth | number, string | min-width of Container component |
 
 <br/>
 
@@ -51,11 +51,11 @@ function App() {
 
 CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는 컴포넌트
 
-| props | 타입   |
-| ----- | ------ |
-| cols  | number |
-| rows  | number |
-| gap   | number |
+| props | 타입           | 설명              |
+| ----- | -------------- | ----------------- |
+| cols  | number         | number of columns |
+| rows  | number         | number of rows    |
+| gap   | string, number | gap of children   |
 
 <br/>
 
@@ -82,12 +82,12 @@ function App() {
 
 CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴포넌트
 
-| props     | 타입   |
-| --------- | ------ |
-| direction | string |
-| justify   | string |
-| align     | string |
-| gap       | string |
+| props     | 타입   | 설명                      |
+| --------- | ------ | ------------------------- |
+| direction | string | direction of flex display |
+| justify   | string | justify of flex display   |
+| align     | string | align of flex display     |
+| gap       | string | gap of children           |
 
 <br/>
 
