@@ -75,7 +75,7 @@ function Grid({
   const gridItemChildren = Children.map(children, (child) => {
     const item = child as ReactElement;
     if (item.type !== GridItem) {
-      console.error(
+      console.warn(
         'Grid.Item 컴포넌트를 사용하면 Grid을 더욱 쉽고 편리하게 활용할 수 있습니다.'
       );
     }

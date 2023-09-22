@@ -75,7 +75,7 @@ function Flex({
   const flexItemChildren = Children.map(children, (child) => {
     const item = child as ReactElement;
     if (item.type !== FlexItem) {
-      console.error(
+      console.warn(
         'Flex.Item 컴포넌트를 사용하면 Flex을 더욱 쉽고 편리하게 활용할 수 있습니다.'
       );
     }
