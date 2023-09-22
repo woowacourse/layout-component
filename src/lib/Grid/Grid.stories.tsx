@@ -273,3 +273,14 @@ export const ResponsiveGrid2: Story = {
     ),
   },
 };
+
+export const CustomResponsiveGrid: Story = {
+  args: {
+    columns: {
+      desktop: 8,
+      tablet: [800, 4],
+      mobile: [400, 2],
+    },
+    gap: '20px',
+  },
+};

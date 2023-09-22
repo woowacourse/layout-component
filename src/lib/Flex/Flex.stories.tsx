@@ -244,3 +244,25 @@ export const ResponsiveFlex2: Story = {
     ),
   },
 };
+
+export const CustomResponsiveFlex: Story = {
+  args: {
+    gap: {
+      desktop: '10px',
+      mobile: [400, '20px'],
+    },
+    direction: {
+      desktop: 'row',
+      tablet: [800, 'column'],
+    },
+    children: (
+      <>
+        {Array.from({ length: 8 }).map((_, index) => (
+          <Flex.Item key={index} style={responsiveStyle}>
+            {`Item${index}`}
+          </Flex.Item>
+        ))}
+      </>
+    ),
+  },
+};

@@ -17,14 +17,21 @@ export const calculateResponsiveStyle = (style: string, value?: unknown) => {
     }
 
     if (device === 'tablet') {
+      const maxWidth = typeof value === 'string' ? 1024 : value[0];
+      value = typeof value === 'string' ? value : value[1];
+
       return (
-        acc + `@media screen and (max-width: 1024px) { ${style}: ${value}; }`
+        acc +
+        `@media screen and (max-width: ${maxWidth}px) { ${style}: ${value}; }`
       );
     }
 
     if (device === 'mobile') {
+      const maxWidth = typeof value === 'string' ? 768 : value[0];
+      value = typeof value === 'string' ? value : value[1];
       return (
-        acc + `@media screen and (max-width: 768px) { ${style}: ${value}; }`
+        acc +
+        `@media screen and (max-width: ${maxWidth}px) { ${style}: ${value}; }`
       );
     }
 
@@ -51,18 +58,24 @@ export const calculateResponsiveGridTemplateStyle = (
     }
 
     if (device === 'tablet') {
+      const maxWidth = typeof value === 'string' ? 1024 : value[0];
+      value = typeof value === 'string' ? value : value[1];
+
       return (
         acc +
-        `@media screen and (max-width: 1024px) { ${style}: ${
+        `@media screen and (max-width: ${maxWidth}px) { ${style}: ${
           typeof value === 'number' ? `repeat(${value}, 1fr)` : value
         }; }`
       );
     }
 
     if (device === 'mobile') {
+      const maxWidth = typeof value === 'string' ? 768 : value[0];
+      value = typeof value === 'string' ? value : value[1];
+
       return (
         acc +
-        `@media screen and (max-width: 768px) { ${style}: ${
+        `@media screen and (max-width: ${maxWidth}px) { ${style}: ${
           typeof value === 'number' ? `repeat(${value}, 1fr)` : value
         }; }`
       );

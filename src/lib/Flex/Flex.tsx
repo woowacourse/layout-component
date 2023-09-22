@@ -108,9 +108,9 @@ const Layout = styled.div<FlexProps>`
     ) && justify};
 
     ${calculateResponsiveStyle('flex-direction', direction)}
-    ${calculateResponsiveStyle('flex-wrap', gap)}
-    ${calculateResponsiveStyle('gap', align)}
-    ${calculateResponsiveStyle('align-items', justify)}
-    ${calculateResponsiveStyle('justify-content', wrap)}
+    ${calculateResponsiveStyle('flex-wrap', wrap)}
+    ${calculateResponsiveStyle('gap', gap)}
+    ${calculateResponsiveStyle('align-items', align)}
+    ${calculateResponsiveStyle('justify-content', justify)}
   `}
 `;

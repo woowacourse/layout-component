@@ -128,3 +128,14 @@ export const ResponsiveContainer: Story = {
     children: 'Responsive',
   },
 };
+
+export const CustomResponsiveContainer: Story = {
+  args: {
+    background: {
+      desktop: 'blue',
+      tablet: [800, 'yellow'],
+      mobile: [400, 'red'],
+    },
+    children: 'Responsive',
+  },
+};

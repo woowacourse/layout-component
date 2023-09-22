@@ -1,3 +1,5 @@
-type Device = 'desktop' | 'tablet' | 'mobile';
-
-export type ResponsiveStyleType<T> = Record<Device, T | [number, T]>;
+export type ResponsiveStyleType<T> = Partial<{
+  desktop: T;
+  tablet: T | [number, T];
+  mobile: T | [number, T];
+}>;
