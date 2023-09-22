@@ -112,3 +112,5 @@ function App() {
 ## 배포 링크
 
 - [npm](https://www.npmjs.com/package/tkdrb15-layout-component)
+
+- [사용설명서](https://tkdrb12.github.io/layout-component/)
