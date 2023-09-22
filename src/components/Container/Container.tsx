@@ -31,7 +31,7 @@ const Container = ({
 }: ContainerProps) => {
   const Tag = as;
   return (
-    <Tag {...attributes} css={containerStyle(minWidth, maxWidth)}>
+    <Tag {...attributes} css={containerStyle({ minWidth, maxWidth })}>
       {children}
     </Tag>
   );
