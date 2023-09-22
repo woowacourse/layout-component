@@ -142,6 +142,26 @@ function App() {
 | `tablet`  | max-width: 1024px |
 | `mobile`  | max-width: 768px  |
 
+Also, if you want to specify tablet and mobile sizes, pass the values ​​as an array as follows.
+
+```tsx
+function App() {
+  return (
+    <Container
+      background={{
+        desktop: 'blue',
+        tablet: [900, 'yellow'],
+        mobile: [600, 'red'],
+      }}
+    >
+      Children
+    </Container>
+  );
+}
+```
+
+If the width is greater than 900, you will see a blue background, if the width is between 600 and 900, you will see a yellow background, and if the width is less than 600, you will see a red background.
+
 <br/>
 
 ## ETC
