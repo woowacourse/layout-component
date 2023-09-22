@@ -13,7 +13,7 @@ interface FlexProps extends ComponentPropsWithoutRef<ElementType> {
   direction?: string;
   /**
    * `flex-wrap` 스타일 프로퍼티를 정의합니다.
-   * @default wrap
+   * @default nowrap
    */
   wrap?: string;
   /**
@@ -33,7 +33,15 @@ interface FlexProps extends ComponentPropsWithoutRef<ElementType> {
   gap?: number;
 }
 
-const Flex = ({ as = 'div', direction, wrap, justify, align, gap, children }: FlexProps) => {
+const Flex = ({
+  as = 'div',
+  direction = 'row',
+  wrap = 'nowrap',
+  justify = 'flex-start',
+  align = 'stretch',
+  gap,
+  children,
+}: FlexProps) => {
   const Component = as;
 
   return (

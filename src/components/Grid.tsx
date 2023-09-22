@@ -9,26 +9,26 @@ interface GridProps extends ComponentPropsWithoutRef<ElementType> {
   /**
    * `grid-template-rows` 스타일 프로퍼티를 정의합니다.
    */
-  rows: number;
+  rows?: number;
   /**
    * `grid-template-columns` 스타일 프로퍼티를 정의합니다.
    */
-  columns: number;
+  columns?: number;
   /**
    * `grid-row-gap` 스타일 프로퍼티를 정의합니다.
    * @default 0
    */
-  rowGap: number;
+  rowGap?: number;
   /**
    * `grid-column-gap` 스타일 프로퍼티를 정의합니다.
    * @default 0
    */
-  columnGap: number;
+  columnGap?: number;
   /**
    * `gap` 스타일 프로퍼티를 정의합니다.
    * @default 0
    */
-  gap: number;
+  gap?: number;
 }
 
 const Grid = ({ as = 'div', rows, columns, rowGap, columnGap, gap, children, ...attributes }: GridProps) => {
