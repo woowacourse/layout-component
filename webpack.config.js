@@ -27,9 +27,9 @@ module.exports = {
     path: resolve(__dirname, "dist"),
     clean: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: join(__dirname, "./public/index.html"),
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: join(__dirname, "./public/index.html"),
+  //   }),
+  // ],
 };
