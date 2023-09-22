@@ -1,5 +1,4 @@
 const { join, resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -27,9 +26,4 @@ module.exports = {
     path: resolve(__dirname, "dist"),
     clean: true,
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: join(__dirname, "./public/index.html"),
-  //   }),
-  // ],
 };
