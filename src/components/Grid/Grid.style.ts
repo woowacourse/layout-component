@@ -7,7 +7,7 @@ export const gridBoxStyle = ({
   gap,
   rowGap,
   columnGap,
-}: GridProps) => {
+}: GridProps<'div'>) => {
   return css({
     display: 'grid',
     gridTemplateRows: `repeat(${row}, auto)`,

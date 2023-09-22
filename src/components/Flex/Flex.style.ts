@@ -1,7 +1,12 @@
 import { css } from '@emotion/react';
 import { FlexProps } from './Flex';
 
-export const getFlexStyle = ({ dir, align, justify, gap }: FlexProps) => {
+export const getFlexStyle = ({
+  dir,
+  align,
+  justify,
+  gap,
+}: FlexProps<'div'>) => {
   return css({
     display: 'flex',
     flexDirection: dir,

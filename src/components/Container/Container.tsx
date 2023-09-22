@@ -1,13 +1,13 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { containerStyle } from './Container.style';
 
-export interface ContainerProps extends ComponentPropsWithoutRef<ElementType> {
+export type ContainerProps<Tag extends ElementType> = {
   /**
    * Container의 HTML 태그
    *
    * @default 'div'
    */
-  as?: ElementType;
+  as?: Tag;
   /**
    * 최대 넓이 (number로 입력시 px로 고정, string으로 입력시 그대로 반영)
    *
@@ -20,16 +20,16 @@ export interface ContainerProps extends ComponentPropsWithoutRef<ElementType> {
    * @default '100px'
    */
   minWidth?: number | string;
-}
+} & ComponentPropsWithoutRef<Tag>;
 
-const Container = ({
+const Container = <Tag extends ElementType>({
   maxWidth = '100%',
   minWidth = '100px',
-  as = 'div',
+  as,
   children,
   ...attributes
-}: ContainerProps) => {
-  const Tag = as;
+}: ContainerProps<Tag>) => {
+  const Tag = as || 'div';
   return (
     <Tag {...attributes} css={containerStyle({ minWidth, maxWidth })}>
       {children}

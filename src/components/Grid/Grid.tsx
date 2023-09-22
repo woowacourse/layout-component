@@ -1,13 +1,13 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react';
 import { gridBoxStyle } from './Grid.style';
 
-export interface GridProps extends ComponentPropsWithoutRef<ElementType> {
+export type GridProps<Tag extends ElementType> = {
   /**
    * Grid의 HTML 태그
    *
    * @default 'div'
    */
-  as?: ElementType;
+  as?: Tag;
   /**
    * Grid 의 자식요소 세로열 갯수
    *
@@ -38,10 +38,10 @@ export interface GridProps extends ComponentPropsWithoutRef<ElementType> {
    * @default '12px'
    */
   columnGap?: string;
-}
+} & ComponentPropsWithoutRef<Tag>;
 
-const Grid = ({
-  as = 'div',
+const Grid = <Tag extends ElementType>({
+  as,
   row = 2,
   column = 2,
   gap = '12px',
@@ -49,8 +49,8 @@ const Grid = ({
   columnGap = '12px',
   children,
   ...attribute
-}: GridProps) => {
-  const Tag = as;
+}: GridProps<Tag>) => {
+  const Tag = as || 'div';
 
   return (
     <Tag

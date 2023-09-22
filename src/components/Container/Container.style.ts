@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { ContainerProps } from './Container';
 
-export const containerStyle = ({ minWidth, maxWidth }: ContainerProps) =>
+export const containerStyle = ({ minWidth, maxWidth }: ContainerProps<'div'>) =>
   css({
     display: 'block',
 

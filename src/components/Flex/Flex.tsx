@@ -1,13 +1,13 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { getFlexStyle } from './Flex.style';
 
-export interface FlexProps extends ComponentPropsWithoutRef<ElementType> {
+export type FlexProps<Tag extends ElementType> = {
   /**
    * Flex의 HTML 태그
    *
    * @default 'div'
    */
-  as?: ElementType;
+  as?: Tag;
   /**
    * Flex 자식 요소의 정렬 방향
    *
@@ -61,18 +61,18 @@ export interface FlexProps extends ComponentPropsWithoutRef<ElementType> {
    * @default '10px'
    */
   gap?: string;
-}
+} & ComponentPropsWithoutRef<Tag>;
 
-const Flex = ({
-  as = 'div',
+const Flex = <Tag extends ElementType>({
+  as,
   dir = 'row',
   align = 'center',
   justify = 'center',
   gap = '10px',
   children,
   ...attributes
-}: FlexProps) => {
-  const Tag = as;
+}: FlexProps<Tag>) => {
+  const Tag = as || 'div';
 
   return (
     <Tag {...attributes} css={getFlexStyle({ dir, align, justify, gap })}>
