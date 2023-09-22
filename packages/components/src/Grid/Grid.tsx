@@ -21,5 +21,5 @@ const Layout = styled.div<{ $rows?: number; $cols?: number; $gap?: number }>`
   display: grid;
   grid-template-rows: repeat(${({ $rows }) => $rows || 1}, 1fr);
   grid-template-columns: repeat(${({ $cols }) => $cols || 1}, 1fr);
-  gap: ${({ $gap }) => `${$gap}px` || 0};
+  gap: ${({ $gap }) => ($gap ? `${$gap}px` : 'initial')};
 `;

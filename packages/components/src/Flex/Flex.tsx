@@ -41,5 +41,5 @@ const Layout = styled.div<{
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'flex-start'};
   align-items: ${({ $align }) => $align || 'flex-start'};
-  gap: ${({ $gap }) => `${$gap}px` || 0};
+  gap: ${({ $gap }) => ($gap ? `${$gap}px` : 'initial')};
 `;
