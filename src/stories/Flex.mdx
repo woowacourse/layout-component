@@ -1,0 +1,19 @@
+import { Canvas, Controls, Description, Meta, Source } from "@storybook/blocks";
+
+import * as FlexStories from "./Flex.stories.tsx";
+
+<Meta of={FlexStories} />
+
+# Flex
+
+<Description />
+
+<Canvas of={FlexStories.Default} sourceState="shown" />
+
+## Props
+
+<Controls exclude="children" />
+
+## Examples
+
+<Canvas of={FlexStories.Default} />
