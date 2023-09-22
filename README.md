@@ -71,9 +71,15 @@ import { Flex } from '@layout-component-dahyeeee';
 | gap     | string                                                                                                                                                                           | 10px    | 자식요소들 간 간격을 정할 수 있습니다           |
 | as      | HTML Element                                                                                                                                                                     | div     | 요소의 HTML Tag를 정할 수 있습니다              |
 
+# css 사용법
+
+해당 라이브러리는 emotion을 사용했습니다.
+
+`styles` 속성을 사용해 inline으로 css를 적용하면 제일 우선적으로 적용됩니다.
+`emotion`의 `css` 속성을 사용해 css를 적용하면 기존 css 위에 덮어씌워집니다.
+`css`파일과 `className` 속성을 사용해 css를 적용하면 제일 후순위로 적영됩니다.
+
 # Example Page
 
 컴포넌트들의 사용법과 사용예시를 storybook으로 배포했습니다.
 자유롭게 컴포넌트를 경험해보세요!
-
-[링크]
