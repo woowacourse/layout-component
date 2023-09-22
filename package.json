@@ -1,7 +1,7 @@
 {
   "name": "guridaek-layout-components",
   "private": false,
-  "version": "0.0.9",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
