@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Container from './Container';
+
+<Meta
+  title="Components/Container"
+  component={Container}
+  argTypes={{
+    minWidth: { control: 'text', description: 'Minimum width of the container' },
+    maxWidth: { control: 'text', description: 'Maximum width of the container' },
+  }}
+  args={{
+    minWidth: '200px',
+    maxWidth: '800px'
+  }}
+/>
+
+# Container Component
+
+`Container` is a responsive component that sets the minimum and maximum width for its children. This is particularly useful for ensuring readability and maintaining layout constraints.
+
+## Props
+
+<ArgsTable of={Container} />
+
+## Live Example
+
+<Canvas>
+  <Story
+    name="Component"
+  >
+    {args => <Container {...args}><p>Your content here</p></Container>}
+  </Story>
+</Canvas>
