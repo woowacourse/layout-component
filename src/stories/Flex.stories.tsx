@@ -5,6 +5,14 @@ import TestItem from './TestItem';
 const meta: Meta<typeof Flex> = {
   title: 'Example/Flex',
   component: Flex,
+  argTypes: {
+    justify: {
+      control: 'text',
+    },
+    align: {
+      control: 'text',
+    },
+  },
 };
 
 export default meta;
