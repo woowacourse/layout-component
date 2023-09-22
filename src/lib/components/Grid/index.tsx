@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 interface GridProps extends ComponentPropsWithoutRef<'div'> {
   rows: number;

@@ -1,8 +1,8 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-import styled from 'styled-components';
-import convertToPercentage from '../utils/convertToPercentage';
+import { styled } from 'styled-components';
+import convertToPercentage from '../../utils/convertToPercentage';
 
-import { Slash } from '../@types';
+import { Slash } from '../../@types';
 
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   minWidth: 'auto' | 'full' | 'screen' | Slash;

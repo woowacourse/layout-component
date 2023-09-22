@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
-import { tailwindDirection } from '../utils/tailwindDirection';
-import { tailwindJustify } from '../utils/tailwindJustify';
-import { tailwindAlign } from '../utils/tailwindAlign';
+import { styled, css } from 'styled-components';
+import { tailwindDirection } from '../../utils/tailwindDirection';
+import { tailwindJustify } from '../../utils/tailwindJustify';
+import { tailwindAlign } from '../../utils/tailwindAlign';
 
-import type { Align, Direction, Justify } from '../@types';
+import type { Align, Direction, Justify } from '../../@types';
 
 interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   direction?: Direction;
