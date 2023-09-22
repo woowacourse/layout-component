@@ -21,35 +21,80 @@ import { Container, Flex, Grid } from "guridaek-layout-components";
 ### Container 사용하기
 
 ```js
-<Container minWidth="100px" maxWidth="300px">
+<Container minWidth="100px" maxWidth="300px" etc="background-color: white; border: 1px solid blue">
   ...
 </Container>
 ```
 
-- `minWidth`, `maxWidth` 를 사용하여 너비를 조절할 수 있습니다.
+- `minWidth`: CSSProperties["minWidth"]
 
-- `etc`를 사용하여 추가로 CSS를 적용할 수 있습니다.
+  최소 너비를 설정할 수 있습니다.
+
+- `maxWidth`: CSSProperties["maxWidth"]
+
+  최대 너비를 설정할 수 있습니다.
+
+- `etc`: CSSProp
+
+  추가적인 CSS를 적용할 수 있습니다.
 
 ### Flex 사용하기
 
 ```js
-<Flex direction="column" alignItems="center" gap="10px" etc="width: 300px; height: 400px">
+<Flex
+  direction="column"
+  alignItems="center"
+  gap="10px"
+  etc="background-color: white; border: 1px solid blue"
+>
   ...
 </Flex>
 ```
 
-- `direction`, `flexWrap`, `justifyContent`, `alignItems`, `alignContent를` 사용하여 flex 관련 설정을 할 수 있습니다.
-- `gap`을 사용하여 간격을 조절할 수 있습니다.
-- `etc`를 사용하여 추가로 CSS를 적용할 수 있습니다.
+- `direction`: CSSProperties["flexDirection"]
+
+  배치 축을 설정할 수 있습니다.
+
+- `flexWrap`: CSSProperties["flexWrap"]
+
+  줄 넘김 설정을 할 수 있습니다.
+
+- `justifyContent`: CSSProperties["justifyContent"]
+
+  메인 축 정렬 방향을 설정할 수 있습니다.
+
+- `alignItems`: CSSProperties["alignItems"]
+
+  수직 축 정렬 방향을 설정할 수 있습니다.
+
+- `gap`: CSSProperties["gap"]
+
+  자식 요소간의 간격을 설정할 수 있습니다.
+
+- `etc`: CSSProp
+
+  추가적인 CSS를 적용할 수 있습니다.
 
 ### Grid 사용하기
 
 ```js
-<Grid rows={4} columns={4} gap="10px" etc="width: 300px; height: 400px">
+<Grid rows={4} columns={4} gap="10px" etc="background-color: white; border: 1px solid blue">
   ...
 </Grid>
 ```
 
-- `rows`, `columns`을 사용하여 행과 열의 개수를 설정할 수 있습니다.
-- `gap`을 사용하여 간격을 조절할 수 있습니다.
-- `etc`를 사용하여 추가로 CSS를 적용할 수 있습니다.
+- `rows`: number
+
+  행의 수를 설정할 수 있습니다.
+
+- `rows`: number
+
+  열의 수를 설정할 수 있습니다.
+
+- `gap`: CSSProperties["gap"]
+
+  자식 요소간의 간격을 설정할 수 있습니다.
+
+- `etc`: CSSProp
+
+  추가적인 CSS를 적용할 수 있습니다.
