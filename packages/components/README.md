@@ -5,17 +5,13 @@
 <p align="middle">재사용 가능한 레이아웃 컴포넌트 제작과 배포</p>
 <br/>
 
-# installation
-
-```
-npm install @gyeongza/components
-```
-
-> 모든 컴포넌트는 필요에 따라 `style={{width: "10px"}}` 과 같이 inline 스타일을 추가할 수 있습니다.
+모든 컴포넌트는 필요에 따라 `style={{width: "10px"}}` 과 같이 inline 스타일을 추가할 수 있습니다.
 
 # Container 컴포넌트
 
 ### minWidth, maxWidth 속성을 통해 폭을 조절할 수 있습니다.
+
+<img width="495" alt="스크린샷 2023-09-18 오후 5 41 05" src="https://github.com/gyeongza/layout-component/assets/62369936/d169cf6f-738e-4f83-90b0-b741b3a7afb5">
 
 ```javascript
 // 1. Container
@@ -30,6 +26,8 @@ npm install @gyeongza/components
 ### rows, columns 속성을 통해 격자의 형태를 지정할 수 있습니다.
 
 ### gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있습니다.
+
+<img width="368" alt="스크린샷 2023-09-18 오후 5 40 31" src="https://github.com/gyeongza/layout-component/assets/62369936/9a8b5bf2-f1c0-44c4-816c-a0d7d350b343">
 
 ```javascript
 // 1. Grid
@@ -49,6 +47,8 @@ npm install @gyeongza/components
 ### direction, justify, align 속성을 통해 배열 방향과 정렬을 조절할 수 있다.
 
 ### gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있다.
+
+<img width="312" alt="스크린샷 2023-09-18 오후 5 40 36" src="https://github.com/gyeongza/layout-component/assets/62369936/ad9411b2-8515-44d9-bd59-64661426ccf5">
 
 ```javascript
 // 1. Flex
