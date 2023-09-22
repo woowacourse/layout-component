@@ -3,7 +3,6 @@ import {
   type HTMLAttributes,
   type PropsWithChildren,
 } from "react";
-import styled from "styled-components";
 
 export interface FlexProps
   extends HTMLAttributes<HTMLDivElement>,
@@ -38,9 +37,14 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
     ...rest
   } = props;
 
+  const defaultStyle: CSSProperties = {
+    display: "flex",
+  };
+
   return (
-    <FlexWrapper
+    <div
       style={{
+        ...defaultStyle,
         flexDirection,
         flexWrap,
         justifyContent,
@@ -55,12 +59,8 @@ const Flex = (props: PropsWithChildren<FlexProps>) => {
       {...rest}
     >
       {children}
-    </FlexWrapper>
+    </div>
   );
 };
-
-const FlexWrapper = styled.div<FlexProps>`
-  display: flex;
-`;
 
 export default Flex;

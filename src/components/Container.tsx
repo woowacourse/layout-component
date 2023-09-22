@@ -1,5 +1,4 @@
 import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
-import styled from "styled-components";
 
 export interface ContainerProps
   extends HTMLAttributes<HTMLDivElement>,
@@ -48,9 +47,15 @@ const Container = (props: PropsWithChildren<ContainerProps>) => {
     ...rest
   } = props;
 
+  const defaultStyle: CSSProperties = {
+    marginRight: "auto",
+    marginLeft: "auto",
+  };
+
   return (
-    <ContainerWrapper
+    <div
       style={{
+        ...defaultStyle,
         minWidth,
         maxWidth,
         width,
@@ -72,13 +77,8 @@ const Container = (props: PropsWithChildren<ContainerProps>) => {
       {...rest}
     >
       {children}
-    </ContainerWrapper>
+    </div>
   );
 };
-
-const ContainerWrapper = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-`;
 
 export default Container;

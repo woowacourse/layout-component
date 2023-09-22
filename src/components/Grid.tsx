@@ -1,5 +1,4 @@
 import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
-import styled from "styled-components";
 
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -43,25 +42,20 @@ const Grid = (props: PropsWithChildren<GridProps>) => {
     ? `repeat(${columns}, minmax(0, 1fr))`
     : columns;
 
+  const defaultStyle: CSSProperties = {
+    display: "grid",
+    gridTemplateRows: `${rowTemplate}`,
+    gridTemplateColumns: `${columnTemplate}`,
+  };
+
   return (
-    <GridWrapper
-      rows={rowTemplate}
-      columns={columnTemplate}
-      style={{ gap, rowGap, columnGap, ...style }}
+    <div
+      style={{ ...defaultStyle, gap, rowGap, columnGap, ...style }}
       {...rest}
     >
       {children}
-    </GridWrapper>
+    </div>
   );
 };
-
-const GridWrapper = styled.div<{
-  rows: number | string;
-  columns: number | string;
-}>`
-  display: grid;
-  grid-template-rows: ${({ rows = 1 }) => rows};
-  grid-template-columns: ${({ columns = 1 }) => columns};
-`;
 
 export default Grid;
