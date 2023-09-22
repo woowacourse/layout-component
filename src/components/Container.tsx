@@ -3,24 +3,26 @@ import styled from "styled-components";
 
 export interface ContainerProps
   extends HTMLAttributes<HTMLDivElement>,
-    Pick<
-      CSSProperties,
-      | "maxWidth"
-      | "minWidth"
-      | "width"
-      | "maxHeight"
-      | "minHeight"
-      | "height"
-      | "margin"
-      | "marginTop"
-      | "marginBottom"
-      | "marginLeft"
-      | "marginRight"
-      | "padding"
-      | "paddingTop"
-      | "paddingBottom"
-      | "paddingLeft"
-      | "paddingRight"
+    Partial<
+      Pick<
+        CSSProperties,
+        | "maxWidth"
+        | "minWidth"
+        | "width"
+        | "maxHeight"
+        | "minHeight"
+        | "height"
+        | "margin"
+        | "marginTop"
+        | "marginBottom"
+        | "marginLeft"
+        | "marginRight"
+        | "padding"
+        | "paddingTop"
+        | "paddingBottom"
+        | "paddingLeft"
+        | "paddingRight"
+      >
     > {}
 
 const Container = (props: PropsWithChildren<ContainerProps>) => {

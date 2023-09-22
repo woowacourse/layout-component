@@ -1,4 +1,4 @@
-import type { HTMLAttributes, PropsWithChildren } from "react";
+import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import styled from "styled-components";
 
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
@@ -48,6 +48,7 @@ const Grid = (props: PropsWithChildren<GridProps>) => {
       rows={rowTemplate}
       columns={columnTemplate}
       style={{ gap, rowGap, columnGap, ...style }}
+      {...rest}
     >
       {children}
     </GridWrapper>
