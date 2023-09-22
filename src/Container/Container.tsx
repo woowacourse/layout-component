@@ -44,8 +44,8 @@ const Container = ({
   ...props
 }: ContainerProps) => {
   const containerStyle = {
-    minWidth: typeof minWidth === 'number' ? `${minWidth}px` : minWidth,
-    maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth,
+    minWidth: minWidth !== undefined ? minWidth : 'fit-content',
+    maxWidth: maxWidth !== undefined ? maxWidth : '100%',
     padding: typeof padding === 'number' ? `${padding}px` : padding,
     backgroundColor: backgroundColor,
     borderRadius:
