@@ -1,8 +1,7 @@
-import { ComponentPropsWithoutRef, ReactNode } from "react";
+import { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 import styled, { CSSProp, CSSProperties } from "styled-components";
 
-interface Props extends ComponentPropsWithoutRef<"div"> {
-  children?: ReactNode;
+interface Props extends ComponentPropsWithoutRef<"div">, PropsWithChildren {
   rows?: number;
   columns?: number;
   gap?: CSSProperties["gap"];

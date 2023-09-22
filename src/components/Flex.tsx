@@ -1,13 +1,11 @@
-import { ComponentPropsWithoutRef, ReactNode } from "react";
+import { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 import styled, { CSSProp, CSSProperties } from "styled-components";
 
-interface Props extends ComponentPropsWithoutRef<"div"> {
-  children?: ReactNode;
+interface Props extends ComponentPropsWithoutRef<"div">, PropsWithChildren {
   direction?: CSSProperties["flexDirection"];
   flexWrap?: CSSProperties["flexWrap"];
   justifyContent?: CSSProperties["justifyContent"];
   alignItems?: CSSProperties["alignItems"];
-  alignContent?: CSSProperties["alignContent"];
   gap?: CSSProperties["gap"];
   etc?: CSSProp;
 }
@@ -18,7 +16,6 @@ const Flex = ({
   flexWrap,
   justifyContent,
   alignItems,
-  alignContent,
   gap,
   etc,
   ...rest
@@ -29,7 +26,6 @@ const Flex = ({
       $flexWrap={flexWrap}
       $justifyContent={justifyContent}
       $alignItems={alignItems}
-      $alignContent={alignContent}
       $gap={gap}
       $etc={etc}
       {...rest}
