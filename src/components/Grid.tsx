@@ -2,7 +2,7 @@ import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 
 export interface GridProps
   extends HTMLAttributes<HTMLDivElement>,
-    Partial<Pick<CSSProperties, "gap" | "rowGap" | "columnGap">> {
+    Pick<CSSProperties, "gap" | "rowGap" | "columnGap"> {
   /**
    * Grid 컴포넌트의 열 개수
    */

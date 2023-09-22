@@ -2,26 +2,24 @@ import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 
 export interface ContainerProps
   extends HTMLAttributes<HTMLDivElement>,
-    Partial<
-      Pick<
-        CSSProperties,
-        | "maxWidth"
-        | "minWidth"
-        | "width"
-        | "maxHeight"
-        | "minHeight"
-        | "height"
-        | "margin"
-        | "marginTop"
-        | "marginBottom"
-        | "marginLeft"
-        | "marginRight"
-        | "padding"
-        | "paddingTop"
-        | "paddingBottom"
-        | "paddingLeft"
-        | "paddingRight"
-      >
+    Pick<
+      CSSProperties,
+      | "maxWidth"
+      | "minWidth"
+      | "width"
+      | "maxHeight"
+      | "minHeight"
+      | "height"
+      | "margin"
+      | "marginTop"
+      | "marginBottom"
+      | "marginLeft"
+      | "marginRight"
+      | "padding"
+      | "paddingTop"
+      | "paddingBottom"
+      | "paddingLeft"
+      | "paddingRight"
     > {}
 
 const Container = (props: PropsWithChildren<ContainerProps>) => {

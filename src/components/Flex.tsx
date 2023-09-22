@@ -6,19 +6,17 @@ import {
 
 export interface FlexProps
   extends HTMLAttributes<HTMLDivElement>,
-    Partial<
-      Pick<
-        CSSProperties,
-        | "flexDirection"
-        | "flexWrap"
-        | "justifyContent"
-        | "alignItems"
-        | "alignContent"
-        | "alignSelf"
-        | "flexGrow"
-        | "flexShrink"
-        | "order"
-      >
+    Pick<
+      CSSProperties,
+      | "flexDirection"
+      | "flexWrap"
+      | "justifyContent"
+      | "alignItems"
+      | "alignContent"
+      | "alignSelf"
+      | "flexGrow"
+      | "flexShrink"
+      | "order"
     > {}
 
 const Flex = (props: PropsWithChildren<FlexProps>) => {
