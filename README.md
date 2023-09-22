@@ -14,8 +14,8 @@
 # 설치 방법
 
 ```
-$ npm install @jeremy-component
-$ yarn add @jeremy-component
+$ npm install jeremy-component
+$ yarn add jeremy-component
 ```
 
 ## Container 컴포넌트
