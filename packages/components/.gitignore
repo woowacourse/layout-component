@@ -8,3 +8,7 @@
 .DS_Store
 
 public
+
+.storybook/
+build-storybook.log
+stories/
