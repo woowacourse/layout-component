@@ -13,22 +13,76 @@ const meta = {
     },
   },
   argTypes: {
-    maxWidth: { control: "text" },
-    minWidth: { control: "text" },
-    width: { control: "text" },
-    maxHeight: { control: "text" },
-    minHeight: { control: "text" },
-    height: { control: "text" },
-    margin: { control: "text" },
-    marginTop: { control: "text" },
-    marginBottom: { control: "text" },
-    marginLeft: { control: "text" },
-    marginRight: { control: "text" },
-    padding: { control: "text" },
-    paddingTop: { control: "text" },
-    paddingBottom: { control: "text" },
-    paddingLeft: { control: "text" },
-    paddingRight: { control: "text" },
+    maxWidth: {
+      control: "text",
+      description: "Container 컴포넌트의 최대 너비",
+      table: {
+        defaultValue: { summary: "100%" },
+      },
+    },
+    minWidth: {
+      control: "text",
+      description: "Container 컴포넌트의 최소 너비",
+    },
+    width: {
+      control: "text",
+      description: "Container 컴포넌트의 너비",
+    },
+    maxHeight: {
+      control: "text",
+      table: {
+        defaultValue: { summary: "100%" },
+      },
+      description: "Container 컴포넌트의 최대 높이",
+    },
+    minHeight: {
+      control: "text",
+      description: "Container 컴포넌트의 최소 높이",
+    },
+    height: {
+      control: "text",
+      description: "Container 컴포넌트의 높이",
+    },
+    margin: {
+      control: "text",
+      description: "Container 컴포넌트의 margin 크기",
+    },
+    marginTop: {
+      control: "text",
+      description: "Container 컴포넌트의 margin top 크기",
+    },
+    marginBottom: {
+      control: "text",
+      description: "Container 컴포넌트의 margin bottom 크기",
+    },
+    marginLeft: {
+      control: "text",
+      description: "Container 컴포넌트의 margin left 크기",
+    },
+    marginRight: {
+      control: "text",
+      description: "Container 컴포넌트의 margin right 크기",
+    },
+    padding: {
+      control: "text",
+      description: "Container 컴포넌트의 padding 크기",
+    },
+    paddingTop: {
+      control: "text",
+      description: "Container 컴포넌트의 padding top 크기",
+    },
+    paddingBottom: {
+      control: "text",
+      description: "Container 컴포넌트의 padding bottom 크기",
+    },
+    paddingLeft: {
+      control: "text",
+      description: "Container 컴포넌트의 padding left 크기",
+    },
+    paddingRight: {
+      control: "text",
+      description: "Container 컴포넌트의 padding right 크기",
+    },
     style: {
       control: { type: "object" },
       description: "추가적인 스타일을 정의하는 방법",
