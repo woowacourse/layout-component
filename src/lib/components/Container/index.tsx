@@ -1,8 +1,8 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { styled } from 'styled-components';
-import convertToPercentage from '../../utils/convertToPercentage';
 
 import { Slash } from '../../@types';
+import { tailwindPercentage } from '../../utils/tailwindPercentage';
 
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   minWidth: 'auto' | 'full' | 'screen' | Slash;
@@ -23,13 +23,13 @@ const Wrapper = styled.div<ContainerProps>`
     if (minWidth === 'auto') return minWidth;
     if (minWidth === 'full') return '100%';
     if (minWidth === 'screen') return '100vw';
-    return convertToPercentage(minWidth);
+    return tailwindPercentage(minWidth);
   }};
   max-width: ${({ maxWidth }) => {
     if (maxWidth === 'auto') return maxWidth;
     if (maxWidth === 'full') return '100%';
     if (maxWidth === 'screen') return '100vw';
-    return convertToPercentage(maxWidth);
+    return tailwindPercentage(maxWidth);
   }};
 `;
 
