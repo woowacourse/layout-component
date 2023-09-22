@@ -15,9 +15,12 @@ const meta = {
   argTypes: {
     rows: { control: "text" },
     columns: { control: "text" },
-    rowGap: { control: "text" },
-    columnGap: { control: "text" },
-    gap: { control: "text" },
+    rowGap: { control: "text", description: "Grid 컴포넌트의 row gap 크기" },
+    columnGap: {
+      control: "text",
+      description: "Grid 컴포넌트의 column gap 크기",
+    },
+    gap: { control: "text", description: "Grid 컴포넌트의 gap 크기" },
     style: {
       control: { type: "object" },
       description: "추가적인 스타일을 정의하는 방법",

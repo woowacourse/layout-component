@@ -1,6 +1,8 @@
 import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 
-export interface GridProps extends HTMLAttributes<HTMLDivElement> {
+export interface GridProps
+  extends HTMLAttributes<HTMLDivElement>,
+    Partial<Pick<CSSProperties, "gap" | "rowGap" | "columnGap">> {
   /**
    * Grid 컴포넌트의 열 개수
    */
@@ -9,18 +11,6 @@ export interface GridProps extends HTMLAttributes<HTMLDivElement> {
    * Grid 컴포넌트의 행 개수
    */
   columns?: number | string;
-  /**
-   * Grid 컴포넌트의 gap 크기
-   */
-  gap?: number | string;
-  /**
-   * Grid 컴포넌트의 row gap 크기
-   */
-  rowGap?: number | string;
-  /**
-   * Grid 컴포넌트의 column gap 크기
-   */
-  columnGap?: number | string;
 }
 
 const Grid = (props: PropsWithChildren<GridProps>) => {
