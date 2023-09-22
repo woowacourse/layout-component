@@ -1,7 +1,11 @@
 {
-  "name": "layout-component",
+  "name": "jeremy-component",
   "version": "0.1.0",
-  "private": true,
+  "description": "Reusable components",
+  "private": false,
+  "author": {
+    "name": "Jeremy"
+  },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
     "@babel/runtime-corejs3": "^7.22.15",
@@ -21,11 +25,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "babel src/lib --out-dir dist --copy-files --extensions \".ts,.tsx\"",
+    "type": "tsc"
   },
   "eslintConfig": {
     "extends": [
