@@ -11,12 +11,25 @@ interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   justify?: Justify;
   align?: Align;
   gap?: string;
+  wrap?: 'wrap' | 'wrap-reverse' | 'nowrap';
   children?: ReactNode;
 }
 
-const Flex = ({ direction, justify, align, children, gap }: FlexProps) => {
+const Flex = ({
+  direction,
+  justify,
+  align,
+  children,
+  gap,
+  wrap,
+}: FlexProps) => {
   return (
-    <Wrapper direction={direction} justify={justify} align={align} gap={gap}>
+    <Wrapper
+      direction={direction}
+      justify={justify}
+      align={align}
+      gap={gap}
+      wrap={wrap}>
       {children}
     </Wrapper>
   );
@@ -49,6 +62,12 @@ const Wrapper = styled.div<FlexProps>`
     gap &&
     css`
       gap: ${gap};
+    `}
+    
+  ${({ wrap }) =>
+    wrap &&
+    css`
+      flex-wrap: ${wrap};
     `}
 `;
 
