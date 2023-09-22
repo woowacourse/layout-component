@@ -31,7 +31,7 @@ Container 컴포넌트는 React의 Functional Component 형태로 구현되어 �
 ```jsx
 import { Container } from '@jeremy-component';
 
-<Container minWidth='300px' maxWidth='1200px'>
+<Container minWidth='1/2' maxWidth='screen'>
   <p>이것은 Container 내부의 내용입니다.</p>
 </Container>;
 ```
@@ -55,7 +55,7 @@ Flex 컴포넌트는 다양한 속성(props)를 받아들입니다:
 ```jsx
 import { Flex } from '@jeremy-component';
 
-<Flex direction='row' justify='center' align='center' gap='10px'>
+<Flex direction='row' justify='between' align='center' gap='10px'>
   <div>첫 번째 아이템</div>
   <div>두 번째 아이템</div>
   {/* ... */}
@@ -74,13 +74,13 @@ Grid 컴포넌트는 여러 개의 속성(props)를 받을 수 있습니다:
 
 - rows: 그리드의 행 수를 지정합니다.
 - columns: 그리드의 열 수를 지정합니다.
-- gap: 행과 열 사이의 간격을 지정합니다. { row: '간격', column: '간격' } 형태로 값을 받습니다.
+- gap: 행과 열 사이의 간격을 지정합니다. string 형태로 값을 받으며 행 간격과 열 간격을 따로 지정하고 싶다면 '8px 12px'과 같은 형식으로 처리해주세요.
 - children: 그리드 내부에 배치할 컴포넌트나 요소들을 지정합니다.
 
 ```jsx
 import { Grid } from '@jeremy-component';
 
-<Grid rows={3} columns={2} gap={{ row: '10px', column: '20px' }}>
+<Grid rows={3} columns={2} gap='0px 12px'>
   <div>첫 번째 아이템</div>
   <div>두 번째 아이템</div>
   <div>세 번째 아이템</div>
