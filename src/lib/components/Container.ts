@@ -1,19 +1,20 @@
+import { ComponentPropsWithRef } from 'react'
 import { styled } from 'styled-components'
 
-export interface ContainerProps {
+export interface ContainerProps extends ComponentPropsWithRef<'div'> {
   display?: 'none' | 'block' | 'inline' | 'inline-block'
-  width?: number
-  height?: number
+  width?: string
+  height?: string
   minWidth?: number
   minHeight?: number
   maxWidth?: number
   maxHeight?: number
-  padding?: number
+  padding?: string
   paddingRight?: number
   paddingLeft?: number
   paddingTop?: number
   paddingBottom?: number
-  margin?: number
+  margin?: string
   marginRight?: number
   marginLeft?: number
   marginTop?: number
@@ -39,8 +40,8 @@ export interface ContainerProps {
 
 const Container = styled.div<ContainerProps>`
   display: ${({ display }) => display ?? 'block'};
-  width: ${({ width }) => width + 'px'};
-  height: ${({ height }) => height + 'px'};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   min-width: ${({ minWidth }) => minWidth + 'px'};
   min-height: ${({ minHeight }) => minHeight + 'px'};
   max-width: ${({ maxWidth }) => maxWidth + 'px'};
@@ -72,6 +73,10 @@ const Container = styled.div<ContainerProps>`
   cursor: ${({ cursor }) => cursor};
   opacity: ${({ opacity }) => opacity + '%'};
   z-index: ${({ zIndex }) => zIndex};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export default Container

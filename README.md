@@ -34,7 +34,7 @@ const App = () => {
 
 ### number값이 들어가는 속성
 - width, height 관련 속성
-- padding, margin 관련 속성
+- padding, margin 개별 값 관련 속성(ex. paddingRight, marginLeft)
 - 위치 관련 속성
 - opacity, zIndex
 ```typescript
@@ -49,6 +49,7 @@ const App = () => {
 - display, position
 - color, backgroundColor, backdropFilter
 - overflow, cursor
+- padding, margin
 
 
 ## Flex

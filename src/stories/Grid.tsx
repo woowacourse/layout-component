@@ -1,3 +1,4 @@
+import React from 'react'
 import { Grid as GridPat } from 'react-layout-component-pat'
 
 interface GridProps {

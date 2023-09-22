@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import './index.css'
 import GlobalStyle from './GlobalStyle.ts'
+import { Container, Flex, Grid } from './index.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <GlobalStyle />
-    <App />
+    <Container />
+    <Flex />
+    <Grid />
   </React.StrictMode>,
 )

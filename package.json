@@ -1,18 +1,21 @@
 {
   "name": "react-layout-component-pat",
   "private": false,
-  "version": "0.0.3",
+  "version": "1.0.6",
   "type": "module",
-  "module": "./lib/esm/index.js",
-  "main": "./lib/cjs/index.js",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "description": "Patrick's react-layout-component",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GC-Park/layout-component.git"
-  },
   "files": [
-    "lib/"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "contributors": [
     {
       "name": "Patrick"
@@ -23,19 +26,20 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "clean": "rimraf lib",
-    "copy-files": "copyfiles README.md lib",
-    "tsc-build": "npm run clean && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json && npm run copy-files",
-    "publish:npm": "npm run tsc-build && npm publish",
+    "clean": "rimraf dist",
+    "copy-files": "copyfiles README.md dist",
+    "tsc-build": "npm run clean && npm run copy-files",
+    "publish:npm": "npm run tsc-build && npm run build && npm publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_5d02f52e9facd5d"
   },
   "dependencies": {
     "copyfiles": "^2.4.1",
+    "hae_on-layout-component": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-layout-component-pat": "^0.0.2",
+    "react-layout-component-pat": "^1.0.6",
     "rimraf": "^5.0.1",
     "styled-components": "^6.0.8"
   },
@@ -49,6 +53,7 @@
     "@storybook/react": "^7.4.2",
     "@storybook/react-vite": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
+    "@types/node": "^20.6.3",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/styled-components": "^5.1.27",
@@ -60,9 +65,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
+    "path": "^0.12.7",
     "storybook": "^7.4.2",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.4"
   },
   "bugs": {
     "url": "https://github.com/GC-Park/layout-component/issues"
