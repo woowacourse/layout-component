@@ -66,7 +66,5 @@
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3",
     "vite-tsconfig-paths": "^4.2.1"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "layout-component-dahyeeee@0.0.8"
+  }
 }
