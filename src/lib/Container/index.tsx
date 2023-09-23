@@ -1,16 +1,11 @@
+import { ElementType, ReactNode, forwardRef } from 'react';
 import {
-  CSSProperties,
-  ComponentPropsWithRef,
-  ComponentPropsWithoutRef,
-  ElementType,
-  PropsWithChildren,
-  ReactNode,
-  forwardRef,
-} from 'react';
+  CommonProps,
+  PolymorphicComponentProps,
+  PolymorphicRef,
+} from '../types/common';
 
-interface ContainerProps<T extends ElementType> extends PropsWithChildren {
-  as?: T;
-  css?: CSSProperties;
+interface ContainerProps {
   /**
    * This prop is used when you want to specify the minimum width
    * ${minWidth}px
@@ -24,10 +19,7 @@ interface ContainerProps<T extends ElementType> extends PropsWithChildren {
 }
 
 type ContainerComponent = <T extends ElementType = 'div'>(
-  props: ContainerProps<T> &
-    ComponentPropsWithoutRef<T> & {
-      ref?: ComponentPropsWithRef<T>['ref'];
-    }
+  props: PolymorphicComponentProps<T, ContainerProps>
 ) => ReactNode | null;
 
 /**
@@ -43,8 +35,8 @@ const Container: ContainerComponent = forwardRef(function Container<
     maxWidth = 0,
     children,
     ...rest
-  }: ContainerProps<T> & ComponentPropsWithoutRef<T>,
-  ref: ComponentPropsWithRef<T>['ref']
+  }: ContainerProps & CommonProps<T>,
+  ref: PolymorphicRef<T>
 ) {
   const Element = as || 'div';
 
