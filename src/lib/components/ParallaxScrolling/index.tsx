@@ -19,7 +19,9 @@ const ParallaxScrolling = ({
 
 export default ParallaxScrolling;
 
-const Layout = styled.div<{ perspective?: number }>`
+type LayoutProps = Omit<ParallaxScrollingProps, 'children'>;
+
+const Layout = styled.div<LayoutProps>`
   height: 100vh;
   overflow-x: hidden;
 

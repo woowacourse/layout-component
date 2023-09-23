@@ -19,7 +19,9 @@ const Flex = ({ children, ...props }: FlexProps) => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
 
-const Wrapper = styled.div<FlexProps>`
+type WrapperProps = Omit<FlexProps, 'children'>;
+
+const Wrapper = styled.div<WrapperProps>`
   display: flex;
   width: 100%;
   height: 100%;

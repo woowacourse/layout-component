@@ -15,15 +15,9 @@ const ParallaxItem = ({ imgUrl, ...props }: ParallaxItemProps) => {
   return <Img src={imgUrl} {...props} />;
 };
 
-const Img = styled.img<{
-  translateZ: number;
-  scale: number;
-  objectFit: string;
-  right?: string;
-  left?: string;
-  top?: string;
-  bottom?: string;
-}>`
+type ImgProps = Omit<ParallaxItemProps, 'imgUrl'>;
+
+const Img = styled.img<ImgProps>`
   position: absolute;
 
   width: 100%;
