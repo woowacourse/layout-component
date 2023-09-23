@@ -1,66 +1,27 @@
-import { css, styled } from 'styled-components';
+import { CSSProperties, css, styled } from 'styled-components';
 
-type Display = 'none' | 'block' | 'inline' | 'inline-block' | 'flex' | 'grid';
-type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible';
-type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
-type Cursor =
-  | 'auto'
-  | 'default'
-  | 'none'
-  | 'context-menu'
-  | 'help'
-  | 'pointer'
-  | 'progress'
-  | 'wait'
-  | 'cell'
-  | 'crosshair'
-  | 'text'
-  | 'vertical-text'
-  | 'alias'
-  | 'copy'
-  | 'move'
-  | 'no-drop'
-  | 'not-allowed'
-  | 'grab'
-  | 'grabbing'
-  | 'e-resize'
-  | 'n-resize'
-  | 'ne-resize'
-  | 'nw-resize'
-  | 's-resize'
-  | 'se-resize'
-  | 'sw-resize'
-  | 'w-resize'
-  | 'ew-resize'
-  | 'ns-resize'
-  | 'nesw-resize'
-  | 'nwse-resize'
-  | 'col-resize'
-  | 'row-resize'
-  | 'all-scroll'
-  | 'zoom-in'
-  | 'zoom-out';
+type Display = 'none' | 'block' | 'inline' | 'inline-block';
 
 export interface Props {
   display?: Display;
-  width?: string | number;
-  height?: string | number;
-  $minWidth?: string | number;
-  $minHeight?: string | number;
-  $maxWidth?: string | number;
-  $maxHeight?: string | number;
-  padding?: string | number;
-  margin?: string | number;
-  overflow?: Overflow;
-  position?: Position;
-  right?: string | number;
-  top?: string | number;
-  left?: string | number;
-  bottom?: string | number;
-  cursor?: Cursor;
-  opacity?: string;
-  $zIndex?: number;
-  $backgroundColor?: string;
+  width?: CSSProperties['width'];
+  height?: CSSProperties['height'];
+  $minWidth?: CSSProperties['minWidth'];
+  $minHeight?: CSSProperties['minHeight'];
+  $maxWidth?: CSSProperties['maxWidth'];
+  $maxHeight?: CSSProperties['maxHeight'];
+  padding?: CSSProperties['padding'];
+  margin?: CSSProperties['margin'];
+  overflow?: CSSProperties['overflow'];
+  position?: CSSProperties['position'];
+  right?: CSSProperties['right'];
+  top?: CSSProperties['top'];
+  left?: CSSProperties['left'];
+  bottom?: CSSProperties['bottom'];
+  cursor?: CSSProperties['cursor'];
+  opacity?: CSSProperties['opacity'];
+  $zIndex?: CSSProperties['zIndex'];
+  $backgroundColor?: CSSProperties['backgroundColor'];
   responsive?: boolean;
 }
 
