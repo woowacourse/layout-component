@@ -4,9 +4,9 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { grid, rowCount, columnCount, gridGap } from './Grid.css';
 import { toPixelIfNumber } from '../utils/toPixelIfNumber';
 
-interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
-  rows: number;
-  columns: number;
+interface GridProps {
+  rows: number | 'auto-fill' | 'auto-fit';
+  columns: number | 'auto-fill' | 'auto-fit';
   gap?: CSSProperties['gap'];
 }
 

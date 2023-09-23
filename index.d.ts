@@ -33,8 +33,8 @@ export declare type FlexProps = {
 };
 
 export declare type GridProps = {
-  rows: number;
-  columns: number;
+  rows: number | 'auto-fill' | 'auto-fit';
+  columns: number | 'auto-fill' | 'auto-fit';
   gap?: CSSProperties['gap'];
 };
 
