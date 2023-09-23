@@ -1,7 +1,7 @@
-import { PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react';
 import styled, { CSSProperties, css } from 'styled-components';
 
-type Props = {
+type Props<Tag extends ElementType = 'div'> = {
   /**
    * Flex 컴포넌트의 HTML 태그
    *
@@ -32,12 +32,11 @@ type Props = {
    * @default 'normal'
    */
   gap?: CSSProperties['gap'];
-  style?: CSSProperties;
-};
+} & PropsWithChildren<ComponentPropsWithoutRef<Tag>>;
 
-const Flex = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
+const Flex = <Tag extends ElementType>({ children, tag, ...rest }: Props<Tag>) => {
   return (
-    <StyledFlex style={style} {...rest}>
+    <StyledFlex as={tag} {...rest}>
       {children}
     </StyledFlex>
   );
