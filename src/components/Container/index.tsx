@@ -14,15 +14,10 @@ type Props = {
    * @default 'auto'
    */
   maxWidth?: CSSProperties['maxWidth'];
-  style?: CSSProperties;
 };
 
-const Container = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
-  return (
-    <StyledContainer style={style} {...rest}>
-      {children}
-    </StyledContainer>
-  );
+const Container = ({ children, ...rest }: PropsWithChildren<Props>) => {
+  return <StyledContainer {...rest}>{children}</StyledContainer>;
 };
 
 export default Container;

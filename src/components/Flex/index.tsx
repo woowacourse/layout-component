@@ -19,8 +19,16 @@ const Flex = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
 
 export default Flex;
 
+const defaultStyle = css<Props>`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
 const StyledFlex = styled.div<Props>`
-  ${({ direction = 'row', justify = 'center', align = 'center', gap }) => css`
+  ${defaultStyle}
+  ${({ direction, justify, align, gap }) => css`
     flex-direction: ${direction};
     justify-content: ${justify};
     align-items: ${align};
