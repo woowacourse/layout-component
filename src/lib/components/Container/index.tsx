@@ -10,12 +10,8 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
 }
 
-const Container = ({ minWidth, maxWidth, children }: ContainerProps) => {
-  return (
-    <Wrapper minWidth={minWidth} maxWidth={maxWidth}>
-      {children}
-    </Wrapper>
-  );
+const Container = ({ children, ...props }: ContainerProps) => {
+  return <Wrapper {...props}>{children}</Wrapper>;
 };
 
 const Wrapper = styled.div<ContainerProps>`

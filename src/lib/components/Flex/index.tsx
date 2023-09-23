@@ -15,24 +15,8 @@ interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
 }
 
-const Flex = ({
-  direction,
-  justify,
-  align,
-  children,
-  gap,
-  wrap,
-}: FlexProps) => {
-  return (
-    <Wrapper
-      direction={direction}
-      justify={justify}
-      align={align}
-      gap={gap}
-      wrap={wrap}>
-      {children}
-    </Wrapper>
-  );
+const Flex = ({ children, ...props }: FlexProps) => {
+  return <Wrapper {...props}>{children}</Wrapper>;
 };
 
 const Wrapper = styled.div<FlexProps>`
