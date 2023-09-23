@@ -1,13 +1,15 @@
-import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
+import {
+  CSSProperties,
+  ComponentPropsWithRef,
+  ComponentPropsWithoutRef,
+  ElementType,
+  PropsWithChildren,
+  ReactNode,
+  forwardRef,
+} from 'react';
 
-interface ContainerProps extends PropsWithChildren {
-  /**
-   * This prop is used when the container needs events
-   */
-  ref?: MutableRefObject<HTMLDivElement> | null;
-  /**
-   * This prop is used when you want to set CSS options
-   */
+interface ContainerProps<T extends ElementType> extends PropsWithChildren {
+  as?: T;
   css?: CSSProperties;
   /**
    * This prop is used when you want to specify the minimum width
@@ -21,27 +23,46 @@ interface ContainerProps extends PropsWithChildren {
   maxWidth?: number;
 }
 
+type ContainerComponent = <T extends ElementType = 'div'>(
+  props: ContainerProps<T> &
+    ComponentPropsWithoutRef<T> & {
+      ref?: ComponentPropsWithRef<T>['ref'];
+    }
+) => ReactNode | null;
+
 /**
  * This is the container layout
  */
-export default function Container({
-  ref,
-  css,
-  minWidth = 0,
-  maxWidth = 0,
-  children,
-}: ContainerProps) {
+const Container: ContainerComponent = forwardRef(function Container<
+  T extends ElementType = 'div'
+>(
+  {
+    css,
+    as,
+    minWidth = 0,
+    maxWidth = 0,
+    children,
+    ...rest
+  }: ContainerProps<T> & ComponentPropsWithoutRef<T>,
+  ref: ComponentPropsWithRef<T>['ref']
+) {
+  const Element = as || 'div';
+
   return (
-    <div
-      ref={ref}
-      style={{
-        width: '100vw',
-        minWidth: minWidth ? `${minWidth}px` : '',
-        maxWidth: maxWidth ? `${maxWidth}px` : '',
-        ...css,
-      }}
-    >
-      {children}
-    </div>
+    <>
+      <Element
+        ref={ref}
+        style={{
+          width: '100vw',
+          minWidth: minWidth ? `${minWidth}px` : '',
+          maxWidth: maxWidth ? `${maxWidth}px` : '',
+          ...css,
+        }}
+        {...rest}>
+        {children}
+      </Element>
+    </>
   );
-}
+});
+
+export default Container;
