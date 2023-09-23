@@ -6,7 +6,7 @@ import type {
 
 import GridItem from './grid-item';
 
-import { forwardRef } from '../utils';
+import { convertNumberToPx, forwardRef } from '../utils';
 
 import styles from './grid.module.css';
 
@@ -36,9 +36,6 @@ type CompoundGrid = {
   Item: typeof GridItem;
 };
 
-const convertGap = (gap?: number) =>
-  typeof gap === 'number' ? `${gap}px` : gap;
-
 const Grid = forwardRef<GridProps, CompoundGrid>(
   (
     {
@@ -58,9 +55,9 @@ const Grid = forwardRef<GridProps, CompoundGrid>(
       gridTemplateAreas: areas,
       gridTemplateRows: `repeat(${rows}, 1fr)`,
       gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      gap: convertGap(gap),
-      rowGap: convertGap(rowGap),
-      columnGap: convertGap(columnGap),
+      gap: convertNumberToPx(gap),
+      rowGap: convertNumberToPx(rowGap),
+      columnGap: convertNumberToPx(columnGap),
       ...css,
     };
 

@@ -6,7 +6,7 @@ import type {
 
 import FlexItem from './flex-item';
 
-import { forwardRef } from '../utils';
+import { convertNumberToPx, forwardRef } from '../utils';
 
 import styles from './flex.module.css';
 
@@ -49,7 +49,7 @@ const Flex = forwardRef<FlexProps, CompoundFlex>(
       flexWrap: wrap,
       justifyContent: justify,
       alignItems: align,
-      gap: `${gap}px`,
+      gap: convertNumberToPx(gap),
       ...css,
     };
 

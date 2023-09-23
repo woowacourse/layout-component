@@ -5,15 +5,14 @@ import type {
 } from 'react';
 import cn from 'classnames';
 
-import { forwardRef } from '../utils';
+import { convertNumberToPx, forwardRef } from '../utils';
 
 import styles from './container.module.css';
 
-type ContainerCSS = Omit<CSSProperties, 'minWidth' | 'maxWidth' | 'padding'>;
+type ContainerCSS = Omit<CSSProperties, 'minWidth' | 'maxWidth'>;
 type ContainerStyleProps = {
   minWidth?: number;
   maxWidth?: number;
-  padding?: number;
   centerContent?: boolean;
   css?: ContainerCSS;
 };
@@ -26,7 +25,6 @@ const Container = forwardRef<ContainerProps>(
     {
       minWidth,
       maxWidth,
-      padding,
       centerContent = false,
       children,
       css = {},
@@ -35,9 +33,8 @@ const Container = forwardRef<ContainerProps>(
     ref: ContainerRef
   ) => {
     const style = {
-      minWidth: `${minWidth}px`,
-      maxWidth: `${maxWidth}px`,
-      padding: `${padding}px`,
+      minWidth: convertNumberToPx(minWidth),
+      maxWidth: convertNumberToPx(maxWidth),
       ...css,
     };
 

@@ -1,6 +1,6 @@
 import type { CSSProperties, ComponentPropsWithoutRef } from 'react';
 
-import { compact } from '../utils';
+import { compact, convertSpan } from '../utils';
 
 type GridItemCSS = Omit<
   CSSProperties,
@@ -24,9 +24,6 @@ type GridItemStyleProps = {
 };
 
 type GridItemProps = ComponentPropsWithoutRef<'div'> & GridItemStyleProps;
-
-const convertSpan = (span?: number | 'auto') =>
-  typeof span === 'number' ? `span ${span} / span ${span}` : span;
 
 const GridItem = ({
   area,
