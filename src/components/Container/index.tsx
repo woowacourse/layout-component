@@ -32,5 +32,6 @@ const StyledContainer = styled.div<Props>`
     min-width: ${minWidth};
     max-width: ${maxWidth};
   `};
-  margin: auto;
+
+  margin: 0 auto;
 `;
