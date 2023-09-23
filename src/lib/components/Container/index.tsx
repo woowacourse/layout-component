@@ -10,6 +10,7 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
 }
 
+
 const Container = ({ children, ...props }: ContainerProps) => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
@@ -17,6 +18,7 @@ const Container = ({ children, ...props }: ContainerProps) => {
 type WrapperProps = Omit<ContainerProps, 'children'>;
 
 const Wrapper = styled.div<WrapperProps>`
+
   min-width: ${({ minWidth }) => {
     if (minWidth === 'auto') return minWidth;
     if (minWidth === 'full') return '100%';

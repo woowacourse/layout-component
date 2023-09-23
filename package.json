@@ -11,7 +11,9 @@
   ],
   "repository": {
     "type": "git",
+
     "url": "git+https://github.com/shackstack/layout-component.git"
+
   },
   "author": {
     "name": "Jeremy"
@@ -26,6 +28,7 @@
     "@types/node": "^16.18.53",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -42,6 +45,7 @@
     "build": "babel src/lib --out-dir dist --copy-files --extensions \".ts,.tsx\"",
     "type": "tsc",
     "chromatic": "npx chromatic --project-token=chpt_d7050fc4db8e600"
+
   },
   "eslintConfig": {
     "extends": [
@@ -92,4 +96,5 @@
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/shackstack/layout-component#readme",
   "_id": "jeremy-component@0.1.3"
+
 }

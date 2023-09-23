@@ -15,6 +15,7 @@ interface FlexProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
 }
 
+
 const Flex = ({ children, ...props }: FlexProps) => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
@@ -22,6 +23,7 @@ const Flex = ({ children, ...props }: FlexProps) => {
 type WrapperProps = Omit<FlexProps, 'children'>;
 
 const Wrapper = styled.div<WrapperProps>`
+
   display: flex;
   width: 100%;
   height: 100%;

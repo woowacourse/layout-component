@@ -8,6 +8,7 @@ interface GridProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
 }
 
+
 const Grid = ({ children, ...props }: GridProps) => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
@@ -15,6 +16,7 @@ const Grid = ({ children, ...props }: GridProps) => {
 type WrapperProps = Omit<GridProps, 'children'>;
 
 const Wrapper = styled.div<WrapperProps>`
+
   display: grid;
 
   grid-template-rows: ${(props) => `repeat(${props.rows}, 1fr)`};
