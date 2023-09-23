@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { PolymorphicElementPropsWithRef } from '../types';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { center, maxWidthVar, minWidthVar } from './Container.css';
+import { toPixelIfNumber } from '../utils/toPixelIfNumber';
 
 type ContainerProps = {
   minWidth?: CSSProperties['minWidth'];
@@ -29,8 +30,8 @@ const Container = <E extends React.ElementType = 'div'>(
       style={{
         ...style,
         ...assignInlineVars({
-          [maxWidthVar]: maxWidth.toString(),
-          [minWidthVar]: minWidth.toString(),
+          [maxWidthVar]: toPixelIfNumber(maxWidth),
+          [minWidthVar]: toPixelIfNumber(minWidth),
         }),
       }}
       {...rest}

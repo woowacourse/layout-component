@@ -10,6 +10,7 @@ import {
   flexGap,
   flexWrap,
 } from './Flex.css';
+import { toPixelIfNumber } from '../utils/toPixelIfNumber';
 
 type FlexProps = {
   direction?: CSSProperties['flexDirection'];
@@ -45,11 +46,11 @@ const Flex = <E extends React.ElementType = 'div'>(
       style={{
         ...style,
         ...assignInlineVars({
-          [flexDirection]: direction.toString(),
-          [justifyContent]: justify.toString(),
-          [alignItems]: align.toString(),
-          [flexGap]: gap.toString(),
-          [flexWrap]: wrap.toString(),
+          [flexDirection]: direction,
+          [justifyContent]: justify,
+          [alignItems]: align,
+          [flexGap]: toPixelIfNumber(gap),
+          [flexWrap]: wrap,
         }),
       }}
       {...rest}

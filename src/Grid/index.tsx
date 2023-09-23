@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { PolymorphicElementPropsWithRef } from '../types';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { grid, rowCount, columnCount, gridGap } from './Grid.css';
+import { toPixelIfNumber } from '../utils/toPixelIfNumber';
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   rows: number;
@@ -32,7 +33,7 @@ const Grid = <E extends React.ElementType = 'div'>(
         ...assignInlineVars({
           [rowCount]: rows.toString(),
           [columnCount]: columns.toString(),
-          [gridGap]: gap.toString(),
+          [gridGap]: toPixelIfNumber(gap),
         }),
       }}
       {...rest}
