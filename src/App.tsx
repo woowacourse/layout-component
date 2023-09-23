@@ -5,8 +5,13 @@ function App() {
   const ref = useRef<HTMLAnchorElement>(null);
 
   return (
-    <Container ref={ref} as="a">
-      asdasds
+    <Container
+      ref={ref}
+      bgColor="red"
+      fullScreen
+      maxWidth="400px"
+      css={{ color: 'blue' }}>
+      asdasd
     </Container>
   );
 }

@@ -1,21 +1,18 @@
 import { ElementType, ReactNode, forwardRef } from 'react';
-import {
-  CommonProps,
-  PolymorphicComponentProps,
-  PolymorphicRef,
-} from '../types/common';
+import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
+import * as S from './style';
 
 interface ContainerProps {
   /**
    * This prop is used when you want to specify the minimum width
    * ${minWidth}px
    */
-  minWidth?: number;
+  minWidth?: string;
   /**
    * This prop is used when you want to specify the maximum width
    * ${manWidth}px
    */
-  maxWidth?: number;
+  maxWidth?: string;
 }
 
 type ContainerComponent = <T extends ElementType>(
@@ -28,32 +25,13 @@ type ContainerComponent = <T extends ElementType>(
 const Container: ContainerComponent = forwardRef(function Container<
   T extends ElementType = 'div'
 >(
-  {
-    css,
-    as,
-    minWidth = 0,
-    maxWidth = 0,
-    children,
-    ...rest
-  }: ContainerProps & CommonProps<T>,
+  { css, as, children, ...rest }: PolymorphicComponentProps<T, ContainerProps>,
   ref: PolymorphicRef<T>
 ) {
-  const Element = as || 'div';
-
   return (
-    <>
-      <Element
-        ref={ref}
-        style={{
-          width: '100vw',
-          minWidth: minWidth ? `${minWidth}px` : '',
-          maxWidth: maxWidth ? `${maxWidth}px` : '',
-          ...css,
-        }}
-        {...rest}>
-        {children}
-      </Element>
-    </>
+    <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
+      {children}
+    </S.Component>
   );
 });
 
