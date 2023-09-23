@@ -1,0 +1,89 @@
+{
+  "name": "jeremy-component",
+  "version": "0.1.3",
+  "description": "Reusable components",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shackstack/layout-component"
+  },
+  "author": {
+    "name": "Jeremy"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.15",
+    "@babel/runtime-corejs3": "^7.22.15",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.53",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
+    "jeremy-component": "^0.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.0.8",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "babel src/lib --out-dir dist --copy-files --extensions \".ts,.tsx\"",
+    "type": "tsc"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.20",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.3",
+    "@storybook/addon-interactions": "^7.4.3",
+    "@storybook/addon-links": "^7.4.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.3",
+    "@storybook/preset-create-react-app": "^7.4.3",
+    "@storybook/react": "^7.4.3",
+    "@storybook/react-webpack5": "^7.4.3",
+    "@storybook/testing-library": "^0.2.1",
+    "@types/styled-components": "^5.1.27",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^7.2.0",
+    "eslint-plugin-storybook": "^0.6.14",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.4.3",
+    "webpack": "^5.88.2"
+  }
+}
