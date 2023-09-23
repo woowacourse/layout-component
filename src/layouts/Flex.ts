@@ -1,49 +1,18 @@
-import { styled } from 'styled-components';
+import { CSSProperties, styled } from 'styled-components';
 import Container, { Props as ContainerProps } from './Container';
 
-type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
-type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-type AlignContent =
-  | 'flex-start'
-  | 'flex-end'
-  | 'center'
-  | 'stretch'
-  | 'space-between'
-  | 'space-around';
-type JustifyContent =
-  | 'flex-start'
-  | 'flex-end'
-  | 'center'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly';
-type JustifyItems =
-  | 'auto'
-  | 'normal'
-  | 'stretch'
-  | 'center'
-  | 'start'
-  | 'end'
-  | 'flex-start'
-  | 'flex-end'
-  | 'self-start'
-  | 'self-end'
-  | 'left'
-  | 'right';
-
-interface Props extends ContainerProps {
-  $flexDirection?: FlexDirection;
-  $flexWrap?: FlexWrap;
-  $flexBasis?: string | number;
-  $flexGrow?: number;
-  $flexShrink?: number;
-  $alignItems?: AlignItems;
-  $alignContent?: AlignContent;
-  $justifyContent?: JustifyContent;
-  $justifyItems?: JustifyItems;
-  flex?: string;
-  gap?: string;
+interface Props extends Omit<ContainerProps, 'display'> {
+  $flexDirection?: CSSProperties['flexDirection'];
+  $flexWrap?: CSSProperties['flexWrap'];
+  $flexBasis?: CSSProperties['flexBasis'];
+  $flexGrow?: CSSProperties['flexGrow'];
+  $flexShrink?: CSSProperties['flexShrink'];
+  $alignItems?: CSSProperties['alignItems'];
+  $alignContent?: CSSProperties['alignContent'];
+  $justifyContent?: CSSProperties['justifyContent'];
+  $justifyItems?: CSSProperties['justifyItems'];
+  flex?: CSSProperties['flex'];
+  gap?: CSSProperties['gap'];
 }
 
 const Flex = styled(Container)<Props>`
