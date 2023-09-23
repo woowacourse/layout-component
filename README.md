@@ -32,7 +32,6 @@ import { Container } from 'layout-component-hp';
 | -------------- | --------------------------- | --------------------------------------------------------- |
 | minWidth?      | number                      | Container의 min-width값입니다.                            |
 | maxWidth?      | number                      | Container의 max-width값입니다.                            |
-| padding?       | number                      | Container의 padding값입니다.                              |
 | centerContent? | boolean (default: false)    | Container 자식 컴포넌트의 중앙 정렬 여부입니다.           |
 | css?           | CSSProperties (default: {}) | Container의 props를 제외한 기타 커스텀 스타일 속성입니다. |
 | children?      | ReactNode                   | Container의 자식 컴포넌트입니다.                          |
