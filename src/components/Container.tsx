@@ -1,26 +1,57 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { centerStyle } from '../styles/center';
+import { PolymorphicComponentPropWithRef, PolymorphicRef } from '../types/polymorphic';
 
-interface ContainerProps extends ComponentPropsWithoutRef<ElementType> {
-  /**
-   * Container 컴포넌트의 태그를 변경합니다.
-   * @default div
-   */
-  as?: ElementType;
-  /**
-   * `max-width` 스타일 프로퍼티를 정의합니다.
-   */
-  maxWidth?: number;
-  /**
-   * `min-width` 스타일 프로퍼티를 정의합니다.
-   */
-  minWidth?: number;
-}
+type ContainerStyleProps = Omit<CSSProperties, 'maxWidth' | 'minWidth'>;
 
-function Container({ as = 'div', maxWidth, minWidth, children, ...attributes }: ContainerProps) {
-  const Component = as;
+type ContainerProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
+  C,
+  {
+    /**
+     * `max-width` 스타일 프로퍼티를 정의합니다.
+     */
+    maxWidth?: CSSProperties['maxWidth'];
+    /**
+     * `min-width` 스타일 프로퍼티를 정의합니다.
+     */
+    minWidth?: CSSProperties['minWidth'];
+    /**
+     * 추가적인 스타일링을 정의합니다.
+     */
+    style?: ContainerStyleProps;
+  }
+>;
 
-  return <Component css={[centerStyle, { maxWidth, minWidth }, { ...attributes }]}>{children}</Component>;
-}
+type ContainerComponent = <C extends React.ElementType>(props: ContainerProps<C>) => React.ReactNode;
+
+/**
+ * Docs:
+ * - [Container Docs](https://6507fe70aa120a5453701630-uaqgayiynj.chromatic.com/?path=/docs/example-container--docs)
+ */
+const Container: ContainerComponent = forwardRef(
+  <C extends React.ElementType>(
+    { maxWidth, minWidth, as, style, children, ...attributes }: ContainerProps<C>,
+    ref?: PolymorphicRef<C>,
+  ) => {
+    const Component = as || 'div';
+
+    return (
+      <Component
+        css={[
+          centerStyle,
+          {
+            maxWidth,
+            minWidth,
+          },
+          { ...style },
+        ]}
+        ref={ref}
+        {...attributes}
+      >
+        {children}
+      </Component>
+    );
+  },
+);
 
 export default Container;
