@@ -13,7 +13,6 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   args: {
     direction: 'row',
     justify: 'center',
@@ -27,8 +26,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Playground: Story = {};
 
 export const Column: Story = {
   args: {

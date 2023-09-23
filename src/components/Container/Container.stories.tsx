@@ -11,7 +11,6 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   args: {
     minWidth: '400px',
     maxWidth: '800px',
