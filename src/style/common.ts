@@ -1,121 +1,144 @@
 import styled, { CSSProperties } from 'styled-components';
 
 export interface CommonStyleProps {
-  $m?: string;
-  $mx?: string;
-  $my?: string;
-  $ml?: string;
-  $mr?: string;
-  $mb?: string;
-  $mt?: string;
+  width?: string;
+  fullScreen?: boolean;
 
-  $mxAuto?: boolean;
-  $myAuto?: boolean;
+  m?: string;
+  mx?: string;
+  my?: string;
+  ml?: string;
+  mr?: string;
+  mb?: string;
+  mt?: string;
 
-  $p?: string;
-  $px?: string;
-  $py?: string;
-  $pl?: string;
-  $pr?: string;
-  $pb?: string;
-  $pt?: string;
+  mxAuto?: boolean;
+  myAuto?: boolean;
 
-  $fontSize?: string;
-  $fontWeight?: CSSProperties['fontWeight'];
-  $textAlign?: CSSProperties['textAlign'] | string;
+  p?: string;
+  px?: string;
+  py?: string;
+  pl?: string;
+  pr?: string;
+  pb?: string;
+  pt?: string;
 
-  $border?: string;
-  $borderRadius?: string;
+  fontSize?: string;
+  fontWeight?: CSSProperties['fontWeight'];
+  textAlign?: CSSProperties['textAlign'] | string;
 
-  $color?: string;
-  $bgColor?: string;
+  border?: string;
+  borderRadius?: string;
+
+  color?: string;
+  bgColor?: string;
 }
 
 const getMarginProperty = ({
-  $m,
-  $mx,
-  $my,
-  $mxAuto,
-  $myAuto,
+  m,
+  mx,
+  my,
+  mxAuto,
+  myAuto,
 }: {
-  $m?: string;
-  $mx?: string;
-  $my?: string;
-  $mxAuto?: boolean;
-  $myAuto?: boolean;
+  m?: string;
+  mx?: string;
+  my?: string;
+  mxAuto?: boolean;
+  myAuto?: boolean;
 }) => {
-  if ($m) {
-    return $m;
+  if (m) {
+    return m;
   }
 
-  if ($mxAuto && $myAuto) {
+  if (mxAuto && myAuto) {
     return 'auto auto';
   }
 
-  if ($mxAuto && $my) {
-    return `${$my} auto`;
+  if (mxAuto && my) {
+    return `${my} auto`;
   }
 
-  if ($myAuto && $mx) {
-    return `auto ${$mx}`;
+  if (myAuto && mx) {
+    return `auto ${mx}`;
   }
 
-  if ($mx && $my) {
-    return `${$my} ${$mx}`;
+  if (mx && my) {
+    return `${my} ${mx}`;
   }
 
-  if ($mx) {
-    return `0 ${$mx}`;
+  if (mx) {
+    return `0 ${mx}`;
   }
 
-  return `${$my} 0`;
+  return `${my} 0`;
 };
 
 const getPaddingProperty = ({
-  $p,
-  $px,
-  $py,
+  p,
+  px,
+  py,
 }: {
-  $p?: string;
-  $px?: string;
-  $py?: string;
+  p?: string;
+  px?: string;
+  py?: string;
 }) => {
-  if ($p) {
-    return $p;
+  if (p) {
+    return p;
   }
 
-  if ($px && $py) {
-    return `${$py} ${$px}`;
+  if (px && py) {
+    return `${py} ${px}`;
   }
 
-  if ($px) {
-    return `0 ${$px}`;
+  if (px) {
+    return `0 ${px}`;
   }
 
-  return `${$py} 0`;
+  return `${py} 0`;
+};
+
+const getWidthProperty = ({
+  width,
+  fullScreen,
+}: {
+  width?: string;
+  fullScreen?: boolean;
+}) => {
+  if (fullScreen) {
+    return '100vw';
+  }
+
+  if (width) {
+    return width;
+  }
+
+  return '100%';
 };
 
 export const CommonTag = styled.div<CommonStyleProps>`
-  padding: ${({ $p, $px, $py }) => getPaddingProperty({ $p, $px, $py })};
-  padding-left: ${({ $pl }) => $pl};
-  padding-right: ${({ $pr }) => $pr};
-  padding-top: ${({ $pt }) => $pt};
-  padding-bottom: ${({ $pb }) => $pb};
+  width: ${({ width, fullScreen }) => getWidthProperty({ width, fullScreen })};
 
-  margin: ${({ $m, $mx, $my, $mxAuto, $myAuto }) =>
-    getMarginProperty({ $m, $mx, $mxAuto, $my, $myAuto })};
-  margin-top: ${({ $mt }) => $mt};
-  margin-bottom: ${({ $mb }) => $mb};
-  margin-right: ${({ $mr }) => $mr};
-  margin-left: ${({ $ml }) => $ml};
+  padding: ${({ p, px, py }) => getPaddingProperty({ p, px, py })};
+  padding-left: ${({ pl }) => pl};
+  padding-right: ${({ pr }) => pr};
+  padding-top: ${({ pt }) => pt};
+  padding-bottom: ${({ pb }) => pb};
 
-  font-size: ${({ $fontSize }) => $fontSize};
-  font-weight: ${({ $fontWeight }) => $fontWeight};
-  text-align: ${({ $textAlign }) => $textAlign};
+  margin: ${({ m, mx, my, mxAuto, myAuto }) =>
+    getMarginProperty({ m, mx, mxAuto, my, myAuto })};
+  margin-top: ${({ mt }) => mt};
+  margin-bottom: ${({ mb }) => mb};
+  margin-right: ${({ mr }) => mr};
+  margin-left: ${({ ml }) => ml};
 
-  border: ${({ $border }) => $border};
-  border-radius: ${({ $borderRadius }) => $borderRadius};
+  font-size: ${({ fontSize }) => fontSize};
+  font-weight: ${({ fontWeight }) => fontWeight};
+  text-align: ${({ textAlign }) => textAlign};
 
-  color: ${({ $color }) => $color};
-  background-color: ${({ $bgColor }) => $bgColor};
+  border: ${({ border }) => border};
+  border-radius: ${({ borderRadius }) => borderRadius};
+
+  color: ${({ color }) => color};
+  background-color: ${({ bgColor }) => bgColor};
 `;
