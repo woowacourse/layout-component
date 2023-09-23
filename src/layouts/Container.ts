@@ -28,7 +28,7 @@ export interface Props {
 const Container = styled.div<Props>`
   display: ${({ display }) => display || 'block'};
   padding: ${({ padding }) => padding};
-  margin: ${({ margin }) => margin};
+  margin: ${({ margin }) => margin || '0 auto'};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-width: ${({ $minWidth }) => $minWidth};
