@@ -1,33 +1,26 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
+import TagList from '../TabList';
 
-interface TabLayoutProps {
+export interface TabLayoutProps extends ComponentPropsWithoutRef<'div'> {
   tabs: string[];
   children: ReactNode[];
 }
 
-const TabLayout = ({ tabs, children }: TabLayoutProps) => {
+const TabLayout = ({ tabs, children, ...props }: TabLayoutProps) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div>
-      <div>
-        {tabs.map((tab, index) => (
-          <button
-            key={index}
-            style={{
-              padding: '10px 20px',
-              border: 'none',
-              backgroundColor: 'transparent',
-              cursor: 'pointer',
-              color: activeTab === index ? 'blue' : 'black',
-              fontWeight: activeTab === index ? 'bold' : 'normal',
-            }}
+    <section {...props}>
+      <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
+        {tabs.map((label, index) => (
+          <TagList
+            key={label}
+            label={label}
+            isActive={activeTab === index}
             onClick={() => setActiveTab(index)}
-          >
-            {tab}
-          </button>
+          />
         ))}
-      </div>
+      </ul>
       <div>
         {React.Children.map(children, (child, index) => (
           <div style={{ display: activeTab === index ? 'block' : 'none' }}>
@@ -35,7 +28,7 @@ const TabLayout = ({ tabs, children }: TabLayoutProps) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
