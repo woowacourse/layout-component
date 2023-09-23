@@ -1,0 +1,14 @@
+# dependencies
+/node_modules
+
+# production
+/build
+/dist
+# misc
+.DS_Store
+
+public
+
+.storybook/
+build-storybook.log
+stories/

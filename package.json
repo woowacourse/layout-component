@@ -1,0 +1,14 @@
+{
+  "name": "layout-component",
+  "version": "1.0.0",
+  "description": "layout-component workspace",
+  "main": "index.js",
+  "scripts": {
+    "start:app": "npm run start -workspace=@gyeongza/components"
+  },
+  "author": "gyeongza",
+  "license": "ISC",
+  "workspaces": [
+    "packages\\components"
+  ]
+}
