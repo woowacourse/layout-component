@@ -25,6 +25,5 @@
     "jsxImportSource": "@emotion/react",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
-  "exclude": ["./node_modules"]
+  "include": ["src"]
 }

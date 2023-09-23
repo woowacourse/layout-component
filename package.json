@@ -8,9 +8,6 @@
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "scripts": {
-    "start": "webpack --mode development",
-    "dev": "webpack serve --mode development --open --hot",
-    "build": "webpack --mode production",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "publish:npm": "rm -rf dist && mkdir dist && tsc && rm -rf ./dist/stories && cp -r ./src/assets ./dist && tsc-alias",
@@ -36,10 +33,10 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.2.0"
   },
   "devDependencies": {
+    "react-dom": "^18.2.0",
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
