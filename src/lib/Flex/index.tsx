@@ -1,14 +1,11 @@
-import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
+import { CSSProperties, ElementType, ReactNode, forwardRef } from 'react';
+import {
+  CommonProps,
+  PolymorphicComponentProps,
+  PolymorphicRef,
+} from '../types/common';
 
-interface FlexProps extends PropsWithChildren {
-  /**
-   * This prop is used when the container needs events
-   */
-  ref?: MutableRefObject<HTMLDivElement | null>;
-  /**
-   * This prop is used when you want to set CSS options
-   */
-  css?: CSSProperties;
+interface FlexProps {
   /**
    * This prop is used when you want to specify the justify-content
    * ${minWidth}px
@@ -32,16 +29,24 @@ interface FlexProps extends PropsWithChildren {
   gap?: number;
 }
 
-export default function Flex({
-  ref,
-  css,
-  direction = 'row',
-  alignItems = 'start',
-  flexWrap = 'nowrap',
-  justifyContent = 'start',
-  gap = 0,
-  children,
-}: FlexProps) {
+type FlexComponent = <T extends ElementType>(
+  props: PolymorphicComponentProps<T, FlexProps>
+) => ReactNode | null;
+
+const Flex: FlexComponent = forwardRef(function Flex<
+  T extends ElementType = 'div'
+>(
+  {
+    css,
+    direction = 'row',
+    alignItems = 'start',
+    flexWrap = 'nowrap',
+    justifyContent = 'start',
+    gap = 0,
+    children,
+  }: FlexProps & CommonProps<T>,
+  ref: PolymorphicRef<T>
+) {
   return (
     <div
       ref={ref}
@@ -53,9 +58,10 @@ export default function Flex({
         flexDirection: direction,
         gap: `${gap}px`,
         ...css,
-      }}
-    >
+      }}>
       {children}
     </div>
   );
-}
+});
+
+export default Flex;

@@ -18,7 +18,7 @@ interface ContainerProps {
   maxWidth?: number;
 }
 
-type ContainerComponent = <T extends ElementType = 'div'>(
+type ContainerComponent = <T extends ElementType>(
   props: PolymorphicComponentProps<T, ContainerProps>
 ) => ReactNode | null;
 
