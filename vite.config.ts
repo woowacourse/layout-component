@@ -22,5 +22,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), dts({ insertTypesEntry: true })],
+  plugins: [react(), dts()],
 });
