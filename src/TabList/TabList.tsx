@@ -61,6 +61,9 @@ const TabList = ({
           width: '100%',
           padding,
           fontSize,
+          background: isActive
+            ? activeStyle.backGroundColor
+            : inactiveStyle.backGroundColor,
           color: isActive ? activeStyle.color : inactiveStyle.color,
           fontWeight: isActive
             ? activeStyle.fontWeight
