@@ -12,15 +12,15 @@ export default defineConfig({
       fileName: `index`,
     },
     rollupOptions: {
-      external: ['react', 'styled-components'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
-        },
-      },
+      // external: ['react', 'styled-components'],
+      // output: {
+      //   globals: {
+      //     react: 'React',
+      //     'react-dom': 'ReactDOM',
+      //     'styled-components': 'styled',
+      //   },
+      // },
     },
   },
-  plugins: [react(), dts({ insertTypesEntry: true })],
+  plugins: [react(), dts()],
 });
