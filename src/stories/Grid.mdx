@@ -24,10 +24,12 @@ Grid는 자식 컴포넌트들을 격자 형태로 배치합니다.
 ## props
 
 Grid는 아래에 적힌 props들을 기본적으로 받을 수 있습니다.
+- `as`: HTML tag 이름.
 - `rows`: CSS grid-template-rows의 `repeat()`에 들어갈 숫자
 - `columns`: CSS grid-template-columns의 `repeat()`에 들어갈 숫자
 - `gap`: 하위 요소들 사이의 간격을 나타내는 문자열
 
-추가적으로 `<div>` 태그에 들어갈 수 있는 모든 속성들 역시 prop으로 내려줄 수 있어요.
+`<div>`태그에 들어갈 수 있는 속성들,
+또는 `as` prop을 써서 태그를 정했을 경우 해당 태그에 들어갈 수 있는 모든 속성들을 prop으로 내려줄 수 있어요.
 
 <Controls of={GridStory.Example} />

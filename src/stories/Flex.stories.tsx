@@ -29,6 +29,24 @@ const meta: Meta<typeof Flex> = {
       description: '하위 요소들 사이의 간격',
       defaultValue: { summary: '' },
     },
+
+    as: {
+      description: 'Flex를 원하는 HTML tag로 바꿀 수 있습니다.',
+      defaultValue: { summary: 'div' },
+      table: {
+        type: {
+          summary: 'React.ElementType',
+        },
+      },
+    },
+
+    ref: {
+      table: {
+        type: {
+          summary: "React.ComponentPropsWithRef['ref']",
+        },
+      },
+    },
   },
 
   args: {

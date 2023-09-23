@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { PolymorphicElementPropsWithRef } from '../types';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import {
   flex,
@@ -10,23 +11,27 @@ import {
   flexWrap,
 } from './Flex.css';
 
-interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
+type FlexProps = {
   direction?: CSSProperties['flexDirection'];
   justify?: CSSProperties['justifyContent'];
   align?: CSSProperties['alignItems'];
   wrap?: CSSProperties['flexWrap'];
   gap?: CSSProperties['gap'];
   inline?: boolean;
-}
+};
 
-const Flex = (props: React.PropsWithChildren<FlexProps>) => {
+const Flex = <E extends React.ElementType = 'div'>(
+  props: PolymorphicElementPropsWithRef<E, FlexProps>
+) => {
   const {
+    as: Element = 'div',
     direction = 'row',
     justify = 'normal',
     align = 'normal',
     inline = false,
     wrap = 'nowrap',
     gap = '',
+    ref,
     children,
     className,
     style,
@@ -34,7 +39,8 @@ const Flex = (props: React.PropsWithChildren<FlexProps>) => {
   } = props;
 
   return (
-    <div
+    <Element
+      ref={ref}
       className={`${className} ${inline ? inlineFlex : flex}`}
       style={{
         ...style,
@@ -49,7 +55,7 @@ const Flex = (props: React.PropsWithChildren<FlexProps>) => {
       {...rest}
     >
       {children}
-    </div>
+    </Element>
   );
 };
 

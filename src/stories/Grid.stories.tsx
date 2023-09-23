@@ -15,6 +15,24 @@ const meta: Meta<typeof Grid> = {
       description: '각 행과 열 사이의 간격',
       defaultValue: { summary: "''" },
     },
+
+    as: {
+      description: 'Grid를 원하는 HTML tag로 바꿀 수 있습니다.',
+      defaultValue: { summary: 'div' },
+      table: {
+        type: {
+          summary: 'React.ElementType',
+        },
+      },
+    },
+
+    ref: {
+      table: {
+        type: {
+          summary: "React.ComponentPropsWithRef['ref']",
+        },
+      },
+    },
   },
 
   args: {

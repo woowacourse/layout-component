@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { PolymorphicElementPropsWithRef } from '../types';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { grid, rowCount, columnCount, gridGap } from './Grid.css';
 
@@ -8,10 +9,23 @@ interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: CSSProperties['gap'];
 }
 
-const Grid = (props: React.PropsWithChildren<GridProps>) => {
-  const { rows, columns, gap = '', children, className, style, ...rest } = props;
+const Grid = <E extends React.ElementType = 'div'>(
+  props: PolymorphicElementPropsWithRef<E, GridProps>
+) => {
+  const {
+    as: Element = 'div',
+    gap = '',
+    ref,
+    rows,
+    columns,
+    children,
+    className,
+    style,
+    ...rest
+  } = props;
   return (
-    <div
+    <Element
+      ref={ref}
       className={`${className} ${grid}`}
       style={{
         ...style,
@@ -24,7 +38,7 @@ const Grid = (props: React.PropsWithChildren<GridProps>) => {
       {...rest}
     >
       {children}
-    </div>
+    </Element>
   );
 };
 

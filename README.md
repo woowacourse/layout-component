@@ -26,6 +26,7 @@ Container 내부 요소들에 대한 중앙 정렬과 overflow 처리는 보장�
 
 |props 이름|설명|기본값|
 |:-:|:-:|:-:|
+|`as`|HTML tag 이름|`div`|
 |`minWidth`| Container의 최소 너비 <br /> CSS의 min-width에 들어갈 수 있는 값 |`min-content`|
 |`maxWidth`| Container의 최대 너비 <br /> CSS의 max-width에 들어갈 수 있는 값 |`max-content`|
 
@@ -34,7 +35,7 @@ Container 내부 요소들에 대한 중앙 정렬과 overflow 처리는 보장�
 ### 사용 예시
 
 ```jsx
-<Container maxWidth="max-content" minWidth="min-content">
+<Container as="h1" maxWidth="max-content" minWidth="min-content">
   <p>안녕하세요?</p>
 </Container>
 ```
@@ -52,6 +53,7 @@ Grid는 자식 요소들을 격자 형태로 배치합니다.
 
 |props 이름|설명|기본값|
 |:-:|:-:|:-:|
+|`as`|HTML tag 이름|`div`|
 |`rows`*| 행의 개수 ||
 |`columns`*| 열의 개수 ||
 |`gap`|각 행과 열 사이의 간격 <br /> CSS에서 길이를 표현할 수 있는 문자열|`''`|
@@ -59,7 +61,7 @@ Grid는 자식 요소들을 격자 형태로 배치합니다.
 ### 사용 예시
 
 ```jsx
-<Grid rows={2} columns={2} gap="10px">
+<Grid as="section" rows={2} columns={2} gap="10px">
   <div>짧다고</div>
   <div>말하지 마라</div>
   <div>눈물이 적다고</div>
@@ -75,6 +77,7 @@ Flex는 자식 컴포넌트들을 감싸는 Flexbox를 제공합니다.
 
 |props 이름|설명|기본값|
 |:-:|:-:|:-:|
+|`as`|HTML tag 이름|`div`|
 |`inline`| `true`로 설정하면 inline-flex를 적용합니다 |`false`|
 |`direction`| CSS의 flex-direction에 들어갈 수 있는 값 |`row`|
 |`align`| CSS의 align-items에 들어갈 수 있는 값 |`normal`|
@@ -86,6 +89,7 @@ Flex는 자식 컴포넌트들을 감싸는 Flexbox를 제공합니다.
 
 ```jsx
 <Flex
+  as="main"
   direction="column"
   align="center"
   justify="center"

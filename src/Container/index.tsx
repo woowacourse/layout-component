@@ -1,16 +1,21 @@
 import type { CSSProperties } from 'react';
+import type { PolymorphicElementPropsWithRef } from '../types';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { center, maxWidthVar, minWidthVar } from './Container.css';
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+type ContainerProps = {
   minWidth?: CSSProperties['minWidth'];
   maxWidth?: CSSProperties['maxWidth'];
-}
+};
 
-const Container = (props: React.PropsWithChildren<ContainerProps>) => {
+const Container = <E extends React.ElementType = 'div'>(
+  props: PolymorphicElementPropsWithRef<E, ContainerProps>
+) => {
   const {
+    as: Element = 'div',
     maxWidth = 'max-content',
     minWidth = 'min-content',
+    ref,
     children,
     className,
     style,
@@ -18,7 +23,8 @@ const Container = (props: React.PropsWithChildren<ContainerProps>) => {
   } = props;
 
   return (
-    <div
+    <Element
+      ref={ref}
       className={`${className} ${center}`}
       style={{
         ...style,
@@ -30,7 +36,7 @@ const Container = (props: React.PropsWithChildren<ContainerProps>) => {
       {...rest}
     >
       {children}
-    </div>
+    </Element>
   );
 };
 
