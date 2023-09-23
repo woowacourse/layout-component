@@ -4,7 +4,7 @@ import Tabs from './Tabs';
 type Story = StoryObj<typeof Tabs>;
 
 const meta: Meta<typeof Tabs> = {
-  title: 'LAYOUT/Tabs',
+  title: 'NAVIGATION/Tabs',
   component: Tabs,
 };
 
