@@ -25,16 +25,21 @@ export interface Props {
   responsive?: boolean;
 }
 
+const getWidth = (width: number | string) =>
+  typeof width === 'number' ? `${width}px` : width;
+const getHeight = (height: number | string) =>
+  typeof height === 'number' ? `${height}px` : height;
+
 const Container = styled.div<Props>`
   display: ${({ display }) => display || 'block'};
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin || '0 auto'};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  min-width: ${({ $minWidth }) => $minWidth};
-  min-height: ${({ $minHeight }) => $minHeight};
-  max-width: ${({ $maxWidth }) => $maxWidth};
-  max-height: ${({ $maxHeight }) => $maxHeight};
+  width: ${({ width }) => width && getWidth(width)};
+  height: ${({ height }) => height && getHeight(height)};
+  min-width: ${({ $minWidth }) => $minWidth && getWidth($minWidth)};
+  min-height: ${({ $minHeight }) => $minHeight && getHeight($minHeight)};
+  max-width: ${({ $maxWidth }) => $maxWidth && getWidth($maxWidth)};
+  max-height: ${({ $maxHeight }) => $maxHeight && getHeight($maxHeight)};
   overflow: ${({ overflow }) => overflow};
   position: ${({ position }) => position};
   right: ${({ right }) => right};
