@@ -1,4 +1,5 @@
-import React, { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
+import '../styles/reset.css';
+import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
 import TagList from '../TabList';
 
 export interface TabLayoutProps extends ComponentPropsWithoutRef<'div'> {
@@ -11,7 +12,7 @@ const TabLayout = ({ tabs, children, ...props }: TabLayoutProps) => {
 
   return (
     <section {...props}>
-      <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
+      <ul style={{ display: 'flex' }}>
         {tabs.map((label, index) => (
           <TagList
             key={label}
@@ -21,13 +22,7 @@ const TabLayout = ({ tabs, children, ...props }: TabLayoutProps) => {
           />
         ))}
       </ul>
-      <div>
-        {React.Children.map(children, (child, index) => (
-          <div style={{ display: activeTab === index ? 'block' : 'none' }}>
-            {child}
-          </div>
-        ))}
-      </div>
+      {children[activeTab]}
     </section>
   );
 };
