@@ -11,8 +11,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    minWidth: 500,
-    maxWidth: 1000,
+    minwidth: 500,
+    maxwidth: 1000,
     backgroundColor: 'skyblue',
   },
 };
