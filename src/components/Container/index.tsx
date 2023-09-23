@@ -18,7 +18,7 @@ const Container = ({ children, style, ...rest }: PropsWithChildren<Props>) => {
 export default Container;
 
 const StyledContainer = styled.div<Props>`
-  ${({ minWidth, maxWidth = '100%' }) => css`
+  ${({ minWidth, maxWidth }) => css`
     min-width: ${minWidth};
     max-width: ${maxWidth};
   `};
