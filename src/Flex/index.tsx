@@ -41,7 +41,7 @@ const Flex = <E extends React.ElementType = 'div'>(
   return (
     <Element
       ref={ref}
-      className={`${className} ${inline ? inlineFlex : flex}`}
+      className={`${inline ? inlineFlex : flex}` + (className ? ` ${className}` : '')}
       style={{
         ...style,
         ...assignInlineVars({

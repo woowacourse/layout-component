@@ -26,7 +26,7 @@ const Grid = <E extends React.ElementType = 'div'>(
   return (
     <Element
       ref={ref}
-      className={`${className} ${grid}`}
+      className={`${grid}` + (className ? ` ${className}` : '')}
       style={{
         ...style,
         ...assignInlineVars({

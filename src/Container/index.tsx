@@ -25,7 +25,7 @@ const Container = <E extends React.ElementType = 'div'>(
   return (
     <Element
       ref={ref}
-      className={`${className} ${center}`}
+      className={`${center}` + (className ? ` ${className}` : '')}
       style={{
         ...style,
         ...assignInlineVars({
