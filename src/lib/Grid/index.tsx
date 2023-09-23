@@ -1,14 +1,11 @@
-import { CSSProperties, MutableRefObject, PropsWithChildren } from 'react';
+import { ElementType, ReactNode, forwardRef } from 'react';
+import {
+  CommonProps,
+  PolymorphicComponentProps,
+  PolymorphicRef,
+} from '../types/common';
 
-interface GridProps extends PropsWithChildren {
-  /**
-   * This prop is used when the container needs events
-   */
-  ref?: MutableRefObject<HTMLDivElement | null>;
-  /**
-   * This prop is used when you want to set CSS options
-   */
-  css?: CSSProperties;
+interface GridProps {
   /**
    * This prop is used when you want to specify the rows,
    * repeat(${rows}, 1fr)
@@ -31,15 +28,23 @@ interface GridProps extends PropsWithChildren {
   gapY?: number;
 }
 
-export default function Grid({
-  ref,
-  css,
-  rows = 1,
-  columns = 1,
-  gapX = 0,
-  gapY = 0,
-  children,
-}: GridProps) {
+type GridComponent = <T extends ElementType>(
+  props: PolymorphicComponentProps<T, GridProps>
+) => ReactNode | null;
+
+const Grid: GridComponent = forwardRef(function Grid<
+  T extends ElementType = 'div'
+>(
+  {
+    css,
+    rows = 1,
+    columns = 1,
+    gapX = 0,
+    gapY = 0,
+    children,
+  }: GridProps & CommonProps<T>,
+  ref: PolymorphicRef<T>
+) {
   return (
     <div
       ref={ref}
@@ -49,9 +54,10 @@ export default function Grid({
         gridTemplateRows: `repeat(${rows}, 1fr)`,
         gap: `${gapY}px ${gapX}px`,
         ...css,
-      }}
-    >
+      }}>
       {children}
     </div>
   );
-}
+});
+
+export default Grid;
