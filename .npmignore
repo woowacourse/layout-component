@@ -2,6 +2,7 @@
 .eslintrc.cjs
 .gitignore
 .prettierrc
+.nojekyll
 tsconfig.json
 tsconfig.node.json
 vite.config.ts
