@@ -2,7 +2,7 @@ import { CSSProperties, css, styled } from 'styled-components';
 
 type Display = 'none' | 'block' | 'inline' | 'inline-block';
 
-export interface Props {
+export interface ContainerProps {
   display?: Display;
   width?: CSSProperties['width'];
   height?: CSSProperties['height'];
@@ -29,8 +29,10 @@ const getWidth = (width: number | string) =>
   typeof width === 'number' ? `${width}px` : width;
 const getHeight = (height: number | string) =>
   typeof height === 'number' ? `${height}px` : height;
+const getPositionOption = (option: number | string) =>
+  typeof option === 'number' ? `${option}px` : option;
 
-const Container = styled.div<Props>`
+const Container = styled.div<ContainerProps>`
   display: ${({ display }) => display || 'block'};
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin || '0 auto'};
@@ -42,10 +44,10 @@ const Container = styled.div<Props>`
   max-height: ${({ $maxHeight }) => $maxHeight && getHeight($maxHeight)};
   overflow: ${({ overflow }) => overflow};
   position: ${({ position }) => position};
-  right: ${({ right }) => right};
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
-  bottom: ${({ bottom }) => bottom};
+  right: ${({ right }) => right && getPositionOption(right)};
+  top: ${({ top }) => top && getPositionOption(top)};
+  left: ${({ left }) => left && getPositionOption(left)};
+  bottom: ${({ bottom }) => bottom && getPositionOption(bottom)};
   cursor: ${({ cursor }) => cursor};
   opacity: ${({ opacity }) => opacity};
   z-index: ${({ $zIndex }) => $zIndex};

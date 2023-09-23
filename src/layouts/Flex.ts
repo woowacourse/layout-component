@@ -1,7 +1,7 @@
 import { CSSProperties, styled } from 'styled-components';
-import Container, { Props as ContainerProps } from './Container';
+import Container, { ContainerProps } from './Container';
 
-interface Props extends Omit<ContainerProps, 'display'> {
+interface FlexProps extends Omit<ContainerProps, 'display'> {
   $flexDirection?: CSSProperties['flexDirection'];
   $flexWrap?: CSSProperties['flexWrap'];
   $flexBasis?: CSSProperties['flexBasis'];
@@ -14,8 +14,10 @@ interface Props extends Omit<ContainerProps, 'display'> {
   flex?: CSSProperties['flex'];
   gap?: CSSProperties['gap'];
 }
+const getGap = (gap: number | string) =>
+  typeof gap === 'number' ? `${gap}px` : gap;
 
-const Flex = styled(Container)<Props>`
+const Flex = styled(Container)<FlexProps>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection};
   flex-wrap: ${({ $flexWrap }) => $flexWrap};
@@ -27,7 +29,7 @@ const Flex = styled(Container)<Props>`
   justify-content: ${({ $justifyContent }) => $justifyContent};
   justify-items: ${({ $justifyItems }) => $justifyItems};
   flex: ${({ flex }) => flex};
-  gap: ${({ gap }) => gap};
+  gap: ${({ gap }) => gap && getGap(gap)};
 `;
 
 export default Flex;
