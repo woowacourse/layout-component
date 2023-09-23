@@ -1,0 +1,54 @@
+{
+  "name": "tami-layout-component",
+  "description": "Container, Grid, Flex layout",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xodms0309/layout-component.git"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
+    "publish:npm": "rm -rf dist && mkdir dist && tsc"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "react": "^18.x",
+    "react-dom": "^18.x"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "chromatic": "^7.1.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-storybook": "^0.6.13",
+    "storybook": "^7.4.2",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
