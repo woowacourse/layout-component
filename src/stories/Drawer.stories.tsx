@@ -5,12 +5,15 @@ const meta: Meta<typeof Drawer> = {
   title: 'Drawer',
   component: Drawer,
   argTypes: {},
-  args: {},
+  args: { items: [] },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    isOpen: true,
+    items: ['홈', '마이페이지', '검색', '설정', '설정', '설정', '설정'],
+  },
 };
