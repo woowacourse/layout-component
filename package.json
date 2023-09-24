@@ -1,6 +1,6 @@
 {
   "name": "conan-layout-component",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Layout components for React",
   "keywords": [
     "react",
@@ -21,11 +21,18 @@
     "url": "https://github.com/cruelladevil"
   },
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "scripts": {
-    "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
+    "build": "npm run build:tsc",
+    "build:tsc": "rm -rf dist/* && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
