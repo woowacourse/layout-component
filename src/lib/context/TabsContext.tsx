@@ -1,18 +1,18 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { TabAlign, TabDirection, TabsProps } from '../components/Tabs/Tabs';
+import { TabDirection, TabsProps } from '../components/Tabs/Tabs';
 
 interface TabsContext {
   selectedTabId: string;
   changeTab: (selectedTabId: string) => void;
   direction: TabDirection;
-  align: TabAlign;
+  primaryColor: string;
 }
 
 const TabsContext = createContext<TabsContext>({
   selectedTabId: '',
   changeTab: () => {},
   direction: 'horizontal',
-  align: 'between',
+  primaryColor: 'Cornflowerblue',
 });
 
 TabsContext.displayName = 'Tabs';
@@ -22,7 +22,7 @@ export const useTabsContext = () => useContext(TabsContext);
 interface TabsProviderProps extends TabsProps {}
 
 const TabsProvider = (props: TabsProviderProps) => {
-  const { defaultTabId, direction = 'horizontal', align = 'between', children } = props;
+  const { defaultTabId, direction = 'horizontal', primaryColor = 'Cornflowerblue', children } = props;
   const [tabId, setTabId] = useState(defaultTabId);
 
   const changeTab = useCallback((selectedTabId: typeof tabId) => setTabId(selectedTabId), []);
@@ -32,9 +32,9 @@ const TabsProvider = (props: TabsProviderProps) => {
       selectedTabId: tabId,
       changeTab,
       direction,
-      align,
+      primaryColor,
     }),
-    [tabId, direction, align],
+    [tabId, direction, primaryColor],
   );
 
   return <TabsContext.Provider value={memoizedValue}>{children}</TabsContext.Provider>;

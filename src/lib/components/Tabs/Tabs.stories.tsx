@@ -19,12 +19,13 @@ const meta = {
         defaultValue: { summary: 'horizontal' },
       },
     },
-    align: {
+    primaryColor: {
       control: {
-        type: 'select',
+        type: 'color',
+        presetColors: ['#647bed', '#5580ff'],
       },
       table: {
-        defaultValue: { summary: 'between' },
+        defaultValue: { summary: 'Cornflowerblue' },
       },
     },
   },
@@ -53,7 +54,7 @@ export const Primary: Story = {
   args: {
     defaultTabId: 'item1-tab',
     direction: 'horizontal',
-    align: 'between',
+    primaryColor: '#6495ed',
   },
 
   render: (args) => {

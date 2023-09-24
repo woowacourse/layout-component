@@ -4,20 +4,19 @@ import TabsProvider, { useTabsContext } from '../../context/TabsContext';
 import { Flex } from '../..';
 
 export type TabDirection = 'horizontal' | 'vertical';
-export type TabAlign = 'start' | 'center' | 'end' | 'between' | 'stretch';
 
 export interface TabsProps extends PropsWithChildren {
   defaultTabId: string;
   direction?: TabDirection;
-  align?: TabAlign;
+  primaryColor?: string;
 }
 
 const Tabs = (props: TabsProps) => {
-  const { defaultTabId, direction, align, children } = props;
+  const { defaultTabId, direction, primaryColor, children } = props;
   const flexDirection = direction === 'horizontal' ? 'column' : 'row';
 
   return (
-    <TabsProvider defaultTabId={defaultTabId} direction={direction} align={align}>
+    <TabsProvider defaultTabId={defaultTabId} direction={direction} primaryColor={primaryColor}>
       <Flex direction={flexDirection}>{children}</Flex>
     </TabsProvider>
   );
@@ -27,23 +26,11 @@ interface ListProps extends ComponentPropsWithoutRef<'ul'> {}
 
 const List = (props: ListProps) => {
   const { children, ...restProps } = props;
-  const { direction, align } = useTabsContext();
-
+  const { direction } = useTabsContext();
   const flexDirection = direction === 'horizontal' ? 'row' : 'column';
-  const flexAlign = getFlexAlign(direction, align);
-  const justifyOnDirection = flexDirection === 'row' && flexAlign !== 'stretch' ? flexAlign : 'center';
-  const alignOnDirection = flexDirection === 'column' && flexAlign !== 'space-between' ? flexAlign : 'center';
 
   return (
-    <Flex
-      tag='ul'
-      direction={flexDirection}
-      justify={justifyOnDirection}
-      align={alignOnDirection}
-      role='tablist'
-      {...restProps}
-      css={{ width: '100%' }}
-    >
+    <Flex tag='ul' direction={flexDirection} role='tablist' {...restProps} css={{ width: '100%' }}>
       {children}
     </Flex>
   );
@@ -55,7 +42,7 @@ interface TabProps extends ComponentPropsWithoutRef<'li'> {
 
 const Tab = (props: TabProps) => {
   const { tabPanelId, children, ...restProps } = props;
-  const { selectedTabId, changeTab, direction } = useTabsContext();
+  const { selectedTabId, changeTab, direction, primaryColor } = useTabsContext();
   const isSelected = tabPanelId === selectedTabId.slice(0, -4); // '-tab'을 제외한 부분 추출
 
   const onClickTab: MouseEventHandler<HTMLLIElement> = (event) => {
@@ -73,6 +60,7 @@ const Tab = (props: TabProps) => {
       direction={direction}
       selected={isSelected}
       onClick={onClickTab}
+      primaryColor={primaryColor}
       {...restProps}
     >
       <a href={tabPanelId}>{children}</a>
@@ -104,29 +92,19 @@ Tabs.Panel = Panel;
 
 export default Tabs;
 
-const getFlexAlign = (direction: TabDirection, align: TabAlign) => {
-  switch (align) {
-    case 'start':
-      return 'flex-start';
-    case 'center':
-      return 'center';
-    case 'end':
-      return 'flex-end';
-    default:
-      if (direction === 'horizontal') return 'space-between';
-      else return 'stretch';
-  }
-};
-
-const TabWrapper = styled.li<Omit<TabProps, 'tabPanelId'> & { selected: boolean; direction: TabDirection }>`
+const TabWrapper = styled.li<
+  Omit<TabProps, 'tabPanelId'> & { selected: boolean; direction: TabDirection; primaryColor: string }
+>`
   position: relative;
   padding: 1.6rem;
+
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--secondary-color);
 
+  color: Lightsteelblue;
   overflow: hidden;
+  cursor: pointer;
   transition: 0.2s ease;
 
   ${({ direction }) =>
@@ -143,20 +121,20 @@ const TabWrapper = styled.li<Omit<TabProps, 'tabPanelId'> & { selected: boolean;
         transform: translate(-50%, -50%);
 
         ${direction === 'horizontal'
-          ? 'border-bottom: 5px solid var(--secondary-color)'
-          : 'border-right: 5px solid var(--secondary-color)'};
+          ? `border-bottom: 5px solid Lightsteelblue`
+          : `border-right: 5px solid Lightsteelblue`};
       }
     `}
 
-  ${({ selected, direction }) =>
+  ${({ primaryColor, selected, direction }) =>
     selected &&
     css`
-      color: var(--primary-color);
+      color: ${primaryColor};
 
       &::after {
         ${direction === 'horizontal'
-          ? 'border-bottom: 5px solid var(--primary-color)'
-          : 'border-right: 5px solid var(--primary-color)'};
+          ? `border-bottom: 5px solid ${primaryColor}`
+          : `border-right: 5px solid ${primaryColor}`};
       }
     `};
 `;
