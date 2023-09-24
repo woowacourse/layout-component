@@ -12,11 +12,7 @@ const meta: Meta<typeof Container> = {
 export default meta;
 export const Primary = {
   render: () => (
-    <Container
-      w-300
-      h-300
-      style={{ backgroundColor: "#000000", color: "#ffffff" }}
-    >
+    <Container w-300 h-300>
       <div>Hi~ Light!</div>
     </Container>
   ),
@@ -24,13 +20,7 @@ export const Primary = {
 
 export const MaxSize = {
   render: () => (
-    <Container
-      mxw-300
-      mxh-300
-      style={{
-        backgroundColor: "#000000",
-      }}
-    >
+    <Container mxw-300 mxh-300>
       <div
         style={{
           width: "400px",
@@ -49,13 +39,7 @@ export const MaxSize = {
 
 export const MinSize = {
   render: () => (
-    <Container
-      mmw-300
-      mnh-300
-      style={{
-        backgroundColor: "#000000",
-      }}
-    >
+    <Container mmw-300 mnh-300>
       <div
         style={{
           width: "400px",
