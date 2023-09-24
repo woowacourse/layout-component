@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { CommonStyleProps, CommonTag } from '../../style/common';
+import { CommonStyleProps, CommonTag } from '../style/common';
 import { GridProps } from '.';
 
 type ComponentProps = GridProps & CommonStyleProps;

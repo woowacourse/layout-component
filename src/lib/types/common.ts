@@ -5,7 +5,7 @@ import {
   ElementType,
   PropsWithChildren,
 } from 'react';
-import { CommonStyleProps } from '../../style/common';
+import { CommonStyleProps } from '../style/common';
 
 interface Common<T extends ElementType>
   extends PropsWithChildren,
