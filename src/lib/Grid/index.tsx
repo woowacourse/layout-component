@@ -1,10 +1,11 @@
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
+import { NumberUnitType } from "../../types";
 
 interface GridCssProps {
   rows: string;
   columns: string;
-  gap?: string;
+  gap?: NumberUnitType;
 }
 
 interface GridProps extends GridCssProps {

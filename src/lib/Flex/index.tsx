@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
 import { CSS } from "styled-components/dist/types";
+import { NumberUnitType } from "../../types";
 
 type DirectionType = CSS.Property.FlexDirection;
 type JustifyType = CSS.Property.JustifyContent;
@@ -10,7 +11,7 @@ interface FlexCssProps {
   direction?: DirectionType;
   justify?: JustifyType;
   align?: AlignType;
-  gap?: string;
+  gap?: NumberUnitType;
 }
 
 const Flex = ({

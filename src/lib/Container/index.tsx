@@ -1,25 +1,17 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
+import { AsType, NumberUnitType } from "../../types";
 
-export type AsType =
-  | "div"
-  | "main"
-  | "section"
-  | "article"
-  | "nav"
-  | "header"
-  | "footer"
-  | "aside";
 type MediaTargetType = "mobile" | "tablet" | "desktop";
 
 interface ContainerCssProps {
   id?: string;
-  minWidth?: string;
-  maxWidth?: string;
-  minHeight?: string;
-  maxHeight?: string;
-  padding?: string;
-  margin?: string;
+  minWidth?: NumberUnitType | "none";
+  maxWidth?: NumberUnitType | "none";
+  minHeight?: NumberUnitType | "none";
+  maxHeight?: NumberUnitType | "none";
+  padding?: NumberUnitType;
+  margin?: NumberUnitType;
   background?: string;
   borderRadius?: string;
   border?: string;
@@ -60,7 +52,7 @@ const Container = ({
   );
 };
 
-const MEDIA_TARGET_WIDTH: Record<string, Record<string, string>> = {
+const MEDIA_TARGET_WIDTH: Record<string, Record<string, NumberUnitType>> = {
   mobile: {
     minWidth: "320px",
     maxWidth: "480px",
