@@ -25,7 +25,7 @@ import { Container } from '@ashleysyheo/layout-component';
 </Container>;
 ```
 
-## Flex
+## Flex 컴포넌트
 
 Flex 레이아웃을 만들기 위한 컴포넌트입니다.
 
@@ -49,6 +49,18 @@ import { Grid } from '@ashleysyheo/layout-component';
 </Grid>;
 ```
 
+## Masonry 컴포넌트
+
+Masonry 레이아웃을 만들기 위한 컴포넌트입니다.
+
+```tsx
+import { Masonry } from '@ashleysyheo/layout-component';
+
+<Masonry tag="ul" columns={5} spacing={16}>
+  {/* ReactNode 형태의 children을 전달 */}
+</Masonry>;
+```
+
 <br>
 
-더 자세한 사용 방법은 [스토리북](https://6502b9dcc6bfd98bc2197bb9-uxfezcgzsn.chromatic.com)에서 확인해 보세요.
+더 자세한 사용 방법은 [스토리북](https://6502b9dcc6bfd98bc2197bb9-qdtwbtmkbo.chromatic.com)에서 확인해 보세요.
