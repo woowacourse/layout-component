@@ -9,7 +9,7 @@ export const genResponsiveStyle = (property: string, deviceAndValue: unknown) =>
 
     const breakpoint = breakpoints[device as Device];
 
-    if (device === 'mobile') return acc + `${property}: ${value};`;
+    if (device === Object.keys(breakpoints)[0]) return acc + `${property}: ${value};`;
     return acc + `@media screen and (min-width: ${breakpoint}px) { ${property}: ${value}; }`;
   }, '');
 };
