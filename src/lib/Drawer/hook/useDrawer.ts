@@ -3,11 +3,15 @@ import { useState } from 'react';
 const useDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setIsOpen((prev) => !prev);
+  const openDrawer = () => {
+    setIsOpen(true);
   };
 
-  return { isOpen, toggleDrawer };
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
+
+  return { isOpen, openDrawer, closeDrawer };
 };
 
 export default useDrawer;
