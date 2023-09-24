@@ -15,7 +15,7 @@ TabLayout 라이브러리는 React 애플리케이션에서 탭 기반의 레이
 먼저 npm을 사용하여 패키지를 설치합니다:
 
 ```bash
-npm install goni-layout-component
+npm i goni-tab-layout-component
 ```
 
 ## **Props**
