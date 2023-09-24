@@ -4,6 +4,7 @@ export default function Container({ children, minWidth, maxWidth, padding, }) {
         minWidth,
         maxWidth,
         padding: `${padding}px`,
+        margin: "0 auto",
     };
-    return (_jsx("div", Object.assign({ style: { display: "flex", justifyContent: "center" } }, { children: _jsx("div", Object.assign({ style: style }, { children: children })) })));
+    return _jsx("div", Object.assign({ style: style }, { children: children }));
 }

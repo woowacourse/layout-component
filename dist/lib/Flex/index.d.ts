@@ -6,5 +6,5 @@ interface FlexProps extends React.PropsWithChildren {
     flexWrap?: "nowrap" | "wrap";
     gap: number;
 }
-export default function Flex({ direction, justify, align, gap, children, }: FlexProps): import("react/jsx-runtime").JSX.Element;
+export default function Flex({ direction, justify, align, gap, children, flexWrap, }: FlexProps): import("react/jsx-runtime").JSX.Element;
 export {};
