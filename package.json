@@ -1,0 +1,54 @@
+{
+  "name": "layout-component-hp",
+  "version": "0.4.2",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "repository": "https://github.com/Leejin-Yang/layout-component.git",
+  "author": "Leejin-Yang <ejin1996@gmail.com>",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "type:cjs": "tsc --project tsconfig.json",
+    "type:esm": "tsc --project tsconfig.esm.json",
+    "build": "yarn clean && yarn type:cjs && yarn type:esm && rollup -c"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.x",
+    "react-dom": ">=18.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.19",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "classnames": "^2.3.2",
+    "postcss": "^8.4.29",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.29.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^5.2.2"
+  }
+}

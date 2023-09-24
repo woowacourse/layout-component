@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+}
+
+.container.centerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
