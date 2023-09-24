@@ -10,16 +10,14 @@ const Item = (count: number) => (
 const meta = {
   title: 'Example/Flex',
   component: Flex,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: {},
   args: {
     direction: 'row',
     justify: 'center',
     align: 'center',
-    children: Array.from({ length: 3 }).map((_, index) => Item(index)),
+    children: Array.from({ length: 8 }).map((_, index) => Item(index)),
     gap: '10px',
-    style: { width: '800px', height: '400px', backgroundColor: 'lightgray' },
+    // style: { width: '800px', height: '400px', backgroundColor: 'lightgray' },
   },
   argTypes: {},
 } satisfies Meta<typeof Flex>;
@@ -42,5 +40,14 @@ export const ColumnReverse: Story = {
 export const Gap100px: Story = {
   args: {
     gap: '100px',
+  },
+};
+
+export const Responsive: Story = {
+  args: {
+    direction: {
+      tablet: 'row',
+      mobile: 'column',
+    },
   },
 };

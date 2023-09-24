@@ -1,5 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react';
 import styled, { CSSProperties, css } from 'styled-components';
+import { genResponsiveStyle } from '../../util';
+import type { DeviceAndValue } from '../../type';
 
 type Props<Tag extends ElementType = 'div'> = {
   /**
@@ -13,7 +15,7 @@ type Props<Tag extends ElementType = 'div'> = {
    *
    * @default 'row'
    */
-  direction?: CSSProperties['flexDirection'];
+  direction?: CSSProperties['flexDirection'] | DeviceAndValue<CSSProperties['flexDirection']>;
   /**
    * Flex 컴포넌트의 justify-content 속성
    *
@@ -54,11 +56,11 @@ const defaultStyle = css<Props>`
 const StyledFlex = styled.div<Props>`
   ${defaultStyle}
   ${({ direction, justify, align, gap }) => css`
-    flex-direction: ${direction};
-    justify-content: ${justify};
-    align-items: ${align};
-    gap: ${gap};
-  `};
+    flex-direction: ${typeof direction !== 'object' && direction};
+    justify-content: ${typeof justify !== 'object' && justify};
+    align-items: ${typeof align !== 'object' && align};
+    gap: ${typeof gap !== 'object' && gap};
 
-  display: flex;
+    ${genResponsiveStyle('flex-direction', direction)}
+  `};
 `;
