@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { PropsWithChildren, useRef } from 'react';
+import { ComponentPropsWithoutRef, PropsWithChildren, useRef } from 'react';
 import TabPanel from './TabPanel';
 import { css, styled } from 'styled-components';
 import useTabs from './hooks/useTabs';
@@ -15,7 +15,7 @@ type TabsProps = {
    */
   scrollButtons?: boolean;
   /**
-   * Tabs의 위치를 지정하는 속성
+   * Tabs의 정렬 방향을 지정하는 속성
    *
    *  * @default 'horizontal'
    */
@@ -27,12 +27,12 @@ type TabsProps = {
    */
   centered?: boolean;
   /**
-   * Tabs의 Navigation을 가운데로 정렬하는 속성
+   * 선택된 탭의 색깔을 지정하는 속성
    *
-   *  * @default 'false'
+   *  * @default '#3b82f6'
    */
   accentColor?: string;
-};
+} & ComponentPropsWithoutRef<'div'>;
 
 function Tabs({
   scrollButtons = true,

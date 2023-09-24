@@ -9,9 +9,10 @@ const meta: Meta<typeof Tabs> = {
   argTypes: {
     children: {
       description: 'Flex Layout의 자식 요소',
+      control: false,
     },
     direction: {
-      description: 'Tabs의 위치를 지정하는 속성',
+      description: 'Tabs의 정렬 방향을 지정하는 속성',
       options: ['horizontal', 'vertical'],
       control: {
         type: 'radio',
@@ -31,6 +32,10 @@ const meta: Meta<typeof Tabs> = {
       control: {
         type: 'radio',
       },
+    },
+    accentColor: {
+      description: '선택된 탭의 Navigation 버튼의 색깔을 지정하는 속성',
+      control: 'text',
     },
   },
 };
