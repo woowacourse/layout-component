@@ -27,11 +27,6 @@
     "listFiles": false
   },
   "compileOnSave": false,
-  "include": [
-    "./src/lib/**/*.tsx",
-    "./src/lib/**/*.ts",
-    "./src/lib/*.tsx",
-    "./src/style/*.ts"
-  ],
+  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts", "./src/lib/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
