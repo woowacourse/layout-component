@@ -55,3 +55,22 @@ export const NoExistScrollButtonTabs: Story = {
     );
   },
 };
+
+/**
+ * 비활성 탭이 존재하는 Tabs입니다.
+ */
+export const DisabledTabs: Story = {
+  render: () => {
+    return (
+      <Tabs>
+        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
+        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
+        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
+        <Tabs.Panel label="Disabled" disabled>
+          Contents3
+        </Tabs.Panel>
+        <Tabs.Panel label="Panel4">Contents3</Tabs.Panel>
+      </Tabs>
+    );
+  },
+};

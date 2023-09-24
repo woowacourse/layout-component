@@ -1,7 +1,11 @@
 import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
 
 export type Label = string | number;
-export type PanelList = { label: Label; contents: ReactNode }[];
+export type PanelList = {
+  label: Label;
+  disabled: boolean;
+  contents: ReactNode;
+}[];
 
 const useTabs = (children: ReactNode) => {
   const [panelList, setPanelList] = useState<PanelList>([]);
@@ -26,9 +30,9 @@ const useTabs = (children: ReactNode) => {
     Children.forEach(children, (child, index) => {
       const panel = child as ReactElement;
 
-      const { label } = panel.props;
+      const { label, disabled } = panel.props;
 
-      setPanelList((prev) => [...prev, { label, contents: panel }]);
+      setPanelList((prev) => [...prev, { label, disabled, contents: panel }]);
       if (index === 0) setSelectedPanelLabel(label);
     });
   }, [children]);

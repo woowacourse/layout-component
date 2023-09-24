@@ -35,14 +35,22 @@ function TabsNavigation({
       >
         <TabsList ref={tabsNavigation}>
           <Flex tag="ul">
-            {panelList.map(({ label }) => {
+            {panelList.map(({ label, disabled }) => {
               return (
                 <Flex.Item
                   tag="li"
                   key={label}
-                  onClick={() => selectPanel(label)}
+                  onClick={() => {
+                    if (disabled) return;
+                    selectPanel(label);
+                  }}
                   style={{
-                    color: isSelected(label) ? '#3b82f6' : '#000000',
+                    color: isSelected(label)
+                      ? '#3b82f6'
+                      : disabled
+                      ? '#cecece'
+                      : '#000000',
+                    cursor: !disabled && 'pointer',
                   }}
                 >
                   {label}
@@ -66,6 +74,7 @@ const Layout = styled.div`
 `;
 
 const TabsList = styled.div`
+  width: 100%;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -86,8 +95,6 @@ const TabsList = styled.div`
       position: relative;
 
       transition: color 0.2s ease;
-
-      cursor: pointer;
     }
   }
 `;
