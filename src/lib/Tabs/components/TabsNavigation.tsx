@@ -1,36 +1,35 @@
 import { css, styled } from 'styled-components';
 import { Flex } from '../..';
 import { RefObject } from 'react';
-import { Label, PanelList } from '../hooks/useTabs';
 import TabsNavigationScrollButton from './TabsNavigationScrollButton';
-import { TabsDirection } from '../Tabs';
+import { Label, PanelList, ScrollState, TabsDirection } from '../types';
 
 type TabsNavigationProps = {
   isOverFlow: boolean;
-  scrollState: 'start' | 'end' | 'both' | null;
-  handleMoveScroll: (pos: 'end' | 'start') => void;
+  scrollState: ScrollState;
   tabsNavigation: RefObject<HTMLDivElement>;
-  selectPanel: (label: Label) => void;
-  isSelected: (label: Label) => boolean;
   panelList: PanelList;
   scrollButtons: boolean;
   direction: TabsDirection;
   centered: boolean;
   accentColor: string;
+  handleMoveScroll: (pos: 'end' | 'start') => void;
+  selectPanel: (label: Label) => void;
+  isSelected: (label: Label) => boolean;
 };
 
 function TabsNavigation({
   isOverFlow,
   scrollState,
-  handleMoveScroll,
   tabsNavigation,
-  selectPanel,
-  isSelected,
   panelList,
   scrollButtons,
   direction,
   accentColor,
   centered,
+  handleMoveScroll,
+  selectPanel,
+  isSelected,
 }: TabsNavigationProps) {
   return (
     <Layout direction={direction}>
@@ -45,8 +44,8 @@ function TabsNavigation({
           <Flex
             tag="ul"
             direction={direction === 'vertical' ? 'column' : 'row'}
-            justify={centered ? 'center' : 'flex-start'}
-            align={centered ? 'center' : 'flex-start'}
+            justify={centered && !isOverFlow ? 'center' : 'flex-start'}
+            align={centered && !isOverFlow ? 'center' : 'flex-start'}
           >
             {panelList.map(({ label, disabled }) => {
               return (

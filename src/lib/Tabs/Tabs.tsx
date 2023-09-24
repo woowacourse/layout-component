@@ -5,8 +5,7 @@ import { css, styled } from 'styled-components';
 import useTabs from './hooks/useTabs';
 import useTabsScroll from './hooks/useTabsScroll';
 import TabsNavigation from './components/TabsNavigation';
-
-export type TabsDirection = 'horizontal' | 'vertical';
+import { TabsDirection } from './types';
 
 type TabsProps = {
   /**

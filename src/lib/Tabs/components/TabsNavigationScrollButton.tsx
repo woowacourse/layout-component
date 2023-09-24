@@ -1,23 +1,23 @@
 import { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { DownArrow, LeftArrow, RightArrow, UpArrow } from '../assets/Icons';
-import { TabsDirection } from '../Tabs';
+import { ScrollState, TabsDirection } from '../types';
 
 type TabsNavigationScrollButtonProps = {
   isOverFlow: boolean;
-  scrollState: 'start' | 'end' | 'both' | null;
-  handleMoveScroll: (pos: 'end' | 'start') => void;
+  scrollState: ScrollState;
   scrollButtons: boolean;
   direction: TabsDirection;
+  handleMoveScroll: (pos: 'end' | 'start') => void;
 };
 
 function TabsNavigationScrollButton({
   children,
   isOverFlow,
   scrollState,
-  handleMoveScroll,
   scrollButtons,
   direction,
+  handleMoveScroll,
 }: PropsWithChildren<TabsNavigationScrollButtonProps>) {
   return (
     <>

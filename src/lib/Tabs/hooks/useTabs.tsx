@@ -1,11 +1,5 @@
 import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
-
-export type Label = string | number;
-export type PanelList = {
-  label: Label;
-  disabled: boolean;
-  contents: ReactNode;
-}[];
+import { Label, PanelList } from '../types';
 
 const useTabs = (children: ReactNode) => {
   const [panelList, setPanelList] = useState<PanelList>([]);
