@@ -18,17 +18,16 @@ const breakpoints = {
 };
 
 const Container = styled.div<ContainerProps>`
-  ${commonLayoutStyle}
   margin: 0 auto;
   padding: 0 16px;
-  background-color: ${({ bgcolor: backgroundColor }) =>
-    backgroundColor || 'transparent'};
   min-width: ${({ $minWidth: minWidth }) =>
     minWidth && minWidth > Number(breakpoints.sm.slice(0, -2))
       ? `${minWidth}px`
       : breakpoints.sm};
   max-width: ${({ $maxWidth: maxWidth }) =>
     maxWidth ? `${maxWidth}px` : '100%'};
+
+  ${commonLayoutStyle}
 
   @media (min-width: ${breakpoints.sm}) and (max-width: ${breakpoints.md}) {
     width: calc(${breakpoints.sm} - 32px);
