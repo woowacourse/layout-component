@@ -1,69 +1,44 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import Grid from "../Grid";
+import Grid from "../lib/Grid";
 
 const meta: Meta<typeof Grid> = {
   component: Grid,
+  args: {
+    rows: 5,
+    columns: 2,
+    gap: 1,
+  },
+  argTypes: {
+    gap: {
+      description: "간격 속성을 정합니다.",
+      control: {
+        type: "range",
+        min: 0,
+        max: 10,
+      },
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Grid>;
 
-export const Case2X2: Story = {
-  render: () => (
-    <Grid rows={2} columns={2} gap={10}>
-      <span>
-        1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세
-        무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 2. 남산 위에 저
-        소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리
-        화려 강산 대한 사람 대한으로 길이 보전하세 3. 가을 하늘 공활한데 높고
-        구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한
-        사람 대한으로 길이 보전하세 4. 이 기상과 이 맘으로 충성을 다하여
-        괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람
-        대한으로 길이 보전하세 1. 동해물과 백두산이 마르고 닳도록 하느님이
-        보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이
-        보전하세 2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리
-        기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 3.
-        가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세
-        무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 4. 이 기상과 이
-        맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려
-        강산 대한 사람 대한으로 길이 보전하세
-      </span>
-      <span>
-        1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세
-        무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 2. 남산 위에 저
-        소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리
-        화려 강산 대한 사람 대한으로 길이 보전하세 3. 가을 하늘 공활한데 높고
-        구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한
-        사람 대한으로 길이 보전하세 4. 이 기상과 이 맘으로 충성을 다하여
-        괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람
-        대한으로 길이 보전하세
-      </span>
-      <span>
-        1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세
-        무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 2. 남산 위에 저
-        소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리
-        화려 강산 대한 사람 대한으로 길이 보전하세 3. 가을 하늘 공활한데 높고
-        구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한
-        사람 대한으로 길이 보전하세 4. 이 기상과 이 맘으로 충성을 다하여
-        괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람
-        대한으로 길이 보전하세
-      </span>
-    </Grid>
-  ),
-};
-
-export const Case5X5: Story = {
-  render: () => (
-    <Grid rows={5} columns={5} gap={10}>
-      {new Array(23).fill(0).map((_) => {
+export const Default: Story = {
+  render: (args) => (
+    <Grid {...args}>
+      {new Array(10).fill(0).map((_, index) => {
         return (
           <div
             style={{
-              backgroundColor: "brown",
+              backgroundColor: `#35${index}88${index}`,
               height: "50px",
+              width: "100%",
+              color: "white",
             }}
-          />
+          >
+            {index}
+          </div>
         );
       })}
     </Grid>
