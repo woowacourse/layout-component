@@ -1,0 +1,30 @@
+import { Meta, Controls, Canvas  } from '@storybook/blocks';
+import * as ContainerStory from './Container.stories';
+
+<Meta of={ContainerStory} />
+
+# Container
+
+## 기능
+
+Container는 본인을 부모의 중앙에 위치하도록 수평 축 기준으로 정렬해요. 수직 축으로는 정렬하지 않습니다. <br />
+Container 내부 자식들에 대한 중앙 정렬은 보장하지 않습니다.
+
+## 미리보기
+
+분홍색은 Container의 외곽을 보여주기 위해 칠한 것이며, 실제 컴포넌트에는 색상이 없습니다. <br />
+검은색은 Container의 부모 컴포넌트의 외곽입니다.
+
+<Canvas of={ContainerStory.Example} />
+
+## props
+
+Container는 아래에 적힌 props들을 기본적으로 받을 수 있습니다.
+- `as`: HTML tag 이름.
+- `minWidth`: CSS의 min-width에 들어갈 수 있는 값
+- `maxWidth`: CSS의 max-width에 들어갈 수 있는 값
+
+`<div>`태그에 들어갈 수 있는 속성들,
+또는 `as` prop을 써서 태그를 정했을 경우 해당 태그에 들어갈 수 있는 모든 속성들을 prop으로 내려줄 수 있어요.
+
+<Controls />
