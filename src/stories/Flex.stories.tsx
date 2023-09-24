@@ -16,7 +16,6 @@ const meta = {
     },
   },
   argTypes: {
-    tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     rowGap: { control: { type: 'text' } },
     columnGap: { control: { type: 'text' } },
     gap: { control: { type: 'text' } },
