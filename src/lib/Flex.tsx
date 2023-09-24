@@ -1,11 +1,11 @@
 import { CSSProperties, PropsWithChildren } from "react";
 
-type CommonAlignmentProperties = "center" | "start" | "end" | "flex-start" | "flex-end";
+type CommonAlignmentValues = "center" | "start" | "end" | "flex-start" | "flex-end";
 
 type Props = {
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
-  justify?: CommonAlignmentProperties | "space-between" | "space-around" | "space-evenly" | "stretch";
-  align?: CommonAlignmentProperties;
+  justify?: CommonAlignmentValues | "space-between" | "space-around" | "space-evenly" | "stretch";
+  align?: CommonAlignmentValues;
 
   gap?: number;
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
