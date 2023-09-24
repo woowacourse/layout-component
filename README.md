@@ -178,3 +178,35 @@ function App() {
   );
 }
 ```
+
+<br/>
+
+## Tabs Component
+
+Tabs Component is a component that shows a specific panel depending on the tab selected by the user. Tabs Component is not responsive.
+
+### Tabs Component Props
+
+- `scrollButtons` (boolean): A property that specifies the existence of a button (scrollButton) that can move the position when the width of the Tabs Navigation becomes longer than the screen width.
+- `direction` (horizontal | vertical): Property that specifies the sorting direction of tabs
+- `centered` (boolean): Property to center Tabs Navigation
+- `accentColor` (string): Property that specifies the color of the selected tab
+
+### Tabs Panel Component Props
+
+- `label` (string): Property indicating the name of the tab, its value is a unique value
+- `disabled` (boolean): Property that determines whether Tab is inactive
+
+### Example of use
+
+```tsx
+function App() {
+  return (
+    <Tabs>
+      <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
+      <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
+      <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
+    </Tabs>
+  );
+}
+```
