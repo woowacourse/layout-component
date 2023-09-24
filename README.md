@@ -25,12 +25,13 @@ import { Container } from 'conan-layout-component';
 
 ### Props
 
-| props     | type        | description                             |
-| --------- | ----------- | --------------------------------------- |
-| as?       | ElementType | Container 컴포넌트의 태그를 변경합니다. |
-| minWidth? | number      | Container의 최소 넓이 값입니다.         |
-| maxWidth? | number      | Container의 최대 넓이 값입니다.         |
-| children? | ReactNode   | Container의 자식 컴포넌트입니다.        |
+| props     | type                      | description                                               |
+| --------- | ------------------------- | --------------------------------------------------------- |
+| as?       | ElementType               | Container 컴포넌트의 태그를 변경합니다.                   |
+| minWidth? | CSSProperties['maxWidth'] | Container의 최소 넓이 값입니다.                           |
+| maxWidth? | CSSProperties['minWidth'] | Container의 최대 넓이 값입니다.                           |
+| style?    | CSSProperties             | 위 스타일 요소를 제외하고 추가적인 스타일링이 가능합니다. |
+| children? | ReactNode                 | Container의 자식 컴포넌트입니다.                          |
 
 ### Usage
 
@@ -54,15 +55,16 @@ import { Grid } from 'conan-layout-component';
 
 ### Grid Props
 
-| props      | value       | description                           |
-| ---------- | ----------- | ------------------------------------- |
-| as?        | ElementType | Grid 컴포넌트의 태그를 변경합니다.    |
-| rows?      | number      | Grid row의 갯수를 지정합니다.         |
-| columns?   | number      | Grid column의 갯수를 지정합니다.      |
-| rowGap?    | number      | Grid의 row 간의 간격을 지정합니다.    |
-| columnGap? | number      | Grid의 column 간의 간격을 지정합니다. |
-| gap?       | number      | Grid 아이템들의 간격을 지정합니다.    |
-| children?  | ReactNode   | Grid의 자식 컴포넌트입니다.           |
+| props      | value                      | description                                               |
+| ---------- | -------------------------- | --------------------------------------------------------- |
+| as?        | ElementType                | Grid 컴포넌트의 태그를 변경합니다.                        |
+| rows?      | number                     | Grid row의 갯수를 지정합니다.                             |
+| columns?   | number                     | Grid column의 갯수를 지정합니다.                          |
+| rowGap?    | CSSProperties['rowGap']    | Grid의 row 간의 간격을 지정합니다.                        |
+| columnGap? | CSSProperties['columnGap'] | Grid의 column 간의 간격을 지정합니다.                     |
+| gap?       | CSSProperties['gap']       | Grid 아이템들의 간격을 지정합니다.                        |
+| style?     | CSSProperties              | 위 스타일 요소를 제외하고 추가적인 스타일링이 가능합니다. |
+| children?  | ReactNode                  | Grid의 자식 컴포넌트입니다.                               |
 
 ### Usage
 
@@ -98,15 +100,16 @@ import { Flex } from 'layout-component-hp';
 
 ### Flex Props
 
-| props      | value     | description                                 |
-| ---------- | --------- | ------------------------------------------- |
-| as?        | string    | Flex 컴포넌트의 태그를 변경합니다.          |
-| direction? | string    | Flex의 방향을 지정합니다.                   |
-| wrap?      | string    | Flex 아이템들의 묶음(줄 바꿈)을 지정합니다. |
-| justify?   | string    | Flex direction의 수평축 정렬을 지정합니다.  |
-| align?     | string    | Flex direction의 수직축 정렬을 지정합니다.  |
-| gap?       | number    | Flex 아이템들의 간격을 지정합니다.          |
-| children?  | ReactNode | Flex의 자식 컴포넌트입니다.                 |
+| props      | value                           | description                                               |
+| ---------- | ------------------------------- | --------------------------------------------------------- |
+| as?        | string                          | Flex 컴포넌트의 태그를 변경합니다.                        |
+| direction? | CSSProperties['flexDirection']  | Flex의 방향을 지정합니다.                                 |
+| wrap?      | CSSProperties['flexWrap']       | Flex 아이템들의 묶음(줄 바꿈)을 지정합니다.               |
+| justify?   | CSSProperties['justifyContent'] | Flex direction의 수평축 정렬을 지정합니다.                |
+| align?     | CSSProperties['alignItems']     | Flex direction의 수직축 정렬을 지정합니다.                |
+| gap?       | CSSProperties['gap']            | Flex 아이템들의 간격을 지정합니다.                        |
+| style?     | CSSProperties                   | 위 스타일 요소를 제외하고 추가적인 스타일링이 가능합니다. |
+| children?  | ReactNode                       | Flex의 자식 컴포넌트입니다.                               |
 
 ### Usage
 
