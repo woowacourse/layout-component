@@ -4,29 +4,14 @@ import {
   PolymorphicComponentProps,
   PolymorphicRef,
 } from '../types/common';
+import * as S from './style';
 
-interface FlexProps {
-  /**
-   * This prop is used when you want to specify the justify-content
-   * ${minWidth}px
-   */
+export interface FlexProps {
   justifyContent?: CSSProperties['justifyContent'];
-  /**
-   * This prop is used when you want to specify the align-items
-   */
   alignItems?: CSSProperties['alignItems'];
-  /**
-   * This prop is used when you want to specify the flex-direction
-   */
   direction?: CSSProperties['flexDirection'];
-  /**
-   * This prop is used when you want to specify the flex-wrap
-   */
   flexWrap?: CSSProperties['flexWrap'];
-  /**
-   * This prop is used when you want to specify the gap
-   */
-  gap?: number;
+  gap?: string;
 }
 
 type FlexComponent = <T extends ElementType>(
@@ -36,31 +21,13 @@ type FlexComponent = <T extends ElementType>(
 const Flex: FlexComponent = forwardRef(function Flex<
   T extends ElementType = 'div'
 >(
-  {
-    css,
-    direction = 'row',
-    alignItems = 'start',
-    flexWrap = 'nowrap',
-    justifyContent = 'start',
-    gap = 0,
-    children,
-  }: FlexProps & CommonProps<T>,
+  { css, as, children, ...rest }: FlexProps & CommonProps<T>,
   ref: PolymorphicRef<T>
 ) {
   return (
-    <div
-      ref={ref}
-      style={{
-        display: 'flex',
-        justifyContent,
-        alignItems,
-        flexWrap,
-        flexDirection: direction,
-        gap: `${gap}px`,
-        ...css,
-      }}>
+    <S.Component as={as} ref={ref} style={css} {...rest}>
       {children}
-    </div>
+    </S.Component>
   );
 });
 

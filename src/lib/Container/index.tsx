@@ -2,7 +2,7 @@ import { ElementType, ReactNode, forwardRef } from 'react';
 import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
 import * as S from './style';
 
-interface ContainerProps {
+export interface ContainerProps {
   minWidth?: string;
   maxWidth?: string;
 }

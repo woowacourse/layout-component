@@ -1,10 +1,8 @@
 import { styled } from 'styled-components';
 import { CommonStyleProps, CommonTag } from '../../style/common';
+import { ContainerProps } from '.';
 
-interface ComponentProps extends CommonStyleProps {
-  minWidth?: string;
-  maxWidth?: string;
-}
+type ComponentProps = ContainerProps & CommonStyleProps;
 
 export const Component = styled(CommonTag)<ComponentProps>`
   min-width: ${({ minWidth }) => minWidth};
