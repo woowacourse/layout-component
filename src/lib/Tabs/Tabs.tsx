@@ -1,83 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {
-  PropsWithChildren,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { PropsWithChildren, useRef } from 'react';
 import TabPanel from './TabPanel';
 import { Flex } from '..';
 import { styled } from 'styled-components';
-import useTabs from './useTabs';
+import useTabs from './hooks/useTabs';
 import { LeftArrow, RightArrow } from './Icons';
+import useTabsScroll from './hooks/useTabsScroll';
 
 function Tabs({ children }: PropsWithChildren) {
+  const tabsNavigation = useRef<HTMLDivElement>(null);
+
   const { panelList, selectedPanel, selectPanel, isSelected } =
     useTabs(children);
 
-  const [isOverFlow, setIsOverFlow] = useState(false);
-  const [scrollState, setScrollState] = useState<
-    'right' | 'left' | 'both' | null
-  >(null);
-
-  const tabsNavigation = useRef<HTMLDivElement>(null);
-
-  const handleMoveScroll = (pos: 'start' | 'end') => {
-    if (!tabsNavigation.current) return;
-
-    const { scrollLeft, clientWidth } = tabsNavigation.current;
-
-    tabsNavigation.current.scrollTo({
-      left: pos === 'end' ? scrollLeft + clientWidth : scrollLeft - clientWidth,
-      behavior: 'smooth',
-    });
-  };
-
-  const handleScroll = () => {
-    if (!tabsNavigation.current) return;
-
-    const { scrollWidth, clientWidth, scrollLeft } = tabsNavigation.current;
-
-    if (scrollLeft > 0) setScrollState('both');
-    else setScrollState('right');
-
-    if (Math.abs(scrollWidth - scrollLeft - clientWidth) < 5)
-      setScrollState('left');
-  };
-
-  useLayoutEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
-      if (!tabsNavigation.current) return;
-
-      const { scrollWidth, clientWidth } = tabsNavigation.current;
-      setIsOverFlow(scrollWidth > clientWidth);
-
-      if (scrollWidth > clientWidth) {
-        setIsOverFlow(true);
-      }
-
-      handleScroll();
-    });
-
-    if (tabsNavigation.current) {
-      resizeObserver.observe(tabsNavigation.current);
-    }
-
-    return () => {
-      if (tabsNavigation.current) {
-        resizeObserver.unobserve(tabsNavigation.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const { current } = tabsNavigation;
-
-    if (current) {
-      current.addEventListener('scroll', () => handleScroll());
-    }
-  }, []);
+  const { isOverFlow, scrollState, handleMoveScroll } =
+    useTabsScroll(tabsNavigation);
 
   return (
     <Layout>
