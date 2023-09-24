@@ -1,6 +1,14 @@
 import { CSSProperties, forwardRef } from 'react';
 import { PolymorphicComponentPropWithRef, PolymorphicRef } from '../types/polymorphic';
 
+const convertGridTemplate = (value?: CSSProperties['gridTemplateRows']) => {
+  if (typeof value === 'number') {
+    return `repeat(${value}, minmax(0, 1fr))`;
+  } else {
+    return value;
+  }
+};
+
 type GridStyleProps = Omit<CSSProperties, 'gridTemplateRows' | 'gridTemplateColumns' | 'rowGap' | 'columnGap' | 'gap'>;
 
 type GridProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
@@ -46,16 +54,13 @@ const Grid: GridComponent = forwardRef(
   ) => {
     const Component = as || 'div';
 
-    const gridTemplateRows = String(rows)?.match(/^\d+$/) ? `repeat(${rows}, minmax(0, 1fr))` : rows;
-    const gridTemplateColumns = String(columns)?.match(/^\d+$/) ? `repeat(${columns}, minmax(0, 1fr))` : columns;
-
     return (
       <Component
         css={[
           {
             display: 'grid',
-            gridTemplateRows,
-            gridTemplateColumns,
+            gridTemplateRow: convertGridTemplate(rows),
+            gridTemplateColumns: convertGridTemplate(columns),
             rowGap,
             columnGap,
             gap,
