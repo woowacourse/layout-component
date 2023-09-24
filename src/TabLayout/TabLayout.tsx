@@ -2,7 +2,17 @@ import { useState, ReactNode } from "react";
 import "./index.css";
 
 type TabLayoutProps = {
+  /**
+   * 탭 이름을 포함하는 문자열 배열을 전달합니다.
+   *
+   * @param {string[]}
+   */
   tabs: string[];
+  /**
+   * 각 탭에 해당하는 콘텐츠를 포함하는 ReactNode 배열을 전달합니다.
+   *
+   * @param {ReactNode[]}
+   */
   children: ReactNode[];
 };
 
