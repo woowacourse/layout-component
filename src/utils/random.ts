@@ -7,3 +7,24 @@ export const getRandomHexColor = () => {
 
   return `#${color}`;
 };
+
+interface GetRandomHSLColorParams {
+  hue: number;
+  minS?: number;
+  maxS?: number;
+  minL?: number;
+  maxL?: number;
+}
+
+export const getRandomHSLColor = ({
+  hue,
+  minS = 10,
+  maxS = 90,
+  minL = 10,
+  maxL = 90,
+}: GetRandomHSLColorParams) => {
+  const saturation = getRandomNumber(minS, maxS); // Generate a random saturation value between 0% and 100%
+  const lightness = getRandomNumber(minL, maxL); // Generate a random lightness value between 0% and 100%
+
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+};
