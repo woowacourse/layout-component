@@ -8,11 +8,11 @@
     ".": {
       "import": {
         "default": "./dist/mjs/lib/index.js",
-        "types": "./index.d.ts"
+        "types": "./dist/cjs/lib/index.d.ts"
       },
       "require": {
         "default": "./dist/cjs/lib/index.js",
-        "types": "./index.d.cts"
+        "types": "./dist/cjs/lib/index.d.ts"
       }
     }
   },

@@ -1,7 +1,7 @@
-cp ./src/lib/index.d.ts dist 
-cp ./src/lib/index.d.cts dist 
+# cp ./src/lib/index.d.ts dist 
+# cp ./src/lib/index.d.cts dist 
 
-rm -rf dist/*/lib/index.d.ts 
+# rm -rf dist/*/lib/index.d.ts 
 
 cat >dist/cjs/package.json <<!EOF
 {
