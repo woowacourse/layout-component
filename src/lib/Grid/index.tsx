@@ -4,28 +4,15 @@ import {
   PolymorphicComponentProps,
   PolymorphicRef,
 } from '../types/common';
+import * as S from './style';
 
-interface GridProps {
-  /**
-   * This prop is used when you want to specify the rows,
-   * repeat(${rows}, 1fr)
-   */
-  rows?: number;
-  /**
-   * This prop is used when you want to specify the columns,
-   * repeat(${columns}, 1fr)
-   */
-  columns?: number;
-  /**
-   * This prop is used when you want to specify the columns,
-   * ${gapX}px
-   */
-  gapX?: number;
-  /**
-   * This prop is used when you want to specify the columns,
-   * ${gapY}px
-   */
-  gapY?: number;
+export interface GridProps {
+  rows?: string | number;
+  columns?: string | number;
+  gap?: string;
+  rowGap?: string;
+  columnGap?: string;
+  gridArea?: string;
 }
 
 type GridComponent = <T extends ElementType>(
@@ -35,28 +22,13 @@ type GridComponent = <T extends ElementType>(
 const Grid: GridComponent = forwardRef(function Grid<
   T extends ElementType = 'div'
 >(
-  {
-    css,
-    rows = 1,
-    columns = 1,
-    gapX = 0,
-    gapY = 0,
-    children,
-  }: GridProps & CommonProps<T>,
+  { css, as, children, ...rest }: GridProps & CommonProps<T>,
   ref: PolymorphicRef<T>
 ) {
   return (
-    <div
-      ref={ref}
-      style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        gridTemplateRows: `repeat(${rows}, 1fr)`,
-        gap: `${gapY}px ${gapX}px`,
-        ...css,
-      }}>
+    <S.Component as={as} ref={ref} style={css} {...rest}>
       {children}
-    </div>
+    </S.Component>
   );
 });
 
