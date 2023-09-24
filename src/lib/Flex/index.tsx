@@ -20,12 +20,14 @@ export default function Flex({
   align,
   gap,
   children,
+  flexWrap,
 }: FlexProps) {
   const style = {
     display: "flex",
     flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
+    flexWrap,
     gap: `${gap}px`,
   };
 
