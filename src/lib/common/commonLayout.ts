@@ -5,7 +5,7 @@ export type CommonLayoutStyleProps = {
   height?: string | number;
   padding?: string;
   margin?: string;
-  backgroundColor?: string;
+  bgcolor?: string;
 };
 
 export const commonLayoutStyle = css<CommonLayoutStyleProps>`
@@ -26,6 +26,5 @@ export const commonLayoutStyle = css<CommonLayoutStyleProps>`
   ${(props) => props.padding !== undefined && `padding: ${props.padding};`}
   ${(props) => props.margin !== undefined && `margin: ${props.margin};`}
   ${(props) =>
-    props.backgroundColor !== undefined &&
-    `background-color: ${props.backgroundColor};`}
+    props.bgcolor !== undefined && `background-color: ${props.bgcolor};`}
 `;
