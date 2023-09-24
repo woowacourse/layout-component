@@ -1,6 +1,6 @@
 {
   "name": "wus-layout-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "dist/cjs/lib/index.js",
   "module": "dist/mjs/lib/index.js",
