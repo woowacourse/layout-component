@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
-type AsType =
+export type AsType =
   | "div"
   | "main"
   | "section"
@@ -13,6 +13,7 @@ type AsType =
 type MediaTargetType = "mobile" | "tablet" | "desktop";
 
 interface ContainerCssProps {
+  id?: string;
   minWidth?: string;
   maxWidth?: string;
   minHeight?: string;
@@ -33,8 +34,8 @@ interface ContainerProps extends ContainerCssProps {
 const Container = ({
   as = "div",
   mediaTarget,
-  minWidth,
-  maxWidth,
+  minWidth = "none",
+  maxWidth = "none",
   ...props
 }: PropsWithChildren<ContainerProps>) => {
   const TagName = as;
