@@ -130,3 +130,27 @@ Grid 컴포넌트에 속하는 아이템입니다. 각 요소가 그리드에서
   <GridItem>E</GridItem>
 </Grid>
 ```
+
+# TabLayout
+
+## 설명
+
+TabBar가 존재하는 레이아웃입니다. 상단의 Tab으로 이동할 수 있습니다.
+
+Tab Layout의 크기는 부모의 크기를 상속받습니다.
+
+## 속성
+
+`tabs: string[]` : 요소를 선택해 콘텐츠를 이동할 수 있는 Tab Header에 표시될 문자열 배열 값입니다.
+
+`children: ReactElement` : 선택된 tabs 요소에 따라 띄울 콘텐츠를 보여줍니다. 보여주는 값은 선택된 tabs의 인덱스에 의존합니다.
+
+## 사용 예시
+
+```tsx
+<TabLayout tabs={["항목 1", "항목 2", "항목 3"]} bordercolor={"blue"}>
+  <div>콘텐츠 11</div>
+  <div>콘텐츠 22</div>
+  <div>콘텐츠 33</div>
+</TabLayout>
+```
