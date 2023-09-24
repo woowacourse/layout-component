@@ -6,6 +6,7 @@ type TabsNavigationScrollButtonProps = {
   isOverFlow: boolean;
   scrollState: 'left' | 'right' | 'both' | null;
   handleMoveScroll: (pos: 'end' | 'start') => void;
+  scrollButtons: boolean;
 };
 
 function TabsNavigationScrollButton({
@@ -13,10 +14,11 @@ function TabsNavigationScrollButton({
   isOverFlow,
   scrollState,
   handleMoveScroll,
+  scrollButtons,
 }: PropsWithChildren<TabsNavigationScrollButtonProps>) {
   return (
     <>
-      {isOverFlow && (
+      {scrollButtons && isOverFlow && (
         <ScrollButton
           $enableScroll={
             isOverFlow && (scrollState === 'both' || scrollState === 'left')
@@ -26,7 +28,7 @@ function TabsNavigationScrollButton({
         </ScrollButton>
       )}
       {children}
-      {isOverFlow && (
+      {scrollButtons && isOverFlow && (
         <ScrollButton
           $enableScroll={
             isOverFlow && (scrollState === 'both' || scrollState === 'right')

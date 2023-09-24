@@ -12,6 +12,7 @@ type TabsNavigationProps = {
   selectPanel: (label: Label) => void;
   isSelected: (label: Label) => boolean;
   panelList: PanelList;
+  scrollButtons: boolean;
 };
 
 function TabsNavigation({
@@ -22,6 +23,7 @@ function TabsNavigation({
   selectPanel,
   isSelected,
   panelList,
+  scrollButtons,
 }: TabsNavigationProps) {
   return (
     <Layout>
@@ -29,6 +31,7 @@ function TabsNavigation({
         isOverFlow={isOverFlow}
         scrollState={scrollState}
         handleMoveScroll={handleMoveScroll}
+        scrollButtons={scrollButtons}
       >
         <TabsList ref={tabsNavigation}>
           <Flex tag="ul">
