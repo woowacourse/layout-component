@@ -9,15 +9,23 @@ export type CommonLayoutStyleProps = {
 };
 
 export const commonLayoutStyle = css<CommonLayoutStyleProps>`
-  width: ${(props) =>
-    typeof props.width === 'number'
-      ? `${props.width}px`
-      : props.width || 'auto'};
-  height: ${(props) =>
-    typeof props.height === 'number'
-      ? `${props.height}px`
-      : props.height || 'auto'};
-  padding: ${(props) => props.padding || '0'};
-  margin: ${(props) => props.margin || '0'};
-  background-color: ${(props) => props.backgroundColor || 'transparent'};
+  ${(props) =>
+    props.width !== undefined &&
+    `
+    width: ${
+      typeof props.width === 'number' ? `${props.width}px` : props.width
+    };
+  `}
+  ${(props) =>
+    props.height !== undefined &&
+    `
+    height: ${
+      typeof props.height === 'number' ? `${props.height}px` : props.height
+    };
+  `}
+  ${(props) => props.padding !== undefined && `padding: ${props.padding};`}
+  ${(props) => props.margin !== undefined && `margin: ${props.margin};`}
+  ${(props) =>
+    props.backgroundColor !== undefined &&
+    `background-color: ${props.backgroundColor};`}
 `;
