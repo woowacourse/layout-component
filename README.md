@@ -130,15 +130,15 @@ import { Flex } from 'layout-component-hp';
 
 ### Flex.Item Props
 
-| props    | value                       | description                                               |
-| -------- | --------------------------- | --------------------------------------------------------- |
-| order?   | CSSProperties['order']      | Flex.Item의 배치 순서를 지정합니다.                       |
-| basis?   | CSSProperties['flexBasis']  | Flex.Item의 기본 크기를 지정합니다.                       |
-| grow?    | CSSProperties['flexGrow']   | basis 값보다 커질 수 있도록 지정합니다.                   |
-| shrink?  | CSSProperties['flexShrink'] | basis 값보다 작아질 수 있도록 지정합니다.                 |
-| align?   | CSSProperties['alignSelf']  | Flex.Item의 수직축 방향 정렬을 지정합니다.                |
-| css?     | CSSProperties (default: {}) | Flex.Item의 props를 제외한 기타 커스텀 스타일 속성입니다. |
-| children | ReactNode                   | Flex.Item의 자식 컴포넌트입니다.                          |
+| props     | value                       | description                                               |
+| --------- | --------------------------- | --------------------------------------------------------- |
+| order?    | CSSProperties['order']      | Flex.Item의 배치 순서를 지정합니다.                       |
+| basis?    | CSSProperties['flexBasis']  | Flex.Item의 기본 크기를 지정합니다.                       |
+| grow?     | CSSProperties['flexGrow']   | basis 값보다 커질 수 있도록 지정합니다.                   |
+| shrink?   | CSSProperties['flexShrink'] | basis 값보다 작아질 수 있도록 지정합니다.                 |
+| align?    | CSSProperties['alignSelf']  | Flex.Item의 수직축 방향 정렬을 지정합니다.                |
+| css?      | CSSProperties (default: {}) | Flex.Item의 props를 제외한 기타 커스텀 스타일 속성입니다. |
+| children? | ReactNode                   | Flex.Item의 자식 컴포넌트입니다.                          |
 
 ### Usage
 
