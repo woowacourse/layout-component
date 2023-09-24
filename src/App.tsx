@@ -19,6 +19,10 @@ function App() {
           Panel3
           <div>Hello</div>
         </Tabs.Panel>
+        <Tabs.Panel label="4">
+          Panel3
+          <div>Hello</div>
+        </Tabs.Panel>
       </Tabs>
     </div>
   );
