@@ -12,7 +12,6 @@ export interface GridProps {
   gap?: string;
   rowGap?: string;
   columnGap?: string;
-  gridArea?: string;
 }
 
 type GridComponent = <T extends ElementType>(

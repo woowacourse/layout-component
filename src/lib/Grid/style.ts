@@ -16,7 +16,6 @@ export const Component = styled(CommonTag)<ComponentProps>`
   display: grid;
   grid-template-columns: ${({ columns = 1 }) => getGridTemplate(columns)};
   grid-template-rows: ${({ rows = 1 }) => getGridTemplate(rows)};
-  grid-area: ${({ gridArea }) => gridArea};
 
   gap: ${({ gap }) => gap};
   row-gap: ${({ rowGap }) => rowGap};
