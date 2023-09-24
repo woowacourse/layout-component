@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RefObject, useEffect, useLayoutEffect, useState } from 'react';
-import { ScrollState, TabsDirection } from '../types';
+import { ScrollState, TabsDirection } from '../../types/type';
 
 const useTabsScroll = (
   ref: RefObject<HTMLDivElement> | null,

@@ -1,5 +1,5 @@
 import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
-import { Label, PanelList } from '../types';
+import { Label, PanelList } from '../../types/type';
 
 const useTabs = (children: ReactNode) => {
   const [panelList, setPanelList] = useState<PanelList>([]);

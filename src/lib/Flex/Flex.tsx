@@ -10,8 +10,8 @@ import {
 import { styled, css } from 'styled-components';
 
 import FlexItem from './FlexItem';
-import { calculateResponsiveStyle, isCommonStyle } from '../utils';
-import { ResponsiveStyleType } from '../type';
+import { calculateResponsiveStyle, isCommonStyle } from '../utils/utils';
+import { ResponsiveStyleType } from '../types/type';
 
 type FlexProps = {
   /**

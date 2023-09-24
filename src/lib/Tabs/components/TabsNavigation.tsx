@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 import { Flex } from '../..';
 import { RefObject } from 'react';
 import TabsNavigationScrollButton from './TabsNavigationScrollButton';
-import { Label, PanelList, ScrollState, TabsDirection } from '../types';
+import { Label, PanelList, ScrollState, TabsDirection } from '../../types/type';
 
 type TabsNavigationProps = {
   isOverFlow: boolean;

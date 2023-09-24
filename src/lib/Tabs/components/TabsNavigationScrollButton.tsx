@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { DownArrow, LeftArrow, RightArrow, UpArrow } from '../assets/Icons';
-import { ScrollState, TabsDirection } from '../types';
+import { ScrollState, TabsDirection } from '../../types/type';
 
 type TabsNavigationScrollButtonProps = {
   isOverFlow: boolean;
