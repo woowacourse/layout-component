@@ -21,17 +21,17 @@ yarn add luxo-layout-component
 
 ## Container
 
-Container는 화면 컨텐츠들을 가로 중앙에 배치합니다. 가장 기본적인 레이아웃 컴포넌트입니다.
+Container는 컨텐츠들을 가로 중앙에 배치합니다. 가장 기본적인 레이아웃 컴포넌트입니다.
 
 ### Props
 
 #### Required
 
-- `maxWidth`: 화면의 최대 너비를 정합니다.
+- `maxWidth`: 컨텐츠들의 최대 너비를 정합니다.
 
 #### Optional
 
-- `minWidth`: 화면의 최소 너비를 정합니다.
+- `minWidth`: 컨텐츠들의 최소 너비를 정합니다.
 
 ### 사용 예시
 
@@ -51,7 +51,7 @@ const App = () => {
 
 ## Grid
 
-Grid는 화면 컨텐를 격자 형태로 배치합니다. 화면 크기에 따라 유동적으로 배치가 조정됩니다.
+Grid는 컨텐츠들을 격자 형태로 배치합니다. 화면 크기에 따라 유동적으로 배치가 조정됩니다.
 
 ### Props
 
