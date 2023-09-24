@@ -168,3 +168,50 @@ import { FlexItem } from 'hae_on-layout-component';
 ```jsx
 <FlexItem>Item1</div>
 ```
+
+<br/>
+
+## Tab Layout
+
+Tab 버튼을 통해 관련된 콘텐츠를 화면에 표시할 수 있는 컴포넌트입니다.
+
+```jsx
+import { TabLayout } from 'hae_on-layout-component';
+```
+
+### Props
+
+| props            | value                                                  | description                                                                |
+| ---------------- | ------------------------------------------------------ | -------------------------------------------------------------------------- |
+| tabs             | string[]                                               | Tab 버튼에 들어갈 목록입니다. <br /> Tab 버튼 이름을 지정할 수 있습니다.   |
+| width?           | string                                                 | Tab 버튼 리스트의 길이를 조절할 수 있습니다.                               |
+| tabListStyles?   | activeStyle? / inactiveStyle? / padding? / fontSize?   | Tab 버튼 리스트 내부에 들어갈 스타일을 지정할 수 있습니다.                 |
+| activeStyle?     | color? / backgroundColor? / borderColor? / fontWeight? | 버튼이 활성화 되었을 때 스타일입니다.                                      |
+| inactiveStyle?   | color? / backgroundColor? / borderColor? / fontWeight? | 버튼이 비활성화 되었을 때 스타일입니다.                                    |
+| color?           | string                                                 | (비)활성화 되었을 때 글자색입니다.                                         |
+| backgroundColor? | string                                                 | (비)활성화 되었을 때 배경색입니다.                                         |
+| borderColor?     | string                                                 | (비)활성화 되었을 때 테두리색입니다.                                       |
+| fontWeight?      | string                                                 | (비)활성화 되었을 때 글자의 굵기입니다.                                    |
+| padding?         | string                                                 | 버튼의 padding 값을 조절할 수 있습니다.                                    |
+| fontSize?        | string                                                 | 버튼의 글자 크기를 조절할 수 있습니다.                                     |
+| children         | ReactNode[]                                            | TabLayout의 자식 컴포넌트입니다. <br /> Tab의 콘텐츠를 지정할 수 있습니다. |
+
+### Example
+
+```jsx
+<TabLayout
+  tabs={['Tab 1', 'Tab 2', 'Tab 3']}
+  tabListStyles={{
+    activeStyle: {
+      color: 'blue',
+    },
+    fontSize: '100px',
+  }}
+>
+  <Container>Content 1</Container>
+  <Container>Content 2</Container>
+  <Container>Content 3</Container>
+</TabLayout>
+```
+
+\*해당 예시에서 Container는 `hae_on-layout-component`의 내부 컴포넌트입니다.
