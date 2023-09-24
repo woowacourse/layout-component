@@ -33,6 +33,12 @@ const Tab = styled.button<Omit<TabProps, 'label' | 'order'>>`
 	border-bottom: solid 2px ${({ selected }) => (selected ? 'green' : 'none')};
 
 	&:hover {
-		color: green;
+		&:disabled:not() {
+			color: green;
+		}
+	}
+
+	&:disabled {
+		opacity: 0.3;
 	}
 `;

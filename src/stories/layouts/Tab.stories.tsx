@@ -32,11 +32,14 @@ export const Default: Story = {
 		const tabs = ['1번탭', '2번탭', '3번탭'];
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
+		// TODO: tabMenu가 disable일 때 selected 되게 하지 않기
+		// current가 disable인지 확인이 필요함..
 		const tabMenu = tabs.map((content, index) => (
 			<TabButton
 				label={content}
 				selected={ids[index] === current}
 				order={ids[index]}
+				disabled={index === 0}
 			/>
 		));
 
