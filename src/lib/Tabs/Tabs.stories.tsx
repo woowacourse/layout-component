@@ -30,7 +30,7 @@ export const ExistScrollButtonTabs: Story = {
     return (
       <Tabs>
         {Array.from({ length: 25 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${index.toString()}`} key={index}>
+          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
             Contents{index}
           </Tabs.Panel>
         ))}
@@ -47,7 +47,7 @@ export const NoExistScrollButtonTabs: Story = {
     return (
       <Tabs scrollButtons={false}>
         {Array.from({ length: 25 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${index.toString()}`} key={index}>
+          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
             Contents{index}
           </Tabs.Panel>
         ))}
@@ -70,6 +70,54 @@ export const DisabledTabs: Story = {
           Contents3
         </Tabs.Panel>
         <Tabs.Panel label="Panel4">Contents3</Tabs.Panel>
+      </Tabs>
+    );
+  },
+};
+
+/**
+ * 왼쪽으로 정렬된 Tab입니다.
+ */
+export const DirectionLeftTabs: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ height: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => {
+    return (
+      <Tabs direction="vertical">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+            Contents{index}
+          </Tabs.Panel>
+        ))}
+      </Tabs>
+    );
+  },
+};
+
+/**
+ * 왼쪽으로 정렬되고 스크롤 버튼이 있는 Tab입니다.
+ */
+export const DirectionLeftScrollTabs: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ height: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => {
+    return (
+      <Tabs direction="vertical">
+        {Array.from({ length: 32 }).map((_, index) => (
+          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+            Contents{index}
+          </Tabs.Panel>
+        ))}
       </Tabs>
     );
   },

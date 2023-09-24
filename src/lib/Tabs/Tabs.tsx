@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { PropsWithChildren, useRef } from 'react';
 import TabPanel from './TabPanel';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import useTabs from './hooks/useTabs';
 import useTabsScroll from './hooks/useTabsScroll';
 import TabsNavigation from './components/TabsNavigation';
+
+export type TabsDirection = 'horizontal' | 'vertical';
 
 type TabsProps = {
   /**
@@ -13,10 +15,17 @@ type TabsProps = {
    *  * @default 'true'
    */
   scrollButtons?: boolean;
+  /**
+   * Tabs의 위치를 지정하는 속성입니다.
+   *
+   *  * @default 'horizontal'
+   */
+  direction?: TabsDirection;
 };
 
 function Tabs({
   scrollButtons = true,
+  direction = 'horizontal',
   children,
 }: PropsWithChildren<TabsProps>) {
   const tabsNavigation = useRef<HTMLDivElement>(null);
@@ -24,11 +33,13 @@ function Tabs({
   const { panelList, selectedPanel, selectPanel, isSelected } =
     useTabs(children);
 
-  const { isOverFlow, scrollState, handleMoveScroll } =
-    useTabsScroll(tabsNavigation);
+  const { isOverFlow, scrollState, handleMoveScroll } = useTabsScroll(
+    tabsNavigation,
+    direction
+  );
 
   return (
-    <Layout>
+    <Layout direction={direction}>
       <TabsNavigation
         isOverFlow={isOverFlow}
         scrollState={scrollState}
@@ -38,6 +49,7 @@ function Tabs({
         isSelected={isSelected}
         panelList={panelList}
         scrollButtons={scrollButtons}
+        direction={direction}
       />
       {selectedPanel?.contents}
     </Layout>
@@ -48,8 +60,21 @@ Tabs.Panel = TabPanel;
 
 export default Tabs;
 
-const Layout = styled.div`
+const LAYOUT_STYLE = {
+  horizontal: css`
+    flex-direction: column;
+  `,
+  vertical: css`
+    flex-direction: row;
+  `,
+} as const;
+
+const Layout = styled.div<{ direction: TabsDirection }>`
   display: flex;
-  flex-direction: column;
   position: relative;
+
+  height: 100%;
+  max-height: 100vh;
+
+  ${({ direction }) => LAYOUT_STYLE[direction]}
 `;
