@@ -67,11 +67,18 @@ const CSS: CSSType = {
   bdr: "borderRadius",
 } as const;
 
+type PropertyCategoryType = "STRING_PROPERTY" | "NUMERIC_PROPERTY";
+
+const checkPropertyCategory = (properties: string[]): PropertyCategoryType => {
+  return properties.length === 3 ? "NUMERIC_PROPERTY" : "STRING_PROPERTY";
+};
+
 const Container = (props: PropsWithChildren<Partial<ContainerProps>>) => {
   const { children, ...restProps } = props;
   const styles = Object.keys(restProps).reduce((obj, item) => {
     const properties = item.split("-");
-    if (properties.length === 3) {
+
+    if (checkPropertyCategory(properties) === "NUMERIC_PROPERTY") {
       obj[
         CSS[properties[0] as CSSPropertiesType]
       ] = `${properties[1]}${properties[2]}`;
