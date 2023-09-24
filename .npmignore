@@ -1,0 +1,10 @@
+node_modules/
+dist/stories/
+public/
+tsconfig.json
+tsconfig.node.json
+.eslintrc.cjs
+.storybook/
+vite.config.ts
+src
+storybook-static
