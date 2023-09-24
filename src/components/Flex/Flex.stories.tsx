@@ -3,9 +3,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Flex from './index';
 
-const Item = (count: number) => (
-  <div style={{ backgroundColor: '#0064ff', padding: '10px' }}>아이템{count + 1}</div>
-);
+const Item = (count: number) => {
+  const greenIntensity = 255 - count * 20;
+  const blueIntensity = 205 + count * 6;
+
+  const backgroundColor = `rgb(0, ${greenIntensity}, ${blueIntensity})`;
+
+  return <div style={{ backgroundColor, padding: '10px' }}>Item{count + 1}</div>;
+};
 
 const meta = {
   title: 'Example/Flex',
@@ -17,13 +22,15 @@ const meta = {
     align: 'center',
     children: Array.from({ length: 8 }).map((_, index) => Item(index)),
     gap: '10px',
-    // style: { width: '800px', height: '400px', backgroundColor: 'lightgray' },
+    style: { width: '100%', height: '400px', backgroundColor: 'lightgray' },
   },
   argTypes: {},
 } satisfies Meta<typeof Flex>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {};
 
 export const Column: Story = {
   args: {
@@ -37,17 +44,30 @@ export const ColumnReverse: Story = {
   },
 };
 
-export const Gap100px: Story = {
+export const Gap40px: Story = {
   args: {
-    gap: '100px',
+    gap: '40px',
   },
 };
 
+/**
+ * 반응형(media-query) px 기준입니다.
+ *
+ * `mobile` (0 <= screen < 640): `column-reverse`
+ *
+ * `tablet` (640 <= screen < 1024): `column`
+ *
+ * `laptop` (1024 <= screen < 1200): `row`
+ *
+ * `desktop` (1200 <= screen): `row-reverse`
+ */
 export const Responsive: Story = {
   args: {
     direction: {
-      tablet: 'row',
-      mobile: 'column',
+      mobile: 'column-reverse',
+      tablet: 'column',
+      laptop: 'row',
+      desktop: 'row-reverse',
     },
   },
 };
