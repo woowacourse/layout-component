@@ -19,7 +19,7 @@ const meta = {
     tag: 'ul',
     children: (
       <>
-        {Array.from({ length: 20 }, (_, index) => (
+        {Array.from({ length: 10 }, (_, index) => (
           <li
             style={{
               height: getRandomNumber(100, 500),
