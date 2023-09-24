@@ -1,4 +1,4 @@
-import '../styles/reset.css';
+import '../reset.css';
 
 import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
 import TagList from '../TabList';
