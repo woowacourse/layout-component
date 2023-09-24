@@ -95,13 +95,6 @@ export const DisabledTabs: Story = {
  * 수직으로 정렬된 Tab입니다.
  */
 export const VerticalTabs: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ height: '320px' }}>
-        <Story />
-      </div>
-    ),
-  ],
   args: {
     direction: 'vertical',
     children: Array.from({ length: 5 }).map((_, index) => (
@@ -151,13 +144,6 @@ export const CenterNavigationTabs: Story = {
  * 수직으로 정렬되고 Tabs 네이버게이션이 가운데 정렬된 Tab입니다.
  */
 export const VerticalCenterNavigationTabs: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ height: '320px' }}>
-        <Story />
-      </div>
-    ),
-  ],
   args: {
     centered: true,
     direction: 'vertical',
