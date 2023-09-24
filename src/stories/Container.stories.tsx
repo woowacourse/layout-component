@@ -39,7 +39,7 @@ export const MaxSize = {
 
 export const MinSize = {
   render: () => (
-    <Container mnw-300 mnh-300>
+    <Container mxw-300 mxh-300>
       <div
         style={{
           width: "400px",
