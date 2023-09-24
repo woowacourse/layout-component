@@ -1,4 +1,5 @@
 import { CSSProperties, PropsWithChildren } from "react";
+import { CssNumberValue } from "../types";
 
 type CommonAlignmentValues = "center" | "start" | "end" | "flex-start" | "flex-end";
 
@@ -7,7 +8,7 @@ type Props = {
   justify?: CommonAlignmentValues | "space-between" | "space-around" | "space-evenly" | "stretch";
   align?: CommonAlignmentValues;
 
-  gap?: number;
+  gap?: CssNumberValue;
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
 
   $style?: CSSProperties;
@@ -21,7 +22,7 @@ const Flex = ({ direction, justify, align, gap = 0, wrap, $style, children }: Pr
     justifyContent: justify,
     alignItems: align,
 
-    gap: `${gap}px`,
+    gap: gap,
     flexWrap: wrap,
 
     ...$style,

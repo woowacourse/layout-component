@@ -1,12 +1,13 @@
 import { CSSProperties, PropsWithChildren } from "react";
+import { CssNumberValue } from "../types";
 
 type Props = {
   rows: number;
   columns: number;
 
-  rowGap?: number;
-  columnGap?: number;
-  gap?: number;
+  rowGap?: CssNumberValue;
+  columnGap?: CssNumberValue;
+  gap?: CssNumberValue;
 
   $style?: CSSProperties;
 };
@@ -17,9 +18,9 @@ const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, $style, child
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
 
-    rowGap: `${rowGap}px`,
-    columnGap: `${columnGap}px`,
-    gap: `${gap}px`,
+    rowGap: rowGap,
+    columnGap: columnGap,
+    gap: gap,
 
     ...$style,
   };

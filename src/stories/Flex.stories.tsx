@@ -17,7 +17,7 @@ export const Default: Story = {
     direction: "row",
     justify: "space-between",
     align: "center",
-    gap: 10,
+    gap: "10px",
     children: (
       <>
         <div>Item1</div>

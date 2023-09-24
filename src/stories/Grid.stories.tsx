@@ -16,7 +16,7 @@ export const Default: Story = {
   args: {
     rows: 2,
     columns: 3,
-    gap: 10,
+    gap: "10px",
     children: (
       <>
         <div>Item1</div>

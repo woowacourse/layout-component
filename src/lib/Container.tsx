@@ -1,8 +1,10 @@
 import { CSSProperties, PropsWithChildren } from "react";
 
+import { CssNumberValue } from "../types";
+
 type Props = {
-  minWidth?: number;
-  maxWidth: number;
+  minWidth?: CssNumberValue;
+  maxWidth: CssNumberValue;
 
   $style?: CSSProperties;
 };
@@ -10,8 +12,8 @@ type Props = {
 const Container = ({ minWidth = 0, maxWidth, $style, children }: PropsWithChildren<Props>) => {
   const defaultStyle: CSSProperties = {
     margin: "0 auto",
-    minWidth: `${minWidth}px`,
-    maxWidth: `${maxWidth}px`,
+    minWidth: minWidth,
+    maxWidth: maxWidth,
 
     ...$style,
   };

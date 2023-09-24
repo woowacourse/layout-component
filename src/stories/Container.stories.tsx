@@ -13,8 +13,8 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    minWidth: 200,
-    maxWidth: 800,
+    minWidth: "200px",
+    maxWidth: "800px",
     children: "Contens is here",
   },
   argTypes: {
