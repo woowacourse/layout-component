@@ -2,13 +2,18 @@
   "name": "wus-layout-component",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/lib/index.js",
+  "module": "dist/mjs/lib/index.js",
   "exports": {
     ".": {
-      "import": "./dist/mjs/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": {
+        "default": "./dist/mjs/lib/index.js",
+        "types": "./index.d.ts"
+      },
+      "require": {
+        "default": "./dist/cjs/lib/index.js",
+        "types": "./index.d.cts"
+      }
     }
   },
   "description": "It's a package made to use layout components comfortably",

@@ -1,4 +1,5 @@
 cp ./src/lib/index.d.ts dist 
+cp ./src/lib/index.d.cts dist 
 
 rm -rf dist/*/index.d.ts 
 
