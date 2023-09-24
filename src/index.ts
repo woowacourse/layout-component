@@ -1,5 +1,3 @@
-export { default as Container } from "./Container/Container";
+import TabLayout from "./TabLayout/TabLayout";
 
-export { default as Grid } from "./Grid/Grid";
-
-export { default as Flex } from "./Flex/Flex";
+export default TabLayout;
