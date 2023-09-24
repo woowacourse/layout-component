@@ -5,13 +5,13 @@ interface TabLayoutProps extends PropsWithChildren {
   tabs: Tabs;
   className?: string;
   tabPosition?: TabPosition;
-  activeColor?: string;
+  activeButtonColor?: string;
 }
 
 const TabLayout = ({
   tabs,
   tabPosition = 'top',
-  activeColor,
+  activeButtonColor,
   className,
   children,
 }: TabLayoutProps) => {
@@ -48,7 +48,7 @@ const TabLayout = ({
               onClick={() => setSelectedTap(index)}
               className='flex-1'
               style={{
-                ...(selectedTab === index && { color: activeColor }),
+                ...(selectedTab === index && { color: activeButtonColor }),
               }}
             >
               {tab}
