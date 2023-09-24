@@ -38,7 +38,6 @@ const meta = {
           width: '100%',
           height: '100%',
           backgroundColor: '#fff',
-          margin: '1rem',
         }}
       >
         <Story />
@@ -67,28 +66,16 @@ export const Primary: Story = {
             <Tabs.Tab tabPanelId='item3'>ITEM THREE</Tabs.Tab>
           </Tabs.List>
           <Tabs.Panel id='item1'>
-            <Container css={{ margin: '2rem' }}>Item One</Container>
+            <Container css={{ margin: '2rem', textAlign: 'center' }}>👀</Container>
           </Tabs.Panel>
           <Tabs.Panel id='item2'>
-            <Container css={{ margin: '2rem' }}>Item Two</Container>
+            <Container css={{ margin: '2rem', textAlign: 'center' }}>🐾</Container>
           </Tabs.Panel>
           <Tabs.Panel id='item3'>
-            <Container css={{ margin: '2rem' }}>Item Three</Container>
+            <Container css={{ margin: '2rem', textAlign: 'center' }}>🐕</Container>
           </Tabs.Panel>
         </Tabs>
       </>
     );
   },
 };
-
-// const hexToRgba = (hex?: CSSProperties['backgroundColor'], opacity: number = 1) => {
-//   if (!hex) return;
-
-//   // #을 제거하고 앞에 '0x'를 붙여 16진수를 10진수로 변환
-//   const r = parseInt(String(hex).slice(1, 3), 16);
-//   const g = parseInt(String(hex).slice(3, 5), 16);
-//   const b = parseInt(String(hex).slice(5, 7), 16);
-
-//   // RGBA 문자열로 반환
-//   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-// };

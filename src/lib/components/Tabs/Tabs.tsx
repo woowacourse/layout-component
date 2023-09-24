@@ -1,10 +1,10 @@
 import { ComponentPropsWithoutRef, MouseEventHandler, PropsWithChildren, memo } from 'react';
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 import TabsProvider, { useTabsContext } from '../../context/TabsContext';
 import { Flex } from '../..';
 
 export type TabDirection = 'horizontal' | 'vertical';
-export type TabAlign = 'start' | 'center' | 'end' | 'between';
+export type TabAlign = 'start' | 'center' | 'end' | 'between' | 'stretch';
 
 export interface TabsProps extends PropsWithChildren {
   defaultTabId: string;
@@ -30,17 +30,19 @@ const List = (props: ListProps) => {
   const { direction, align } = useTabsContext();
 
   const flexDirection = direction === 'horizontal' ? 'row' : 'column';
-  const flexAlign = getFlexAlign(align);
+  const flexAlign = getFlexAlign(direction, align);
+  const justifyOnDirection = flexDirection === 'row' && flexAlign !== 'stretch' ? flexAlign : 'center';
+  const alignOnDirection = flexDirection === 'column' && flexAlign !== 'space-between' ? flexAlign : 'center';
 
   return (
     <Flex
       tag='ul'
       direction={flexDirection}
-      justify={flexAlign}
-      align='center'
+      justify={justifyOnDirection}
+      align={alignOnDirection}
       role='tablist'
-      css={{ borderBottom: '2px solid #e3e3e3' }}
       {...restProps}
+      css={{ width: '100%' }}
     >
       {children}
     </Flex>
@@ -53,7 +55,7 @@ interface TabProps extends ComponentPropsWithoutRef<'li'> {
 
 const Tab = (props: TabProps) => {
   const { tabPanelId, children, ...restProps } = props;
-  const { selectedTabId, changeTab } = useTabsContext();
+  const { selectedTabId, changeTab, direction } = useTabsContext();
   const isSelected = tabPanelId === selectedTabId.slice(0, -4); // '-tab'을 제외한 부분 추출
 
   const onClickTab: MouseEventHandler<HTMLLIElement> = (event) => {
@@ -68,6 +70,8 @@ const Tab = (props: TabProps) => {
       role='tab'
       aria-selected={isSelected}
       aria-controls={tabPanelId}
+      direction={direction}
+      selected={isSelected}
       onClick={onClickTab}
       {...restProps}
     >
@@ -100,7 +104,7 @@ Tabs.Panel = Panel;
 
 export default Tabs;
 
-const getFlexAlign = (align: TabAlign) => {
+const getFlexAlign = (direction: TabDirection, align: TabAlign) => {
   switch (align) {
     case 'start':
       return 'flex-start';
@@ -109,12 +113,52 @@ const getFlexAlign = (align: TabAlign) => {
     case 'end':
       return 'flex-end';
     default:
-      return 'space-between';
+      if (direction === 'horizontal') return 'space-between';
+      else return 'stretch';
   }
 };
 
-const TabWrapper = styled.li<Omit<TabProps, 'tabPanelId'>>`
+const TabWrapper = styled.li<Omit<TabProps, 'tabPanelId'> & { selected: boolean; direction: TabDirection }>`
+  position: relative;
   padding: 1.6rem;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--secondary-color);
+
+  overflow: hidden;
+  transition: 0.2s ease;
+
+  ${({ direction }) =>
+    css`
+      &::after {
+        content: '';
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        ${direction === 'horizontal'
+          ? 'border-bottom: 5px solid var(--secondary-color)'
+          : 'border-right: 5px solid var(--secondary-color)'};
+      }
+    `}
+
+  ${({ selected, direction }) =>
+    selected &&
+    css`
+      color: var(--primary-color);
+
+      &::after {
+        ${direction === 'horizontal'
+          ? 'border-bottom: 5px solid var(--primary-color)'
+          : 'border-right: 5px solid var(--primary-color)'};
+      }
+    `};
 `;
 
 const TabPanelWrapper = styled.section<PanelProps>`
