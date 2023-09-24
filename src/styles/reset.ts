@@ -1,3 +1,4 @@
+const resetCss = `
 * {
   margin: 0;
   padding: 0;
@@ -26,3 +27,6 @@ button {
   border: 0;
   cursor: pointer;
 }
+`;
+
+export default resetCss;

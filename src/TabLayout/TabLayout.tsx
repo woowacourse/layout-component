@@ -1,4 +1,4 @@
-import './reset.css';
+import resetCss from '../styles/reset';
 
 import { ComponentPropsWithoutRef, ReactNode, useState } from 'react';
 import TagList from '../TabList';
@@ -86,6 +86,7 @@ const TabLayout = ({
 
   return (
     <section {...props}>
+      <style>{resetCss}</style>
       <ul style={{ display: 'flex', width }}>
         {tabs.map((label, index) => (
           <TagList
