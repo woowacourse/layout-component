@@ -2,6 +2,7 @@
   "name": "wus-layout-component",
   "version": "1.0.6",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
