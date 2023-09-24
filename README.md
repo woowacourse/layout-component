@@ -9,6 +9,10 @@
 
  <h2 align="middle"> 컴포넌트 props 소개 및 예시 </h2>
 
+### 라이브러리 다운 방법
+
+> `npm install @chsua/layout-component`
+
 ### Container 컴포넌트
 
 - minWidth: string
