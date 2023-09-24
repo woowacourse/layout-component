@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 
 interface GridCssProps {
   rows: string;
@@ -17,21 +17,17 @@ const Grid = ({
   ...props
 }: PropsWithChildren<GridProps>) => {
   return (
-    <Div columns={isAutoFill ? "auto-fill" : columns} {...props}>
+    <GridBox columns={isAutoFill ? "auto-fill" : columns} {...props}>
       {props.children}
-    </Div>
+    </GridBox>
   );
 };
 
-const GridCss = css<GridCssProps>`
+const GridBox = styled.div<GridCssProps>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.columns}, 1fr);
   grid-template-rows: repeat(${(props) => props.rows}, 1fr);
   gap: ${(props) => props.gap};
-`;
-
-const Div = styled.div<GridCssProps>`
-  ${GridCss}
 `;
 
 export default Grid;

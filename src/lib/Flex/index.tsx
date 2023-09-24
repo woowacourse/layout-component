@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import styled, { css } from "styled-components";
+import { styled } from "styled-components";
 import { CSS } from "styled-components/dist/types";
 
 type DirectionType = CSS.Property.FlexDirection;
@@ -20,21 +20,17 @@ const Flex = ({
   ...props
 }: PropsWithChildren<FlexCssProps>) => {
   return (
-    <Div direction={direction} justify={justify} align={align} {...props}>
+    <FlexBox direction={direction} justify={justify} align={align} {...props}>
       {props.children}
-    </Div>
+    </FlexBox>
   );
 };
 
-const FlexCss = css<FlexCssProps>`
+const FlexBox = styled.div<FlexCssProps>`
   display: flex;
   justify-content: ${(props) => props.justify};
   align-items: ${(props) => props.align};
   gap: ${(props) => props.gap};
-`;
-
-const Div = styled.div<FlexCssProps>`
-  ${FlexCss}
 `;
 
 export default Flex;
