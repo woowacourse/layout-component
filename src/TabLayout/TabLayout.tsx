@@ -1,5 +1,5 @@
 import { useState, ReactNode } from "react";
-import "./index.css";
+import styled from "styled-components";
 
 type TabLayoutProps = {
   /**
@@ -16,6 +16,10 @@ type TabLayoutProps = {
   children: ReactNode[];
 };
 
+type TabButtonProps = {
+  isActive: boolean;
+};
+
 const TabLayout = (props: TabLayoutProps) => {
   const { tabs, children } = props;
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -23,26 +27,45 @@ const TabLayout = (props: TabLayoutProps) => {
   const handleTabClick = (index: number) => {
     setActiveTab(index);
   };
-
-  const tabButtons = tabs.map((tab, index) => (
-    <button
-      key={index}
-      className={`tab-button ${activeTab === index ? "active" : ""}`}
-      aria-label="tab-button"
-      onClick={() => handleTabClick(index)}
-    >
-      {tab}
-    </button>
-  ));
-
   return (
-    <nav className="tab-layout">
-      <div className="button-container">{tabButtons}</div>
-      <section className="tab-content" aria-label="tab-content">
-        {children[activeTab]}
-      </section>
-    </nav>
+    <TabLayoutContainer>
+      <ButtonContainer>
+        {tabs.map((tab, index) => (
+          <TabButton
+            key={index}
+            aria-label="tab-button"
+            onClick={() => handleTabClick(index)}
+            isActive={activeTab === index}
+          >
+            {tab}
+          </TabButton>
+        ))}
+      </ButtonContainer>
+      <Content aria-label="tab-content">{children[activeTab]}</Content>
+    </TabLayoutContainer>
   );
 };
+
+const TabLayoutContainer = styled.nav`
+  width: 100%;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1%;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+`;
+
+const TabButton = styled.button<TabButtonProps>`
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: ${(props) => (props.isActive ? "#007BFF" : "transparent")};
+  color: ${(props) => (props.isActive ? "#fff" : "#000")};
+`;
+
+const Content = styled.section``;
 
 export default TabLayout;
