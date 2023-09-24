@@ -16,11 +16,8 @@ export default function Container({
     minWidth,
     maxWidth,
     padding: `${padding}px`,
+    margin: "0 auto",
   };
 
-  return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={style}>{children}</div>
-    </div>
-  );
+  return <div style={style}>{children}</div>;
 }
