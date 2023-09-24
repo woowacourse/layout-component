@@ -11,5 +11,13 @@ const meta: Meta<typeof Tabs> = {
 export default meta;
 
 export const DefaultTabs: Story = {
-  args: {},
+  render: () => {
+    return (
+      <Tabs>
+        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
+        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
+        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
+      </Tabs>
+    );
+  },
 };
