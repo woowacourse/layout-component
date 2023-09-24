@@ -1,5 +1,3 @@
-// Button.stories.ts|tsx
-
 import type { Meta } from "@storybook/react";
 import React from "react";
 
