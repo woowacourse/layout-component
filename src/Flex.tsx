@@ -15,6 +15,7 @@ const Flex = <T extends ElementType = 'div'>({
   align,
   style,
   gap,
+  children,
   ...rest
 }: Props<T, FlexProps>) => {
   const Element = as || 'div';
@@ -28,7 +29,11 @@ const Flex = <T extends ElementType = 'div'>({
     gap: gap,
   };
 
-  return <Element style={{ ...styledElement }} {...rest}></Element>;
+  return (
+    <Element style={{ ...styledElement }} {...rest}>
+      {children}
+    </Element>
+  );
 };
 
 export default Flex;
