@@ -1,19 +1,21 @@
 import { Children, ReactElement, useState } from 'react';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 interface TabLayoutProps {
   tabs: string[];
-  children: ReactElement;
+  children: ReactElement[];
+  bordercolor: CSSProperties['color'];
 }
 
 interface TabHeaderItemProps {
-  isSelected: boolean;
+  isselected: boolean;
+  bordercolor: CSSProperties['color'];
 }
 
 const TabLayoutContainer = styled.div`
-  position: fixed;
-  bottom: 0;
   display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const TabLayoutHeader = styled.div`
@@ -21,11 +23,12 @@ const TabLayoutHeader = styled.div`
 `;
 
 const TabHeaderItem = styled.div<TabHeaderItemProps>`
-  ${({ isSelected }) => isSelected && 'border-bottom: 3px solid blue'};
+  padding: 10px;
+  ${({ isselected, bordercolor }) => isselected && `border-bottom: 3px solid ${bordercolor}`};
   cursor: pointer;
 `;
 
-const TabLayout = ({ tabs, children }: TabLayoutProps) => {
+const TabLayout = ({ tabs, children, bordercolor }: TabLayoutProps) => {
   const [selectIdx, setSelectIdx] = useState(0);
   const selectedChildren = Children.toArray(children);
 
@@ -34,9 +37,10 @@ const TabLayout = ({ tabs, children }: TabLayoutProps) => {
       <TabLayoutHeader>
         {tabs.map((element, idx) => (
           <TabHeaderItem
+            bordercolor={bordercolor}
             key={element}
             onClick={() => setSelectIdx(idx)}
-            isSelected={idx === selectIdx}
+            isselected={idx === selectIdx}
           >
             {element}
           </TabHeaderItem>
