@@ -4,7 +4,7 @@ import {
   CSSProperties,
   ReactElement,
   PropsWithChildren,
-  ComponentPropsWithRef,
+  ComponentPropsWithoutRef,
 } from 'react';
 
 import { styled, css } from 'styled-components';
@@ -58,7 +58,7 @@ type FlexProps = {
    *  * @default "0px"
    */
   gap?: CSSProperties['gap'] | ResponsiveStyleType<CSSProperties['gap']>;
-} & ComponentPropsWithRef<ElementType>;
+} & ComponentPropsWithoutRef<ElementType>;
 
 function Flex({
   children,

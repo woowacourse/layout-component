@@ -10,22 +10,29 @@ export type TabsDirection = 'horizontal' | 'vertical';
 
 type TabsProps = {
   /**
-   * Tabs의 Navigation의 가로폭이 화면 폭보다 길어졌을 때, scroll을 이동시킬 수 있는 버튼의 유무를 지정하는 속성입니다.
+   * Tabs의 Navigation의 가로폭이 화면 폭보다 길어졌을 때, scroll을 이동시킬 수 있는 버튼의 유무를 지정하는 속성
    *
    *  * @default 'true'
    */
   scrollButtons?: boolean;
   /**
-   * Tabs의 위치를 지정하는 속성입니다.
+   * Tabs의 위치를 지정하는 속성
    *
    *  * @default 'horizontal'
    */
   direction?: TabsDirection;
+  /**
+   * Tabs의 Navigation을 가운데로 정렬하는 속성
+   *
+   *  * @default 'false'
+   */
+  centered?: boolean;
 };
 
 function Tabs({
   scrollButtons = true,
   direction = 'horizontal',
+  centered = false,
   children,
 }: PropsWithChildren<TabsProps>) {
   const tabsNavigation = useRef<HTMLDivElement>(null);
@@ -50,6 +57,7 @@ function Tabs({
         panelList={panelList}
         scrollButtons={scrollButtons}
         direction={direction}
+        centered={centered}
       />
       {selectedPanel?.contents}
     </Layout>

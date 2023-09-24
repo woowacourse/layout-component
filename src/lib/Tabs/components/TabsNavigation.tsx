@@ -15,6 +15,7 @@ type TabsNavigationProps = {
   panelList: PanelList;
   scrollButtons: boolean;
   direction: TabsDirection;
+  centered: boolean;
 };
 
 function TabsNavigation({
@@ -27,6 +28,7 @@ function TabsNavigation({
   panelList,
   scrollButtons,
   direction,
+  centered,
 }: TabsNavigationProps) {
   return (
     <Layout direction={direction}>
@@ -41,6 +43,8 @@ function TabsNavigation({
           <Flex
             tag="ul"
             direction={direction === 'vertical' ? 'column' : 'row'}
+            justify={centered ? 'center' : 'flex-start'}
+            align={centered ? 'center' : 'flex-start'}
           >
             {panelList.map(({ label, disabled }) => {
               return (
@@ -79,22 +83,15 @@ const TAPS_LIST_STYLE = {
     min-width: 100%;
     flex-direction: row;
     word-break: normal;
+    border-bottom: 1.5px solid #d0d0d0;
   `,
   vertical: css`
     min-width: 160px;
     flex-direction: column;
     word-break: break-all;
-  `,
-} as const;
-
-const TAPS_LIST_UNDERLINE_STYLE = {
-  horizontal: css`
-    border-bottom: 1.5px solid #d0d0d0;
-  `,
-  vertical: css`
     border-right: 1.5px solid #d0d0d0;
   `,
-};
+} as const;
 
 const SELECTED_LINE_STYLE = {
   horizontal: css`
@@ -126,8 +123,6 @@ const TabsList = styled.div<{ direction: TabsDirection }>`
 
   overflow: auto;
 
-  ${({ direction }) => TAPS_LIST_UNDERLINE_STYLE[direction]}
-
   &::-webkit-scrollbar {
     display: none;
   }
@@ -135,6 +130,7 @@ const TabsList = styled.div<{ direction: TabsDirection }>`
   scrollbar-width: none;
 
   & > ul {
+    height: 100%;
     list-style: none;
     padding: 0;
     margin: 0;

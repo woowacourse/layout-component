@@ -76,9 +76,9 @@ export const DisabledTabs: Story = {
 };
 
 /**
- * 왼쪽으로 정렬된 Tab입니다.
+ * 수직으로 정렬된 Tab입니다.
  */
-export const DirectionLeftTabs: Story = {
+export const VerticalTabs: Story = {
   decorators: [
     (Story) => (
       <div style={{ height: '320px' }}>
@@ -100,9 +100,9 @@ export const DirectionLeftTabs: Story = {
 };
 
 /**
- * 왼쪽으로 정렬되고 스크롤 버튼이 있는 Tab입니다.
+ * 수직으로 정렬되고 스크롤 버튼이 있는 Tab입니다.
  */
-export const DirectionLeftScrollTabs: Story = {
+export const VerticalScrollTabs: Story = {
   decorators: [
     (Story) => (
       <div style={{ height: '320px' }}>
@@ -118,6 +118,43 @@ export const DirectionLeftScrollTabs: Story = {
             Contents{index}
           </Tabs.Panel>
         ))}
+      </Tabs>
+    );
+  },
+};
+
+/**
+ * Tabs 네이버게이션이 가운데 정렬된 Tab입니다.
+ */
+export const CenterNavigationTabs: Story = {
+  render: () => {
+    return (
+      <Tabs centered>
+        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
+        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
+        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
+      </Tabs>
+    );
+  },
+};
+
+/**
+ * 수직으로 정렬되고 Tabs 네이버게이션이 가운데 정렬된 Tab입니다.
+ */
+export const VerticalCenterNavigationTabs: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ height: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: () => {
+    return (
+      <Tabs centered direction="vertical">
+        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
+        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
+        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
       </Tabs>
     );
   },
