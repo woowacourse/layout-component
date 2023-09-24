@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren } from "react";
+import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import { CssNumberValue } from "../types";
 
 type Props = {
@@ -8,11 +8,17 @@ type Props = {
   rowGap?: CssNumberValue;
   columnGap?: CssNumberValue;
   gap?: CssNumberValue;
+} & HTMLAttributes<HTMLDivElement>;
 
-  $style?: CSSProperties;
-};
-
-const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, $style, children }: PropsWithChildren<Props>) => {
+const Grid = ({
+  rows,
+  columns,
+  rowGap = 0,
+  columnGap = 0,
+  gap = 0,
+  children,
+  ...attributes
+}: PropsWithChildren<Props>) => {
   const defaultStyle: CSSProperties = {
     display: "grid",
     gridTemplateRows: `repeat(${rows}, 1fr)`,
@@ -21,11 +27,13 @@ const Grid = ({ rows, columns, rowGap = 0, columnGap = 0, gap = 0, $style, child
     rowGap: rowGap,
     columnGap: columnGap,
     gap: gap,
-
-    ...$style,
   };
 
-  return <div style={defaultStyle}>{children}</div>;
+  return (
+    <div style={defaultStyle} {...attributes}>
+      {children}
+    </div>
+  );
 };
 
 export default Grid;

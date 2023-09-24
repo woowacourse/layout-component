@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren } from "react";
+import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import { CssNumberValue } from "../types";
 
 type CommonAlignmentValues = "center" | "start" | "end" | "flex-start" | "flex-end";
@@ -10,11 +10,9 @@ type Props = {
 
   gap?: CssNumberValue;
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
+} & HTMLAttributes<HTMLDivElement>;
 
-  $style?: CSSProperties;
-};
-
-const Flex = ({ direction, justify, align, gap = 0, wrap, $style, children }: PropsWithChildren<Props>) => {
+const Flex = ({ direction, justify, align, gap = 0, wrap, children, ...attributes }: PropsWithChildren<Props>) => {
   const defaultStyle: CSSProperties = {
     display: "flex",
 
@@ -24,11 +22,13 @@ const Flex = ({ direction, justify, align, gap = 0, wrap, $style, children }: Pr
 
     gap: gap,
     flexWrap: wrap,
-
-    ...$style,
   };
 
-  return <div style={defaultStyle}>{children}</div>;
+  return (
+    <div style={defaultStyle} {...attributes}>
+      {children}
+    </div>
+  );
 };
 
 export default Flex;
