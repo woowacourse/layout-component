@@ -23,57 +23,85 @@ npm i turtle601-layout-component
 ```tsx
 import { Container } from 'turtle601-layout-component';
 
+/*
+  Container Props 설명
+
+  - as? 원하는 html 태그를 넣을 수 있다.
+  - minWidth? 화면 중앙에 위치한 Container 자식 요소의 최소 크기를 지정할 수 있다.
+  - maxWidth? 화면 중앙에 위치한 Container 자식 요소의 최대 크기를 제한할 수 있다.
+
+*/
+
 function ContainerExample() {
   return (
-    <Container maxWidth="400px">
-      <img src="https://naver.me" alt="예시 사진">
-    </Container>;
-  )
+    <Container minWidth="500px">
+      <div style={{ border: '1px solid red' }}>
+        별 하나의 동경과 별하나에 사랑과 별 하나의 어머니, 어머니, 어머님
+      </div>
+      <div>
+        별 하나의 동경과 별하나에 사랑과 별 하나의 어머니, 어머니, 어머님
+      </div>
+    </Container>
+  );
 }
-
 ```
-
-- maxWidth: Container 자식요소에게 아무리 커저도 maxWidth보다는 커지지 않게 하는 속성
-- minWidth: Container 자식요소에게 아무리 작아져도 minWidth보다는 작아지지 않게 하는 속성
 
 ### Flex
 
-- 설명: CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴포넌트
-
 ```tsx
+/*
+  Flex Props 설명
+
+  - as? 원하는 html 태그를 넣을 수 있다.
+  - direction?: flexBox의 flex-direction'을 설정을 할 수 있다.
+  - justify?: flexBox의 justify-content 설정을 할 수 있다.
+  - align?: flexBox의 align-items 설정을 할 수 있다.
+  - gap?: flexBox의 gap 설정을 할 수 있다.
+*/
+
 import { Flex } from 'turtle601-layout-component';
 
 function FlexExample() {
   return (
-    <Flex direction="row" justify="center" align="center" gap={5}>
-      <div>Item 1</div>
-      <div>Item 2</div>
-      <div>Item 3</div>
-    </Flex>;
+     <Flex
+        as="section"
+        justify="space-between"
+        style={{
+          border: `1px solid red`,
+        }}
+        gap="4px"
+      >
   )
 }
 
 ```
-
-- direction: flex-direction 방향을 의미
-- justify: 메인 축 방향 정렬 방법 의미
-- align: 메인 축의 수직 축 방향 정렬 방법 의미
-- gap: Flexbox 자식요소들끼리의 간격
 
 ### Grid
 
 - 설명: CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는 컴포넌트
 
 ```tsx
+/*
+  Grid Props 설명
+
+  - as? 원하는 html 태그를 넣을 수 있다.
+  - gap?: grid의 gap을 설정을 할 수 있다.
+  - placeItems?: grid의 placeItems 설정을 할 수 있다.
+
+  Grid.Item Props 설명
+
+  - xs?: grid의 전체 폭 12 중 차지하는 너비를 지정할 수 있다. ex) 1 | 2 | 3 | 4 | 6 | 8 | 12;
+*/
+
 import { GridLayout, GridItem } from 'turtle601-layout-component';
 
 function GridExample() {
   return (
-    <GridLayout gap={5}>
-      <GridItem xs={8}>Item 1</GridItem>
-      <GridItem xs={4}>Item 2</GridItem>
-      <GridItem xs={12}>Item 3</GridItem>
-    </GridLayout>;
+    <Grid gap={5} placeItems='center'>
+      <Grid.Item xs={8}>Item 1</Grid.Item>
+      <Grid.Item xs={4}>Item 2</Grid.Item>
+      <Grid.Item xs={12}>Item 3</Grid.Item>
+    </Grid>;
   )
 }
 ```
