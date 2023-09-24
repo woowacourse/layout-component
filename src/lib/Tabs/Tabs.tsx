@@ -10,7 +10,7 @@ export type TabsDirection = 'horizontal' | 'vertical';
 
 type TabsProps = {
   /**
-   * Tabs의 Navigation의 가로폭이 화면 폭보다 길어졌을 때, scroll을 이동시킬 수 있는 버튼의 유무를 지정하는 속성
+   * Tabs의 Navigation의 가로폭이 화면 폭보다 길어졌을 때, 위치를 이동시킬 수 있는 버튼의 유무를 지정하는 속성
    *
    *  * @default 'true'
    */

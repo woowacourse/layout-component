@@ -6,19 +6,44 @@ type Story = StoryObj<typeof Tabs>;
 const meta: Meta<typeof Tabs> = {
   title: 'NAVIGATION/Tabs',
   component: Tabs,
+  argTypes: {
+    children: {
+      description: 'Flex Layout의 자식 요소',
+    },
+    direction: {
+      description: 'Tabs의 위치를 지정하는 속성',
+      options: ['horizontal', 'vertical'],
+      control: {
+        type: 'radio',
+      },
+    },
+    scrollButtons: {
+      description:
+        'Tabs의 Navigation의 가로폭이 화면 폭보다 길어졌을 때, 위치를 이동시킬 수 있는 버튼의 유무를 지정하는 속성',
+      options: [true, false],
+      control: {
+        type: 'radio',
+      },
+    },
+    centered: {
+      description: 'Tabs의 Navigation을 가운데로 정렬하는 속성',
+      options: [true, false],
+      control: {
+        type: 'radio',
+      },
+    },
+  },
 };
 
 export default meta;
 
 export const DefaultTabs: Story = {
-  render: () => {
-    return (
-      <Tabs>
-        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
-        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
-        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
-      </Tabs>
-    );
+  args: {
+    children: [
+      <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>,
+      <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>,
+      <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>,
+    ],
   },
 };
 
@@ -26,16 +51,12 @@ export const DefaultTabs: Story = {
  * Scroll 버튼이 존재하는 Tabs입니다. Scroll 버튼이 보이지 않는다면 화면의 폭을 줄여주세요.
  */
 export const ExistScrollButtonTabs: Story = {
-  render: () => {
-    return (
-      <Tabs>
-        {Array.from({ length: 25 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
-            Contents{index}
-          </Tabs.Panel>
-        ))}
-      </Tabs>
-    );
+  args: {
+    children: Array.from({ length: 25 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
 
@@ -43,16 +64,13 @@ export const ExistScrollButtonTabs: Story = {
  * Scroll 버튼이 존재하지 않은 Tabs입니다.
  */
 export const NoExistScrollButtonTabs: Story = {
-  render: () => {
-    return (
-      <Tabs scrollButtons={false}>
-        {Array.from({ length: 25 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
-            Contents{index}
-          </Tabs.Panel>
-        ))}
-      </Tabs>
-    );
+  args: {
+    scrollButtons: false,
+    children: Array.from({ length: 25 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
 
@@ -60,18 +78,16 @@ export const NoExistScrollButtonTabs: Story = {
  * 비활성 탭이 존재하는 Tabs입니다.
  */
 export const DisabledTabs: Story = {
-  render: () => {
-    return (
-      <Tabs>
-        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
-        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
-        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
-        <Tabs.Panel label="Disabled" disabled>
-          Contents3
-        </Tabs.Panel>
-        <Tabs.Panel label="Panel4">Contents3</Tabs.Panel>
-      </Tabs>
-    );
+  args: {
+    children: [
+      <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>,
+      <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>,
+      <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>,
+      <Tabs.Panel label="Disabled" disabled>
+        Contents3
+      </Tabs.Panel>,
+      <Tabs.Panel label="Panel4">Contents3</Tabs.Panel>,
+    ],
   },
 };
 
@@ -86,16 +102,13 @@ export const VerticalTabs: Story = {
       </div>
     ),
   ],
-  render: () => {
-    return (
-      <Tabs direction="vertical">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
-            Contents{index}
-          </Tabs.Panel>
-        ))}
-      </Tabs>
-    );
+  args: {
+    direction: 'vertical',
+    children: Array.from({ length: 5 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
 
@@ -110,16 +123,13 @@ export const VerticalScrollTabs: Story = {
       </div>
     ),
   ],
-  render: () => {
-    return (
-      <Tabs direction="vertical">
-        {Array.from({ length: 32 }).map((_, index) => (
-          <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
-            Contents{index}
-          </Tabs.Panel>
-        ))}
-      </Tabs>
-    );
+  args: {
+    direction: 'vertical',
+    children: Array.from({ length: 32 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
 
@@ -127,14 +137,13 @@ export const VerticalScrollTabs: Story = {
  * Tabs 네이버게이션이 가운데 정렬된 Tab입니다.
  */
 export const CenterNavigationTabs: Story = {
-  render: () => {
-    return (
-      <Tabs centered>
-        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
-        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
-        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
-      </Tabs>
-    );
+  args: {
+    centered: true,
+    children: Array.from({ length: 3 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
 
@@ -149,13 +158,13 @@ export const VerticalCenterNavigationTabs: Story = {
       </div>
     ),
   ],
-  render: () => {
-    return (
-      <Tabs centered direction="vertical">
-        <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>
-        <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>
-        <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>
-      </Tabs>
-    );
+  args: {
+    centered: true,
+    direction: 'vertical',
+    children: Array.from({ length: 3 }).map((_, index) => (
+      <Tabs.Panel label={`Panel${(index + 1).toString()}`} key={index}>
+        Contents{index + 1}
+      </Tabs.Panel>
+    )),
   },
 };
