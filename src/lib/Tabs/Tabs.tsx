@@ -27,12 +27,19 @@ type TabsProps = {
    *  * @default 'false'
    */
   centered?: boolean;
+  /**
+   * Tabs의 Navigation을 가운데로 정렬하는 속성
+   *
+   *  * @default 'false'
+   */
+  accentColor?: string;
 };
 
 function Tabs({
   scrollButtons = true,
   direction = 'horizontal',
   centered = false,
+  accentColor = '#3b82f6',
   children,
 }: PropsWithChildren<TabsProps>) {
   const tabsNavigation = useRef<HTMLDivElement>(null);
@@ -58,6 +65,7 @@ function Tabs({
         scrollButtons={scrollButtons}
         direction={direction}
         centered={centered}
+        accentColor={accentColor}
       />
       {selectedPanel?.contents}
     </Layout>

@@ -168,3 +168,18 @@ export const VerticalCenterNavigationTabs: Story = {
     )),
   },
 };
+
+/**
+ * Accent Color를 바뀐 Tabs입니다.
+ */
+export const ChangeAccentColorTabs: Story = {
+  args: {
+    accentColor: '#8523be',
+    children: [
+      <Tabs.Panel label="Panel1">Contents1</Tabs.Panel>,
+      <Tabs.Panel label="Panel2">Contents2</Tabs.Panel>,
+      <Tabs.Panel label="Panel3">Contents3</Tabs.Panel>,
+      <Tabs.Panel label="Panel4">Contents3</Tabs.Panel>,
+    ],
+  },
+};

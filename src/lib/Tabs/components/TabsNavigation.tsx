@@ -16,6 +16,7 @@ type TabsNavigationProps = {
   scrollButtons: boolean;
   direction: TabsDirection;
   centered: boolean;
+  accentColor: string;
 };
 
 function TabsNavigation({
@@ -28,6 +29,7 @@ function TabsNavigation({
   panelList,
   scrollButtons,
   direction,
+  accentColor,
   centered,
 }: TabsNavigationProps) {
   return (
@@ -57,7 +59,7 @@ function TabsNavigation({
                   }}
                   style={{
                     color: isSelected(label)
-                      ? '#3b82f6'
+                      ? accentColor
                       : disabled
                       ? '#cecece'
                       : '#000000',
@@ -65,7 +67,12 @@ function TabsNavigation({
                   }}
                 >
                   {label}
-                  {isSelected(label) && <SelectedLine direction={direction} />}
+                  {isSelected(label) && (
+                    <SelectedLine
+                      direction={direction}
+                      $accentColor={accentColor}
+                    />
+                  )}
                 </Flex.Item>
               );
             })}
@@ -144,10 +151,13 @@ const TabsList = styled.div<{ direction: TabsDirection }>`
   }
 `;
 
-const SelectedLine = styled.span<{ direction: TabsDirection }>`
+const SelectedLine = styled.span<{
+  direction: TabsDirection;
+  $accentColor: string;
+}>`
   position: absolute;
   bottom: 0;
-  background-color: #3b82f6;
+  background-color: ${({ $accentColor }) => $accentColor};
 
   ${({ direction }) => SELECTED_LINE_STYLE[direction]}
 `;
