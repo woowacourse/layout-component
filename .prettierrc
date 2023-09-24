@@ -9,6 +9,7 @@
     "^@emotion/(.*)$",
     "^@storybook/(.*)$",
     "^@components/(.*)$",
+    "^@hooks/(.*)$",
     "^@type/(.*)$",
     "^@constants/(.*)$",
     "^@utils/(.*)$",
