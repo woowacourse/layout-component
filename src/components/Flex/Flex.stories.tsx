@@ -69,5 +69,17 @@ export const Responsive: Story = {
       laptop: 'row',
       desktop: 'row-reverse',
     },
+    justify: {
+      mobile: 'flex-start',
+      tablet: 'flex-end',
+      laptop: 'center',
+      desktop: 'flex-end',
+    },
+    gap: {
+      mobile: '5px',
+      tablet: '10px',
+      laptop: '30px',
+      desktop: '40px',
+    },
   },
 };

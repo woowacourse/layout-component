@@ -21,19 +21,19 @@ type Props<Tag extends ElementType = 'div'> = {
    *
    * @default 'center'
    */
-  justify?: CSSProperties['justifyContent'];
+  justify?: CSSProperties['justifyContent'] | DeviceAndValue<CSSProperties['justifyContent']>;
   /**
    * Flex 컴포넌트의 align-items 속성
    *
    * @default 'center'
    */
-  align?: CSSProperties['alignItems'];
+  align?: CSSProperties['alignItems'] | DeviceAndValue<CSSProperties['alignItems']>;
   /**
    * Flex 컴포넌트의 gap 속성
    *
    * @default 'normal'
    */
-  gap?: CSSProperties['gap'];
+  gap?: CSSProperties['gap'] | DeviceAndValue<CSSProperties['gap']>;
 } & PropsWithChildren<ComponentPropsWithoutRef<Tag>>;
 
 const Flex = <Tag extends ElementType>({ children, tag, ...rest }: Props<Tag>) => {
@@ -62,5 +62,8 @@ const StyledFlex = styled.div<Props>`
     gap: ${typeof gap !== 'object' && gap};
 
     ${genResponsiveStyle('flex-direction', direction)}
+    ${genResponsiveStyle('justify-content', justify)}
+    ${genResponsiveStyle('align-items', align)}
+    ${genResponsiveStyle('gap', gap)}
   `};
 `;
