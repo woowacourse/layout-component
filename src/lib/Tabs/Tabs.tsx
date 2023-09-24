@@ -1,45 +1,12 @@
-import {
-  Children,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useState,
-} from 'react';
+import { PropsWithChildren } from 'react';
 import TabPanel from './TabPanel';
 import { Flex } from '..';
 import { styled } from 'styled-components';
-
-type Label = string | number;
-type PanelList = { label: Label; contents: ReactNode }[];
+import useTabs from './useTabs';
 
 function Tabs({ children }: PropsWithChildren) {
-  const [panelList, setPanelList] = useState<PanelList>([]);
-  const [selectedPanelLabel, setSelectedPanelLabel] = useState<Label | null>(
-    null
-  );
-
-  const selectedPanel = panelList.find(
-    ({ label }) => label === selectedPanelLabel
-  );
-
-  const isSelected = (label: Label) => label === selectedPanelLabel;
-
-  const isDuplicationLabel =
-    new Set(panelList.map((panel) => panel.label)).size !== panelList.length;
-
-  if (isDuplicationLabel) throw new Error('탭의 라벨이 중복되었습니다.');
-
-  useEffect(() => {
-    Children.forEach(children, (child, index) => {
-      const panel = child as ReactElement;
-
-      const { label } = panel.props;
-
-      setPanelList((prev) => [...prev, { label, contents: panel }]);
-      if (index === 0) setSelectedPanelLabel(label);
-    });
-  }, [children]);
+  const { panelList, selectedPanel, selectPanel, isSelected } =
+    useTabs(children);
 
   return (
     <Layout>
@@ -49,7 +16,7 @@ function Tabs({ children }: PropsWithChildren) {
             <Flex.Item
               tag="li"
               key={label}
-              onClick={() => setSelectedPanelLabel(label)}
+              onClick={() => selectPanel(label)}
               style={{
                 color: isSelected(label) ? '#3b82f6' : '#000000',
               }}
