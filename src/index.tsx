@@ -1,6 +1,5 @@
 import Container from './Container';
 import Flex from './Flex';
-import GridItem from './GridItem';
-import GridLayout from './GridLayout';
+import Grid from './Grid';
 
-export { Container, Flex, GridItem, GridLayout };
+export { Container, Flex, Grid };
