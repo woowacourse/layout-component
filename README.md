@@ -24,13 +24,12 @@ yarn add ukko-layout-component
 - height: (선택사항) 레이아웃 컨테이너의 높이. number와 string 타입을 받습니다. number의 경우 px단위로 적용되며 string의 경우 그대로 스타일 적용이 됩니다.
 - padding: (선택사항) 레이아웃 컨테이너의 패딩값
 - margin: (선택사항) 레이아웃 컨테이너의 마진값
-- background-color: (선택사항) 레이아웃 컨테이너의 배경 색. 기본값은 투명입니다.
+- bccolor: (선택사항) 레이아웃 컨테이너의 배경 색. 기본값은 투명입니다.
 
 #### 1. Container
 
-- backgroundColor: (선택사항) 컨테이너의 배경 색상.
-- minWidth: (선택사항) 컨테이너의 최소 폭.
-- maxWidth: (선택사항) 컨테이너의 최대 폭.
+- $minWidth: (선택사항) 컨테이너의 최소 폭.
+- $maxWidth: (선택사항) 컨테이너의 최대 폭.
 
 ```jsx
 import Container from './컴포넌트-경로';
