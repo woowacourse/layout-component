@@ -14,6 +14,7 @@ import {
 interface StyledDrawerProps {
   $anchor: ANCHOR;
   $isOpen: boolean;
+  $padding: number;
 }
 
 const getDrawerWidth = (props: StyledDrawerProps) => {
@@ -99,17 +100,28 @@ export const BaseDrawer = styled.div<StyledDrawerProps>`
   max-width: ${(props) => getDrawerMaxWidth(props)};
   height: ${(props) => getDrawerHeight(props)};
   ${(props) => getAnimationStyle(props)};
+
   overflow: scroll;
   box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.4);
+  padding: 8px 0;
 
   z-index: 2;
   background-color: #fff;
+
   div {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
+    font-size: 1.2rem;
+    margin: 0 8px;
+    padding: ${(props) => props.$padding}px;
+    border-radius: 8px;
     cursor: pointer;
+  }
+
+  & > :hover {
+    transition: all 300ms ease-in-out;
+    background-color: rgb(0, 0, 0, 0.1);
   }
 `;
 
@@ -120,4 +132,11 @@ export const BackDrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
+`;
+
+export const ItemWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 `;
