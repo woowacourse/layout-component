@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks';
+import * as DrawerStories from './Drawer.stories';
+
+<Meta title='Drawer' of={DrawerStories} />
+
+# Drawer
+
+화면의 한 쪽에서 열고 닫을 수 있는 컴포넌트
+
+## Props
+
+<Controls />
+
+## Top
+
+<Canvas>
+  <Story of={DrawerStories.TopDrawer} />
+</Canvas>
+
+## Right
+
+<Canvas>
+  <Story of={DrawerStories.RightDrawer} />
+</Canvas>
+
+## Bottom
+
+<Canvas>
+  <Story of={DrawerStories.BottomDrawer} />
+</Canvas>
+
+## Left
+
+<Canvas>
+  <Story of={DrawerStories.LeftDrawer} />
+</Canvas>

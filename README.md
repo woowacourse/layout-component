@@ -15,15 +15,15 @@ import { Container } from 'tami-layout-component';
 
 ### Props
 
-| props            | value                  | description                                        |
-| ---------------- | ---------------------- | -------------------------------------------------- |
-| minWidth?        | string                 | Container의 min-width값입니다.                     |
-| maxWidth?        | string                 | Container의 max-width값입니다.                     |
-| padding?         | string number          | Container의 padding값입니다.                       |
-| centerContent?   | boolean                | Container의 자식 컴포넌트들의 중앙정렬 여부입니다. |
-| backgroundColor? | CSSProperties['color'] | Container의 배경색입니다.                          |
-| borderRadius?    | string number          | Container의 border-radius값입니다.                 |
-| children?        | ReactNode              | Container의 자식 컴포넌트입니다.                   |
+| props            | value                  | description                                                        |
+| ---------------- | ---------------------- | ------------------------------------------------------------------ |
+| minWidth?        | string                 | Container의 min-width값입니다.                                     |
+| maxWidth?        | string                 | Container의 max-width값입니다. (default 100%)                      |
+| padding?         | string number          | Container의 padding값입니다.                                       |
+| centerContent?   | boolean                | Container의 자식 컴포넌트들의 중앙정렬 여부입니다. (default false) |
+| backgroundColor? | CSSProperties['color'] | Container의 배경색입니다.(default white)                           |
+| borderRadius?    | string number          | Container의 border-radius값입니다.                                 |
+| children?        | ReactNode              | Container의 자식 컴포넌트입니다.                                   |
 
 ### Example
 
@@ -43,16 +43,16 @@ import { Flex } from 'tami-layout-component';
 
 ### Props
 
-| props           | value                           | description                      |
-| --------------- | ------------------------------- | -------------------------------- |
-| width?          | CSSProperties['width']          | Flex의 너비값입니다.             |
-| height?         | CSSProperties['height']         | Flex의 높이값입니다.             |
-| direction?      | CSSProperties['flexDirection']  | Flex의 배치 방향을 정합니다.     |
-| justifyContent? | CSSProperties['justifyContent'] | Flex의 중심축 정렬 방식입니다.   |
-| alignItems?     | CSSProperties['alignItems']     | Flex의 교차축 정렬 방식입니다.   |
-| wrap?           | CSSProperties['flexWrap']       | Flex Item들의 줄바꿈 설정입니다. |
-| gap?            | number                          | Flex Item들 간의 간격입니다.     |
-| children?       | ReactNode                       | Flex의 자식 컴포넌트입니다.      |
+| props           | value                           | description                                |
+| --------------- | ------------------------------- | ------------------------------------------ |
+| width?          | CSSProperties['width']          | Flex의 너비값입니다.                       |
+| height?         | CSSProperties['height']         | Flex의 높이값입니다.                       |
+| direction?      | CSSProperties['flexDirection']  | Flex의 배치 방향을 정합니다. (default row) |
+| justifyContent? | CSSProperties['justifyContent'] | Flex의 중심축 정렬 방식입니다.             |
+| alignItems?     | CSSProperties['alignItems']     | Flex의 교차축 정렬 방식입니다.             |
+| wrap?           | CSSProperties['flexWrap']       | Flex Item들의 줄바꿈 설정입니다.           |
+| gap?            | number                          | Flex Item들 간의 간격입니다.               |
+| children?       | ReactNode                       | Flex의 자식 컴포넌트입니다.                |
 
 ### Example
 
@@ -121,4 +121,37 @@ import { GridItem } from 'tami-layout-component';
 
 ```tsx
 <GridItem col={2} backgroundColor='#D8EAFF' />
+```
+
+## Drawer
+
+화면의 한 쪽에서 열고 닫을 수 있는 컴포넌트입니다.
+
+```jsx
+import { Drawer } from 'tami-layout-component';
+```
+
+### Props
+
+| props      | value                    | description                                |
+| ---------- | ------------------------ | ------------------------------------------ |
+| isOpen     | booelan                  | Drawer가 열렸는지 여부입니다.              |
+| width?     | ()=> void                | Drawer을 닫는 함수입니다.                  |
+| direction? | left, right, top, bottom | Drawer가 열리는 방향입니다. (default left) |
+
+### Example
+
+```tsx
+const [isOpen, setIsOpen] = useState(false);
+const handleDrawerClose = () => {
+  setIsOpen(!isOpen);
+};
+
+return (
+  <>
+    <Drawer isOpen={isOpen} handleDrawerClose={handleDrawerClose}>
+      <div>children</div>
+    </Drawer>
+  </>
+);
 ```
