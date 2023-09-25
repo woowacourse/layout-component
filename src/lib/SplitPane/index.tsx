@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { HTMLAttributes, useState } from 'react';
+import React, { HTMLAttributes, ReactNode, useState } from 'react';
 
 type PercentageString = `${number}%`;
 
@@ -8,8 +8,8 @@ interface SplitPaneProps extends HTMLAttributes<HTMLDivElement> {
   defaultSize?: PercentageString;
   minSize?: PercentageString;
   maxSize?: PercentageString;
-  firstPane: JSX.Element;
-  secondPane: JSX.Element;
+  firstPane: ReactNode;
+  secondPane: ReactNode;
 }
 
 export default function SplitPane({
