@@ -23,9 +23,11 @@ const Flex: FlexComponent = forwardRef(function Flex<
   T extends ElementType = 'div'
 >({ css, as, children, ...rest }: FlexProps<T>, ref: PolymorphicRef<T>) {
   return (
-    <S.Component as={as} ref={ref} style={css} {...rest}>
-      {children}
-    </S.Component>
+    <>
+      <S.Component as={as} ref={ref} style={css} {...rest}>
+        {children}
+      </S.Component>
+    </>
   );
 });
 

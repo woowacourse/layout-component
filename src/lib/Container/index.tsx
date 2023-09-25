@@ -22,9 +22,11 @@ const Container: ContainerComponent = forwardRef(
     ref: PolymorphicRef<T>
   ) => {
     return (
-      <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
-        {children}
-      </S.Component>
+      <>
+        <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
+          {children}
+        </S.Component>
+      </>
     );
   }
 );

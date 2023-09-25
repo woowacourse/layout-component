@@ -23,9 +23,11 @@ const Grid: GridComponent = forwardRef(function Grid<
   T extends ElementType = 'div'
 >({ css, as, children, ...rest }: GridProps<T>, ref: PolymorphicRef<T>) {
   return (
-    <S.Component as={as} ref={ref} style={css} {...rest}>
-      {children}
-    </S.Component>
+    <>
+      <S.Component as={as} ref={ref} style={css} {...rest}>
+        {children}
+      </S.Component>
+    </>
   );
 });
 
