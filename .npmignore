@@ -1,0 +1,9 @@
+node_modules/
+src/
+public/
+tsconfig.json
+.github
+.storybook
+.tsconfig.node.json
+vite.config.ts
+dist
