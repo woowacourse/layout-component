@@ -1,3 +1,6 @@
+import '../../styles/reset.css';
+import '../../styles/global.css';
+
 import { Children } from 'react';
 import { ContainerProps } from '../../types/component';
 import { useTabLayout } from './useTabLayout';
