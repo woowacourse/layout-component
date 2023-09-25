@@ -2,26 +2,52 @@ import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import styled from 'styled-components';
 
 const SplitPane: React.FC<{
-  defaultSize?: string;
-  minSize?: string;
-  maxSize?: string;
+  defaultSize?: string | number;
+  minSize?: string | number;
+  maxSize?: string | number;
   children: ReactNode[];
-}> = ({ defaultSize = '50%', minSize = '10%', maxSize = '90%', children }) => {
-  const [size, setSize] = useState(defaultSize);
+}> = ({ defaultSize = '50%', minSize = '20%', maxSize = '80%', children }) => {
+  const [size, setSize] = useState(() => {
+    if (typeof defaultSize === 'number') {
+      return `${defaultSize}px`;
+    }
+
+    return defaultSize;
+  });
+
   const [isResizing, setIsResizing] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const sizeTypeRef = useRef('string');
+
+  if (
+    typeof minSize === 'number' &&
+    typeof maxSize === 'number' &&
+    typeof defaultSize === 'number'
+  ) {
+    sizeTypeRef.current = 'number';
+  }
 
   useEffect(() => {
     const resize = (event: MouseEvent) => {
       if (isResizing && containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
-        const newWidth = ((event.clientX - containerRect.left) / containerRect.width) * 100;
 
-        const min = parseFloat(minSize);
-        const max = parseFloat(maxSize);
+        if (typeof minSize === 'string' && typeof maxSize === 'string') {
+          const newWidth = ((event.clientX - containerRect.left) / containerRect.width) * 100;
 
-        if (newWidth >= min && newWidth <= max) {
-          setSize(`${newWidth}%`);
+          const min = parseFloat(minSize);
+          const max = parseFloat(maxSize);
+
+          if (newWidth >= min && newWidth <= max) {
+            setSize(`${newWidth}%`);
+          }
+        } else if (typeof minSize === 'number' && typeof maxSize === 'number') {
+          const newWidth = event.clientX - containerRect.left;
+
+          if (newWidth >= minSize && newWidth <= maxSize) {
+            console.log('newWidth', newWidth);
+            setSize(`${newWidth}px`);
+          }
         }
       }
     };
@@ -44,6 +70,7 @@ const SplitPane: React.FC<{
     setIsResizing(true);
   };
 
+  console.log();
   return (
     <PaneContainer ref={containerRef}>
       <Pane size={size}>{children && children[0]}</Pane>
