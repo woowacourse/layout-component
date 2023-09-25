@@ -36,7 +36,7 @@ type ContainerSCProps = SCProps<ContainerStyleProps>;
 const ContainerWrapper = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
 `;
 
 const ContainerContent = styled.div<ContainerSCProps>`
