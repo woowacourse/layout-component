@@ -166,8 +166,8 @@ Grid layout is a two-dimensional layout system. This feature allows you to conte
 
 ```html
 <TabLayout tabsMenu={["tab1", "tab2", "tab3"]} tabWidth="50%">
-  <div>df</div>
-  <div>dfd</div>
-  <button>fd</button>
+  <div>first Tab</div>
+  <div>second Tab</div>
+  <button>third Tab</button>
 </TabLayout>
 ```
