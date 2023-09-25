@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Grid } from '..';
-import TestItem from './TestItem';
+import { TestItem } from './TestItem';
 
 const meta: Meta<typeof Grid> = {
   title: 'Example/Grid',
@@ -12,12 +12,12 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story['render'] = (args) => (
   <Grid {...args}>
-    <TestItem size={80}>Item</TestItem>
-    <TestItem size={80}>Item</TestItem>
-    <TestItem size={80}>Item</TestItem>
-    <TestItem size={80}>Item</TestItem>
-    <TestItem size={80}>Item</TestItem>
-    <TestItem size={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
+    <TestItem height={80}>Item</TestItem>
   </Grid>
 );
 
