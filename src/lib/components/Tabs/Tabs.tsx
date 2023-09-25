@@ -33,7 +33,13 @@ const List = (props: ListProps) => {
   const flexDirection = direction === 'horizontal' ? 'row' : 'column';
 
   return (
-    <Flex tag='ul' direction={flexDirection} role='tablist' {...restProps} css={{ width: '100%', listStyle: 'none' }}>
+    <Flex
+      tag='ul'
+      direction={flexDirection}
+      role='tablist'
+      {...restProps}
+      css={{ width: '100%', listStyle: 'none', margin: '0', padding: '0' }}
+    >
       {children}
     </Flex>
   );
@@ -164,4 +170,6 @@ const TabPanelWrapper = styled.section<PanelProps>`
 const TabAnchor = styled.a`
   color: inherit;
   text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
 `;
