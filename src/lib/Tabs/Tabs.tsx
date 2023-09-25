@@ -92,4 +92,9 @@ const Layout = styled.div<{ direction: TabsDirection }>`
   max-height: 100vh;
 
   ${({ direction }) => LAYOUT_STYLE[direction]}
+
+  * {
+    box-sizing: content-box;
+    flex-shrink: 1;
+  }
 `;
