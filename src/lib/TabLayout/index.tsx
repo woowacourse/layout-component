@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from "react";
+import { ReactNode, useState } from "react";
 import {
-  tabLayoutContainer,
+  rowTabLayoutContainer,
+  columnTabLayoutContainer,
   rowMenuContainer,
   columnMenuContainer,
   unselectedRowMenuItem,
   selectedRowMenuItem,
   unselectedColumnMenuItem,
   selectedColumnMenuItem,
-  rowContent,
-  columnContent,
+  content,
 } from "./style";
 
 interface TabItem {
@@ -18,16 +18,19 @@ interface TabItem {
 }
 
 interface TabLayoutProps {
-  menuPlace: "row" | "column";
+  menuDirection: "row" | "column";
   itemList: TabItem[];
 }
 
-export default function TabLayout({ itemList, menuPlace }: TabLayoutProps) {
+export default function TabLayout({ itemList, menuDirection }: TabLayoutProps) {
   const [nowTabKey, setNowTabKey] = useState(itemList[0].key);
-  const isRow = menuPlace === "row";
+  const isRow = menuDirection === "row";
 
   return (
-    <div style={!isRow ? tabLayoutContainer : {}}>
+    <div style={isRow ? rowTabLayoutContainer : columnTabLayoutContainer}>
+      <div style={content}>
+        {itemList.find((item) => item.key === nowTabKey)?.content}
+      </div>
       <div style={isRow ? rowMenuContainer : columnMenuContainer}>
         {itemList.map(({ key, name }) => {
           if (nowTabKey !== key)
@@ -50,9 +53,6 @@ export default function TabLayout({ itemList, menuPlace }: TabLayoutProps) {
             </button>
           );
         })}
-      </div>
-      <div style={isRow ? rowContent : columnContent}>
-        {itemList.find((item) => item.key === nowTabKey)?.content}
       </div>
     </div>
   );

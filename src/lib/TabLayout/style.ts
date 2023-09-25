@@ -1,11 +1,19 @@
 import { CSSProperties } from "react";
 
+export const rowTabLayoutContainer: CSSProperties = {
+  display: "flex",
+  flexDirection: "column-reverse",
+};
+
 export const rowMenuContainer: CSSProperties = {
   display: "flex",
   alignItems: "stretch",
   justifyContent: "flex-start",
 
   height: "30px",
+
+  top: "1px",
+  position: "relative",
 };
 
 const rowMenuItem: CSSProperties = {
@@ -49,8 +57,9 @@ export const selectedRowMenuItem: CSSProperties = {
   backgroundColor: "white",
 };
 
-export const tabLayoutContainer: CSSProperties = {
+export const columnTabLayoutContainer: CSSProperties = {
   display: "flex",
+  flexDirection: "row-reverse",
 };
 
 export const columnMenuContainer: CSSProperties = {
@@ -59,6 +68,9 @@ export const columnMenuContainer: CSSProperties = {
 
   width: "fit-content",
   maxWidth: "100px",
+
+  position: "relative",
+  left: "1px",
 };
 
 const columnMenuItem: CSSProperties = {
@@ -102,25 +114,9 @@ export const selectedColumnMenuItem: CSSProperties = {
   backgroundColor: "white",
 };
 
-const content: CSSProperties = {
-  position: "relative",
-
+export const content: CSSProperties = {
   padding: "5px",
   border: "1px solid rgba(0,0,0,0.5)",
 
   backgroundColor: "white",
-
-  zIndex: "-1",
-};
-
-export const rowContent: CSSProperties = {
-  ...content,
-
-  bottom: "1px",
-};
-
-export const columnContent: CSSProperties = {
-  ...content,
-
-  right: "1px",
 };

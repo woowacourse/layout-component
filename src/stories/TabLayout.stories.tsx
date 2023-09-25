@@ -20,7 +20,7 @@ const itemList = new Array(4).fill(0).map((_, index) => {
 const meta: Meta<typeof TabLayout> = {
   component: TabLayout,
   args: {
-    menuPlace: "row",
+    menuDirection: "row",
     itemList: itemList,
   },
 };
