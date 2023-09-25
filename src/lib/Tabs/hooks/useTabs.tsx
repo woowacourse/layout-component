@@ -21,6 +21,8 @@ const useTabs = (children: ReactNode) => {
   if (isDuplicationLabel) throw new Error('탭의 라벨이 중복되었습니다.');
 
   useEffect(() => {
+    setPanelList([]);
+
     Children.forEach(children, (child, index) => {
       const panel = child as ReactElement;
 
