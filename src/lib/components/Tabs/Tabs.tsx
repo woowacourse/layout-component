@@ -33,7 +33,7 @@ const List = (props: ListProps) => {
   const flexDirection = direction === 'horizontal' ? 'row' : 'column';
 
   return (
-    <Flex tag='ul' direction={flexDirection} role='tablist' {...restProps} css={{ width: '100%' }}>
+    <Flex tag='ul' direction={flexDirection} role='tablist' {...restProps} css={{ width: '100%', listStyle: 'none' }}>
       {children}
     </Flex>
   );
@@ -68,7 +68,7 @@ const Tab = (props: TabProps) => {
       primaryColor={primaryColor}
       {...restProps}
     >
-      <a href={tabPanelId}>{children}</a>
+      <TabAnchor href={tabPanelId}>{children}</TabAnchor>
     </TabWrapper>
   );
 };
@@ -159,4 +159,9 @@ const TabPanelWrapper = styled.section<PanelProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const TabAnchor = styled.a`
+  color: inherit;
+  text-decoration: none;
 `;
