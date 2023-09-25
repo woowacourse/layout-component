@@ -1,0 +1,67 @@
+{
+  "name": "navrary-layout",
+  "private": false,
+  "version": "0.0.4",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_fb0427b6deff179"
+  },
+  "dependencies": {
+    "chromatic": "^7.1.0",
+    "navrary-layout": "^0.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-vite": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
+    "@types/node": "^20.6.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "^0.6.13",
+    "path": "^0.12.7",
+    "storybook": "^7.4.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.3"
+  },
+  "description": "- maxWidth, minWidth, maxHeight, minHeight 지정 가능   - 이거 지정하면 width || height 지정은 안됨 - width, height 지정 가능   - 이거 지정하면 maxWidth, minWidth || maxHeight, minHeight 지정은 안됨 - 모든 방향 margin 지정 가능 - 모든 방향 padding 지정 가능 - position 지정가능   - absolute & fixed & sticky일 때에는 위치속성을 필수로 받아야함 - backgroundColor 지정가능 - border 지정가능 - name 혹은 id 지정 가능",
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaveOWO/layout-component.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NaveOWO/layout-component/issues"
+  },
+  "homepage": "https://github.com/NaveOWO/layout-component#readme",
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "navrary-layout@0.0.4"
+}
