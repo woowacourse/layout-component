@@ -1,15 +1,5 @@
 import styled, { css } from 'styled-components';
 import { ANCHOR } from './type';
-import {
-  popBottom,
-  popLeft,
-  popRight,
-  popTop,
-  pushBottom,
-  pushLeft,
-  pushRight,
-  pushTop,
-} from './animation';
 
 interface StyledDrawerProps {
   $anchor: ANCHOR;
@@ -31,31 +21,47 @@ const getDrawerHeight = (props: StyledDrawerProps) => {
 };
 
 const getAnimationStyle = (props: StyledDrawerProps) => {
+  const commonCloseStyle = css`
+    display: flex;
+    transition: all 400ms ease-in-out;
+    box-shadow: none;
+  `;
+
+  const commonOpenStyle = css`
+    display: flex;
+    transition: all 400ms ease-in-out;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.4);
+  `;
+
   if (!props.$isOpen) {
     switch (props.$anchor) {
       case 'left':
         return css`
-          top: 0px;
-          left: 0px;
-          animation: ${pushLeft} 400ms ease-in-out reverse;
+          ${commonCloseStyle}
+          top: 0;
+          left: 0;
+          transform: translateX(-100%);
         `;
       case 'top':
         return css`
-          top: 0px;
-          left: 0px;
-          animation: ${pushTop} 400ms ease-in-out reverse;
+          ${commonCloseStyle}
+          top: 0;
+          left: 0;
+          transform: translateY(-100%);
         `;
       case 'right':
         return css`
-          top: 0px;
-          right: 0px;
-          animation: ${pushRight} 400ms ease-in-out;
+          ${commonCloseStyle}
+          top: 0;
+          right: 0;
+          transform: translateX(100%);
         `;
       case 'bottom':
         return css`
-          bottom: 0px;
-          left: 0px;
-          animation: ${pushBottom} 400ms ease-in-out reverse;
+          ${commonCloseStyle}
+          bottom: 0;
+          left: 0;
+          transform: translateY(100%);
         `;
       default:
         return '';
@@ -64,27 +70,31 @@ const getAnimationStyle = (props: StyledDrawerProps) => {
     switch (props.$anchor) {
       case 'left':
         return css`
-          top: 0px;
-          left: 0px;
-          animation: ${popLeft} 400ms ease-in-out;
+          ${commonOpenStyle}
+          top: 0;
+          left: 0;
+          transform: translateX(0);
         `;
       case 'top':
         return css`
-          top: 0px;
-          left: 0px;
-          animation: ${popTop} 400ms ease-in-out;
+          ${commonOpenStyle}
+          top: 0;
+          left: 0;
+          transform: translateY(0);
         `;
       case 'right':
         return css`
-          top: 0px;
-          right: 0px;
-          animation: ${popRight} 400ms ease-in-out;
+          ${commonOpenStyle}
+          top: 0;
+          right: 0;
+          transform: translateX(0);
         `;
       case 'bottom':
         return css`
-          bottom: 0px;
-          left: 0px;
-          animation: ${popBottom} 400ms ease-in-out;
+          ${commonOpenStyle}
+          bottom: 0;
+          left: 0;
+          transform: translateY(0);
         `;
       default:
         return '';
@@ -93,8 +103,8 @@ const getAnimationStyle = (props: StyledDrawerProps) => {
 };
 
 export const BaseDrawer = styled.div<StyledDrawerProps>`
-  position: fixed;
-  display: flex;
+  position: absolute;
+  display: none;
   flex-direction: column;
   width: ${(props) => getDrawerWidth(props)};
   max-width: ${(props) => getDrawerMaxWidth(props)};
@@ -102,7 +112,6 @@ export const BaseDrawer = styled.div<StyledDrawerProps>`
   ${(props) => getAnimationStyle(props)};
 
   overflow: scroll;
-  box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.4);
   padding: 8px 0;
 
   z-index: 2;
@@ -132,11 +141,4 @@ export const BackDrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
-`;
-
-export const ItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
 `;
