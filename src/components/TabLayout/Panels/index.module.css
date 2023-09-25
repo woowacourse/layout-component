@@ -1,0 +1,12 @@
+.panels {
+  height: calc(100% - 40px);
+  padding: 16px;
+
+  background-color: transparent;
+}
+
+.panel {
+  height: 100%;
+
+  background-color: transparent;
+}

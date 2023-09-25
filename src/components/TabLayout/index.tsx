@@ -1,5 +1,6 @@
 import '../../styles/reset.css';
 import '../../styles/global.css';
+import styles from './index.module.css';
 
 import { Children } from 'react';
 import { ContainerProps } from '../../types/component';
@@ -42,6 +43,7 @@ export default function TabLayout({
 
   return (
     <div
+      className={styles['tab-layout-container']}
       style={{
         position,
         top,

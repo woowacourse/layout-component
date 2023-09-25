@@ -1,3 +1,5 @@
+import styles from './index.module.css';
+
 interface Props {
   tabs: string[];
   activateTab: (index: number) => void;
@@ -5,11 +7,11 @@ interface Props {
 
 export default function Tabs({ tabs, activateTab }: Props) {
   return (
-    <ul className='tab-button-list'>
+    <ul className={styles['tab-button-list']}>
       {tabs.map((tab, index) => {
         return (
-          <li key={tab}>
-            <button className='tab-button' onClick={() => activateTab(index)}>
+          <li className={styles['tab-button-item']} key={tab}>
+            <button className={styles['tab-button']} onClick={() => activateTab(index)}>
               {tab}
             </button>
           </li>

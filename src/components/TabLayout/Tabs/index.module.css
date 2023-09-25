@@ -1,0 +1,16 @@
+.tab-button-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+
+  background-color: transparent;
+}
+
+.tab-button-item {
+  background-color: transparent;
+}
+
+.tab-button {
+  padding: 8px 16px;
+}

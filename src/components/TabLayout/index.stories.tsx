@@ -26,9 +26,15 @@ export const Primary: Story = {
   render: () => {
     return (
       <TabLayout tabs={tabs} width={400} height={400} backgroundColor='#23272f'>
-        <Container color='white'>탭1</Container>
-        <Container color='white'>탭2</Container>
-        <Container color='white'>탭3</Container>
+        <Container color='white' backgroundColor='inherit'>
+          탭1
+        </Container>
+        <Container color='white' backgroundColor='inherit'>
+          탭2
+        </Container>
+        <Container color='white' backgroundColor='inherit'>
+          탭3
+        </Container>
       </TabLayout>
     );
   },
