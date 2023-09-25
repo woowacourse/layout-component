@@ -105,3 +105,47 @@ function GridExample() {
   )
 }
 ```
+
+### Tab
+
+```tsx
+/*
+  TabProvider
+  
+  - tabIdx? tab에서 처음 보여줄 idx를 설정할 수 있다. 
+
+  TabList
+
+  - width? TabList의 width를 정할 수 있다. 
+  - justify? TabList의 정렬 방식을 정할 수 있다. 
+
+  TabItem
+
+  - value: TabItem의 idx값;
+  - label: TabItem에 보여줄 string값;
+  - disabled?: TabItem disabled;
+  - indicatorColor?: TabItem 활성화 기능;
+  
+  TabPanel
+
+  - value: 선택된 TabItem과 mapping된 idx값  
+*/
+
+function TabExample() {
+  const [value] = useState(1);
+
+  return (
+    <TabProvider tabIdx={value}>
+      <TabList>
+        <TabItem label="Item One" value={1} />
+        <TabItem label="Item Two" value={2} />
+        <TabItem label="Item Three" value={3} />
+      </TabList>
+
+      <TabPanel value={1}>Item One</TabPanel>
+      <TabPanel value={2}>Item Two</TabPanel>
+      <TabPanel value={3}>Item Three</TabPanel>
+    </TabProvider>
+  );
+}
+```
