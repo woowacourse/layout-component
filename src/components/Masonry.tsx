@@ -1,65 +1,52 @@
-import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
-
-import type { CSSProperties as CSS, PropsWithChildren, PropsWithRef } from 'react';
+import type { CSSProperties as CSS, ReactElement } from 'react';
+import { Children, useState } from 'react';
 
 import { type ContainerProps, stylingContainer } from './Container';
 import { Flex } from './Flex';
+import { MasonryItem } from './MasonryItem';
 
 interface MasonryProps extends ContainerProps {
-  children: React.ReactElement[];
-  axisCount?: number;
+  children: ReactElement | ReactElement[];
+  columns?: number;
+  gap?: number;
 }
 
-interface Axis {
-  children: React.ReactElement[];
+interface Column {
   height: number;
+  itemList: {
+    index: number;
+    element: ReactElement;
+  }[];
 }
+
+const DEFAULT_COLUMNS = 2;
+const DEFAULT_GAP = 8;
 
 export const Masonry = (props: MasonryProps) => {
-  const { children, as: Element = 'div', axisCount = 2 } = props;
+  const { children, as: Element = 'div', columns = DEFAULT_COLUMNS, gap = DEFAULT_GAP } = props;
 
-  const childrenHeightRef = useRef<number[]>([]);
-  const [isFirstRender, setIsFirstRender] = useState(true);
+  const [itemHeightMap, setItemHeightMap] = useState<number[]>([]);
 
-  const axisMap: Axis[] = Array.from({ length: axisCount }, () => ({ height: 0, children: [] }));
-
-  if (isFirstRender) {
-    axisMap[0].children = children;
-  } else {
-    Children.map(children, (child: React.ReactElement, index) => {
-      const shortestIndex = Number(
-        Object.entries(axisMap).sort(([, a], [, b]) => a.height - b.height)[0][0]
-      );
-
-      axisMap[shortestIndex].children.push(child);
-      axisMap[shortestIndex].height += childrenHeightRef.current[index];
-    });
-  }
-
-  useEffect(() => {
-    setIsFirstRender(false);
-  }, []);
-
-  const style: CSS = {
-    ...stylingContainer(props),
-
-    display: 'grid',
-    gridTemplateColumns: `repeat(${axisCount}, 1fr)`,
-    gap: '8px',
-    height: isFirstRender ? '0' : 'auto',
+  const onChangeItemHeight = (index: number) => (height: number) => {
+    itemHeightMap[index] = height;
+    setItemHeightMap([...itemHeightMap]);
   };
 
+  const columnMap: Column[] = Array.from({ length: columns }, () => ({ height: 0, itemList: [] }));
+
+  Children.map(children, (child: ReactElement, index) => {
+    const shortestColumn = columnMap.reduce((a, b) => (a.height > b.height ? b : a));
+    shortestColumn.itemList.push({ index, element: child });
+    shortestColumn.height += itemHeightMap[index] + gap;
+  });
+
   return (
-    <Element style={style}>
-      {axisMap.map(({ children }, index) => (
-        <Flex key={index} direction="column" gap={8}>
-          {Children.map(children, (child, index) => (
-            <MasonryItem
-              refCallback={(element) => {
-                if (element) childrenHeightRef.current[index] = element.scrollHeight;
-              }}
-            >
-              {child}
+    <Element style={stylingMasonry(props)}>
+      {columnMap.map(({ itemList }, index) => (
+        <Flex key={index} direction="column" gap={gap}>
+          {itemList.map(({ index, element }) => (
+            <MasonryItem key={index} onChangeHeight={onChangeItemHeight(index)}>
+              {element}
             </MasonryItem>
           ))}
         </Flex>
@@ -68,20 +55,13 @@ export const Masonry = (props: MasonryProps) => {
   );
 };
 
-interface MasonryItemProps {
-  refCallback: (element: HTMLDivElement | null) => void;
-}
+const stylingMasonry = (props: MasonryProps): CSS => {
+  const { columns = DEFAULT_COLUMNS } = props;
 
-export const MasonryItem = (props: PropsWithChildren<MasonryItemProps>) => {
-  const { children, refCallback } = props;
-
-  const style: CSS = {
-    width: '100%',
+  return {
+    ...stylingContainer(props),
+    display: 'grid',
+    gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    gap: '8px',
   };
-
-  return (
-    <div style={style} ref={refCallback}>
-      {children}
-    </div>
-  );
 };
