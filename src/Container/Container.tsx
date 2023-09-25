@@ -12,15 +12,15 @@ type ContainerProps = Combine<
 >;
 
 const Container = (props: ContainerProps) => {
-  const { children, minWidth, maxWidth, padding, margin, ...restProps } = props;
+  const { children, minWidth, maxWidth, margin, padding, ...restProps } = props;
 
   return (
     <ContainerWrapper>
       <ContainerContent
         $minWidth={minWidth}
         $maxWidth={maxWidth}
-        $padding={padding}
         $margin={margin}
+        $padding={padding}
         {...restProps}
       >
         {children}
@@ -43,6 +43,6 @@ const ContainerContent = styled.div<ContainerSCProps>`
   min-width: ${({ $minWidth }) => convertToPixel($minWidth) ?? 0};
   max-width: ${({ $maxWidth }) => convertToPixel($maxWidth) ?? 'unset'};
 
-  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
   ${({ $margin }) => generateDirectionStyle('margin', $margin)};
+  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
 `;
