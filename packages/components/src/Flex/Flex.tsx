@@ -18,14 +18,14 @@ export type FlexProps<TElementType extends React.ElementType> =
   >;
 
 const Flex = <TElementType extends React.ElementType = 'div'>(props: FlexProps<TElementType>) => {
-  const { as: Element = 'div', direction, justify, align, alignContent, wrap, gap, ...divProps } = props;
+  const { as: Element = 'div', direction, justify, align, alignContent, wrap, gap, ...restProps } = props;
 
   return (
     <Element
-      {...divProps}
+      {...restProps}
       className={root}
       style={{
-        ...divProps.style,
+        ...restProps.style,
         ...assignInlineVars({
           [vars.flexDirection]: direction ?? "initial",
           [vars.justifyContent]: justify ?? "initial",
