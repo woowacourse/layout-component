@@ -6,3 +6,4 @@ tsconfig.json
 .storybook
 .tsconfig.node.json
 vite.config.ts
+dist
