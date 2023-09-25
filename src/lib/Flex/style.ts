@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 import { CommonStyleProps, CommonTag } from '../style/common';
-import { FlexProps } from '.';
+import { _FlexProps } from '.';
 
-type ComponentProps = FlexProps & CommonStyleProps;
+type ComponentProps = _FlexProps & CommonStyleProps;
 
 export const Component = styled(CommonTag)<ComponentProps>`
   display: flex;

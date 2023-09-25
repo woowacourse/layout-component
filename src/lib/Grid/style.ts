@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 import { CommonStyleProps, CommonTag } from '../style/common';
-import { GridProps } from '.';
+import { _GridProps } from '.';
 
-type ComponentProps = GridProps & CommonStyleProps;
+type ComponentProps = _GridProps & CommonStyleProps;
 
 const getGridTemplate = (value: string | number) => {
   if (typeof value === 'number') {
