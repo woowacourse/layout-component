@@ -1,6 +1,6 @@
 {
   "name": "@suyoungj/react-layout-component",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
