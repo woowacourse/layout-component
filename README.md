@@ -5,7 +5,8 @@
 
 - [npm](https://www.npmjs.com/package/@wainaat/react-layout-component)
 - [demo: Storybook](https://wainaat.github.io/layout-component/)
-- [demo: CodeSandbox](https://codesandbox.io/s/example-wainaat-react-layout-component-57vgc7?file=/src/App.js)
+- [demo (Container, Grid, Flex): CodeSandbox](https://codesandbox.io/s/example-wainaat-react-layout-component-57vgc7?file=/src/App.js)
+- [demo (Masonry): CodeSandbox](https://codesandbox.io/s/masonry-wainaat-react-layout-component-kp7sz2)
 
 ## 설치하기
 
