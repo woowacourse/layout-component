@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/lib/index.tsx'),
       formats: ['es'],
       fileName: 'index',
     },
