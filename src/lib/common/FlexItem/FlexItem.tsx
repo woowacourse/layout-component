@@ -1,5 +1,4 @@
 import type { FlexBasicLayout } from '../FlexContainer/FlexContainer';
-import Grid from '../Grid';
 import type { Size } from '../styles/size';
 import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
@@ -35,12 +34,9 @@ const FlexItem = ({
   const Tag = tag;
 
   return (
-    <>
-      <Tag css={flexItemStyle({ order, shrink, grow, flex, alignSelf })} {...attributes}>
-        {children}
-      </Tag>
-      <Grid rows={1} />
-    </>
+    <Tag css={flexItemStyle({ order, shrink, grow, flex, alignSelf })} {...attributes}>
+      {children}
+    </Tag>
   );
 };
 
