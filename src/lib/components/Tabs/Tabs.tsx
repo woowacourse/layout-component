@@ -6,8 +6,11 @@ import { Flex } from '../..';
 export type TabDirection = 'horizontal' | 'vertical';
 
 export interface TabsProps extends PropsWithChildren {
+  /** 기본 탭을 설정하는 속성입니다. */
   defaultTabId: string;
+  /** 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다.*/
   direction?: TabDirection;
+  /** 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다. 기본 값은 Cornflowerblue입니다.*/
   primaryColor?: string;
 }
 
@@ -55,6 +58,7 @@ const Tab = (props: TabProps) => {
     <TabWrapper
       id={`${tabPanelId}-tab`}
       role='tab'
+      tabIndex={0}
       aria-selected={isSelected}
       aria-controls={tabPanelId}
       direction={direction}
@@ -79,7 +83,14 @@ const Panel = (props: PanelProps) => {
 
   return (
     isSelected && (
-      <TabPanelWrapper id={id} role='tabpanel' aria-labelledby={`${id}-tab`} aria-expanded={isSelected} {...restProps}>
+      <TabPanelWrapper
+        id={id}
+        tabIndex={0}
+        role='tabpanel'
+        aria-labelledby={`${id}-tab`}
+        aria-expanded={isSelected}
+        {...restProps}
+      >
         {children}
       </TabPanelWrapper>
     )
@@ -96,6 +107,8 @@ const TabWrapper = styled.li<
   Omit<TabProps, 'tabPanelId'> & { selected: boolean; direction: TabDirection; primaryColor: string }
 >`
   position: relative;
+
+  width: 100%;
   padding: 1.6rem;
 
   text-align: center;

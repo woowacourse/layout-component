@@ -36,7 +36,7 @@ const meta = {
           color: '#3c3c3c',
           fontSize: '2rem',
           fontWeight: 'bold',
-          width: '100%',
+          width: '100vw',
           height: '100%',
           backgroundColor: '#fff',
         }}
@@ -67,13 +67,13 @@ export const Primary: Story = {
             <Tabs.Tab tabPanelId='item3'>ITEM THREE</Tabs.Tab>
           </Tabs.List>
           <Tabs.Panel id='item1'>
-            <Container css={{ margin: '2rem', textAlign: 'center' }}>👀</Container>
+            <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>👀</Container>
           </Tabs.Panel>
           <Tabs.Panel id='item2'>
-            <Container css={{ margin: '2rem', textAlign: 'center' }}>🐾</Container>
+            <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐾</Container>
           </Tabs.Panel>
           <Tabs.Panel id='item3'>
-            <Container css={{ margin: '2rem', textAlign: 'center' }}>🐕</Container>
+            <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐕</Container>
           </Tabs.Panel>
         </Tabs>
       </>
