@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Tabs from './Tabs';
+import TabList from '../tabList/TabList';
+import Tab from '../tab/Tab';
+import TabPanel from '../tabPanel/TabPanel';
+import TabPanelList from '../tabPanelList/TabPanelList';
+
+<Meta
+  title="Components/Tabs"
+  component={Tabs}
+  argTypes={{
+    className: { control: 'text', description: '컴포넌트에 적용할 클래스명입니다.' },
+    defaultFocus: { control: 'boolean', description: '초기 렌더링 시 탭에 포커스를 줄지 여부입니다.' },
+    defaultIdx: { control: { type: 'select', options: [1, '두번째'] }, description: '초기 렌더링 시 어떤 탭이 활성화될지를 결정합니다. 숫자와 문자열 모두 가능합니다.' }
+  }}
+  args={{
+    className: '',
+    defaultFocus: false,
+    defaultIdx: '두번째'
+  }}
+/>
+
+# Tabs 컴포넌트
+
+Tabs는 탭을 이용한 콘텐츠의 레이아웃을 구성할 수 있도록 해주는 컴포넌트입니다. 다양한 설정을 통해 유연한 UI를 구성할 수 있습니다.
+
+## 속성
+
+<ArgsTable of={Tabs} />
+
+## 실시간 예시
+
+<Canvas>
+  <Story name="컴포넌트">
+    {args => (
+      <Tabs {...args}>
+        <TabList>
+          <Tab name={1}>
+            <h3>first</h3>
+          </Tab>
+          <Tab name={'두번째'}>
+            <h3>second</h3>
+          </Tab>
+        </TabList>
+
+        <TabPanelList>
+          <TabPanel name={1}>
+            <div>first Panel</div>
+          </TabPanel>
+          <TabPanel name={'두번째'}>
+            <div>second Panel</div>
+          </TabPanel>
+        </TabPanelList>
+      </Tabs>
+    )}
+  </Story>
+</Canvas>
