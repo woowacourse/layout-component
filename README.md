@@ -98,3 +98,27 @@ import { Container, Flex, Grid } from "guridaek-layout-components";
 - `etc`: CSSProp
 
   추가적인 CSS를 적용할 수 있습니다.
+
+### Drawer 사용하기
+
+```js
+<Drawer anchor="TOP" isOpen={isOpen} onClose={handleClose}>
+  ...
+</Drawer>
+```
+
+- `anchor`: "TOP" | "BOTTOM" | "LEFT" | "RIGHT"
+
+  Drawer의 위치를 설정할 수 있습니다.
+
+- `isOpen`: boolean
+
+  화면에 표시된 상태인지 나타냅니다.
+
+- `onClose`: () => void
+
+  Drawer를 닫는 함수입니다. `isOpen`을 false로 바꿔줘야 합니다.
+
+- `etc`: CSSProp
+
+  추가적인 CSS를 적용할 수 있습니다.
