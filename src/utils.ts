@@ -13,7 +13,7 @@ export const convertToPixel = (value: StyleValue) => {
 
 export const generateDirectionStyle = (
   style: 'padding' | 'margin',
-  value: number | DirectionStyle | undefined
+  value: StyleValue | DirectionStyle
 ): CSSObject => {
   if (typeof value === 'object') {
     const { top, left, right, bottom } = value;

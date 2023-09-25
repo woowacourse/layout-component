@@ -1,17 +1,17 @@
+export type StyleValue = number | string | undefined;
+
 export type DirectionStyle = {
-  top?: number;
-  left?: number;
-  right?: number;
-  bottom?: number;
+  top?: StyleValue;
+  left?: StyleValue;
+  right?: StyleValue;
+  bottom?: StyleValue;
 };
 
 export type ElementBasicStyleType = {
-  maxWidth?: number;
-  minWidth?: number;
-  padding?: number | DirectionStyle;
-  margin?: number | DirectionStyle;
+  maxWidth?: StyleValue;
+  minWidth?: StyleValue;
+  padding?: StyleValue | DirectionStyle;
+  margin?: StyleValue | DirectionStyle;
 };
 
 export type StyleUnit = 'px' | 'rem' | 'em' | '%' | 'vh' | 'vw';
-
-export type StyleValue = number | string | undefined;
