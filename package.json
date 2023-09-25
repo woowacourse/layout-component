@@ -1,13 +1,15 @@
 {
   "name": "react-aaker-layout-components",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "rm -rf dist && mkdir dist && yarn build"
+    "prepare": "rm -rf dist && mkdir dist && yarn build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist"
@@ -41,8 +43,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@storybook/addon-essentials": "^7.4.3",
+    "@storybook/addon-interactions": "^7.4.3",
+    "@storybook/addon-links": "^7.4.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.3",
+    "@storybook/react": "^7.4.3",
+    "@storybook/react-vite": "^7.4.3",
+    "@storybook/testing-library": "^0.2.1",
     "@types/node": "20.6.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -52,7 +60,11 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "0.6.14",
     "prettier": "3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "3.5.3"
