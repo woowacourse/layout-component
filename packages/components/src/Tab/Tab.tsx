@@ -3,6 +3,15 @@ import { PropsWithHTMLElement } from "../types";
 import { activeTabControl, root, tabControl, tabControls, tabs, vars } from "./Tab.css";
 import React, { PropsWithChildren, useState } from "react";
 
+function resolveChildren(children: PropsWithChildren["children"]) {
+  return children &&
+    typeof children === "object" &&
+    "type" in children &&
+    children.type === React.Fragment
+    ? children.props.children
+    : children;
+}
+
 export type TabProps<TElementType extends React.ElementType> =
   PropsWithHTMLElement<
     {
@@ -25,16 +34,6 @@ const Tab = <TElementType extends React.ElementType = "div">(
   } = props;
 
   const [focusedTab, setFocusedTab] = useState<number>(0);
-
-  function resolveChildren(children: PropsWithChildren["children"]) {
-    return children &&
-      typeof children === "object" &&
-      "type" in children &&
-      children.type === React.Fragment
-      ? children.props.children
-      : children;
-  }
-
   const child = React.Children.toArray(resolveChildren(children))[focusedTab];
 
   return (
