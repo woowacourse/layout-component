@@ -1,4 +1,4 @@
-import { ElementType, ReactNode, forwardRef } from 'react';
+import { ElementType, ReactElement, forwardRef } from 'react';
 import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
 import * as S from './style';
 
@@ -17,17 +17,15 @@ export type GridProps<T extends ElementType> = PolymorphicComponentProps<
 
 type GridComponent = <T extends ElementType>(
   props: GridProps<T>
-) => ReactNode | null;
+) => ReactElement | null;
 
 const Grid: GridComponent = forwardRef(function Grid<
   T extends ElementType = 'div'
 >({ css, as, children, ...rest }: GridProps<T>, ref: PolymorphicRef<T>) {
   return (
-    <>
-      <S.Component as={as} ref={ref} style={css} {...rest}>
-        {children}
-      </S.Component>
-    </>
+    <S.Component as={as} ref={ref} style={css} {...rest}>
+      {children}
+    </S.Component>
   );
 });
 
