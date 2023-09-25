@@ -1,0 +1,60 @@
+{
+  "name": "react-aaker-layout-components",
+  "private": false,
+  "version": "1.0.3",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "rm -rf dist && mkdir dist && yarn build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-aaker-layout-components.umd.js",
+  "module": "./dist/react-aaker-layout-components.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-aaker-layout-components.es.js",
+      "require": "./dist/react-aaker-layout-components.umd.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeonjeunghoon/layout-component.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "components",
+    "layout"
+  ],
+  "author": "Aaker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeonjeunghoon/layout-component/issues"
+  },
+  "description": "아커의 레이아웃 컴포넌트 모음",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/node": "20.6.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "prettier": "3.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "3.5.3"
+  }
+}
