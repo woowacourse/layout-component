@@ -15,17 +15,20 @@ const meta = {
     defaultSize: {
       control: {
         type: "text",
-      }
+      },
+      description: "SplitPane의 기본 사이즈를 설정합니다.",
     },
     minSize: {
       control: {
         type: "text",
-      }
+      },
+      description: "SplitPane 좌측 영역의 최소 사이즈를 설정합니다."
     },
     maxSize: {
       control: {
         type: "text",
-      }
+      },
+      description: "SplitPane 좌측 영역의 최대 사이즈를 설정합니다."
     }
   },
 } satisfies Meta<typeof SplitPane>;
@@ -43,6 +46,20 @@ export const Default = (args: SplitPaneProps) => (
 
 export const Texts = (args: SplitPaneProps) => (
   <SplitPane {...args}>
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
+
+export const WrongChildren = (args: SplitPaneProps) => (
+  <SplitPane {...args}>
+    <div>
+      {loremIpsum}
+    </div>
     <div>
       {loremIpsum}
     </div>
