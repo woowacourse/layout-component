@@ -1,26 +1,30 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import type { Size } from '../../types';
+import { stringifySize } from '../utils/stringifySize';
 import styles from './Container.module.css';
 
 type ContainerProps = HTMLAttributes<HTMLDivElement> & {
-  maxWidth: number;
-  minWidth?: number;
-  verticalPadding?: number;
-  horizontalPadding?: number;
+  maxWidth?: Size;
+  minWidth?: Size;
+  verticalPadding?: Size;
+  horizontalPadding?: Size;
   children: ReactNode;
 };
 
 const Container = (props: ContainerProps) => {
   const {
-    maxWidth,
-    minWidth,
-    verticalPadding,
-    horizontalPadding,
+    maxWidth = '100%',
+    minWidth = 0,
+    verticalPadding = 0,
+    horizontalPadding = 0,
     children,
     ...rest
   } = props;
 
   const containerStyles = {
-    padding: `${verticalPadding ?? 0}px ${horizontalPadding ?? 0}px`,
+    padding: `${stringifySize(verticalPadding)} ${stringifySize(
+      horizontalPadding
+    )}`,
     ...rest,
   };
 
