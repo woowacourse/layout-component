@@ -129,6 +129,12 @@ import { Tabs } from 'chex-layout-component';
 </Tabs>
 ```
 
+## Author's Intent
+
+**미래의 자신 그리고 개발자 동료들**이 사용한다고 생각하고 만든 기본 레이아웃 컴포넌트입니다.
+<br>
+어떤 속성을 포함해야 사용하기 편할까를 고민하여 컴포넌트 `Prop`을 지정하였습니다. 사용자의 자유도를 높여 유연한 컴포넌트로서 재사용이 용이하도록 만들고자 했습니다.
+
 ## Development Environment
 
 - React
@@ -136,6 +142,6 @@ import { Tabs } from 'chex-layout-component';
 - Styled-components
 - Vite
 
-## [Storybook](https://6505550eb343f2286f179ae2-huchuaarep.chromatic.com/)
+## [Storybook](https://6505550eb343f2286f179ae2-txbaamrfzf.chromatic.com)
 
 Storybook에서 자유롭게 컴포넌트를 경험해보세요!
