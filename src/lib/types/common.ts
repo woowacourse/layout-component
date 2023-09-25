@@ -3,10 +3,13 @@ import {
   ComponentPropsWithRef,
   ComponentPropsWithoutRef,
   ElementType,
+  PropsWithChildren,
 } from 'react';
 import { CommonStyleProps } from '../style/common';
 
-interface Common<T extends ElementType> extends CommonStyleProps {
+interface Common<T extends ElementType>
+  extends CommonStyleProps,
+    PropsWithChildren {
   as?: T;
   css?: CSSProperties;
 }

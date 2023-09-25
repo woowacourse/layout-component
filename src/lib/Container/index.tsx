@@ -16,19 +16,16 @@ type ContainerComponent = <T extends ElementType>(
   props: ContainerProps<T>
 ) => ReactElement | null;
 
-const Container: ContainerComponent = forwardRef(
-  <T extends ElementType = 'div'>(
-    { css, as, children, ...rest }: ContainerProps<T>,
-    ref: PolymorphicRef<T>
-  ) => {
-    return (
-      <>
-        <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
-          {children}
-        </S.Component>
-      </>
-    );
-  }
-);
+const Container: ContainerComponent = forwardRef(function Container<
+  T extends ElementType = 'div'
+>({ css, as, children, ...rest }: ContainerProps<T>, ref: PolymorphicRef<T>) {
+  return (
+    <>
+      <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
+        {children}
+      </S.Component>
+    </>
+  );
+});
 
 export default Container;
