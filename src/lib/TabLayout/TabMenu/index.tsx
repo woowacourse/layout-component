@@ -1,17 +1,19 @@
 import styled from "styled-components";
+import { NumberUnitType } from "../../../types";
 
-interface TabMenuProps {
+interface TabMenuStyledProps {
   $isCurrentTab: boolean;
   $tabMenuBorderBottomColor: string;
   $tabMenuFontSize: string;
+  $tabMenuHeight: NumberUnitType;
 }
 
-const TabMenu = styled.button<TabMenuProps>`
+const TabMenu = styled.button<TabMenuStyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: ${({ $tabMenuHeight }) => $tabMenuHeight};
 
   color: ${({ $isCurrentTab }) => !$isCurrentTab && "gray"};
   font-weight: ${({ $isCurrentTab }) => $isCurrentTab && "700"};
@@ -26,8 +28,8 @@ const TabMenu = styled.button<TabMenuProps>`
 
   cursor: pointer;
   &:hover {
-    opacity: 60%;
-    transition: scale(0.98);
+    opacity: 50%;
+    transform: scale(0.98);
   }
 `;
 

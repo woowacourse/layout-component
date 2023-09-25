@@ -1,13 +1,14 @@
 import { ReactNode, useState } from "react";
 import { styled } from "styled-components";
+import { NumberUnitType } from "../../types";
 import TabMenu from "./TabMenu";
 
 interface TabLayoutProps {
   tabs: ReactNode[];
   tabsMenu: string[];
 
-  tabWidth?: string;
-  tabMenuHeight?: string;
+  tabWidth?: NumberUnitType;
+  tabMenuHeight?: NumberUnitType;
   tabMenuFontSize?: string;
   tabMenuBorderBottomColor?: string;
   defaultTabIndex?: number;
@@ -17,6 +18,7 @@ const TabLayout = ({
   tabs,
   tabsMenu,
   tabWidth = "100%",
+  tabMenuHeight = "45px",
   tabMenuFontSize = "16px",
   tabMenuBorderBottomColor = "black",
   defaultTabIndex = 0,
@@ -34,6 +36,7 @@ const TabLayout = ({
           <TabMenu
             onClick={changeTabIndex(index)}
             $isCurrentTab={currentTabIndex === index}
+            $tabMenuHeight={tabMenuHeight}
             $tabMenuFontSize={tabMenuFontSize}
             $tabMenuBorderBottomColor={tabMenuBorderBottomColor}
           >
@@ -55,9 +58,10 @@ const TabContainer = styled.section<{ $tabWidth: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: pink;
-  padding: 10px;
   width: ${({ $tabWidth }) => $tabWidth};
+
+  padding: 10px;
+  box-sizing: border-box;
 `;
 
 export default TabLayout;
