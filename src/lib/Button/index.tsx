@@ -41,18 +41,18 @@ const StyledButton = styled.button<{
 }>`
   display: inline-block;
 
-  padding: ${(props) => SIZE[props.$size].padding};
+  padding: ${({ $size }) => SIZE[$size].padding};
   border-radius: 3em;
-  border: ${(props) =>
-    props.$primary ? '1px solid #1ea7fd' : '1px solid gray'};
+  border: ${({ $primary }) =>
+    $primary ? '1px solid #1ea7fd' : '1px solid gray'};
 
-  color: ${(props) => (props.$primary ? 'white' : 'black')};
-  background-color: ${(props) => (props.$primary ? '#1ea7fd' : 'transparent')};
+  color: ${({ $primary }) => ($primary ? 'white' : 'black')};
+  background-color: ${({ $primary }) => ($primary ? '#1ea7fd' : 'transparent')};
 
-  box-shadow: ${(props) =>
-    props.$primary && ' rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset'};
+  box-shadow: ${({ $primary }) =>
+    $primary && ' rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset'};
 
-  font-size: ${(props) => SIZE[props.$size].fontSize};
+  font-size: ${({ $size }) => SIZE[$size].fontSize};
   font-weight: 700;
   line-height: 1;
 

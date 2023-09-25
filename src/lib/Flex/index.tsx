@@ -41,13 +41,13 @@ const StyledFlex = styled.div<{
   $backgroundColor: string;
 }>`
   display: flex;
-  flex-direction: ${(props) => props.$direction};
-  justify-content: ${(props) => props.$justify};
-  align-items: ${(props) => props.$align};
-  gap: ${(props) => props.$gap};
+  flex-direction: ${({ $direction }) => $direction};
+  justify-content: ${({ $justify }) => $justify};
+  align-items: ${({ $align }) => $align};
+  gap: ${({ $gap }) => ($gap ? $gap : 0)};
 
   height: 100px;
   padding: 10px;
 
-  background-color: ${(props) => props.$backgroundColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
 `;

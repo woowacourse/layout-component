@@ -35,11 +35,11 @@ const StyledContainer = styled.div<{
   $height: string;
   $backgroundColor: string;
 }>`
-  height: ${(props) => props.$height};
+  height: ${({ $height }) => $height};
   padding: 10px;
 
-  max-width: ${(props) => props.$maxWidth};
-  min-width: ${(props) => props.$minWidth};
+  max-width: ${({ $maxWidth }) => $maxWidth};
+  min-width: ${({ $minWidth }) => $minWidth};
 
-  background-color: ${(props) => props.$backgroundColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
 `;

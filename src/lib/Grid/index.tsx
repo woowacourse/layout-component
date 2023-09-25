@@ -37,10 +37,9 @@ const StyledGrid = styled.div<{
   $backgroundColor: string;
 }>`
   display: grid;
-  grid-template-rows: ${(props) => `repeat(${props.$rows}, 1fr)`};
-  grid-template-columns: ${(props) => `repeat(${props.$columns}, 1fr)`};
-  gap: ${(props) => props.$gap};
-
+  grid-template-rows: ${({ $rows }) => `repeat(${$rows}, 1fr)`};
+  grid-template-columns: ${({ $columns }) => `repeat(${$columns}, 1fr)`};
+  gap: ${({ $gap }) => ($gap ? $gap : 0)};
   padding: 10px;
 
   background-color: ${(props) => props.$backgroundColor};
