@@ -1,8 +1,8 @@
-import { PolymorphicElementProps } from '../../types';
+import { PolymorphicElementProps } from '../../../types';
 import { columnGapVar, itemSizeVar, masonryBoard } from './Board.css';
-import MasonryProvider, { MasonryContextProps } from '../context';
+import MasonryProvider, { MasonryContextProps } from '../../contexts';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { toPixelIfNumber } from '../../utils/toPixelIfNumber';
+import { toPixelIfNumber } from '../../../utils/toPixelIfNumber';
 
 type MasonryProps = MasonryContextProps & {
   /** Masonry.Item의 너비 */

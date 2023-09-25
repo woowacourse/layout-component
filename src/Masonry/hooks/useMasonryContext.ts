@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { MasonryContext } from '../context';
+import { MasonryContext } from '../contexts';
 
 const useMasonryContext = () => {
   const value = useContext(MasonryContext);

@@ -1,5 +1,5 @@
-import Board from './Board';
-import Item from './Item';
+import Board from './components/Board';
+import Item from './components/Item';
 
 const Masonry = Object.assign(Board, { Item });
 

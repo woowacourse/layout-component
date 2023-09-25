@@ -1,0 +1,49 @@
+import { Meta, Controls, Canvas  } from '@storybook/blocks';
+import * as MasonryStory from './Masonry.stories';
+
+<Meta of={MasonryStory} />
+
+# Grid
+
+## 기능
+
+Masonry는 세로 방향의 Masonry layout을 제공합니다.
+
+## 주의사항
+
+- Masonry를 이용해 정리할 요소는 `<Masonry.Item>`으로 감싸야 합니다.
+- DOM 상에서 `<Masonry.Item>`은 `<Masonry>`의 바로 하위 요소여야 합니다.
+- `<Masonry.Item>`을 제외한 모든 `<Masonry>`의 하위 요소에 대한 올바른 렌더링은 보장하지 않습니다.
+
+## 미리보기
+
+<div style={{ height: '400px', overflow: 'auto' }}>
+  <Canvas of={MasonryStory.ImagesExample} />
+</div>
+
+## 예제
+
+```tsx
+import { Masonry } from '@wainaat/react-layout-component';
+
+<Masonry>
+  {Array.from({ length: 20 }).map((_, index) => (
+    <Masonry.Item key={index}>
+      <MyRandomImage />
+    </Masonry.Item>
+  ))}
+</Masonry>
+```
+
+## props
+
+Masonry는 아래에 적힌 props들을 받습니다.
+- `as`: `div`, `section`, `main`, `article` 중 하나.
+- `itemSize`: 각 열의 크기.
+- `fluidResize`: `true`로 설정하면 각 열이 Masonry의 전체 폭에 따라 최소 `itemSize`, 최대 `1fr` 사이에서 자유롭게 움직입니다.
+- `rowGap`: 각 행 사이의 간격
+- `columnGap`: 각 열 사이의 간격.
+
+Masory.Item은 props를 받지 않습니다.
+
+<Controls of={MasonryStory.ImagesExample} />

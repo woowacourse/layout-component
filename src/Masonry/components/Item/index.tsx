@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import useMasonryContext from '../hooks/useMasonryContext';
+import useMasonryContext from '../../hooks/useMasonryContext';
 import { columnFlow, rowGapVar, volumeVar } from './Item.css';
-import { toPixelIfNumber } from '../../utils/toPixelIfNumber';
+import { toPixelIfNumber } from '../../../utils/toPixelIfNumber';
 
 const Item = (props: React.PropsWithChildren) => {
   const { children } = props;
