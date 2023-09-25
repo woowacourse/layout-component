@@ -42,6 +42,12 @@ export interface ContainerProps {
   minWidth?: number;
 }
 
+export const Container = (props: PropsWithChildren<ContainerProps>) => {
+  const { children, as: Element = 'div' } = props;
+
+  return <Element style={stylingContainer(props)}>{children}</Element>;
+};
+
 export const stylingContainer = (props: ContainerProps): CSS => {
   const { maxWidth, minWidth } = props;
 
@@ -51,10 +57,4 @@ export const stylingContainer = (props: ContainerProps): CSS => {
     minWidth: minWidth ? `${minWidth}px` : 'none',
     margin: '0 auto',
   };
-};
-
-export const Container = (props: PropsWithChildren<ContainerProps>) => {
-  const { children, as: Element = 'div' } = props;
-
-  return <Element style={stylingContainer(props)}>{children}</Element>;
 };
