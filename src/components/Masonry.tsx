@@ -56,12 +56,12 @@ export const Masonry = (props: MasonryProps) => {
 };
 
 const stylingMasonry = (props: MasonryProps): CSS => {
-  const { columns = DEFAULT_COLUMNS } = props;
+  const { columns = DEFAULT_COLUMNS, gap = DEFAULT_GAP } = props;
 
   return {
     ...stylingContainer(props),
     display: 'grid',
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    gap: '8px',
+    gap: `${gap}px`,
   };
 };
