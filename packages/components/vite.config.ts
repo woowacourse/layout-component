@@ -8,6 +8,9 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [react(), vanillaExtractPlugin(), dts()],
   build: {
+    rollupOptions: {
+      external: ["react"],
+    },
     minify: false,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
