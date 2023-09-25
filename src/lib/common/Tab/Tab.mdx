@@ -1,0 +1,23 @@
+import { Canvas, Controls, Description, Meta, Source } from '@storybook/blocks';
+
+import * as TabStories from './Tab.stories.tsx';
+
+<Meta of={TabStories} />
+
+# Tab
+
+<Description />
+
+<Canvas of={TabStories.Default} sourceState="shown" />
+
+## Props
+
+<Controls exclude="children" />
+
+## Preview
+
+<br />
+
+### Vertical
+
+<Canvas of={TabStories.Vertical} />
