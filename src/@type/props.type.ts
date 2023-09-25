@@ -13,4 +13,6 @@ type Props<T extends ElementType, P = {}> = PropsWithChildren<
   PropsWithTag<T, P>
 >;
 
-export type { Props };
+type PropsWithOutTag<T extends ElementType, P = {}> = Omit<Props<T, P>, 'as'>;
+
+export type { Props, PropsWithOutTag };
