@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-type SizeType = number | string;
-
 interface TabProps {
   label: string;
 }
 
 interface Props {
   children: React.ReactNode;
-  width?: SizeType;
-  height?: SizeType;
-  $tabBoxHeight?: SizeType;
+  width?: number;
+  height?: number;
+  $tabBoxHeight?: number;
   $simpleTab?: boolean;
 }
 
@@ -59,53 +57,36 @@ const Tabs = ({
   );
 };
 
-const translateValue = (size: SizeType) =>
-  typeof size === 'number' ? `${size}px` : size;
-
-const translatePosition = (width: SizeType, pos: number) =>
-  typeof width === 'number' ? `${-width * pos}px` : `calc(-${width} * ${pos})`;
-
-const setTabSectionWrapperWidth = (width: SizeType, childrenLength: number) =>
-  typeof width === 'number'
-    ? `${width * childrenLength}px`
-    : `calc(${width} * ${childrenLength})`;
-
-const setTabBoxWidth = (width: SizeType, childrenLength: number) =>
-  typeof width === 'number'
-    ? `${width / childrenLength}px`
-    : `calc(${width} / ${childrenLength})`;
-
-const Wrapper = styled.div<{ width: SizeType }>`
-  width: ${({ width }) => translateValue(width)};
+const Wrapper = styled.div<{ width: number }>`
+  width: ${({ width }) => `${width}px`};
   overflow: hidden;
   margin: 0 auto;
 `;
 
 const TabSectionWrapper = styled.div<{
-  width: SizeType;
-  height: SizeType;
+  width: number;
+  height: number;
   $childrenLength: number;
   pos: number;
 }>`
   display: flex;
-  width: ${({ width, $childrenLength }) =>
-    setTabSectionWrapperWidth(width, $childrenLength)};
-  height: ${({ height }) => translateValue(height)};
-  transform: translateX(${({ width, pos }) => translatePosition(width, pos)});
+  width: ${({ width, $childrenLength }) => `${width * $childrenLength}px`};
+  height: ${({ height }) => `${height}px`};
+  transform: ${({ width, pos }) => `translateX(${-width * pos}px)`};
   transition: 0.3s ease all;
 
   & > * {
-    width: ${({ width }) => translateValue(width)};
+    width: ${({ width }) => `${width}px`};
   }
 `;
 
 const TabBoxWrapper = styled.div<{
   $simpleTab: boolean;
-  $tabBoxHeight: SizeType;
+  $tabBoxHeight: number;
 }>`
   display: flex;
   align-items: center;
-  height: ${({ $tabBoxHeight }) => translateValue($tabBoxHeight)};
+  height: ${({ $tabBoxHeight }) => `${$tabBoxHeight}px`};
 
   overflow: auto;
 
@@ -119,14 +100,15 @@ const TabBoxWrapper = styled.div<{
 `;
 
 const TabBox = styled.button<{
-  width: SizeType;
+  width: number;
   $childrenLength: number;
   $simpleTab: boolean;
 }>`
-  width: ${({ width, $childrenLength }) =>
-    setTabBoxWidth(width, $childrenLength)};
+  width: ${({ width, $childrenLength }) => `${width / $childrenLength}px`};
   height: inherit;
   padding: 0.2rem 1rem;
+  border: 0;
+  cursor: pointer;
 
   &:focus {
     border-bottom: 2px solid #316fc4;
