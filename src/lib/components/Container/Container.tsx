@@ -20,10 +20,7 @@ const Container = (props: ContainerProps) => {
   } = props;
 
   const containerStyles = {
-    paddingTop: `${verticalPadding}px`,
-    paddingBottom: `${verticalPadding}px`,
-    paddingLeft: `${horizontalPadding}px`,
-    paddingRight: `${horizontalPadding}px`,
+    padding: `${verticalPadding ?? 0}px ${horizontalPadding ?? 0}px`,
     ...rest,
   };
 
