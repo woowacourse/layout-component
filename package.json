@@ -1,0 +1,84 @@
+{
+  "name": "luxo-layout-component",
+  "description": "룩소의 레이아웃 컴포넌트 모음입니다.",
+  "keywords": [
+    "react",
+    "component",
+    "layout"
+  ],
+  "version": "0.0.4",
+  "author": {
+    "name": "woo-jk",
+    "email": "wjk6044@naver.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woo-jk/layout-component.git"
+  },
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.52",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_88c9984a4bcd927"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/preset-create-react-app": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^7.1.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.4.2",
+    "webpack": "^5.88.2"
+  },
+  "bugs": {
+    "url": "https://github.com/woo-jk/layout-component/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/woo-jk/layout-component#readme",
+  "_id": "luxo-layout-component@0.0.3"
+}
