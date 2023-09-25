@@ -8,9 +8,9 @@ export type TabDirection = 'horizontal' | 'vertical';
 export interface TabsProps extends PropsWithChildren {
   /** 기본 탭을 설정하는 속성입니다. */
   defaultTabId: string;
-  /** 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다.*/
+  /** 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. */
   direction?: TabDirection;
-  /** 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다. 기본 값은 Cornflowerblue입니다.*/
+  /** 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다. 기본 값은 Cornflowerblue입니다. */
   primaryColor?: string;
 }
 
@@ -40,6 +40,7 @@ const List = (props: ListProps) => {
 };
 
 interface TabProps extends ComponentPropsWithoutRef<'li'> {
+  /** 탭과 탭패널 요소를 연결하기 위한 속성입니다. */
   tabPanelId: string;
 }
 
@@ -73,6 +74,7 @@ const Tab = (props: TabProps) => {
 };
 
 interface PanelProps extends ComponentPropsWithoutRef<'section'> {
+  /** 탭 패널의 식별자를 지정하는 속성입니다.*/
   id: string;
 }
 

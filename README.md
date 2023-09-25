@@ -90,6 +90,45 @@ import { Flex } from 'chex-layout-component';
 | wrap      | 'nowrap' \| 'wrap' \| 'wrap-reverse'                                                          | 'nowrap'     | Flex 아이템이 한 줄에 나타날지 여러 줄로 나타날지를 결정하는 속성입니다.                                |
 | css       | CSSProp                                                                                       | ''           | 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다.                                                     |
 
+## Tabs
+
+여러 개의 컴포넌트 중 선택한 탭에 따른 한 가지만 보여주는 컴포넌트
+
+### Import
+
+```typescript
+import { Tabs } from 'chex-layout-component';
+```
+
+### Props
+
+| Props        | Type                       | Default          | Description                                                                       |
+| ------------ | -------------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| defaultTabId | string                     |                  | 기본 탭을 설정하는 속성입니다.                                                    |
+| direction    | 'horizontal' \| 'vertical' | 'horizontal'     | 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. |
+| primaryColor | string                     | 'Cornflowerblue' | 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다.                        |
+
+### Example
+
+```tsx
+<Tabs defaultTabId='item1-tab' direction='horizontal' primaryColor='#6495ed'>
+  <Tabs.List>
+    <Tabs.Tab tabPanelId='item1'>ITEM ONE</Tabs.Tab>
+    <Tabs.Tab tabPanelId='item2'>ITEM TWO</Tabs.Tab>
+    <Tabs.Tab tabPanelId='item3'>ITEM THREE</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel id='item1'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>👀</Container>
+  </Tabs.Panel>
+  <Tabs.Panel id='item2'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐾</Container>
+  </Tabs.Panel>
+  <Tabs.Panel id='item3'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐕</Container>
+  </Tabs.Panel>
+</Tabs>
+```
+
 ## Development Environment
 
 - React
