@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
