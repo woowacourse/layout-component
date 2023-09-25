@@ -5,14 +5,16 @@ interface Props {
 
 export default function Tabs({ tabs, activateTab }: Props) {
   return (
-    <div>
+    <ul className='tab-button-list'>
       {tabs.map((tab, index) => {
         return (
-          <button key={tab} onClick={() => activateTab(index)}>
-            {tab}
-          </button>
+          <li key={tab}>
+            <button className='tab-button' onClick={() => activateTab(index)}>
+              {tab}
+            </button>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
