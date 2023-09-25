@@ -2,6 +2,10 @@
 
 ## Container
 
+기본적인 컨테이너 레이아웃 입니다.
+
+가운데 정렬을 합니다.
+
 ### 예제
 
 ```tsx
@@ -15,6 +19,8 @@ const App = () => (
 ```
 
 ## Grid
+
+Grid 레이아웃의 속성을 사용하는 컴포넌트 입니다.
 
 ### 예제
 
@@ -32,6 +38,10 @@ const App = () => (
 
 ## Flex
 
+Flex 레이아웃의 속성을 사용하는 컴포넌트 입니다.
+
+### 속성
+
 ### 예제
 
 ```tsx
@@ -43,5 +53,23 @@ const App = () => (
     <div>Item 2</div>
     <div>Item 3</div>
   </Flex>;
+);
+```
+
+## Masonry
+
+자식의 높이를 계산해서 Masonry 레이아웃으로 재정렬 해주는 컴포넌트입니다.
+
+### 예제
+
+```tsx
+import { Masonry } from '@bassyu/layout-component';
+
+const App = () => (
+  <Masonry columns={3} gap={5} minWidth={600}>
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </Masonry>;
 );
 ```
