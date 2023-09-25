@@ -36,7 +36,7 @@ const meta = {
           color: '#3c3c3c',
           fontSize: '2rem',
           fontWeight: 'bold',
-          width: '100vw',
+          width: '70vw',
           height: '100%',
           backgroundColor: '#fff',
         }}
