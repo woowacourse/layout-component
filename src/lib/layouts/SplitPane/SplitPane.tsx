@@ -9,7 +9,7 @@ export interface SplitPaneProps {
   children?: ReactNode[];
 }
 
-function SplitPane({defaultSize, minSize, maxSize, children}: SplitPaneProps) {
+const SplitPane = ({defaultSize, minSize, maxSize, children}: SplitPaneProps) => {
   const {
     containerRef,
     leftPaneRef,
@@ -21,7 +21,7 @@ function SplitPane({defaultSize, minSize, maxSize, children}: SplitPaneProps) {
 
   return (
     <SplitPaneContainer ref={containerRef}>
-      {children?.length === 2 && children && (
+      {children && children?.length === 2 ? (
         <>
           <ResizablePane style={{flexBasis: paneSize}} minSize={minSize} maxSize={maxSize} ref={leftPaneRef}>
             {children[0]}
@@ -31,7 +31,7 @@ function SplitPane({defaultSize, minSize, maxSize, children}: SplitPaneProps) {
             {children[1]}
           </ResizablePane>
         </>
-      )}
+      ) : <div>반드시 2개의 컴포넌트가 존재해야 합니다.</div>}
     </SplitPaneContainer>
   );
 }
