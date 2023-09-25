@@ -1,8 +1,7 @@
 {
   "name": "ks-layout",
   "private": false,
-  "version": "1.0.5",
-  "type": "module",
+  "version": "1.0.6",
   "scripts": {
     "build:typescript": "tsc"
   },
