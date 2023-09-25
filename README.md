@@ -9,7 +9,7 @@
 
 ## Version
 
-> Latest version: 0.1.0 (updated in 2023.09.18)
+> Latest version: 0.1.3 (updated in 2023.09.26s)
 
 - Major package version
   - "react": "^18.2.0"
@@ -55,6 +55,9 @@ import { Button, Flex } from 'jero-design-system';
  ┃ ┃ ┣ 📜index.d.ts
  ┃ ┃ ┗ 📜index.js
  ┃ ┣ 📂Grid
+ ┃ ┃ ┣ 📜index.d.ts
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┣ 📂SplitPane
  ┃ ┃ ┣ 📜index.d.ts
  ┃ ┃ ┗ 📜index.js
  ┃ ┣ 📜index.d.ts
@@ -132,6 +135,7 @@ function App() {
 | children        | `React.ReactNode` | Element or Node of Grid                             |
 
 ### Flex
+
 ![jero-flex](https://github.com/inyeong-kang/layout-component/assets/81199414/f449a5ba-1f9a-4638-8554-b24f960fb895)
 
 ```JavaScript
@@ -161,7 +165,64 @@ function App() {
 | backgroundColor | `string`          | background-color of Flex (ex '90vh')                       |
 | children        | `React.ReactNode` | Element or Node of Flex                                    |
 
+### SplitPane
+
+![jero-splitPane]()
+
+```JavaScript
+import { SplitPane } from 'jero-design-system';
+
+function App() {
+  return (
+    <div className='App'>
+      <h1>SplitPane</h1>
+      <SplitPane width='1000px' defaultSize='50%' minSize='10%' maxSize='90%' firstPane={<FirstPane/>} secondPane={<SecondPane/>}/>
+    </div>
+  );
+}
+
+function FirstPane() {
+  return (
+    <div
+        style={{
+          height: '100vh',
+          padding: '20px',
+          backgroundColor: 'skyblue',
+          color: 'white',
+        }}
+      >
+        First Pane
+    </div>
+  );
+}
+
+function SecondPane() {
+  return (
+    <div
+        style={{
+          height: '100vh',
+          padding: '20px',
+          backgroundColor: 'blue',
+          color: 'white',
+        }}
+      >
+        First Pane
+    </div>
+  );
+}
+```
+
+| props name  | props type        | props description                                                                                |
+| ----------- | ----------------- | ------------------------------------------------------------------------------------------------ |
+| width       | `number`          | width(only pixel) of `SplitPane` (ex. if `width={600}`, this means `600px` ), **required props** |
+| defaultSize | `string`          | default width of each pane                                                                       |
+| minSize     | `string`          | min-width of each pane                                                                           |
+| maxSize     | `string`          | max-width of each pane                                                                           |
+| firstPane   | `React.ReactNode` | children element of first pane, **required props**                                               |
+| children    | `React.ReactNode` | children element of second pane, **required props**                                              |
+
 ### Button
+
 ![jero-button](https://github.com/inyeong-kang/layout-component/assets/81199414/53a2b7ef-316b-41e6-ab06-3849cc1af00f)
 
 ```JavaScript
