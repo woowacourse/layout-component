@@ -1,6 +1,6 @@
 {
   "name": "@ashleysyheo/layout",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Responsive layout components for React",
   "homepage": "https://github.com/ashleysyheo/layout-component",
   "main": "dist/index.js",
