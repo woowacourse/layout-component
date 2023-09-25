@@ -1,0 +1,57 @@
+{
+  "name": "@fine1012/react-layout-component",
+  "version": "0.1.4",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "description": "React Layout Component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nangkyeonglim/layout-component"
+  },
+  "author": "nangkyeonglim <nangkyeonglim@gmail.com>",
+  "keywords": [
+    "react",
+    "layout-components",
+    "react-components",
+    "ui",
+    "react-ui"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "@emotion/react": "^11.11.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "typescript": "^4.9.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
