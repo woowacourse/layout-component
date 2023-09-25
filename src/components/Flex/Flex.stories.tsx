@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Flex } from '~/components/Flex/Flex';
 
 const meta = {
-  title: 'Example/Flex',
+  title: 'Layout/Flex',
   component: Flex,
   tags: ['autodocs'],
 } satisfies Meta<typeof Flex>;
