@@ -32,10 +32,22 @@ const meta = {
 
 export default meta;
 
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate nunc eu tempor tempor. Maecenas ipsum nisi, placerat sit amet arcu eu, egestas luctus orci. Etiam sed ante eu metus aliquet dapibus. Nullam eget dolor diam. Praesent et lobortis massa. Proin ornare, risus quis pretium vulputate, lacus lacus vehicula ex, eleifend vestibulum sapien augue et quam. Nulla id augue felis. Quisque vitae elit felis. Vestibulum vitae rhoncus elit. Duis imperdiet tortor vitae tellus vulputate, et sagittis est ullamcorper. Fusce dignissim ultricies tristique. Nullam congue mi ut venenatis pellentesque. Proin egestas sodales volutpat.`;
 
 export const Default = (args: SplitPaneProps) => (
   <SplitPane {...args}>
     <div style={{backgroundColor: 'yellow', height: '100px'}}/>
     <div style={{backgroundColor: 'yellowgreen', height: '100px'}}/>
+  </SplitPane>
+);
+
+export const Texts = (args: SplitPaneProps) => (
+  <SplitPane {...args}>
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
   </SplitPane>
 );
