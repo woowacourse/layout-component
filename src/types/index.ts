@@ -1,6 +1,11 @@
-type ElementPolymorphProp<Element extends React.ElementType> = {
+export type ElementPolymorphProp<Element extends React.ElementType> = {
   as?: Element;
 };
+
+export type PolymorphicElementProps<
+  Element extends React.ElementType,
+  Props = Record<string, never>,
+> = Omit<Props, keyof ElementPolymorphProp<Element>> & ElementPolymorphProp<Element>;
 
 export type PolymorphicElementPropsWithoutRef<
   Element extends React.ElementType,
