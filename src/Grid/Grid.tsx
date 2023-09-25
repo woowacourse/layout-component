@@ -56,8 +56,8 @@ const GridWrapper = styled.div<GirdSCProps>`
   min-width: ${({ $minWidth }) => convertToPixel($minWidth) ?? 0};
   max-width: ${({ $maxWidth }) => convertToPixel($maxWidth) ?? 'unset'};
 
-  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
   ${({ $margin }) => generateDirectionStyle('margin', $margin)};
+  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
 
   grid-template-rows: ${({ $row }) =>
     $row ? `repeat(${$row}, 1fr)` : 'initial'};

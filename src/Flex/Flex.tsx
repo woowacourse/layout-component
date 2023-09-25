@@ -25,6 +25,8 @@ const Flex = (props: FlexProps) => {
     children,
     minWidth,
     maxWidth,
+    margin,
+    padding,
     alignContent,
     alignItems,
     alignSelf,
@@ -40,6 +42,8 @@ const Flex = (props: FlexProps) => {
     <FlexWrapper
       $minWidth={minWidth}
       $maxWidth={maxWidth}
+      $margin={margin}
+      $padding={padding}
       $alignContent={alignContent}
       $alignItems={alignItems}
       $alignSelf={alignSelf}
@@ -65,8 +69,8 @@ const FlexWrapper = styled.div<FlexSCProps>`
   min-width: ${({ $minWidth }) => convertToPixel($minWidth) ?? 0};
   max-width: ${({ $maxWidth }) => convertToPixel($maxWidth) ?? 'unset'};
 
-  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
   ${({ $margin }) => generateDirectionStyle('margin', $margin)};
+  ${({ $padding }) => generateDirectionStyle('padding', $padding)}
 
   align-content: ${({ $alignContent }) => $alignContent ?? 'initial'};
   align-items: ${({ $alignItems }) => $alignItems ?? 'initial'};
