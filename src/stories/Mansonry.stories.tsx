@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Masonry } from '..';
 import TestItem from './TestItem';
-import { MasonryItem } from '../components/Masonry';
 
 const meta: Meta<typeof Masonry> = {
   title: 'Example/Masonry',
@@ -10,6 +9,8 @@ const meta: Meta<typeof Masonry> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+const random = (weight = 100) => Math.round(Math.random() * weight);
 
 export const Default: Story = {
   args: {
@@ -27,20 +28,32 @@ export const Default: Story = {
   ),
 };
 
-const getRandomSize = () => {
-  return Math.round(Math.random() * 100);
+export const RandomHeight: Story = {
+  args: {
+    columns: 6,
+    minWidth: 600,
+    gap: 4,
+  },
+  render: (args) => (
+    <Masonry {...args}>
+      {Array(100)
+        .fill(null)
+        .map((_, index) => (
+          <TestItem key={index} height={random(150)}>
+            {index}
+          </TestItem>
+        ))}
+    </Masonry>
+  ),
 };
 
-export const Images: Story = {
-  args: {},
+export const RandomImages: Story = {
   render: (args) => (
     <Masonry {...args}>
       {Array(20)
         .fill(null)
         .map((_, index) => (
-          <TestItem>
-            <img src={`https://picsum.photos/200/${getRandomSize()}?random=${index}`} />
-          </TestItem>
+          <img key={index} src={`https://picsum.photos/300/${random(300)}?random=${index}`} />
         ))}
     </Masonry>
   ),
