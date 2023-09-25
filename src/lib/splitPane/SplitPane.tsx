@@ -17,15 +17,6 @@ const SplitPane: React.FC<{
 
   const [isResizing, setIsResizing] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const sizeTypeRef = useRef('string');
-
-  if (
-    typeof minSize === 'number' &&
-    typeof maxSize === 'number' &&
-    typeof defaultSize === 'number'
-  ) {
-    sizeTypeRef.current = 'number';
-  }
 
   useEffect(() => {
     const resize = (event: MouseEvent) => {
@@ -45,7 +36,6 @@ const SplitPane: React.FC<{
           const newWidth = event.clientX - containerRect.left;
 
           if (newWidth >= minSize && newWidth <= maxSize) {
-            console.log('newWidth', newWidth);
             setSize(`${newWidth}px`);
           }
         }
@@ -70,12 +60,11 @@ const SplitPane: React.FC<{
     setIsResizing(true);
   };
 
-  console.log();
   return (
     <PaneContainer ref={containerRef}>
-      <Pane size={size}>{children && children[0]}</Pane>
-      <Resizer style={{ left: `calc(${size} - 2.5px)` }} onMouseDown={startResize} />
-      <Pane size={`calc(100% - ${size})`}>{children && children[1]}</Pane>
+      <Pane $size={size}>{children?.[0]}</Pane>
+      <Resizer $size={size} onMouseDown={startResize} />
+      <Pane $size={`calc(100% - ${size})`}>{children?.[1]}</Pane>
     </PaneContainer>
   );
 };
@@ -89,16 +78,17 @@ const PaneContainer = styled.div`
   position: relative;
 `;
 
-const Pane = styled.div<{ size: string }>`
-  width: ${(props) => props.size};
+const Pane = styled.div<{ $size: string }>`
+  width: ${(props) => props.$size};
   overflow: auto;
 `;
 
-const Resizer = styled.div`
+const Resizer = styled.div<{ $size: string }>`
   cursor: ew-resize;
   background-color: #ccc;
   height: 100%;
   width: 5px;
   position: absolute;
   top: 0;
+  left: calc(${(props) => props.$size} - 2.5px);
 `;
