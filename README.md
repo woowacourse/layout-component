@@ -150,17 +150,19 @@ Grid layout is a two-dimensional layout system. This feature allows you to conte
 
 `tabsMenu` is required.
 
+#### `tabsMenu`: string[]
+
 #### `children`?: ReactNode[]
 
-#### `tabWidth`: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
+#### `tabWidth`?: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
 
-#### `tabMenuHeight`: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
+#### `tabMenuHeight`?: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
 
 #### `tabMenuFontSize`?: string
 
 #### `tabMenuBorderBottomColor`?: string
 
-#### `defaultTabIndex?`: number;
+#### `defaultTabIndex`?: number;
 
 ## `Example`
 
