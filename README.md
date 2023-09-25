@@ -167,7 +167,7 @@ function App() {
 
 ### SplitPane
 
-![jero-splitPane]()
+![jero-splitPane](https://github.com/inyeong-kang/layout-component/assets/81199414/2afd097c-3177-49e7-91d1-3a55b195ac0a)
 
 ```JavaScript
 import { SplitPane } from 'jero-design-system';
@@ -176,7 +176,7 @@ function App() {
   return (
     <div className='App'>
       <h1>SplitPane</h1>
-      <SplitPane width='1000px' defaultSize='50%' minSize='10%' maxSize='90%' firstPane={<FirstPane/>} secondPane={<SecondPane/>}/>
+      <SplitPane width={1000} defaultSize='50%' minSize='10%' maxSize='90%' firstPane={<FirstPane/>} secondPane={<SecondPane/>}/>
     </div>
   );
 }
@@ -206,7 +206,7 @@ function SecondPane() {
           color: 'white',
         }}
       >
-        First Pane
+        Second Pane
     </div>
   );
 }
