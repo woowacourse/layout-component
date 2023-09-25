@@ -102,4 +102,45 @@ Flex는 자식 컴포넌트들을 감싸는 Flexbox를 제공합니다.
 </Flex>
 ```
 
+## Masonry
 
+### 설명
+
+Masonry는 세로 방향의 Masonry layout을 제공합니다.
+
+컴파운드 컴포넌트 패턴으로 구현되었습니다.
+
+#### Masonry
+
+|props 이름|설명|기본값|
+|:-:|:-:|:-:|
+|`as`|`div`, `section`, `main`, `article`|`div`|
+|`itemSize`|각 열의 폭을 나타냅니다. <br /> CSS의 width에 들어갈 수 있는 값|`25%`|
+|`fluidResize`|`true`로 설정하면 각 열이 Masonry의 전체 폭에 따라 최소 `itemSize`, 최대 `1fr` 사이에서 자유롭게 움직입니다.|`false`|
+|`rowGap`|각 행 사이의 간격|`0`|
+|`columnGap`|각 열 사이의 간격|`0`|
+
+#### Masonry.Item
+
+이 컴포넌트는 props를 받지 않습니다.
+
+#### 주의사항
+
+- Masonry를 이용해 정리할 요소는 `<Masonry.Item>`으로 감싸야 합니다.
+- DOM 상에서 `<Masonry.Item>`은 `<Masonry>`의 바로 하위 요소여야 합니다. 그렇지 않은 `<Masonry.Item>`의 정렬은 보장하지 않습니다.
+- `<Masonry.Item>`을 제외한 모든 `<Masonry>`의 하위 요소에 대한 올바른 렌더링은 보장하지 않습니다.
+- `<Masonry.Item>`은 `<Masonry>` 밖에서 사용할 수 없습니다.
+
+### 사용 예시
+
+```jsx
+import { Masonry } from '@wainaat/react-layout-component';
+
+<Masonry>
+  {Array.from({ length: 20 }).map((_, index) => (
+    <Masonry.Item key={index}>
+      <MyRandomImage />
+    </Masonry.Item>
+  ))}
+</Masonry>
+```
