@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import GlobalStyle from './GlobalStyle.ts';
-import { Container, Flex, Grid } from './lib/index.tsx';
+import { Container, Flex, Grid, Tabs } from './lib/index.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -9,5 +9,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Container />
     <Flex />
     <Grid />
+    <Tabs defaultTabId='' />
   </React.StrictMode>,
 );
