@@ -4,9 +4,8 @@ import { NumberUnitType } from "../../types";
 import TabMenu from "./TabMenu";
 
 interface TabLayoutProps {
-  tabs: ReactNode[];
+  children?: ReactNode[];
   tabsMenu: string[];
-
   tabWidth?: NumberUnitType;
   tabMenuHeight?: NumberUnitType;
   tabMenuFontSize?: string;
@@ -15,13 +14,13 @@ interface TabLayoutProps {
 }
 
 const TabLayout = ({
-  tabs,
   tabsMenu,
   tabWidth = "100%",
   tabMenuHeight = "45px",
   tabMenuFontSize = "16px",
   tabMenuBorderBottomColor = "black",
   defaultTabIndex = 0,
+  children = [],
 }: TabLayoutProps) => {
   const [currentTabIndex, setCurrentTabIndex] = useState(defaultTabIndex);
 
@@ -44,7 +43,9 @@ const TabLayout = ({
           </TabMenu>
         ))}
       </TabsMenuContainer>
-      <TabContainer $tabWidth={tabWidth}>{tabs[currentTabIndex]}</TabContainer>
+      <TabContainer $tabWidth={tabWidth}>
+        {children[currentTabIndex]}
+      </TabContainer>
     </>
   );
 };
@@ -54,7 +55,7 @@ const TabsMenuContainer = styled.header<{ $tabWidth: string }>`
   width: ${({ $tabWidth }) => $tabWidth};
 `;
 
-const TabContainer = styled.section<{ $tabWidth: string }>`
+const TabContainer = styled.div<{ $tabWidth: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
