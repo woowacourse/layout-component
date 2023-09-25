@@ -1,0 +1,31 @@
+## Get started
+
+레이아웃 컴포넌트를 편하게 사용할 수 있도록 제작된 패키지입니다
+
+### Install
+
+`npm i wus-layout-component -D`
+
+### how to use?
+
+```tsx
+import { Flex } from 'wus-layout-component';
+
+<Flex
+  css={css}
+  justifyContent={justifyContent}
+  direction={direction}
+  alignItems={alignItems}
+  flexWrap={flexWrap}>
+  <div
+    style={{
+      width: '100px',
+      height: '100px',
+      backgroundColor: 'gray',
+    }}></div>
+</Flex>;
+```
+
+### Supporting
+
+해당 패키지는 CommonJs와 ES Modules를 지원합니다.
