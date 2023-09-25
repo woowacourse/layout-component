@@ -12,5 +12,12 @@ export default defineConfig({
       formats: ["es"],
       fileName: "index",
     },
+
+    rollupOptions: {
+      input: {
+        main: "./src/index.ts",
+      },
+      external: ["App.tsx"],
+    },
   },
 });
