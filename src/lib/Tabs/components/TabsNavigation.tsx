@@ -93,6 +93,7 @@ const TAPS_LIST_STYLE = {
   `,
   vertical: css`
     min-width: 160px;
+    width: 160px;
     flex-direction: column;
     word-break: break-all;
     border-right: 1.5px solid #d0d0d0;

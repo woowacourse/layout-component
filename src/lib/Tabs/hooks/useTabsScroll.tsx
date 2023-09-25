@@ -66,6 +66,8 @@ const useTabsScroll = (
 
       if (scrollWidth > clientWidth || scrollHeight > clientHeight) {
         setIsOverFlow(true);
+      } else {
+        setIsOverFlow(false);
       }
 
       handleScroll();
