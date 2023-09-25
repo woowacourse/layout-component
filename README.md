@@ -5,6 +5,7 @@
 > - Container
 > - Grid
 > - Flex
+> - Tabs
 
 ## Installation
 
@@ -144,4 +145,4 @@ import { Tabs } from 'chex-layout-component';
 
 ## [Storybook](https://6505550eb343f2286f179ae2-txbaamrfzf.chromatic.com)
 
-Storybook에서 자유롭게 컴포넌트를 경험해보세요!
+[Storybook](https://6505550eb343f2286f179ae2-txbaamrfzf.chromatic.com)에서 자유롭게 컴포넌트를 경험해보세요!
