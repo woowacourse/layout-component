@@ -4,8 +4,8 @@ import { NumberUnitType } from "../../types";
 import TabMenu from "./TabMenu";
 
 interface TabLayoutProps {
-  children?: ReactNode[];
   tabsMenu: string[];
+  children?: ReactNode[];
   tabWidth?: NumberUnitType;
   tabMenuHeight?: NumberUnitType;
   tabMenuFontSize?: string;
