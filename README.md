@@ -1,6 +1,6 @@
 # 🙆‍♂️ react-layout-component-pat 🙆‍♂️
 
-간단하게 레이아웃(Container, Flex, Grid)를 구현할 수 있는 라이브러리 입니다.
+간단하게 레이아웃(Container, Flex, Grid, Drawer)를 구현할 수 있는 라이브러리 입니다.
 
 ## 설치 방법
 
@@ -13,7 +13,7 @@
 ## 중요 컴포넌트
 
 ```typescript
-import { Container, Flex, Grid } from 'react-layout-component-pat'
+import { Container, Flex, Grid, Drawer } from 'react-layout-component-pat'
 ```
 
 ## 사용 방법
@@ -108,9 +108,38 @@ const App = () => {
 - justifyItems, alignContent, justifySelf, alignSelf
 
 
+## Drawer
+
+```typescript
+import { Drawer } from 'react-layout-component-pat'
+
+const App = () => {
+  const [isShow, setIsShow] = useState(false)
+  const openSheet = () => setIsShow(true)
+  const closeSheet = () => setIsShow(false)
+  return (
+    <>
+      <Drawer direction="left" isShow={isShow} size="sm" closeSheet={closeSheet} />
+      <button onClick={openSheet}>Drawer보이기</button>
+    </>
+  )
+}
+```
+
+### Props
+
+| props            | value                                                  | description                                                                |
+| ---------------- | ------------------------------------------------------ | -------------------------------------------------------------------------- |
+| direction        | 'right' / 'left' / 'top' /   'bottom'                   | Drawer가 나오는 방향을 설정합니다.   |
+| isShow           | boolean                                                 | Drawer의 열림 여부를 설정합니다.                               |
+| size   | 'xs' / 'sm' / 'md' / 'lg' / 'xl' / 'full'   | Drawer의 크기를 설정합니다.                |
+| closeSheet     | function | Drawer를 닫는 함수입니다.                                      |
+| children   | ReactNode | Drawer의 자식 컴포넌트입니다.Drawer의 콘텐츠를 지정할 수 있습니다. |                                  
+
 
 ## 참고 배포 링크
-https://650793db3827905a5d403040-rlioqyjnii.chromatic.com
+스토리북을 통해 demo 페이지를 만들었습니다. demo에서 확인 후 사용하시면 더 좋습니다!
+https://650793db3827905a5d403040-puvxvaofdc.chromatic.com
 
 
 ## 참고 사항(고려한 부분 및 사용자 사용팁)
@@ -119,6 +148,8 @@ https://650793db3827905a5d403040-rlioqyjnii.chromatic.com
 통일성을 고려하였습니다. css에는 다양한 단위(px, em 등)이 있지만 사용자에게 혼란을 주지 않기 위해서 단위를 px로 통일 하였습니다. 또한 속성 이름을 단어가 '-'로 구분될 경우 두 번째 단어의 첫 글자를 대문자로 바꾸고 합치는 규칙(ex. border-top -> borderTop)을 이용해 지었습니다.
 
 각각 속성의 특징을 고려해 뺄건 뺐습니다. 하나의 예로 justify-items나 align-content는 grid에서 주로 쓰이는 정렬 방식으로 flex에서는 뺐습니다. 이를 통해 조금 더 일관된 작업을 수행할 수 있도록 만들었습니다.
+
+Drawer의 크기를 조절할 수 있도록 하였습니다. size 속성을 이용하면 되고 6가지의 선택지가 있습니다! 또한 Drawer가 어디로 나올지 선택할 수 있습니다. direction 속성을 통해 위치를 지정하십시오!
 
 ## 개발 환경
 - React(vite)
