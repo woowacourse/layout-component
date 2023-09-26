@@ -11,6 +11,7 @@ interface Props {
   height?: number;
   $tabBoxHeight?: number;
   $simpleTab?: boolean;
+  responsive?: boolean;
 }
 
 const Tabs = ({
@@ -18,6 +19,7 @@ const Tabs = ({
   height = 400,
   $simpleTab = false,
   $tabBoxHeight = 40,
+  responsive = false,
   children,
 }: Props) => {
   const childrenList = React.Children.toArray(
@@ -27,7 +29,7 @@ const Tabs = ({
   const [pos, setPos] = useState<number>(0);
 
   return (
-    <Wrapper width={width}>
+    <Wrapper width={width} responsive={responsive}>
       <TabBoxWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
         {childrenList.map(
           (children, idx) =>
@@ -57,10 +59,18 @@ const Tabs = ({
   );
 };
 
-const Wrapper = styled.div<{ width: number }>`
+const Wrapper = styled.div<{ width: number; responsive: boolean }>`
   width: ${({ width }) => `${width}px`};
   overflow: hidden;
   margin: 0 auto;
+
+  ${({ responsive, width }) =>
+    responsive &&
+    css`
+      @media (max-width: ${width}px) {
+        width: 100%;
+      }
+    `}
 `;
 
 const TabSectionWrapper = styled.div<{
