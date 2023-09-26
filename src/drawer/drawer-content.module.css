@@ -18,10 +18,12 @@
 
 .left {
   left: 0;
+  border-right: 1px solid #e0e0e0;
 }
 
 .right {
   right: 0;
+  border-left: 1px solid #e0e0e0;
 }
 
 .top,
@@ -33,10 +35,12 @@
 
 .top {
   top: 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .bottom {
   bottom: 0;
+  border-top: 1px solid #e0e0e0;
 }
 
 .animation-left {
