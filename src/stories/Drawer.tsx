@@ -5,16 +5,15 @@ import { useState } from 'react'
 
 interface DrawerProps {
   direction: 'right' | 'left' | 'top' | 'bottom'
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
 }
 
-const Drawer = ({ direction = 'right', size }: DrawerProps) => {
+const Drawer = ({ direction = 'right' }: DrawerProps) => {
   const [isShow, setIsShow] = useState(false)
   const openSheet = () => setIsShow(true)
   const closeSheet = () => setIsShow(false)
   return (
     <DrawerWrapper>
-      <DrawerPat direction={direction} isShow={isShow} size={size} closeSheet={closeSheet}>
+      <DrawerPat direction={direction} isShow={isShow} closeDrawer={closeSheet}>
         <div>Item 1</div>
         <div>Item 2</div>
         <div>Item 3</div>
