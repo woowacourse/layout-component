@@ -117,12 +117,12 @@ function App() {
 
 | props        | 타입                      | 설명                                                                 |
 | ------------ | ------------------------- | -------------------------------------------------------------------- |
-| column       | number ,'auto-fit'        | Number of columns, if auto-fit, fill the columns as much as possible |
-| width        | number ,string, undefined | width of layout                                                      |
-| itemWidth    | number ,string, undefined | width of layout item                                                 |
-| columnGap    | number ,string, undefined | column-gap of layout                                                 |
-| rowGap       | number ,string, undefined | row-gap of layout item                                               |
-| borderRadius | number ,string, undefined | border-radius of layout                                              |
+| columnCount  | number ,'auto-fit'        | Number of columns, if auto-fit, fill the columns as much as possible |
+| width        | number ,string, undefined | width of layout, optional props                                      |
+| itemWidth    | number ,string, undefined | width of layout item , optional props                                |
+| columnGap    | number ,string, undefined | column-gap of layout item, optional props                            |
+| rowGap       | number ,string, undefined | row-gap of layout item, optional props                               |
+| borderRadius | number ,string, undefined | border-radius of layout , optional props                             |
 
 <br/>
 
