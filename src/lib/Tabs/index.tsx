@@ -36,6 +36,8 @@ const Tabs = ({
             children && (
               <TabBox
                 key={`${children.props.label}, ${idx + 1}`}
+                idx={idx}
+                pos={pos}
                 width={width}
                 $tabBoxHeight={$tabBoxHeight}
                 $childrenLength={childrenList.length}
@@ -112,6 +114,8 @@ const TabBoxWrapper = styled.div<{
 
 const TabBox = styled.button<{
   width: number;
+  idx: number;
+  pos: number;
   $tabBoxHeight: number;
   $childrenLength: number;
   $simpleTab: boolean;
@@ -122,10 +126,6 @@ const TabBox = styled.button<{
   border: 0;
   cursor: pointer;
 
-  &:focus {
-    border-bottom: 2px solid #316fc4;
-  }
-
   ${({ $simpleTab, $tabBoxHeight }) =>
     $simpleTab &&
     css`
@@ -133,11 +133,6 @@ const TabBox = styled.button<{
       width: ${$tabBoxHeight / 2}px;
       height: ${$tabBoxHeight / 2}px;
       border-radius: 50%;
-
-      &:focus {
-        border-bottom: 0;
-        background-color: #316fc4;
-      }
     `}
 
   ${({ $simpleTab }) =>
@@ -148,6 +143,20 @@ const TabBox = styled.button<{
       &:last-of-type {
         margin-right: 0;
       }
+    `}
+
+    ${({ idx, pos }) =>
+    idx === pos &&
+    css`
+      border-bottom: 2px solid #316fc4;
+    `}
+
+    ${({ $simpleTab, idx, pos }) =>
+    idx === pos &&
+    $simpleTab &&
+    css`
+      border-bottom: 0;
+      background-color: #316fc4;
     `}
 `;
 
