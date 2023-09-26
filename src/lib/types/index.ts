@@ -10,3 +10,8 @@ export type Gap =
       rowGap?: Size;
     }
   | { gap?: Size };
+
+export type Point = {
+  x: number;
+  y: number;
+};
