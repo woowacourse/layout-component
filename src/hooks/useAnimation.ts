@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useToggleTransition = (isOpen: boolean) => {
+export const useAnimation = (isOpen: boolean) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
