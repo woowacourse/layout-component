@@ -1,15 +1,31 @@
 import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
+import Flex from '../Flex/Flex';
 
 export type Anchor = 'left' | 'right' | 'top' | 'bottom';
 
 type Props = {
+  /**
+   * Drawer가 열릴 위치
+   *
+   * @default 'left'
+   */
   anchor: Anchor;
+  /**
+   * Drawer 활성화 여부
+   *
+   * @default false
+   */
   open: boolean;
+  /**
+   * backdrop 클릭 시 실행할 핸들러
+   *
+   * @dafault undefined
+   */
   onClose: Function;
 };
 
-const Drawer = ({ children, anchor, open, onClose }: PropsWithChildren<Props>) => {
+const Drawer = ({ children, anchor = 'left', open = false, onClose }: PropsWithChildren<Props>) => {
   return (
     <>
       {open && <Backdrop onClick={() => onClose()} open={open} />}
