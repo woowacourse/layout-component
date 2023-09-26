@@ -57,11 +57,7 @@ const menuStyle = ({ highlightColor, noUnderline, vertical = false }: menuStyleP
     ${vertical && `box-shadow: 0 2px 0 0 #eee;`}
   }
 
-  input[type='radio'] {
-    display: none;
-  }
-
-  label:has(input[type='radio']:checked) {
+  button.active {
     font-weight: 600;
     color: ${highlightColor};
 

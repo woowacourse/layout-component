@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: '각 Tab 메뉴에 따라 다른 내용을 보여줄 수 있습니다.',
+        component:
+          '각 Tab 메뉴에 따라 다른 내용을 보여줄 수 있습니다. 원하는 Menu와 Content를 index로 연결하세요.',
       },
     },
   },
@@ -52,6 +53,23 @@ export const Vertical = () => {
   return (
     <Tab id="수직" vertical width={400}>
       <Tab.Menus width={46} gap={10}>
+        {engDays.map((day, index) => (
+          <Tab.Menu key={day} label={day} index={index} />
+        ))}
+      </Tab.Menus>
+      {engDays.map((_, index) => (
+        <Tab.Content key={index} index={index}>
+          <p>내용 {index}</p>
+        </Tab.Content>
+      ))}
+    </Tab>
+  );
+};
+
+export const InitialIndex = () => {
+  return (
+    <Tab id="인덱스" width={400} initialIndex={3}>
+      <Tab.Menus>
         {engDays.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
         ))}

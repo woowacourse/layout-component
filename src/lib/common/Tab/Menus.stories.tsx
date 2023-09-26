@@ -8,11 +8,20 @@ import Tab from './Tab';
 
 const meta = {
   title: 'Tab/Menus',
+  tags: ['autodocs'],
   component: Menus,
   args: {
     highlightColor: '#32affd',
+    index: 1,
   },
   argTypes: {
+    index: {
+      control: {
+        type: 'number',
+      },
+      description:
+        '같은 index 가진 Content와 연결<br />Menu를 누르면 Menu의 index와 같은 index를 가진 Content가 보임',
+    },
     ...sizeArgTypes,
     ...spacingArgTypes,
   },

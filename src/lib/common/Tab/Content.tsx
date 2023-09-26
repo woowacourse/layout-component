@@ -9,7 +9,8 @@ interface ContentProps {
   index: number;
   /**
    * 탭 패널(내용)의 가로 위치 변경 가능
-   * @default 'center' */
+   * @default center
+   * */
   position?: FlexBasicLayout | 'stretch';
 }
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-import type { ChangeEvent, ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 import { useContext, type ReactNode } from 'react';
 
 import { TabContext } from './Tab';
@@ -15,34 +15,30 @@ interface MenuProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 const Menu = ({ label, icon, index, ...attributes }: MenuProps) => {
-  const { id, initialIndex, setActiveTab } = useContext(TabContext);
+  const { activeTab, setActiveTab } = useContext(TabContext);
 
-  const handleCheckMenu = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
-    if (checked) {
-      setActiveTab(`menu-${index}`);
-    }
+  const handleCheckMenu = () => {
+    setActiveTab(`menu-${index}`);
   };
 
   return (
-    <button role="tab" css={tabMenuStyle} {...attributes}>
-      <label htmlFor={`menu-${label}-${index}`} className={`menu-${index}`} css={menuLabelStyle}>
-        <input
-          type="radio"
-          id={`menu-${label}-${index}`}
-          name={`${id}-tab-menu`}
-          value={label}
-          defaultChecked={index === initialIndex}
-          onChange={handleCheckMenu}
-        />
-        {icon}
-        {label}
-      </label>
+    <button
+      role="tab"
+      className={activeTab === `menu-${index}` ? 'active' : ''}
+      css={tabMenuStyle}
+      {...attributes}
+      onClick={handleCheckMenu}
+    >
+      {icon}
+      {label}
     </button>
   );
 };
 
 const tabMenuStyle = css`
   flex: 1;
+
+  padding: 8px 0;
 
   color: #555;
   text-align: center;
@@ -53,13 +49,6 @@ const tabMenuStyle = css`
   &:hover {
     color: #333;
   }
-`;
-
-const menuLabelStyle = css`
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  padding: 8px 0;
 `;
 
 export default Menu;
