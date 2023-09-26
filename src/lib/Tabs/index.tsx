@@ -12,6 +12,7 @@ interface Props {
   $tabBoxHeight?: number;
   $simpleTab?: boolean;
   responsive?: boolean;
+  swiper?: boolean;
 }
 
 const Tabs = ({
@@ -20,6 +21,7 @@ const Tabs = ({
   $simpleTab = false,
   $tabBoxHeight = height / 10,
   responsive = false,
+  swiper = false,
   children,
 }: Props) => {
   const childrenList = React.Children.toArray(
@@ -34,7 +36,7 @@ const Tabs = ({
         {childrenList.map(
           (children, idx) =>
             children && (
-              <TabBox
+              <TabButton
                 key={`${children.props.label}, ${idx + 1}`}
                 idx={idx}
                 pos={pos}
@@ -45,7 +47,7 @@ const Tabs = ({
                 onClick={() => setPos(idx)}
               >
                 {!$simpleTab && (children.props.label || idx + 1)}
-              </TabBox>
+              </TabButton>
             )
         )}
       </TabBoxWrapper>
@@ -58,6 +60,19 @@ const Tabs = ({
       >
         {children}
       </TabSectionWrapper>
+
+      {swiper && (
+        <SwiperButtonWrapper>
+          <SwiperButton onClick={() => pos > 0 && setPos(pos - 1)}>
+            ◀️
+          </SwiperButton>
+          <SwiperButton
+            onClick={() => pos < childrenList.length - 1 && setPos(pos + 1)}
+          >
+            ▶️
+          </SwiperButton>
+        </SwiperButtonWrapper>
+      )}
     </Wrapper>
   );
 };
@@ -66,6 +81,7 @@ const Wrapper = styled.div<{ width: number; responsive: boolean }>`
   width: ${({ width }) => `${width}px`};
   overflow: hidden;
   margin: 0 auto;
+  position: relative;
 
   ${({ responsive, width }) =>
     responsive &&
@@ -112,7 +128,7 @@ const TabBoxWrapper = styled.div<{
     `}
 `;
 
-const TabBox = styled.button<{
+const TabButton = styled.button<{
   width: number;
   idx: number;
   pos: number;
@@ -158,6 +174,25 @@ const TabBox = styled.button<{
       border-bottom: 0;
       background-color: #316fc4;
     `}
+`;
+
+const SwiperButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const SwiperButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(120, 120, 120, 0.25);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 `;
 
 export default Tabs;
