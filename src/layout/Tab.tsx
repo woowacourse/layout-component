@@ -27,7 +27,7 @@ type ContentType = HTMLAttributes<HTMLElement> & {
 export const TabBox = (props: PropsWithChildren) => {
   const { children } = props;
   const [tabs, setTabs] = useState<Set<string>>(new Set());
-  const [currentTab, setCurrentTab] = useState("1");
+  const [currentTab, setCurrentTab] = useState("");
 
   const selectTab = (value: string) => {
     setCurrentTab(value);
@@ -59,7 +59,7 @@ export const Trigger = (props: PropsWithChildren<TriggerType>) => {
 
   useEffect(() => {
     if (tabs.has(value)) throw Error("Use the value without duplication.");
-    console.log(tabs, value);
+
     addTab(value);
   }, []);
 
