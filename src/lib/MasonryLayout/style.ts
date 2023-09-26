@@ -4,18 +4,17 @@ import { _MasonryLayoutProps } from '.';
 
 type ComponentProps = _MasonryLayoutProps & CommonStyleProps;
 
-const getGridTemplate = (repeatValue: number, size: string) => {
-  return `repeat(${repeatValue}, ${size})`;
+const getGridTemplate = (size: string) => {
+  return `repeat(auto-fill, minmax(${size}, 1fr))`;
 };
 
 export const Component = styled(CommonTag)<ComponentProps>`
   display: grid;
-  grid-template-columns: ${({ columns = 1, columnSize = '1fr' }) =>
-    getGridTemplate(columns, columnSize)};
-  grid-template-rows: ${({ rows = 1, rowSize = '1fr' }) =>
-    getGridTemplate(rows, rowSize)};
+  grid-template-columns: ${({ direction, itemSize = '1fr' }) =>
+    direction === 'column' ? getGridTemplate(itemSize) : ''};
+  grid-template-rows: ${({ direction, itemSize = '1fr' }) =>
+    direction === 'row' ? getGridTemplate(itemSize) : ''};
 
-  gap: ${({ gap }) => gap};
-  row-gap: ${({ rowGap }) => rowGap};
-  column-gap: ${({ columnGap }) => columnGap};
+  grid-auto-rows: 1px;
+  grid-column-gap: ${({ gap, columnGap = '0' }) => (gap ? gap : columnGap)};
 `;

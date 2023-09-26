@@ -1,12 +1,11 @@
-import { ElementType, ReactElement, forwardRef } from 'react';
+import { ElementType, ReactElement, createElement, forwardRef } from 'react';
 import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
 import * as S from './style';
+import MasonryLayoutItem from './MasonryLayoutItem';
 
 export interface _MasonryLayoutProps {
-  rows?: number;
-  columns?: number;
-  rowSize?: string;
-  columnSize?: string;
+  direction: 'row' | 'column';
+  itemSize: string;
   gap?: string;
   rowGap?: string;
   columnGap?: string;
@@ -25,9 +24,19 @@ const MasonryLayout: MasonryLayoutComponent = forwardRef(function MasonryLayout<
   { css, as, children, ...rest }: MasonryLayoutProps<T>,
   ref: PolymorphicRef<T>
 ) {
+  const childArray = Array.isArray(children) ? children : [children];
+
   return (
     <S.Component as={as} ref={ref} style={css} {...rest}>
-      {children}
+      {childArray.map((child) => (
+        <MasonryLayoutItem rowGap={rest.rowGap} gap={rest.gap}>
+          {createElement(child.type, {
+            ...{
+              ...child.props,
+            },
+          })}
+        </MasonryLayoutItem>
+      ))}
     </S.Component>
   );
 });
