@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useDrawer = () => {
+export const useDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openDrawer = () => {
@@ -13,5 +13,3 @@ const useDrawer = () => {
 
   return { isOpen, openDrawer, closeDrawer };
 };
-
-export default useDrawer;
