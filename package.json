@@ -1,7 +1,7 @@
 {
   "name": "ukko-split-pane",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -19,7 +19,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "release": "npx vite build && npm version patch && npm publish"
+    "release": "npx vite build && yarn version patch && npm publish"
   },
   "files": [
     "dist"
