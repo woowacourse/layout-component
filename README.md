@@ -151,3 +151,56 @@ const Demo = () => {
 
 export default Demo;
 ```
+
+## ParallaxItem
+
+### Props
+
+```ts
+type ParallaxItemProps = {
+  children?: ReactNode;
+  speed?: number;
+  easing?: 'ease-in-out' | 'ease-in' | 'ease-out' | 'ease';
+  isHorizontal?: boolean;
+  isAbsolutePosition?: boolean;
+  position?: { top?: number; right?: number; bottom?: number; left?: number };
+  zIndex?: number;
+  ...divElementTypes
+};
+```
+
+### Example
+
+```ts
+import { ParallaxItem } from 'ks-layout';
+
+const Demo = () => {
+  return (
+    <section>
+      <ParallaxItem speed={0.4} easing="ease-in-out">
+        <div>
+          <h1>Basic parallax component.</h1>
+        </div>
+      </ParallaxItem>
+      <ParallaxItem
+        speed={0.1}
+        easing="ease"
+        isAbsolute
+        position={{ top: '300px' }}
+        zIndex={10}
+      >
+        <div>
+          <h1>This component has absolute position and z-index.</h1>
+        </div>
+      </ParallaxItem>
+      <ParallaxItem speed={0.5} isHorizontal>
+        <div>
+          <h1>This component will move to horizontal direction.</h1>
+        </div>
+      </ParallaxItem>
+    </section>
+  );
+};
+
+export default Demo;
+```
