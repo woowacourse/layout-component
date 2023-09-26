@@ -1,4 +1,5 @@
-import styled, { CSSProperties } from 'styled-components';
+import { CSSProperties } from 'react';
+import styled from 'styled-components';
 
 export interface CommonStyleProps {
   width?: string;
