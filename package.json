@@ -5,14 +5,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "default": "./dist/mjs/index.js",
-        "types": "./dist/mjs/index.d.ts"
-      },
-      "require": {
-        "default": "./dist/cjs/index.js",
-        "types": "./dist/cjs/index.d.ts"
-      }
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
     }
   },
   "description": "It's a package made to use layout components comfortably",
