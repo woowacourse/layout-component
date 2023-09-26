@@ -1,7 +1,7 @@
 {
   "name": "react-layout-component-pat",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.5",
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
@@ -39,7 +39,7 @@
     "hae_on-layout-component": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-layout-component-pat": "^1.0.8",
+    "react-layout-component-pat": "^1.1.5",
     "rimraf": "^5.0.1",
     "styled-components": "^6.0.8"
   },
