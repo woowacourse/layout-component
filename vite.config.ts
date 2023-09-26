@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
-      name: 'index',
-      fileName: (format) => `index.${format}.js`,
+      name: 'react-aaker-layout-components',
+      fileName: (format) => `react-aaker-layout-components.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
