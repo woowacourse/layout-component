@@ -4,7 +4,7 @@ React 기본 레이아웃 컴포넌트 (Container, Grid, Flex)
 
 ## version
 
-version: 0.1.7 (updated in 2023.09.18)
+version: 0.1.10 (updated in 2023.09.26)
 
 ## 사용법
 

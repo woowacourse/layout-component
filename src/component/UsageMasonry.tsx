@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import { Grid } from 'tkdrb15-layout-component';
-import MasonryLayout from '../lib/step2/components/MasonryLayout';
 import {
   testSrc1,
   testSrc2,
@@ -11,6 +9,7 @@ import {
   testSrc6,
   testSrc7,
 } from '../imageSrcs';
+import { MasonryLayout } from 'tkdrb15-layout-component';
 
 const images = [
   testSrc1,
