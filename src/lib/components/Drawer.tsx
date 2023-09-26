@@ -80,9 +80,12 @@ const DrawerContainer = styled.div<DrawerContainerProps>`
     }
   }};
   /* 방향에 따른 위치 설정 */
-  top: ${(props) => (props.direction === 'top' ? '0' : 'auto')};
+  top: ${(props) => (props.direction === 'top' || props.direction === 'right' ? '0' : 'auto')};
   bottom: ${(props) => (props.direction === 'bottom' ? '0' : 'auto')};
-  left: ${(props) => (props.direction === 'left' ? '0' : 'auto')};
+  left: ${(props) =>
+    props.direction === 'left' || props.direction === 'top' || props.direction === 'bottom'
+      ? '0'
+      : 'auto'};
   right: ${(props) => (props.direction === 'right' ? '0' : 'auto')};
 `
 
