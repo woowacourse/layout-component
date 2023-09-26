@@ -14,8 +14,8 @@ export const Dimmer = styled.div<{
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: ${({ zIndex }) => zIndex};
   transition: opacity
@@ -31,7 +31,7 @@ export const Dimmer = styled.div<{
 `;
 
 export const DrawerRoot = styled.div<DrawerRootProps>`
-  position: absolute;
+  position: fixed;
   transition: transform
     ${({ transitionDurationMS }) => `${transitionDurationMS}ms`} ease-in-out;
 
