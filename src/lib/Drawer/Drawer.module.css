@@ -10,38 +10,55 @@
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.backdrop.open {
+.container {
+  position: fixed;
+
+  background-color: #fff;
+  transition: transform 0.4s ease-in-out;
+}
+
+.open {
   display: block;
 }
 
-.container {
-  position: absolute;
-
-  background-color: #fff;
-}
-
-.container.left {
+.left {
+  top: 0;
   left: 0;
 
   width: 250px;
   height: 100%;
+
+  transform: translateX(-100%);
 }
 
-.container.right {
+.right {
+  top: 0;
   right: 0;
 
   width: 250px;
   height: 100%;
+
+  transform: translateX(100%);
 }
 
-.container.top {
+.top {
   top: 0;
+  left: 0;
 
   width: 100%;
+
+  transform: translateY(-100%);
 }
 
-.container.bottom {
+.bottom {
   bottom: 0;
+  left: 0;
 
   width: 100%;
+
+  transform: translateY(100%);
+}
+
+.open.container {
+  transform: translate(0, 0);
 }

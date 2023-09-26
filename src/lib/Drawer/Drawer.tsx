@@ -13,11 +13,15 @@ const Drawer = ({ direction = "left", isOpen, onClose, children }: PropsWithChil
   };
 
   return (
-    <div className={`${styles.backdrop} ${isOpen ? styles.open : ""}`} onClick={onClose}>
-      <div className={`${styles.container} ${styles[direction]}`} onClick={preventCloseModal}>
+    <>
+      <div className={`${styles.backdrop} ${isOpen ? styles.open : ""}`} onClick={onClose} />
+      <div
+        className={`${styles.container} ${styles[direction]} ${isOpen ? styles.open : ""}`}
+        onClick={preventCloseModal}
+      >
         {children}
       </div>
-    </div>
+    </>
   );
 };
 
