@@ -19,12 +19,20 @@ const SplitPane: React.FC<{
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const resize = (event: MouseEvent) => {
+    const resize = (event: MouseEvent | TouchEvent) => {
       if (isResizing && containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
 
+        let position;
+        if (event instanceof TouchEvent) {
+          event.preventDefault();
+          position = event.touches[0].clientX;
+        } else {
+          position = (event as MouseEvent).clientX;
+        }
+
         if (typeof minSize === 'string' && typeof maxSize === 'string') {
-          const newWidth = ((event.clientX - containerRect.left) / containerRect.width) * 100;
+          const newWidth = ((position - containerRect.top) / containerRect.height) * 100;
 
           const min = parseFloat(minSize);
           const max = parseFloat(maxSize);
@@ -33,7 +41,7 @@ const SplitPane: React.FC<{
             setSize(`${newWidth}%`);
           }
         } else if (typeof minSize === 'number' && typeof maxSize === 'number') {
-          const newWidth = event.clientX - containerRect.left;
+          const newWidth = position - containerRect.top;
 
           if (newWidth >= minSize && newWidth <= maxSize) {
             setSize(`${newWidth}px`);
@@ -45,25 +53,27 @@ const SplitPane: React.FC<{
     const endResize = () => {
       setIsResizing(false);
     };
-
+    window.addEventListener('touchmove', resize);
+    window.addEventListener('touchend', endResize);
     window.addEventListener('mousemove', resize);
     window.addEventListener('mouseup', endResize);
 
     return () => {
+      window.removeEventListener('touchmove', resize);
+      window.removeEventListener('touchend', endResize);
       window.removeEventListener('mousemove', resize);
       window.removeEventListener('mouseup', endResize);
     };
   }, [isResizing, minSize, maxSize]);
 
-  const startResize: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    e.preventDefault();
+  const startResize = () => {
     setIsResizing(true);
   };
 
   return (
     <PaneContainer ref={containerRef}>
       <Pane $size={size}>{children?.[0]}</Pane>
-      <Resizer $size={size} onMouseDown={startResize} />
+      <Resizer $size={size} onMouseDown={startResize} onTouchStart={startResize} />
       <Pane $size={`calc(100% - ${size})`}>{children?.[1]}</Pane>
     </PaneContainer>
   );
@@ -81,6 +91,10 @@ const PaneContainer = styled.div`
 const Pane = styled.div<{ $size: string }>`
   width: ${(props) => props.$size};
   overflow: auto;
+
+  & > * {
+    height: 100vh;
+  }
 `;
 
 const Resizer = styled.div<{ $size: string }>`
