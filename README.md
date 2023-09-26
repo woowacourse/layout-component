@@ -1,27 +1,45 @@
-# React + TypeScript + Vite
+## ✅ Tab Layout
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Installation
 
-Currently, two official plugins are available:
+```
+$ npm i navrary-layout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### ✅ Usage
+
+```ts
+import { Tab } from "navrary-layout";
+
+const MyTab = () => {
+  return (
+    <Tab>
+      <Tab.List className="list">
+        <Tab.Trigger value="1" />
+        <Tab.Trigger value="2" />
+      </Tab.List>
+      <Tab.Content value="1">
+        <div>first tab</div>
+      </Tab.Content>
+      <Tab.Content value="2">
+        <div>first tab</div>
+      </Tab.Content>
+    </Tab>
+  );
+};
+```
+
+### ✅ Requirements
+
+- Duplicate values are not allowed.
+
+```
+Use the value without duplication.
+```
+
+- The value of the content component must be one of the values used in the trigger.
+
+```
+Use the same value as the Trigger component
+```
