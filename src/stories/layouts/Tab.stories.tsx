@@ -20,6 +20,17 @@ const meta = {
 			options: JUSTIFIES,
 			description: 'tab list의 위치',
 		},
+		onClick: {
+			description: 'tab이 클릭됐을 때 실행되는 callback',
+		},
+		moveButton: {
+			control: { type: 'boolean' },
+			description: 'tab 양옆에 scroll하는 버튼을 추가할지 결정하는 옵션',
+		},
+		customCss: {
+			control: { type: 'object' },
+			description: '위에 속성 외에 개인적으로 설정할 값들',
+		},
 	},
 } satisfies Meta<typeof TabList>;
 
