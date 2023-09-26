@@ -125,7 +125,7 @@ const App = () => {
   const closeSheet = () => setIsShow(false)
   return (
     <>
-      <Drawer direction="left" isShow={isShow} size="sm" closeDrawer={closeSheet} />
+      <Drawer direction="left" isShow={isShow} closeDrawer={closeSheet} />
       <button onClick={openSheet}>Drawer보이기</button>
     </>
   )
