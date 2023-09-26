@@ -61,8 +61,6 @@ export const Disable: Story = {
 		const tabs = ['Active', 'Disable', 'Active'];
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
-		// TODO: tabMenu가 disable일 때 selected 되게 하지 않기
-		// current가 disable인지 확인이 필요함..
 		const tabMenu = tabs.map((content, index) => (
 			<TabButton
 				label={content}

@@ -1,6 +1,6 @@
 {
 	"name": "@hozzijeong/layout-component",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"type": "module",
 	"main": "dist/index.umd.cjs",
 	"module": "dist/index.js",
@@ -15,6 +15,24 @@
 	"files": [
 		"dist"
 	],
+	"keywords": [
+		"components",
+		"component",
+		"react",
+		"ui"
+	],
+	"bugs": {
+		"email": "ghwls0905@gmail.com"
+	},
+	"author": {
+		"name": "Jeong Hojin",
+		"email": "ghwls0905@gmail.com",
+		"url": "https://github.com/hozzijeong"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hozzijeong/layout-component.git"
+	},
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
