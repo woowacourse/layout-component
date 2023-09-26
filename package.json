@@ -19,8 +19,8 @@
     "type": "git",
     "url": "https://github.com/regularPark/layout-component.git"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "browser": "./browser/specific/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
