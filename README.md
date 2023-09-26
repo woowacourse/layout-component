@@ -144,7 +144,7 @@ const App = () => {
 ## 참고 배포 링크
 
 스토리북을 통해 demo 페이지를 만들었습니다. demo에서 확인 후 사용하시면 더 좋습니다!
-https://650793db3827905a5d403040-puvxvaofdc.chromatic.com
+https://650793db3827905a5d403040-nyqvspjbub.chromatic.com
 
 ## 참고 사항(고려한 부분 및 사용자 사용팁)
 
