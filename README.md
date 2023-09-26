@@ -31,7 +31,7 @@ A Tiny, zero dependency layout components.
 ### Usage:
 
 ```tsx
-import { Flex } from 'react-tiny-**dialog**';
+import { Flex } from 'react-tiny-**layout**';
 
 export default function Sample() {
   return (
@@ -69,7 +69,7 @@ export default function Sample() {
 ### Usage:
 
 ```tsx
-import { Grid } from 'react-tiny-dialog';
+import { Grid } from 'react-tiny-layout';
 
 export default function Sample() {
   return (
@@ -106,7 +106,7 @@ export default function Sample() {
 ### Usage:
 
 ```tsx
-import { Container } from 'react-tiny-dialog';
+import { Container } from 'react-tiny-layout';
 
 export default function Sample() {
   return (
