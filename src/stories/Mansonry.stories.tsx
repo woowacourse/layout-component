@@ -48,12 +48,17 @@ export const RandomHeight: Story = {
 };
 
 export const RandomImages: Story = {
+  args: {
+    columns: 3,
+    gap: 12,
+    minWidth: 800,
+  },
   render: (args) => (
     <Masonry {...args}>
-      {Array(20)
+      {Array(30)
         .fill(null)
         .map((_, index) => (
-          <img key={index} src={`https://picsum.photos/300/${random(300)}?random=${index}`} />
+          <img key={index} src={`https://picsum.photos/400/${random(400)}?random=${index}`} />
         ))}
     </Masonry>
   ),
