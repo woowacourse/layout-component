@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import Drawer, { Anchor } from './index';
+import Flex from '../Flex';
 
 const meta = {
   title: 'Drawer',
@@ -26,6 +27,14 @@ export const Playground: Story = {
       setState({ ...state, [anchor]: open });
     };
 
+    const list = (anchor: Anchor) => (
+      <Flex direction="column">
+        <button onClick={() => toggleDrawer(anchor, false)}>Woowacourse</button>
+        <button onClick={() => toggleDrawer(anchor, false)}>Missions</button>
+        <button onClick={() => toggleDrawer(anchor, false)}>Settings</button>
+      </Flex>
+    );
+
     return (
       <>
         {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => (
@@ -36,8 +45,7 @@ export const Playground: Story = {
               open={state[anchor]}
               onClose={() => toggleDrawer(anchor, false)}
             >
-              {/* {list(anchor)} */}
-              <div>asd</div>
+              {list(anchor)}
             </Drawer>
           </React.Fragment>
         ))}
@@ -45,5 +53,3 @@ export const Playground: Story = {
     );
   },
 };
-
-export const Variants: Story = {};
