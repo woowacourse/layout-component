@@ -191,6 +191,8 @@ const SwiperButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: 0;
+  cursor: pointer;
 `;
 
 export default Tabs;
