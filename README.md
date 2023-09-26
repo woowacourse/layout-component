@@ -121,6 +121,56 @@ function App() {
 export default App;
 ```
 
+### Drawer
+사이트 내 목적지 또는 계정 전환과 같은 앱 기능에 접근하는 통로를 담는 컴포넌트
+
+#### Props
+
+| 속성 | 타입 | 기본값  |
+| --- | --- | --- |
+| anchor | `'left', 'right', 'top', 'bottom'` | 'left' |
+| open | boolean | false |
+| onClose | Function | undefined |
+
+
+```tsx
+import { Container } from '@yogjin/layout-component';
+
+...
+const [state, setState] = React.useState({
+  top: false,
+  left: false,
+  bottom: false,
+  right: false,
+});
+
+const toggleDrawer = (anchor: Anchor, open: boolean) => {
+  setState({ ...state, [anchor]: open });
+};
+
+const list = (anchor: Anchor) => (
+  <Flex direction="column">
+    <button onClick={() => toggleDrawer(anchor, false)}>Woowacourse</button>
+    <button onClick={() => toggleDrawer(anchor, false)}>Missions</button>
+    <button onClick={() => toggleDrawer(anchor, false)}>Settings</button>
+  </Flex>
+);
+
+return (
+  <>
+    {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => (
+      <React.Fragment key={anchor}>
+        <button onClick={() => toggleDrawer(anchor, true)}>{anchor}</button>
+        <Drawer anchor={anchor} open={state[anchor]} onClose={() => toggleDrawer(anchor, false)}>
+          {list(anchor)}
+        </Drawer>
+      </React.Fragment>
+    ))}
+  </>
+);
+... 
+```
+
 ### License
 `react-global-state` is MIT licensed
 
