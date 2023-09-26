@@ -32,7 +32,8 @@ const SplitPane: React.FC<{
         }
 
         if (typeof minSize === 'string' && typeof maxSize === 'string') {
-          const newWidth = ((position - containerRect.top) / containerRect.height) * 100;
+          const newWidth =
+            ((position - containerRect.left) / containerRect.width) * 100;
 
           const min = parseFloat(minSize);
           const max = parseFloat(maxSize);
@@ -41,7 +42,7 @@ const SplitPane: React.FC<{
             setSize(`${newWidth}%`);
           }
         } else if (typeof minSize === 'number' && typeof maxSize === 'number') {
-          const newWidth = position - containerRect.top;
+          const newWidth = position - containerRect.left;
 
           if (newWidth >= minSize && newWidth <= maxSize) {
             setSize(`${newWidth}px`);
@@ -73,8 +74,12 @@ const SplitPane: React.FC<{
   return (
     <PaneContainer ref={containerRef}>
       <Pane $size={size}>{children?.[0]}</Pane>
-      <Resizer $size={size} onMouseDown={startResize} onTouchStart={startResize} />
-      <Pane $size={`calc(100% - ${size})`}>{children?.[1]}</Pane>
+      <Resizer
+        $size={size}
+        onMouseDown={startResize}
+        onTouchStart={startResize}
+      />
+      <Pane $size={`calc(100% - ${size} - 2.5px)`}>{children?.[1]}</Pane>
     </PaneContainer>
   );
 };
