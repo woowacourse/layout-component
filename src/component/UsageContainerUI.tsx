@@ -28,7 +28,7 @@ const UsageContainerUI = () => {
         <Style.UIContainerInner>
           <Container maxWidth={maxWidth} minWidth={minWidth}>
             {uiItems.map((item) => (
-              <Style.Item>{item}</Style.Item>
+              <Style.Item key={item}>{item}</Style.Item>
             ))}
           </Container>
         </Style.UIContainerInner>
