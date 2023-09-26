@@ -90,13 +90,8 @@ CSS Flexbox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 
 ### Import
 
 ```tsx
-import { Flex } from 'layout-component-hp';
+import { Container } from 'conan-layout-component';
 ```
-
-### Anatomy
-
-- Flex: CSS Flexbox를 지정한 컨테이너
-- Flex.Item: Flex 내 각 아이템 컨테이너
 
 ### Flex Props
 
@@ -124,4 +119,43 @@ import { Flex } from 'layout-component-hp';
   <div style={{ backgroundColor: '#0277BD' }}>Item 7</div>
   <div style={{ backgroundColor: '#01579B' }}>Item 8</div>
 </Flex>
+```
+
+## Drawer
+
+화면의 한쪽에서 슬라이드 형태로 나타나는 메뉴나 사이드바를 제공하는 컴포넌트입니다.
+
+### Import
+
+```tsx
+import { Drawer, useModal } from 'conan-layout-component';
+```
+
+### Drawer Props
+
+| props     | value                                  | description                                 |
+| --------- | -------------------------------------- | ------------------------------------------- |
+| placement | 'left' \| 'right' \| 'top' \| 'bottom' | Drawer 컴포넌트의 위치를 지정합니다.        |
+| isVisible | boolean                                | Drawer 컴포넌트의 보임을 제어합니다.        |
+| onClose   | () => void                             | Drawer 컴포넌트를 닫는 함수를 주입받습니다. |
+
+### Usage
+
+```tsx
+const App = () => {
+  const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+
+  return (
+    <>
+      <button type="button" onClick={openModal}>
+        Drawer 열기
+      </button>
+      {isOpen && (
+        <Drawer placement="left" isVisible={isVisible} onClose={closeModal}>
+          <div style={{ width: '20vw', height: '100vh', backgroundColor: '#81D4FA' }}>Contents</div>
+        </Drawer>
+      )}
+    </>
+  );
+};
 ```
