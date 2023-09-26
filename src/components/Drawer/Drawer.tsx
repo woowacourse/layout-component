@@ -59,13 +59,13 @@ const StyledDrawer = styled.div<Omit<Props, 'onClose'>>`
     const commonLeftAndRightStyles = css`
       top: 0;
       height: 100vh;
-      width: 15%;
+      width: 260px;
     `;
 
     const commonUpAndBottomStyles = css`
       left: 0;
       right: 0;
-      height: 15%;
+      height: 260px;
       width: 100vw;
     `;
 
