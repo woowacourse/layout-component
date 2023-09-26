@@ -19,7 +19,7 @@ interface useModalReturnValue {
    */
   isOpen: boolean;
   /**
-   * 모달 컴포넌트의 프롭스에 넘겨줄 열림/닫힘 값입니다. 모달이 열리는 애니메이션을 위해 존재합니다.
+   * 모달 컴포넌트의 프롭스에 넘겨줄 열림/닫힘 값입니다. 모달이 닫히는 애니메이션을 위해 존재합니다.
    * @example
    * {isOpen && <Modal isVisible={isVisible}/>}
    */
