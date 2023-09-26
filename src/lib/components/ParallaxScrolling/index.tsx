@@ -25,8 +25,7 @@ const Layout = styled.div<LayoutProps>`
   height: 100vh;
   overflow-x: hidden;
 
-  perspective: ${({ perspective }) =>
-    perspective ? `${perspective}px` : '0px'};
+  perspective: 0;
 `;
 
 const Container = styled.div`

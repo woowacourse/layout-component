@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ParallaxScrolling from '../components/ParallaxScrolling';
-import ParallaxItem from '../components/ParallaxScrolling/ParallaxItem';
+import ParallaxItem from '../components/ParallaxItem';
 
 const meta: Meta<typeof ParallaxScrolling> = {
   title: 'ParallaxScrolling',
@@ -16,7 +16,7 @@ export const Default: Story = {
     children: (
       <>
         <ParallaxItem
-          translateZ={-10}
+          translateZ={-7}
           scale={25}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/galaxy.jpg'}
           objectFit='cover'
@@ -30,13 +30,13 @@ export const Default: Story = {
         />
         <ParallaxItem
           translateZ={-7}
-          scale={10}
+          scale={8}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/mars.png'}
           objectFit='contain'
           left='8000px'
         />
         <ParallaxItem
-          translateZ={-3}
+          translateZ={-6}
           scale={5}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/atmosphere.png'}
           objectFit='contain'
