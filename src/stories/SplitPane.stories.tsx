@@ -25,4 +25,15 @@ export const Playground: Story = {
   args: {
     children: [<div>a</div>, <div>b</div>],
   },
+  argTypes: {
+    width: {
+      control: 'text',
+    },
+    paneMaxWidth: {
+      control: 'number',
+    },
+    paneMinWidth: {
+      control: 'number',
+    },
+  },
 };
