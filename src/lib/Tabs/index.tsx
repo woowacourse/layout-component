@@ -18,7 +18,7 @@ const Tabs = ({
   width = 400,
   height = 400,
   $simpleTab = false,
-  $tabBoxHeight = 40,
+  $tabBoxHeight = height / 10,
   responsive = false,
   children,
 }: Props) => {
@@ -37,6 +37,7 @@ const Tabs = ({
               <TabBox
                 key={`${children.props.label}, ${idx + 1}`}
                 width={width}
+                $tabBoxHeight={$tabBoxHeight}
                 $childrenLength={childrenList.length}
                 $simpleTab={$simpleTab}
                 onClick={() => setPos(idx)}
@@ -111,6 +112,7 @@ const TabBoxWrapper = styled.div<{
 
 const TabBox = styled.button<{
   width: number;
+  $tabBoxHeight: number;
   $childrenLength: number;
   $simpleTab: boolean;
 }>`
@@ -124,12 +126,12 @@ const TabBox = styled.button<{
     border-bottom: 2px solid #316fc4;
   }
 
-  ${({ $simpleTab }) =>
+  ${({ $simpleTab, $tabBoxHeight }) =>
     $simpleTab &&
     css`
       padding: 0;
-      width: 24px;
-      height: 24px;
+      width: ${$tabBoxHeight / 2}px;
+      height: ${$tabBoxHeight / 2}px;
       border-radius: 50%;
 
       &:focus {
