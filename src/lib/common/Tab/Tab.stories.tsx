@@ -34,7 +34,7 @@ const engDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const;
 export const Default = ({ id, ...args }: TabProps) => {
   return (
     <Tab id={id} width={400} {...args}>
-      <Tab.Menus gap={10} highlightColor="#32affd">
+      <Tab.Menus highlightColor="#32affd">
         {days.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
         ))}

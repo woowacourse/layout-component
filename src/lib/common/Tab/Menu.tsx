@@ -43,16 +43,23 @@ const Menu = ({ label, icon, index, ...attributes }: MenuProps) => {
 
 const tabMenuStyle = css`
   flex: 1;
+
+  color: #555;
   text-align: center;
+
   background: transparent;
   border: none;
+
+  &:hover {
+    color: #333;
+  }
 `;
 
 const menuLabelStyle = css`
   cursor: pointer;
   display: block;
   width: 100%;
-  padding: 4px 0;
+  padding: 8px 0;
 `;
 
 export default Menu;
