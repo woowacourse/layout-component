@@ -16,4 +16,6 @@ type Props<T extends ElementType, P = {}> = PropsWithChildren<
 > &
   Omit<ComponentPropsWithoutRef<T>, PropsToOmit<T, P>>;
 
-export type { Props };
+type RenderProps<P extends object = object> = (payload: P) => JSX.Element;
+
+export type { Props, RenderProps };
