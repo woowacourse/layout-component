@@ -1,16 +1,29 @@
 .tab-button-list {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 40px;
+  align-items: 'center';
 
+  box-shadow: var(--tab-position) #e2e8f0 inset;
   background-color: transparent;
 }
 
-.tab-button-item {
+.item {
   background-color: transparent;
+}
+
+.active-item {
+  box-shadow: var(--tab-position) #2b6cb0 inset;
 }
 
 .tab-button {
   padding: 8px 16px;
+
+  font-size: 2rem;
+}
+
+.tab-button:active {
+  background-color: #eaeff6ff;
+}
+
+.active-tab-button {
+  color: #2b6cb0;
 }

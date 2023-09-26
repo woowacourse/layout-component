@@ -1,5 +1,6 @@
 .panels {
-  height: calc(100% - 40px);
+  width: 100%;
+  height: 100%;
   padding: 16px;
 
   background-color: transparent;
@@ -9,4 +10,9 @@
   height: 100%;
 
   background-color: transparent;
+  overflow-y: auto;
+}
+
+.panel > * {
+  font-size: 1.6rem;
 }
