@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
-      name: 'react-aaker-layout-components',
-      fileName: (format) => `react-aaker-layout-components.${format}.js`,
+      name: 'index',
+      fileName: `index`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -19,5 +19,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [react(), dts()],
 });
