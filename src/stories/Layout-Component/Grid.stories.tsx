@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Grid>;
  */
 
 const meta: Meta<typeof Grid> = {
-  title: 'Grid',
+  title: 'Layout-Component/Grid',
   component: Grid,
 };
 

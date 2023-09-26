@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Flex>;
  */
 
 const meta: Meta<typeof Flex> = {
-  title: 'Flex',
+  title: 'Layout-Component/Flex',
   component: Flex,
 };
 
