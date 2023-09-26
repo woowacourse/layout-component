@@ -3,7 +3,6 @@ import type { ComponentPropsWithoutRef } from "react";
 
 interface ParallaxItemProps extends ComponentPropsWithoutRef<"div"> {
   imageUrl?: string;
-  speed?: number;
 }
 
 const ParallaxItem = ({ imageUrl, children }: ParallaxItemProps) => {

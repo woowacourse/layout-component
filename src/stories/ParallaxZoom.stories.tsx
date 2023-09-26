@@ -20,29 +20,27 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: () => {
     return (
-      <div>
-        <ParallaxZoom
-          speed={0.05}
-          imageURL={
-            "https://img.freepik.com/free-photo/landscape-with-a-tree_1048-4891.jpg"
-          }
-        >
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-          <p>text</p>
-        </ParallaxZoom>
-      </div>
+      <ParallaxZoom
+        speed={0.05}
+        imageURL={
+          "https://img.freepik.com/free-photo/landscape-with-a-tree_1048-4891.jpg"
+        }
+      >
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+      </ParallaxZoom>
     );
   },
 };
