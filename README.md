@@ -55,3 +55,10 @@ CSS Flex를 사용하여 자식 컴포넌트들을 유연하게 배열하는 컴
   <div>Item 3</div>
 </FlexBox>
 ```
+
+## TabLayout 컴포넌트 라이브러리
+
+- TabLayout 컴포넌트는 사용자가 선택한 탭에 따라 특정 패널을 보여주는 컴포넌트입니다
+- The TabLayout component is a component that displays a specific panel based on the tab selected by the user
+
+필요한 기본 기능만 제공하고 사용자에게 스타일링에 대한 자유와 직관적이고 쉬운 개발 경험을 제공합니다.
