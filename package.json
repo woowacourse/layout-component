@@ -39,7 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf dist && tsc && cp package.json README.md ./dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "rm -fr dist && mkdir dist && tsc",
