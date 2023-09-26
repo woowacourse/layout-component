@@ -4,7 +4,7 @@ name: 'Chromatic Deployment'
 # Event for the workflow
 on:
   push:
-    branches: ['n0eyes']
+    branches: ['step2']
 
 # List of jobs
 
