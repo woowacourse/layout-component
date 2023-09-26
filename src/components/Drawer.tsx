@@ -1,6 +1,6 @@
 import { type CSSProperties, type PropsWithChildren, useEffect } from "react";
 import { createPortal } from "react-dom";
-import "./Drawer.style.css";
+import "./Drawer.css";
 
 export interface DrawerProps {
   isOpen: boolean;
