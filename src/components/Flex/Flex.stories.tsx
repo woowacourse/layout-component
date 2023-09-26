@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Flex from './index';
+import Flex from './Flex';
 
 const Item = (count: number) => {
   const greenIntensity = 255 - count * 20;

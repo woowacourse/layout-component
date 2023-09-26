@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Drawer, { Anchor } from './index';
-import Flex from '../Flex';
+import Drawer, { Anchor } from './Drawer';
+import Flex from '../Flex/Flex';
 
 const meta = {
   title: 'Drawer',

@@ -1,5 +1,5 @@
-import Container from './components/Container/index';
-import Grid from './components/Grid/index';
-import Flex from './components/Flex/index';
+import Container from './components/Container/Container';
+import Grid from './components/Grid/Grid';
+import Flex from './components/Flex/Flex';
 
 export { Container, Grid, Flex };
