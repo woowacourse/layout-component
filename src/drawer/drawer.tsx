@@ -6,6 +6,7 @@ import DrawerBackdrop from './drawer-backdrop';
 import { DrawerContext } from './drawer-context';
 import { useDrawer } from './hooks';
 import { Placement } from './drawer.type';
+import DrawerCloseButton from './drawer-close-button';
 
 type DrawerProps = {
   isOpen: boolean;
@@ -43,5 +44,6 @@ const Drawer = ({
 
 Drawer.Backdrop = DrawerBackdrop;
 Drawer.Content = DrawerContent;
+Drawer.CloseButton = DrawerCloseButton;
 
 export default Drawer;
