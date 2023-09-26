@@ -82,7 +82,6 @@ function MyComponent() {
 }
 
 ```
-
 [Flex 스토리북 보러가기](https://65068c38c8cef469d3e5e634-vmefemwmwj.chromatic.com/?path=/docs/components-flex--docs)
 
 ## SplitPane
@@ -106,3 +105,4 @@ function MyComponent() {
 ```
 
 [SplitPane 스토리북 보러가기](https://65068c38c8cef469d3e5e634-vmefemwmwj.chromatic.com/?path=/docs/components-splitpane--docs)
+
