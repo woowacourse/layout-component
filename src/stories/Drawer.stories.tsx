@@ -6,28 +6,15 @@ type Story = StoryObj<typeof Drawer>;
 
 type Direction = "left" | "right" | "top" | "bottom";
 
-const MyDrawer = () => {
+type Props = {
+  direction: Direction;
+};
+
+const DrawerWithOpenState = ({ direction }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [direction, setDirection] = useState<Direction>("left");
 
-  const handleClickLeft = () => {
+  const openDrawer = () => {
     setIsOpen(true);
-    setDirection("left");
-  };
-
-  const handleClickRight = () => {
-    setIsOpen(true);
-    setDirection("right");
-  };
-
-  const handleClickTop = () => {
-    setIsOpen(true);
-    setDirection("top");
-  };
-
-  const handleClickBottom = () => {
-    setIsOpen(true);
-    setDirection("bottom");
   };
 
   const closeDrawer = () => {
@@ -36,10 +23,7 @@ const MyDrawer = () => {
 
   return (
     <div>
-      <button onClick={handleClickLeft}>left</button>
-      <button onClick={handleClickRight}>right</button>
-      <button onClick={handleClickTop}>top</button>
-      <button onClick={handleClickBottom}>bottom</button>
+      <button onClick={openDrawer}>open drawer</button>
 
       <Drawer direction={direction} isOpen={isOpen} onClose={closeDrawer}>
         <div>Item1</div>
@@ -50,12 +34,27 @@ const MyDrawer = () => {
     </div>
   );
 };
+
 const meta: Meta<typeof Drawer> = {
   title: "LAYOUT/Drawer",
   tags: ["autodocs"],
-  component: MyDrawer,
+  component: Drawer,
 };
 
 export default meta;
 
-export const Default: Story = {};
+export const LeftDrawer: Story = {
+  render: () => <DrawerWithOpenState direction="left" />,
+};
+
+export const RightDrawer: Story = {
+  render: () => <DrawerWithOpenState direction="right" />,
+};
+
+export const TopDrawer: Story = {
+  render: () => <DrawerWithOpenState direction="top" />,
+};
+
+export const BottomDrawer: Story = {
+  render: () => <DrawerWithOpenState direction="bottom" />,
+};
