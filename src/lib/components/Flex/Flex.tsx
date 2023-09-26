@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode, CSSProperties } from 'react';
 import type { Gap } from '../../types';
 import styles from './Flex.module.css';
-import { stringifySize } from '../utils/stringifySize';
+import { stringifySize } from '../../utils/stringifySize';
 import { Size } from '../../types';
 
 type FlexProps = HTMLAttributes<HTMLDivElement> &

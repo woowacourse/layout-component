@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode, CSSProperties } from 'react';
 import type { Size } from '../../types';
-import { stringifySize } from '../utils/stringifySize';
+import { stringifySize } from '../../utils/stringifySize';
 import styles from './Grid.module.css';
 import { Gap } from '../../types';
 
