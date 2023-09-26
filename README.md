@@ -109,6 +109,42 @@ function App() {
 }
 ```
 
+<br/>
+
+### Masonry Layout
+
+여러 크기의 아이템을 격자 형태로 정렬하되, 각 행과 열의 높이가 동일하지 않아 빈 공간이 최소화되는 레이아웃 컴포넌트
+
+| props        | 타입                      | 설명                                                                 |
+| ------------ | ------------------------- | -------------------------------------------------------------------- |
+| column       | number ,'auto-fit'        | Number of columns, if auto-fit, fill the columns as much as possible |
+| width        | number ,string, undefined | width of layout                                                      |
+| itemWidth    | number ,string, undefined | width of layout item                                                 |
+| columnGap    | number ,string, undefined | column-gap of layout                                                 |
+| rowGap       | number ,string, undefined | row-gap of layout item                                               |
+| borderRadius | number ,string, undefined | border-radius of layout                                              |
+
+<br/>
+
+```JavaScript
+function App() {
+  return (
+    <MasonryLayout
+     column={column}
+     width={width}
+     itemWidth={itemWidth}
+     columnGap={columnGap}
+     rowGap={rowGap}
+     borderRadius={borderRadius}>
+      <img/>
+      <img/>
+      <img/>
+      <img/>
+    </MasonryLayout>
+  );
+}
+```
+
 ## 배포 링크
 
 - [npm](https://www.npmjs.com/package/tkdrb15-layout-component)
