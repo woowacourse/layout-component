@@ -1,4 +1,4 @@
-import { Drawer } from '../lib/Drawer';
+import Drawer from '../lib/Drawer';
 import type { StoryObj, Meta } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 

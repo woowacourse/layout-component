@@ -8,7 +8,7 @@ interface CSSGridProps extends PropsWithChildren {
   padding?: number;
 }
 
-export const Grid = ({ column = 1, row = 1, gap, padding, children }: CSSGridProps) => {
+const Grid = ({ column = 1, row = 1, gap, padding, children }: CSSGridProps) => {
   return (
     <GridLayout column={column} row={row} gap={gap} padding={padding}>
       {children}
@@ -24,3 +24,5 @@ const GridLayout = styled.div<CSSGridProps>`
 
   padding: ${(props) => props.padding}px;
 `;
+
+export default Grid;

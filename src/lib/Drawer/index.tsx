@@ -9,14 +9,7 @@ interface DrawerProps extends HTMLProps<HTMLDivElement> {
   closeDrawer: () => void;
 }
 
-export const Drawer = ({
-  isOpen,
-  anchor,
-  closeDrawer,
-  padding,
-  children,
-  ...props
-}: DrawerProps) => {
+const Drawer = ({ isOpen, anchor, closeDrawer, padding, children, ...props }: DrawerProps) => {
   return (
     <>
       {isOpen && <BackDrop onClick={closeDrawer} />}
@@ -26,3 +19,5 @@ export const Drawer = ({
     </>
   );
 };
+
+export default Drawer;

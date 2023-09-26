@@ -14,7 +14,7 @@ interface CSSContainerProps extends PropsWithChildren {
   background?: string;
 }
 
-export const Container = ({
+const Container = ({
   as = 'div',
   minWidth = '100%',
   maxWidth = '100%',
@@ -60,3 +60,5 @@ const ContainerLayout = styled.div<CSSContainerProps>`
       ? `${props.borderRadius}px`
       : `${props.borderRadius}`};
 `;
+
+export default Container;
