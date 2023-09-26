@@ -1,6 +1,6 @@
 {
   "name": "slinky-layout-component",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "slinky-layout-component",
   "homepage": "https://github.com/dladncks1217/layout-component",
   "main": "dist/index.js",
@@ -36,12 +36,12 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "react-dom": "^18.2.0",
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/babel-preset-css-prop": "^11.11.0",
+    "@preact/compat": "^17.1.2",
     "@storybook/addon-a11y": "^7.1.1",
     "@storybook/addon-essentials": "^7.0.25",
     "@storybook/addon-interactions": "^7.0.25",
@@ -67,6 +67,7 @@
     "eslint-plugin-storybook": "^0.6.12",
     "html-webpack-plugin": "^5.5.3",
     "prettier": "^2.8.8",
+    "react-dom": "^18.2.0",
     "storybook": "^7.0.25",
     "ts-loader": "^9.4.4",
     "tsc-alias": "^1.8.7",
