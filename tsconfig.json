@@ -18,5 +18,5 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "include": ["src/lib/*"]
+  "include": ["src/lib/*", "src/react-app-env.d.ts"]
 }
