@@ -39,7 +39,6 @@ const SplitPane: React.FC<{
           const max = parseFloat(maxSize);
 
           if (newWidth >= min && newWidth <= max) {
-            console.log(newWidth, min, max);
             setSize(`${newWidth}%`);
           }
         } else if (typeof minSize === 'number' && typeof maxSize === 'number') {
