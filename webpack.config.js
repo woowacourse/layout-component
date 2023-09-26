@@ -1,25 +1,19 @@
-const { join, resolve } = require("path");
-
-const isProduction = process.env.NODE_ENV === "production";
+const { resolve } = require("path");
 
 module.exports = {
-  mode: isProduction ? "production" : "development",
   entry: "./src/index.tsx",
-  devtool: isProduction ? "hidden-source-map" : "eval-source-map",
-  devServer: {
-    static: {
-      directory: join(__dirname, "public"),
-    },
-    historyApiFallback: true,
-    port: 3000,
-    compress: true,
-  },
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx"],
     modules: ["node_modules"],
   },
   module: {
     rules: [{ test: /\.tsx?$/, use: "ts-loader", exclude: /node_modules/ }],
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   output: {
     filename: "bundle.js",
