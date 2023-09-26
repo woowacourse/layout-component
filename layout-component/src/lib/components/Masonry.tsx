@@ -28,14 +28,14 @@ function distributeChildrenIntoColumns(children: ReactNode, columns: number) {
       Math.min(...columnHeights)
     );
     const itemHeight = parseInt(
-      elementChild.props.style.height?.toString().replace("px", "") || "0",
+      elementChild.props.style?.height?.toString().replace("px", "") || "0",
       10
     );
 
     const newChild = (
       <elementChild.type
         {...elementChild.props}
-        style={{ ...elementChild.props.style, marginBottom }}
+        style={{ ...elementChild.props.style, marginBottom, width: "100%" }}
       />
     );
 
