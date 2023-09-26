@@ -2,6 +2,7 @@
 /.storybook
 /src
 /dist/stories
+/storybook-static
 
 .babelrc.json
 .prettierrc
