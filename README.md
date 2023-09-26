@@ -117,3 +117,45 @@ const App = () => {
   );
 };
 ```
+
+## Drawer
+
+화면의 한 방향에서 슬라이드 형태로 사이드바를 보여주는 레이아웃입니다.
+
+### Props
+
+#### Optional
+
+- `direction`: Drawer가 나올 방향을 설정합니다.
+- `isOpen`: Drawer의 열릴지 닫힐지 결정하는 상태입니다.
+- `onClose`: Drawer가 닫힐 때 실행하는 함수입니다.
+
+### 사용 예시
+
+```jsx
+import { Drawer } from "luxo-layout-component";
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openDrawer = () => {
+    setIsOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <button onClick={openDrawer}>click</button>
+
+      <Drawer direction="left" isOpen={isOpen} onClose={closeDrawer}>
+        <div>Item</div>
+        <div>Item</div>
+        <div>Item</div>
+      </Drawer>
+    </>
+  );
+};
+```

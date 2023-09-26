@@ -6,7 +6,7 @@
     "component",
     "layout"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "woo-jk",
     "email": "wjk6044@naver.com"
@@ -80,5 +80,5 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/woo-jk/layout-component#readme",
-  "_id": "luxo-layout-component@0.1.0"
+  "_id": "luxo-layout-component@0.1.1"
 }
