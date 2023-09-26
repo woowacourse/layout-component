@@ -1,10 +1,10 @@
-import { getFlexStyling } from "@components/Flex/Flex.style";
-import type {
+import {
   AlignType,
   DirectionType,
   GapType,
+  getFlexStyling,
   JustifyType,
-} from "@components/Flex/Flex.style";
+} from "./Flex.style";
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 export interface CenterProps extends ComponentPropsWithoutRef<ElementType> {

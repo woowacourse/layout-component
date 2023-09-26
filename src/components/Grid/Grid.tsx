@@ -1,7 +1,4 @@
-import {
-  getGridItemStyling,
-  getGridStyling,
-} from "@components/Grid/Grid.style";
+import { getGridItemStyling, getGridStyling } from "./Grid.style";
 import type {
   AreaType,
   ColumnsType,
@@ -12,7 +9,7 @@ import type {
   TemplateColumnsType,
   TemplateRowsType,
   ColumnGapType,
-} from "@components/Grid/Grid.style";
+} from "./Grid.style";
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 export interface CenterProps extends ComponentPropsWithoutRef<ElementType> {
