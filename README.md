@@ -4,6 +4,8 @@ This modal is simple react-layout-component.
 
 - Typescript support
 
+For more Information: [See Component Docs](https://nangkyeonglim.github.io/react-layout-component-docs/docs/navigation/tab)
+
 ## Components
 
 Includes the following components:
@@ -121,6 +123,62 @@ const Example = () => {
       <div>hi</div>
       <div>hi</div>
     </Flex>
+  );
+};
+
+export default Example;
+```
+
+## Tab
+
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
+
+The components are as follows:
+
+- TabProvider
+
+[optional]
+
+- `defaultIndex: number` (default: 0)
+- `index: number`: for Controlled Tabs
+- `onChange: any`: for Controlled Tabs
+
+- Tabs
+- Tab
+
+  [optional]
+
+  - `icon: ReactElement`
+  - `iconDirection: 'row' | 'column'` (default: column)
+
+- TabPanels
+- TabPanel
+
+#### Usage
+
+```javascript
+import {
+  TabProvider,
+  Tabs,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from '@fine1012/react-modal';
+
+const Example = () => {
+  return (
+    <TabProvider>
+      <Tabs>
+        <Tab label='tab1' />
+        <Tab label='tab2' />
+        <Tab label='tab3' />
+      </Tabs>
+      <TabPanels>
+        <TabPanel>tab 1 section</TabPanel>
+        <TabPanel>tab 2 section</TabPanel>
+        <TabPanel>tab 3 section</TabPanel>
+      </TabPanels>
+    </TabProvider>
   );
 };
 
