@@ -1,14 +1,29 @@
 {
-  "name": "layout-component",
-  "private": true,
+  "name": "ukko-split-pane",
+  "private": false,
   "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "description": "ukko's split-pane component",
+  "keywords": [
+    "layout",
+    "split pane"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ukkodeveloper/layout-component"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "npx vite build && npm version patch && npm publish"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,6 +40,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.4"
   }
 }
