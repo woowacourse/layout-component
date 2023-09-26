@@ -68,3 +68,19 @@ export const WrongChildren = (args: SplitPaneProps) => (
     </div>
   </SplitPane>
 );
+
+export const Duplicated = (args: SplitPaneProps) => (
+  <SplitPane {...args}>
+    <div>
+      {loremIpsum}
+    </div>
+    <SplitPane {...args}>
+      <div>
+        {loremIpsum}
+      </div>
+      <div>
+        {loremIpsum}
+      </div>
+    </SplitPane>
+  </SplitPane>
+);
