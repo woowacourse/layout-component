@@ -1,14 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import IntroductionUI from './component/IntrodutionUI';
+import IntroductionUI from './component/IntroductionUI';
 import UsageFlexUI from './component/UsageFlexUI';
 import UsageGridUI from './component/UsageGridUI';
 import UsageContainerUI from './component/UsageContainerUI';
+import UsageMasonryUI from './component/UsageMasonry';
 
 function App() {
   return (
     <div className="App">
       <Style.Layout>
+        <IntroductionUI
+          name="Masonry Layout"
+          description=" 여러 크기의 아이템을 격자 형태로 정렬하되, 각 행과 열의 높이가 동일하지 않아 빈 공간이 최소화되는 레이아웃 컴포넌트"
+        >
+          <UsageMasonryUI />
+        </IntroductionUI>
+        <Style.UnderLine />
+
         <IntroductionUI
           name="Container"
           description="화면의 폭에 따라 내용의 최대 폭을 제한하고 중앙에 배치하는 레이아웃"
