@@ -14,14 +14,14 @@ interface DrawerProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Drawer를 닫는 함수입니다.
    */
-  closeSheet: () => void
+  closeDrawer: () => void
 }
 
 type DrawerContainerProps = Pick<DrawerProps, 'direction' | 'isShow'>
 
 const Drawer = forwardRef(
   (
-    { direction = 'right', isShow, closeSheet, children }: DrawerProps,
+    { direction = 'right', isShow, closeDrawer, children }: DrawerProps,
     ref: Ref<HTMLDivElement>,
   ) => {
     return ReactDom.createPortal(
@@ -29,7 +29,7 @@ const Drawer = forwardRef(
         <DrawerContainer direction={direction} isShow={isShow} ref={ref}>
           {children}
         </DrawerContainer>
-        {isShow && <DrawerBackDrop onClick={closeSheet} />}
+        {isShow && <DrawerBackDrop onClick={closeDrawer} />}
       </>,
       document.body,
     )
