@@ -9,6 +9,7 @@ type DrawerRootProps = Omit<DrawerProps, 'isOpen' | 'onClose'> & {
 export const Dimmer = styled.div<{
   isTransitionActive: boolean;
   transitionDurationMS: number;
+  zIndex: number;
 }>`
   position: fixed;
   top: 0;
@@ -16,8 +17,10 @@ export const Dimmer = styled.div<{
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
+  z-index: ${({ zIndex }) => zIndex};
   transition: opacity
     ${({ transitionDurationMS }) => `${transitionDurationMS}ms`} ease;
+
   ${({ isTransitionActive }) => {
     if (!isTransitionActive) {
       return css`
@@ -31,6 +34,7 @@ export const DrawerRoot = styled.div<DrawerRootProps>`
   position: absolute;
   transition: transform
     ${({ transitionDurationMS }) => `${transitionDurationMS}ms`} ease-in-out;
+
   ${({ placement }) => {
     if (placement === 'left') {
       return css`
@@ -94,8 +98,11 @@ export const DrawerRoot = styled.div<DrawerRootProps>`
       `;
     }
   }}
+
   background-color: #fff;
   box-shadow: -6px 0 16px 0 rgba(0, 0, 0, 0.08),
     -3px 0 6px -4px rgba(0, 0, 0, 0.12), -9px 0 28px 8px rgba(0, 0, 0, 0.05);
+  z-index: ${({ zIndex }) => zIndex};
+
   ${({ css }) => css}
 `;

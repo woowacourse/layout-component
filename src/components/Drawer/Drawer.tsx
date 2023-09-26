@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { useToggleTransition } from '~/hooks/useToggleTransition';
+import { useAnimation } from '~/hooks/useAnimation';
 import type { CSSInterpolation } from '@emotion/serialize';
 import * as S from './Drawer.styled';
 
@@ -11,6 +11,7 @@ export interface DrawerProps {
   placement?: 'left' | 'right' | 'top' | 'bottom';
   size?: 'default' | 'large';
   transitionDurationMS?: number;
+  zIndex?: number;
   css?: CSSInterpolation;
 }
 
@@ -22,18 +23,19 @@ export const Drawer = (props: DrawerProps) => {
     placement = 'right',
     size = 'default',
     transitionDurationMS = 300,
+    zIndex = 1000,
     css,
   } = props;
-  const [shouldRenderDrawer, isTransitionActive, handleTransitionEnd] =
-    useToggleTransition(isOpen);
+  const [shouldRender, isTransitionActive, handleTransitionEnd] =
+    useAnimation(isOpen);
 
   useEffect(() => {
-    if (shouldRenderDrawer) {
+    if (shouldRender) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [shouldRenderDrawer]);
+  }, [shouldRender]);
 
   useEffect(() => {
     const handleEscapeKeydown = (e: KeyboardEvent) => {
@@ -53,13 +55,14 @@ export const Drawer = (props: DrawerProps) => {
 
   return createPortal(
     <>
-      {shouldRenderDrawer && (
+      {shouldRender && (
         <>
           <S.Dimmer
             isTransitionActive={isTransitionActive}
             transitionDurationMS={transitionDurationMS}
             onClick={onClose}
             onTransitionEnd={handleTransitionEnd}
+            zIndex={zIndex}
           />
           <S.DrawerRoot
             role="dialog"
@@ -70,6 +73,7 @@ export const Drawer = (props: DrawerProps) => {
             transitionDurationMS={transitionDurationMS}
             isTransitionActive={isTransitionActive}
             onTransitionEnd={handleTransitionEnd}
+            zIndex={zIndex}
           >
             {children}
           </S.DrawerRoot>

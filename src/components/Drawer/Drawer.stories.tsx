@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Render = (props: DrawerProps) => {
-  const { placement, size, transitionDurationMS } = props;
+  const { placement, size, transitionDurationMS, zIndex } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
@@ -43,6 +43,7 @@ const Render = (props: DrawerProps) => {
         placement={placement}
         size={size}
         transitionDurationMS={transitionDurationMS}
+        zIndex={zIndex}
       >
         <h1>Drawer</h1>
       </Drawer>
