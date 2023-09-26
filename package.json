@@ -1,10 +1,14 @@
 {
   "name": "@fine1012/react-layout-component",
-  "version": "0.1.4",
+  "version": "0.1.9",
   "private": false,
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "browser": "./browser/specific/main.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "description": "React Layout Component",
   "repository": {
     "type": "git",
@@ -27,15 +31,17 @@
     "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "@emotion/react": "^11.11.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
   },
   "eslintConfig": {
     "extends": [
