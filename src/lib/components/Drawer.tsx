@@ -2,15 +2,6 @@ import { ComponentPropsWithoutRef, Ref, forwardRef } from 'react'
 import { styled } from 'styled-components'
 import ReactDom from 'react-dom'
 
-const sizes = {
-  xs: '320px',
-  sm: '448px',
-  md: '512px',
-  lg: '672px',
-  xl: '896px',
-  full: '100%',
-}
-
 interface DrawerProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Drawer의 배치 방향을 설정합니다.
@@ -21,30 +12,21 @@ interface DrawerProps extends ComponentPropsWithoutRef<'div'> {
    */
   isShow: boolean
   /**
-   * Drawer의 크기를 설정합니다. xs: '320px',
-  sm: '448px',
-  md: '512px',
-  lg: '672px',
-  xl: '896px',
-  full: '100%',
-   */
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  /**
    * Drawer를 닫는 함수입니다.
    */
   closeSheet: () => void
 }
 
-type DrawerContainerProps = Pick<DrawerProps, 'direction' | 'isShow' | 'size'>
+type DrawerContainerProps = Pick<DrawerProps, 'direction' | 'isShow'>
 
 const Drawer = forwardRef(
   (
-    { direction = 'right', isShow, size, closeSheet, children }: DrawerProps,
+    { direction = 'right', isShow, closeSheet, children }: DrawerProps,
     ref: Ref<HTMLDivElement>,
   ) => {
     return ReactDom.createPortal(
       <>
-        <DrawerContainer direction={direction} isShow={isShow} size={size} ref={ref}>
+        <DrawerContainer direction={direction} isShow={isShow} ref={ref}>
           {children}
         </DrawerContainer>
         {isShow && <DrawerBackDrop onClick={closeSheet} />}
@@ -57,9 +39,9 @@ const Drawer = forwardRef(
 const DrawerContainer = styled.div<DrawerContainerProps>`
   position: fixed;
   width: ${(props) =>
-    props.direction === 'top' || props.direction === 'bottom' ? '100%' : sizes[props.size]};
+    props.direction === 'top' || props.direction === 'bottom' ? '100%' : 'auto'};
   height: ${(props) =>
-    props.direction === 'top' || props.direction === 'bottom' ? sizes[props.size] : '100%'};
+    props.direction === 'top' || props.direction === 'bottom' ? 'auto' : '100%'};
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
