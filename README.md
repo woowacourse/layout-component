@@ -148,3 +148,65 @@ import { Flex } from 'layout-component-hp';
   <Flex.Item>Item2</Flex.Item>
 </Flex>
 ```
+
+<br>
+
+## Drawer
+
+화면의 한쪽에서 슬라이드 형태로 나타나는 메뉴나 사이드바를 제공하는 컴포넌트
+
+### Import
+
+```tsx
+import { Drawer } from 'layout-component-hp';
+```
+
+### Anatomy
+
+- Drawer: 화면의 한쪽에서 슬라이드 형태로 나타나는 메뉴나 사이드바
+- Drawer.Backdrop: Drawer 외부 백그라운드. 클릭으로 Drawer를 닫을 수 있습니다
+- Drawer.Content: Drawer 내부 컨텐트
+- Drawer.CloseButton: Drawer를 닫을 수 있는 버튼
+
+### Drawer Props
+
+| props         | value                               | description                                    |
+| ------------- | ----------------------------------- | ---------------------------------------------- |
+| isOpen        | boolean                             | Drawer가 열려있는지 여부입니다.                |
+| onClose       | () => void                          | Drawer를 닫는 함수입니다.                      |
+| animation?    | boolean (default: true)             | Drawer의 열고 닫는 애니메이션 지정 여부입니다. |
+| placement?    | 'top' / 'right' / 'bottom' / 'left' | Drawer의 위치입니다.                           |
+| portalElement | Element (default: document.body)    | Drawer가 렌더링될 위치입니다.                  |
+| children      | ReactElement                        | Drawer의 자식 컴포넌트입니다.                  |
+
+### Drawer.Content Props
+
+| props    | value                       | description                                |
+| -------- | --------------------------- | ------------------------------------------ |
+| css?     | CSSProperties (default: {}) | Drawer.Content의 커스텀 스타일 속성입니다. |
+| children | ReactNode                   | Drawer.Content의 자식 컴포넌트입니다.      |
+
+### Usage
+
+```tsx
+import { Drawer, useDisclosure } from 'layout-component-hp';
+
+function DrawerWithButton() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <button type='button' onClick={onOpen}>
+        Open Drawer
+      </button>
+      <Drawer isOpen={isOpen} onClose={onClose} placement='right'>
+        <Drawer.Backdrop />
+        <Drawer.Content>
+          <Drawer.CloseButton />
+          <p>This is Drawer</p>
+        </Drawer.Content>
+      </Drawer>;
+    </>
+  );
+}
+```
