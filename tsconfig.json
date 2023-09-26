@@ -31,8 +31,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "declaration": true
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src/lib"],
   "exclude": ["node_modules"],
