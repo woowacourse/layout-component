@@ -1,16 +1,24 @@
+import { CSSProperties, Children } from 'react';
+
+import { ContainerProps } from '../../types/component';
+import { useTabLayout } from './useTabLayout';
+
 import '../../styles/reset.css';
 import '../../styles/global.css';
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
 
-import { CSSProperties, Children } from 'react';
-import { ContainerProps } from '../../types/component';
-import { useTabLayout } from './useTabLayout';
-
 import Tabs from './Tabs';
 import Panels from './Panels';
 
 const cx = classNames.bind(styles);
+
+const directionSetWithTabPosition: Record<TabPosition, CSSProperties> = {
+  top: { flexDirection: 'column' },
+  right: { flexDirection: 'row-reverse' },
+  bottom: { flexDirection: 'column-reverse' },
+  left: { flexDirection: 'row' },
+};
 
 export type TabJustify = 'start' | 'center' | 'end';
 export type TabPosition = 'top' | 'right' | 'left' | 'bottom';
@@ -56,32 +64,24 @@ export default function TabLayout({
     panel: Children.count(children),
   });
 
-  const directionSetWithTabPosition: Record<TabPosition, CSSProperties> = {
-    top: { flexDirection: 'column' },
-    right: { flexDirection: 'row-reverse' },
-    bottom: { flexDirection: 'column-reverse' },
-    left: { flexDirection: 'row' },
-  };
-
-  const styles = {
-    position,
-    top,
-    right,
-    bottom,
-    left,
-    width,
-    height,
-    minWidth,
-    maxWidth,
-    margin,
-    opacity,
-    zIndex,
-  };
-
   return (
     <div
       className={cx('container')}
-      style={{ ...styles, ...directionSetWithTabPosition[tabPosition] }}
+      style={{
+        position,
+        top,
+        right,
+        bottom,
+        left,
+        width,
+        height,
+        minWidth,
+        maxWidth,
+        margin,
+        opacity,
+        zIndex,
+        ...directionSetWithTabPosition[tabPosition],
+      }}
       {...rest}
     >
       <Tabs

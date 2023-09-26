@@ -1,19 +1,13 @@
 import { CSSProperties } from 'react';
+
 import { TabJustify, TabPosition } from '..';
+
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-interface Props {
-  tabJustify: TabJustify;
-  tabPosition: TabPosition;
-  tabs: string[];
-  activeTab: number;
-  activateTab: (index: number) => void;
-}
-
-export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activateTab }: Props) {
+const generateJustify = (tabPosition: TabPosition, tabJustify: TabJustify) => {
   const justifySetWithTabPosition: Record<TabPosition, CSSProperties> = {
     top: {
       justifyContent: tabJustify,
@@ -37,6 +31,10 @@ export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activat
     },
   };
 
+  return justifySetWithTabPosition[tabPosition];
+};
+
+const generateBoxShadowPosition = (tabPosition: TabPosition) => {
   const boxShadowSetWithTabPosition = {
     top: '0 -2px 0 0',
     right: '2px 0 0 0',
@@ -44,19 +42,31 @@ export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activat
     left: '-2px 0 0 0',
   };
 
+  return { '--tab-position': boxShadowSetWithTabPosition[tabPosition] };
+};
+
+interface Props {
+  tabJustify: TabJustify;
+  tabPosition: TabPosition;
+  tabs: string[];
+  activeTab: number;
+  activateTab: (index: number) => void;
+}
+
+export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activateTab }: Props) {
   return (
     <ul
       className={cx('tab-button-list')}
       style={{
-        '--tab-position': boxShadowSetWithTabPosition[tabPosition],
-        ...justifySetWithTabPosition[tabPosition],
+        ...generateBoxShadowPosition(tabPosition),
+        ...generateJustify(tabPosition, tabJustify),
       }}
     >
       {tabs.map((tab, index) => {
         return (
           <li
             className={cx('item', { 'active-item': activeTab === index })}
-            style={{ '--tab-position': boxShadowSetWithTabPosition[tabPosition] }}
+            style={{ ...generateBoxShadowPosition(tabPosition) }}
             key={tab}
           >
             <button
