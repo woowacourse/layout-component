@@ -1,5 +1,5 @@
-import { ElementType, ReactElement, forwardRef } from 'react';
-import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
+import { ElementType } from 'react';
+import { PolymorphicComponentProps } from '../types/common';
 import * as S from './style';
 
 export interface _ContainerProps {
@@ -12,20 +12,17 @@ export type ContainerProps<T extends ElementType> = PolymorphicComponentProps<
   _ContainerProps
 >;
 
-type ContainerComponent = <T extends ElementType>(
-  props: ContainerProps<T>
-) => ReactElement | null;
-
-const Container: ContainerComponent = forwardRef(function Container<
-  T extends ElementType = 'div'
->({ css, as, children, ...rest }: ContainerProps<T>, ref: PolymorphicRef<T>) {
+export default function Container<T extends ElementType = 'div'>({
+  css,
+  as,
+  children,
+  ...rest
+}: ContainerProps<T>) {
   return (
     <>
-      <S.Component ref={ref} as={as} style={{ ...css }} {...rest}>
+      <S.Component as={as} style={{ ...css }} {...rest}>
         {children}
       </S.Component>
     </>
   );
-});
-
-export default Container;
+}
