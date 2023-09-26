@@ -1,29 +1,33 @@
-import styled from '@emotion/styled';
+import styled, { CSSObject } from '@emotion/styled';
 import { Justify } from '../../../models/FlexTypes';
 import { PropsWithChildren } from 'react';
 import useTabButton from './hooks/useTabButton';
+import { css } from '@emotion/react';
 
 export interface TableListProps extends PropsWithChildren {
 	justify?: Justify;
 	onClick: (event: React.SyntheticEvent<HTMLDivElement, MouseEvent>) => void;
 	moveButton?: boolean;
+	customCss?: CSSObject;
 }
 
 const TabList = (props: TableListProps) => {
-	const { justify = 'left', onClick, moveButton = false, children } = props;
+	const { justify = 'start', onClick, moveButton = false, children } = props;
 
 	const { tabContainerRef, scrollTabHandler, showButton, tabListRef } =
 		useTabButton({ children, moveButton });
 
 	return (
-		<Wrapper ref={tabContainerRef} onClick={onClick} justify={justify}>
+		<Wrapper ref={tabContainerRef} onClick={onClick}>
 			<Button
 				type='button'
 				onClick={scrollTabHandler}
 				data-direction='prev'
 				show={showButton}
 			>{`<`}</Button>
-			<TabContainer ref={tabListRef}>{children}</TabContainer>
+			<TabContainer ref={tabListRef} justify={justify}>
+				{children}
+			</TabContainer>
 			<Button
 				type='button'
 				onClick={scrollTabHandler}
@@ -36,19 +40,17 @@ const TabList = (props: TableListProps) => {
 
 export default TabList;
 
-const Wrapper = styled.div<{
-	justify: Justify;
-}>`
+const Wrapper = styled.div<{ customCss?: CSSObject }>`
 	position: relative;
 
 	display: flex;
 	gap: 4px;
-	justify-content: ${({ justify }) => justify && justify};
 
 	height: 100%;
 	padding: 0;
 
 	border-bottom: solid 0.5px rgba(0, 0, 0, 0.7);
+	${({ customCss }) => customCss && css(customCss)}
 `;
 
 const Button = styled.button<{ show: boolean }>`
@@ -63,7 +65,9 @@ const Button = styled.button<{ show: boolean }>`
 	border: none;
 `;
 
-const TabContainer = styled.div`
+const TabContainer = styled.div<{
+	justify: Justify;
+}>`
 	scroll-behavior: smooth;
 
 	position: relative;
@@ -71,6 +75,7 @@ const TabContainer = styled.div`
 	overflow: auto hidden;
 	display: inline-flex;
 	flex: 1 1 auto;
+	justify-content: ${({ justify }) => justify && justify};
 
 	max-width: calc(100%-40px);
 
