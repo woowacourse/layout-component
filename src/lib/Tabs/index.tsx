@@ -32,7 +32,7 @@ const Tabs = ({
 
   return (
     <Wrapper width={width} responsive={responsive}>
-      <TabBoxWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
+      <TabButtonWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
         {childrenList.map(
           (children, idx) =>
             children && (
@@ -50,7 +50,7 @@ const Tabs = ({
               </TabButton>
             )
         )}
-      </TabBoxWrapper>
+      </TabButtonWrapper>
 
       <TabSectionWrapper
         width={width}
@@ -109,17 +109,14 @@ const TabSectionWrapper = styled.div<{
   }
 `;
 
-const TabBoxWrapper = styled.div<{
+const TabButtonWrapper = styled.div<{
   $simpleTab: boolean;
   $tabBoxHeight: number;
 }>`
   display: flex;
   align-items: center;
   height: ${({ $tabBoxHeight }) => `${$tabBoxHeight}px`};
-
   overflow: auto;
-
-  background-color: #959595;
 
   ${({ $simpleTab }) =>
     $simpleTab &&
@@ -141,6 +138,7 @@ const TabButton = styled.button<{
   padding: 0.2rem 1rem;
   border: 0;
   cursor: pointer;
+  background-color: #e4e4e4;
 
   ${({ $simpleTab, $tabBoxHeight }) =>
     $simpleTab &&
@@ -189,7 +187,7 @@ const SwiperButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(120, 120, 120, 0.25);
+  background-color: rgba(149, 149, 149, 0.25);
   width: 40px;
   height: 40px;
   border-radius: 50%;
