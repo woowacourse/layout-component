@@ -1,0 +1,13 @@
+### MasonryLayout 사용 방법
+
+```tsx
+function MasonryLayout({ itemSize, gap }: ComponentProps) {
+  return (
+    <MasonryLayout item={itemSize} gap={gap}>
+      {MOCK_RANDOM_IMAGE_LIST.map((item) => {
+        return <Image loading="lazy" src={item} alt="랜덤 이미지" />;
+      })}
+    </MasonryLayout>
+  );
+}
+```

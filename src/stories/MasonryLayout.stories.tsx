@@ -34,6 +34,26 @@ const meta = {
       description:
         '디테일 한 CSS 속성을 지정해야 할 경우 직접 CSS를 입력할 수 있습니다.',
     },
+    itemSize: {
+      control: 'text',
+      description:
+        '아이템의 최소 너비를 문자열로 입력할 수 있습니다. EX) 200px, 25%',
+    },
+    gap: {
+      control: 'text',
+      description:
+        '아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    rowGap: {
+      control: 'text',
+      description:
+        'row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    columnGap: {
+      control: 'text',
+      description:
+        'column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
   },
 } satisfies Meta<typeof MasonryLayout>;
 
@@ -104,11 +124,10 @@ function MasonryLayoutStory(props: ComponentProps) {
 export const ColumnMasonry: Story = {
   render: (props) => <MasonryLayoutStory {...props} />,
   args: {
-    direction: 'column',
-    itemSize: '25%',
-    gap: '10px',
-    width: '90%',
-    p: '20px',
+    itemSize: '300px',
+    fullScreen: true,
+    p: '36px',
+    gap: '16px',
   },
 };
 
