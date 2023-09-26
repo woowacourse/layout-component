@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, ComponentPropsWithoutRef } from 'react';
 import { useContext, type ReactNode } from 'react';
 
 import { TabContext } from './Tab';
 
-interface MenuProps {
+interface MenuProps extends ComponentPropsWithoutRef<'button'> {
   /** 메뉴 이름 */
   label?: string;
   /** 메뉴 아이콘 */
@@ -14,7 +14,7 @@ interface MenuProps {
   index: number;
 }
 
-const Menu = ({ label, icon, index }: MenuProps) => {
+const Menu = ({ label, icon, index, ...attributes }: MenuProps) => {
   const { id, initialIndex, setActiveTab } = useContext(TabContext);
 
   const handleCheckMenu = ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ const Menu = ({ label, icon, index }: MenuProps) => {
   };
 
   return (
-    <button role="tab" css={tabMenuStyle}>
+    <button role="tab" css={tabMenuStyle} {...attributes}>
       <label htmlFor={`menu-${label}-${index}`} className={`menu-${index}`} css={menuLabelStyle}>
         <input
           type="radio"
@@ -44,6 +44,8 @@ const Menu = ({ label, icon, index }: MenuProps) => {
 const tabMenuStyle = css`
   flex: 1;
   text-align: center;
+  background: transparent;
+  border: none;
 `;
 
 const menuLabelStyle = css`
