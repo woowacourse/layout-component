@@ -71,7 +71,7 @@ const App = () => {
 
 ## 스토리북 배포 링크
 
-https://650793db3827905a5d403040-puvxvaofdc.chromatic.com
+[seeen-tab-layout-storybook](https://65127eae0e98643d69097dab-tvjifvtvsk.chromatic.com/)
 
 ## 참고 사항(고려한 부분 및 사용자 사용팁)
 
