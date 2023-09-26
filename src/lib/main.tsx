@@ -11,6 +11,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Container />
     <Flex />
     <Grid />
-    <Drawer direction={'right'} isShow={false} size={'xs'} closeSheet={() => {}} />
+    <Drawer direction={'right'} isShow={false} closeDrawer={() => {}} />
   </React.StrictMode>,
 )
