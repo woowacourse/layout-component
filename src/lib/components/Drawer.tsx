@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, Ref, forwardRef } from 'react'
 import { styled } from 'styled-components'
+import ReactDom from 'react-dom'
 
 const sizes = {
   xs: '320px',
@@ -41,13 +42,14 @@ const Drawer = forwardRef(
     { direction = 'right', isShow, size, closeSheet, children }: DrawerProps,
     ref: Ref<HTMLDivElement>,
   ) => {
-    return (
+    return ReactDom.createPortal(
       <>
         <DrawerContainer direction={direction} isShow={isShow} size={size} ref={ref}>
           {children}
         </DrawerContainer>
         {isShow && <DrawerBackDrop onClick={closeSheet} />}
-      </>
+      </>,
+      document.body,
     )
   },
 )
