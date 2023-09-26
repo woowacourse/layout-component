@@ -117,6 +117,34 @@ export const TabOverFLow: Story = {
 
 		return (
 			<Wrapper customCss={{ width: 520 }}>
+				<TabList {...args} onClick={handleClick} moveButton>
+					{tabMenu}
+				</TabList>
+				<TabPanels>
+					{ids.map((id, index) => (
+						<TabPanel value={current} order={id}>
+							{index + 1}번 탭
+						</TabPanel>
+					))}
+				</TabPanels>
+			</Wrapper>
+		);
+	},
+};
+
+export const TabOverFLowNoButton: Story = {
+	render: (args) => {
+		const tabs = Array.from({ length: 20 }).map(
+			(_, index) => `${index + 1}번 탭`
+		);
+		const { ids, current, handleClick } = useChangeTab({ tabs });
+
+		const tabMenu = tabs.map((content, index) => (
+			<TabButton label={content} order={ids[index]} value={current} />
+		));
+
+		return (
+			<Wrapper customCss={{ width: 520 }}>
 				<TabList {...args} onClick={handleClick}>
 					{tabMenu}
 				</TabList>

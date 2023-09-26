@@ -12,10 +12,11 @@ import { MIN_TAB_LENGTH } from '../../../constants';
 export interface TableListProps extends PropsWithChildren {
 	justify?: Justify;
 	onClick: (event: React.SyntheticEvent<HTMLDivElement, MouseEvent>) => void;
+	moveButton?: boolean;
 }
 
 const TabList = (props: TableListProps) => {
-	const { justify = 'left', onClick, children } = props;
+	const { justify = 'left', onClick, moveButton = false, children } = props;
 
 	const tabContainerRef = useRef<HTMLDivElement>(null);
 	const tabListRef = useRef<HTMLDivElement>(null);
@@ -26,10 +27,10 @@ const TabList = (props: TableListProps) => {
 	useLayoutEffect(() => {
 		if (!tabContainerRef.current) return;
 		const { width } = tabContainerRef.current.getBoundingClientRect();
-		const isOverFlow = width <= countArray * MIN_TAB_LENGTH;
+		const isOverFlow = moveButton && width <= countArray * MIN_TAB_LENGTH;
 
 		setShowButton(isOverFlow);
-	}, [countArray]);
+	}, [countArray, moveButton]);
 
 	const scrollTabHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const tabList = tabListRef.current;
