@@ -191,7 +191,7 @@ import { Drawer } from 'layout-component-hp';
 ```tsx
 import { Drawer, useDisclosure } from 'layout-component-hp';
 
-function DrawerWithButton() {
+function DrawerExample() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -205,7 +205,7 @@ function DrawerWithButton() {
           <Drawer.CloseButton />
           <p>This is Drawer</p>
         </Drawer.Content>
-      </Drawer>;
+      </Drawer>
     </>
   );
 }
