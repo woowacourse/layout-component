@@ -64,3 +64,25 @@ CSS FlexBox를 사용하여 자식 컴포넌트들을 유연하게 배열하는 
   <div>Item 3</div>
 </FlexBox>
 ```
+
+## Drawer 컴포넌트
+
+화면의 한쪽에서 슬라이드 형태로 나타나는 메뉴나 사이드바를 제공하는 컴포넌트입니다.
+
+- `drawerStore.openDrawer`를 통해 drawer를 열 수 있습니다.
+  - `drawerStore.openDrawer`의 첫 번째 인자는 drawer로 열기를 희망하는 컴포넌트 입니다. (type: ReactNode)
+  - `drawerStore.openDrawer`의 두 번째 인자는 drawer가 열리는 위치입니다. (type: 'left' | 'right' | 'top' | 'bottom')
+- `drawerStore.closeDrawer`를 통해 drawer를 닫을 수 있습니다.
+
+```tsx
+// 사용 예시
+
+// DrawerContainer가 리액트 어플리케이션 상에 포함(렌더링)되어있어야 합니다.
+<DrawerContainer />;
+
+// drawer로 열기를 희망하는 컴포넌트를 첫 번째 인자로, 열리는 위치를 두 번째 인자로 전달합니다.
+drawerStore.openDrawer(<div>안녕하세용</div>, 'left');
+
+// drawer를 닫고 싶다면 다음 메서드를 호출합니다.
+drawerStore.closeDrawer();
+```

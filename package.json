@@ -1,7 +1,7 @@
 {
   "name": "@kyw0716/layout",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "description": "react-layout-components",
   "main": "dist/index.umd.cjs",
