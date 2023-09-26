@@ -44,7 +44,7 @@ const UsageFlexUI = () => {
               gap={gap}
             >
               {uiItems.map((item) => (
-                <Style.Item>{item}</Style.Item>
+                <Style.Item key={item}>{item}</Style.Item>
               ))}
             </Flex>
           </Style.UIContainerInner>

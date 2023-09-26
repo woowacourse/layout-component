@@ -37,7 +37,7 @@ const UsageGridUI = () => {
           <Style.UIContainerInner>
             <Grid cols={Number(cols)} rows={Number(rows)} gap={gap}>
               {uiItems.map((item) => (
-                <Style.Item>{item}</Style.Item>
+                <Style.Item key={item}>{item}</Style.Item>
               ))}
             </Grid>
           </Style.UIContainerInner>

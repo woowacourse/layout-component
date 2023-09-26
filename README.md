@@ -4,7 +4,7 @@ React 기본 레이아웃 컴포넌트 (Container, Grid, Flex)
 
 ## version
 
-version: 0.1.7 (updated in 2023.09.18)
+version: 0.1.10 (updated in 2023.09.26)
 
 ## 사용법
 
@@ -105,6 +105,42 @@ function App() {
       <div>Item3</div>
       <div>Item4</div>
       </Flex>
+  );
+}
+```
+
+<br/>
+
+### Masonry Layout
+
+여러 크기의 아이템을 격자 형태로 정렬하되, 각 행과 열의 높이가 동일하지 않아 빈 공간이 최소화되는 레이아웃 컴포넌트
+
+| props        | 타입                      | 설명                                                                 |
+| ------------ | ------------------------- | -------------------------------------------------------------------- |
+| columnCount  | number ,'auto-fit'        | Number of columns, if auto-fit, fill the columns as much as possible |
+| width        | number ,string, undefined | width of layout, optional props                                      |
+| itemWidth    | number ,string, undefined | width of layout item , optional props                                |
+| columnGap    | number ,string, undefined | column-gap of layout item, optional props                            |
+| rowGap       | number ,string, undefined | row-gap of layout item, optional props                               |
+| borderRadius | number ,string, undefined | border-radius of layout , optional props                             |
+
+<br/>
+
+```JavaScript
+function App() {
+  return (
+    <MasonryLayout
+     column={column}
+     width={width}
+     itemWidth={itemWidth}
+     columnGap={columnGap}
+     rowGap={rowGap}
+     borderRadius={borderRadius}>
+      <img/>
+      <img/>
+      <img/>
+      <img/>
+    </MasonryLayout>
   );
 }
 ```
