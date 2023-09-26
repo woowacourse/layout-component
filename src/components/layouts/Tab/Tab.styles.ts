@@ -8,7 +8,7 @@ export const Wrapper = styled.div<{ customCss?: CSSObject }>`
 `;
 
 export const TabPanels = styled.div`
-	width: 100%;
 	max-width: 100%;
+	block-size: 100%;
 	margin: 20px;
 `;

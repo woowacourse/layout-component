@@ -35,12 +35,10 @@ const Tab = styled.button<{ selected: boolean }>`
 	background: transparent;
 	border: none;
 	border-bottom: solid 2px ${({ selected }) => (selected ? 'green' : 'none')};
-	&:hover {
-		&:disabled:not() {
-			color: green;
-		}
-	}
 
+	&:hover:not(:disabled) {
+		background: rgb(233, 253, 233);
+	}
 	&:disabled {
 		opacity: 0.3;
 	}
