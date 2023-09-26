@@ -1,9 +1,9 @@
 {
   "name": "seeen-tab-layout",
   "private": false,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
-  "description": "woowacourse mission 탭 레이아웃 컴포넌트입니다.",
+  "description": "woowacourse mission Tab Layout 컴포넌트입니다.",
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",

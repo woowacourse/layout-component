@@ -1,6 +1,6 @@
 # 🙆‍♂️ seeen-tab-layout 🙆‍♂️
 
-간단하게 레이아웃(Container, Flex, Grid, Drawer)를 구현할 수 있는 라이브러리 입니다.
+Tab Layout을 구현할 수 있는 라이브러리 입니다.
 
 ## 설치 방법
 
