@@ -5,7 +5,7 @@ export interface MasonryLayoutProps {
   itemWidth?: string;
   rowGap?: string | number;
   columnGap?: string | number;
-  column: number | 'auto-fit';
+  columnCount: number | 'auto-fit';
   borderRadius?: number | string;
 }
 

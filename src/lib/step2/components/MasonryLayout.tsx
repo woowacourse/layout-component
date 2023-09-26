@@ -4,7 +4,7 @@ import React from 'react';
 import MasonryItem from './MasonryItem';
 
 const MasonryLayout = ({
-  column,
+  columnCount,
   width,
   columnGap,
   rowGap,
@@ -16,7 +16,7 @@ const MasonryLayout = ({
 
   return (
     <Style.LayoutContainer
-      $column={column}
+      $columnCount={columnCount}
       $width={width}
       $columnGap={columnGap}
       $itemWidth={itemWidth}
@@ -37,11 +37,11 @@ const Style = {
     $width?: string | number;
     $itemWidth?: string | number;
     $columnGap?: string | number;
-    $column: number | 'auto-fit';
+    $columnCount: number | 'auto-fit';
   }>`
     display: grid;
-    grid-template-columns: ${({ $column, $itemWidth }) =>
-      `repeat(${$column}, ${$itemWidth ?? '1fr'})`};
+    grid-template-columns: ${({ $columnCount, $itemWidth }) =>
+      `repeat(${$columnCount}, ${$itemWidth ?? '1fr'})`};
     justify-content: center;
     column-gap: ${({ $columnGap }) => $columnGap ?? 0};
 
