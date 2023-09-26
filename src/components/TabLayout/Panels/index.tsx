@@ -1,7 +1,6 @@
 import { Children, PropsWithChildren } from 'react';
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
-import { TabPosition } from '..';
 
 const cx = classNames.bind(styles);
 

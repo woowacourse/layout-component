@@ -3,7 +3,7 @@ import '../../styles/global.css';
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
 
-import { Children } from 'react';
+import { CSSProperties, Children } from 'react';
 import { ContainerProps } from '../../types/component';
 import { useTabLayout } from './useTabLayout';
 
@@ -56,7 +56,7 @@ export default function TabLayout({
     panel: Children.count(children),
   });
 
-  const flexDirectionWithTabPositionSet = {
+  const directionSetWithTabPosition: Record<TabPosition, CSSProperties> = {
     top: { flexDirection: 'column' },
     right: { flexDirection: 'row-reverse' },
     bottom: { flexDirection: 'column-reverse' },
@@ -81,7 +81,7 @@ export default function TabLayout({
   return (
     <div
       className={cx('container')}
-      style={{ ...styles, ...flexDirectionWithTabPositionSet[tabPosition] }}
+      style={{ ...styles, ...directionSetWithTabPosition[tabPosition] }}
       {...rest}
     >
       <Tabs

@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { TabJustify, TabPosition } from '..';
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
@@ -13,7 +14,7 @@ interface Props {
 }
 
 export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activateTab }: Props) {
-  const justifySetWithTabPosition = {
+  const justifySetWithTabPosition: Record<TabPosition, CSSProperties> = {
     top: {
       justifyContent: tabJustify,
       gap: '8px',
