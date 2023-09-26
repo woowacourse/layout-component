@@ -4,7 +4,6 @@ import * as S from './style';
 import MasonryLayoutItem from './MasonryLayoutItem';
 
 export interface _MasonryLayoutProps {
-  direction: 'row' | 'column';
   itemSize: string;
   gap?: string;
   rowGap?: string;
