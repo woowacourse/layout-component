@@ -5,3 +5,5 @@ declare module 'react' {
     [key: `--${string}`]: string | number;
   }
 }
+
+declare module '*.module.css';
