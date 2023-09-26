@@ -1,8 +1,22 @@
 {
-  "name": "layout-component",
-  "private": true,
-  "version": "0.0.0",
+  "name": "seeen-tab-layout",
+  "private": false,
+  "version": "0.1.4",
+  "license": "MIT",
+  "description": "woowacourse mission 탭 레이아웃 컴포넌트입니다.",
   "type": "module",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -39,7 +53,8 @@
     "eslint-plugin-storybook": "^0.6.14",
     "storybook": "^7.4.5",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.4"
   },
   "readme": "ERROR: No README data found!",
   "_id": "layout-component@0.0.0"
