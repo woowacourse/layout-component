@@ -13,7 +13,7 @@ const Item = (count: number) => {
 };
 
 const meta = {
-  title: 'Example/Flex',
+  title: 'Layout/Flex',
   component: Flex,
   parameters: {},
   args: {

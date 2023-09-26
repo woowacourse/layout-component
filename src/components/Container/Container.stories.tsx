@@ -10,7 +10,7 @@ const Item = (
 );
 
 const meta = {
-  title: 'Example/Container',
+  title: 'Layout/Container',
   component: Container,
   parameters: {},
   args: {
