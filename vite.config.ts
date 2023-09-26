@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
       name: 'index',
-      fileName: `index`,
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
