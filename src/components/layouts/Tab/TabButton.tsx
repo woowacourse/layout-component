@@ -1,14 +1,16 @@
 import styled from '@emotion/styled';
+import { MIN_TAB_LENGTH } from '../../../constants';
 
 interface TabProps {
 	label: string;
 	order: string;
-	selected: boolean;
+	value: string;
 	disabled?: boolean;
 }
 
 const TabButton = (props: TabProps) => {
-	const { label, selected, disabled, order } = props;
+	const { label, value, disabled, order } = props;
+	const selected = !disabled && value === order;
 
 	return (
 		<Tab selected={selected} disabled={disabled} data-order={order}>
@@ -19,9 +21,11 @@ const TabButton = (props: TabProps) => {
 
 export default TabButton;
 
-const Tab = styled.button<Omit<TabProps, 'label' | 'order'>>`
+const Tab = styled.button<{ selected: boolean }>`
 	cursor: pointer;
 
+	min-width: ${MIN_TAB_LENGTH}px;
+	height: 100%;
 	padding: 4px 12px;
 
 	font-size: 1.4rem;
@@ -31,7 +35,6 @@ const Tab = styled.button<Omit<TabProps, 'label' | 'order'>>`
 	background: transparent;
 	border: none;
 	border-bottom: solid 2px ${({ selected }) => (selected ? 'green' : 'none')};
-
 	&:hover {
 		&:disabled:not() {
 			color: green;
