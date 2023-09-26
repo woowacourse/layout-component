@@ -1,12 +1,13 @@
-import Container from './lib/container/container';
+import SplitPane from './lib/splitPane/SplitPane';
 
 function App() {
   return (
-    <>
-      <Container minWidth={600} maxWidth={1000} backgroundColor="black">
-        여기는 내용이 들어갑니다.
-      </Container>
-    </>
+    <SplitPane maxSize={400} minSize={200}>
+      <div style={{ backgroundColor: 'gray', fontSize: '30px' }}>Left Pane</div>
+      <div style={{ backgroundColor: 'brown', fontSize: '30px' }}>
+        Right Pane
+      </div>
+    </SplitPane>
   );
 }
 
