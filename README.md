@@ -125,7 +125,7 @@ There are several options you can control. `direction`, `justify`, and so on.
 
 ### introduction
 
-This `Drawer`
+This `Drawer` has children for render. `Drawer` appear where anchor you input.
 
 **example**
 
@@ -156,4 +156,6 @@ return (
 
 2. `isOpen`: You can control `Drawer`'s state by `isOpen`.
 
-3. `padding`: You can determine `padding` by entering `number` for `Grid`
+3. `closeDrawer`: This function is used to close `Drawer`.
+
+4. `padding`: You can determine `padding` by entering `number` for `Grid`
