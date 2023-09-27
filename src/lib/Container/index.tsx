@@ -3,7 +3,13 @@ import { PolymorphicComponentProps, PolymorphicRef } from '../types/common';
 import * as S from './style';
 
 export interface _ContainerProps {
+  /**
+   * 컴포넌트의 최소 너비를 지정하는 옵션입니다. 500px, 50%와 같이 문자열로 사용할 수 있습니다.
+   */
   minWidth?: string;
+  /**
+   * 컴포넌트의 최대 너비를 지정하는 옵션입니다. 500px, 50%와 같이 문자열로 사용할 수 있습니다.
+   */
   maxWidth?: string;
 }
 
