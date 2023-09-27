@@ -58,6 +58,70 @@ const meta = {
       description:
         'Flex 안의 자식들의 간격을 조정할 수 있습니다. 50%, 300px와 같이 문자열로 입력하여 사용할 수 있습니다.',
     },
+    m: {
+      control: 'text',
+      description: 'margin 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    ml: {
+      control: 'text',
+      description: 'margin-left 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mr: {
+      control: 'text',
+      description: 'margin-right 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mb: {
+      control: 'text',
+      description: 'margin-bottom 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mt: {
+      control: 'text',
+      description: 'margin-top 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mx: {
+      control: 'text',
+      description: 'margin에서 가로 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    my: {
+      control: 'text',
+      description: 'margin에서 세로 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mxAuto: {
+      control: 'boolean',
+      description: 'margin에서 가로 옵션을 auto로 조정할 수 있습니다.',
+    },
+    myAuto: {
+      control: 'boolean',
+      description: 'margin에서 세로 옵션을 auto로 조정할 수 있습니다.',
+    },
+    p: {
+      control: 'text',
+      description: 'padding 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    pl: {
+      control: 'text',
+      description: 'padding-left 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    pr: {
+      control: 'text',
+      description: 'padding-right 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    pt: {
+      control: 'text',
+      description: 'padding-top 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    pb: {
+      control: 'text',
+      description: 'padding-bottom 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    px: {
+      control: 'text',
+      description: 'padding에서 가로 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    py: {
+      control: 'text',
+      description: 'padding에서 세로 옵션을 조정할 수 있습니다. EX) 10px, 10%',
+    },
   },
 } satisfies Meta<typeof Flex>;
 
@@ -65,26 +129,29 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const RowFlex: Story = {
-  render: props => (
+  render: (props) => (
     <Flex {...props}>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'pink',
-        }}></div>
+        }}
+      ></div>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'yellow',
-        }}></div>
+        }}
+      ></div>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'yellowgreen',
-        }}></div>
+        }}
+      ></div>
     </Flex>
   ),
   args: {
@@ -97,26 +164,29 @@ export const RowFlex: Story = {
 };
 
 export const ColumnFlex: Story = {
-  render: props => (
+  render: (props) => (
     <Flex {...props}>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'pink',
-        }}></div>
+        }}
+      ></div>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'yellow',
-        }}></div>
+        }}
+      ></div>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'yellowgreen',
-        }}></div>
+        }}
+      ></div>
     </Flex>
   ),
   args: {
@@ -129,14 +199,15 @@ export const ColumnFlex: Story = {
 };
 
 export const CenterFlex: Story = {
-  render: props => (
+  render: (props) => (
     <Flex {...props}>
       <div
         style={{
           width: '100px',
           height: '100px',
           backgroundColor: 'gray',
-        }}></div>
+        }}
+      ></div>
     </Flex>
   ),
   args: {
