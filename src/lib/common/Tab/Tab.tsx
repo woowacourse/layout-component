@@ -8,8 +8,6 @@ import Menu from './Menu';
 import Menus from './Menus';
 
 interface TabOptions {
-  /** 고유한 탭 메뉴의 id, 여러 개의 탭을 사용할 때 구분하기 위함 */
-  id: string;
   /** 초기에 선택되어 있을 메뉴 탭의 index
    * @default 0
    */
@@ -24,7 +22,6 @@ interface TabContextValue extends TabOptions {
 }
 
 export const TabContext = createContext<TabContextValue>({
-  id: '',
   initialIndex: 0,
   vertical: false,
   activeTab: 'menu-0',
@@ -33,10 +30,10 @@ export const TabContext = createContext<TabContextValue>({
 
 export interface TabProps extends TabOptions, FlexContainerProps {}
 
-const Tab = ({ id, initialIndex = 0, vertical, children, ...attributes }: TabProps) => {
+const Tab = ({ initialIndex = 0, vertical, children, ...attributes }: TabProps) => {
   const [activeTab, setActiveTab] = useState(`menu-${initialIndex}`);
 
-  const contextValue = { id, initialIndex, vertical, activeTab, setActiveTab };
+  const contextValue = { vertical, activeTab, setActiveTab };
 
   return (
     <FlexContainer direction={vertical ? 'row' : 'column'} gap={16} {...attributes}>

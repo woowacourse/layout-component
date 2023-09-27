@@ -17,7 +17,6 @@ const meta = {
     },
   },
   args: {
-    id: '스토리북',
     initialIndex: 0,
     vertical: false,
   },
@@ -32,9 +31,9 @@ export default meta;
 const days = ['월', '화', '수', '목', '금', '토', '일'] as const;
 const engDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const;
 
-export const Default = ({ id, ...args }: TabProps) => {
+export const Default = ({ ...args }: TabProps) => {
   return (
-    <Tab id={id} width={400} {...args}>
+    <Tab width={400} {...args}>
       <Tab.Menus highlightColor="#32affd">
         {days.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -49,9 +48,9 @@ export const Default = ({ id, ...args }: TabProps) => {
   );
 };
 
-export const Vertical = () => {
+export const Vertical = ({ ...args }) => {
   return (
-    <Tab id="수직" vertical width={400}>
+    <Tab vertical width={400} {...args}>
       <Tab.Menus width={46} gap={10}>
         {engDays.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -66,9 +65,9 @@ export const Vertical = () => {
   );
 };
 
-export const InitialIndex = () => {
+export const InitialIndex = ({ ...args }) => {
   return (
-    <Tab id="인덱스" width={400} initialIndex={3}>
+    <Tab width={400} initialIndex={3} {...args}>
       <Tab.Menus>
         {engDays.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
