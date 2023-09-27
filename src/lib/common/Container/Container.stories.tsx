@@ -7,7 +7,7 @@ import { sizeArgTypes } from '../styles/size';
 import { spacingArgTypes } from '../styles/spacing';
 import type { ContainerProps } from './Container';
 import Container from './Container';
-import { ALIGNMENT } from './style';
+import { ALIGNMENT } from './style/container.style';
 
 const meta = {
   title: 'Layout/Container',

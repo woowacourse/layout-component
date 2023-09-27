@@ -2,7 +2,7 @@ import type { FlexBasicLayout } from '../FlexContainer/FlexContainer';
 import type { Size } from '../styles/size';
 import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
-import { flexItemStyle } from './style';
+import { flexItemStyle } from './styles/flexItem.style';
 
 export interface FlexItemProps extends Size, Spacing, CommonProps {
   /** Flex Item 순서 변경 가능 */

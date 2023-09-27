@@ -1,11 +1,10 @@
-import { css } from '@emotion/react';
-
 import type { ComponentPropsWithoutRef } from 'react';
 import { useContext, type ReactNode } from 'react';
 
 import { TabContext } from './Tab';
+import { tabMenuStyle, tabMenuWithIconStyle } from './styles/menu.style';
 
-type IconPosition = 'top' | 'right' | 'bottom' | 'left';
+export type IconPosition = 'top' | 'right' | 'bottom' | 'left';
 export interface MenuProps extends ComponentPropsWithoutRef<'button'> {
   /** 탭 메뉴 이름 */
   label?: string;
@@ -39,42 +38,5 @@ const Menu = ({ label, icon, index, iconPosition = 'left', ...attributes }: Menu
     </button>
   );
 };
-
-const tabMenuStyle = css`
-  flex: 1;
-
-  padding: 8px 0;
-
-  color: #555;
-  text-align: center;
-
-  background: transparent;
-  border: none;
-
-  &:hover {
-    color: #333;
-  }
-`;
-
-const getFlexDirection = (iconPosition: IconPosition) => {
-  switch (iconPosition) {
-    case 'top':
-      return 'column';
-    case 'bottom':
-      return 'column-reverse';
-    case 'left':
-      return 'row';
-    case 'right':
-      return 'row-reverse';
-  }
-};
-
-const tabMenuWithIconStyle = (iconPosition: IconPosition) => css`
-  display: flex;
-  flex-direction: ${getFlexDirection(iconPosition)};
-  gap: 2px;
-  align-items: center;
-  justify-content: center;
-`;
 
 export default Menu;

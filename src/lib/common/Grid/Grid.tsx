@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 
 import Container from '../Container';
 import type { BasicLayoutProps } from '../FlexContainer/FlexContainer';
-import { gapStyle } from '../FlexContainer/style';
-import { gridItemRepeatStyle } from './style';
+import { gapStyle } from '../FlexContainer/styles/flexContainer.style';
+import { gridItemRepeatStyle } from './styles/grid.style';
 
 export interface GridProps extends BasicLayoutProps {
   /** 행(row)의 개수/높이 변경 가능 
