@@ -90,7 +90,7 @@ const TabLayout = ({
       <ul style={{ display: 'flex', width }}>
         {tabs.map((label, index) => (
           <TagList
-            key={label}
+            key={`tag-${index}`}
             label={label}
             isActive={activeTab === index}
             onClick={() => setActiveTab(index)}
