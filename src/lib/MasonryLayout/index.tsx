@@ -48,12 +48,8 @@ const MasonryLayout: MasonryLayoutComponent = forwardRef(function MasonryLayout<
   return (
     <S.Component as={as} ref={ref} style={css} {...rest}>
       {childArray.map((child) => (
-        <MasonryLayoutItem rowGap={rest.rowGap} gap={rest.gap}>
-          {createElement(child.type, {
-            ...{
-              ...child.props,
-            },
-          })}
+        <MasonryLayoutItem {...rest}>
+          {createElement(child.type, child.props)}
         </MasonryLayoutItem>
       ))}
     </S.Component>

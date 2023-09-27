@@ -84,7 +84,7 @@ function App() {
         <div>1</div>
         <div>1</div>
       </Grid>
-      <MasonryLayout gap="10px" itemSize="25%" fullScreen as="div">
+      <MasonryLayout gap="10px" itemSize={300} fullScreen as="div">
         {MOCK_IMAGE_DATA.map((item) => (
           <a key={item} href="www.naver.com">
             <img style={{ width: '100%' }} src={item} alt="안녕" />

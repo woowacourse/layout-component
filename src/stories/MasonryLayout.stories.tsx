@@ -37,7 +37,7 @@ const meta = {
     itemSize: {
       control: 'text',
       description:
-        '아이템의 최소 너비를 문자열로 입력할 수 있습니다. EX) 200px, 25%',
+        '아이템의 최소 너비를 문자열로 입력할 수 있습니다. 단위는 px입니다.',
     },
     gap: {
       control: 'text',
@@ -124,7 +124,7 @@ function MasonryLayoutStory(props: ComponentProps) {
 export const ColumnMasonry: Story = {
   render: (props) => <MasonryLayoutStory {...props} />,
   args: {
-    itemSize: '300px',
+    itemSize: 300,
     fullScreen: true,
     p: '36px',
     gap: '16px',

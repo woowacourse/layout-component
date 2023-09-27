@@ -3,13 +3,22 @@ import * as S from './style';
 
 interface MasonryLayoutItemProps extends PropsWithChildren {
   rowGap?: string;
+  smallRowGap?: string;
+  mediumRowGap?: string;
+  largeRowGap?: string;
+  xLargeRowGap?: string;
+  doubleXLargeRowGap?: string;
   gap?: string;
+  smallGap?: string;
+  mediumGap?: string;
+  largeGap?: string;
+  xLargeGap?: string;
+  doubleXLargeGap?: string;
 }
 
 export default function MasonryLayoutItem({
-  gap,
-  rowGap,
   children,
+  ...rest
 }: MasonryLayoutItemProps) {
   const itemRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(1);
@@ -30,7 +39,7 @@ export default function MasonryLayoutItem({
   }, []);
 
   return (
-    <S.Component height={height} rowGap={rowGap} gap={gap} ref={itemRef}>
+    <S.Component height={height} {...rest} ref={itemRef}>
       {children}
     </S.Component>
   );
