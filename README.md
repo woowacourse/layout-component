@@ -168,6 +168,20 @@ import { Drawer } from 'layout-component-hp';
 - Drawer.Content: Drawer 내부 컨텐트
 - Drawer.CloseButton: Drawer를 닫을 수 있는 버튼
 
+### useDisclosure
+
+```tsx
+import { useDisclosure } from 'layout-component-hp';
+
+const { isOpen, onOpen, onClose } = useDisclosure();
+```
+
+Drawer를 동작할 수 있는 useDisclosure 훅을 제공
+
+- isOpen: Drawer가 열려있는지에 대한 상태
+- onOpen: Drawer를 여는 함수
+- onClose: Drawer를 닫는 함수
+
 ### Drawer Props
 
 | props         | value                               | description                                    |
