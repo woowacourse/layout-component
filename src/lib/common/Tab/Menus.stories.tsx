@@ -9,6 +9,13 @@ const meta = {
   title: 'Tab/Menus',
   tags: ['autodocs'],
   component: Tab.Menus,
+  parameters: {
+    docs: {
+      description: {
+        component: `Tab의 Menus는 FlexContainer로 구성되었습니다. 따라서 FlexContainer의 속성을 그대로 사용할 수 있습니다.`,
+      },
+    },
+  },
   args: {
     highlightColor: '#32affd',
     index: 1,
@@ -28,13 +35,14 @@ const meta = {
 
 export default meta;
 
-const days = ['월', '화', '수', '목', '금', '토', '일'] as const;
+
+const DAYS = ['월', '화', '수', '목', '금', '토', '일'] as const;
 
 export const Default = ({ highlightColor, ...args }: MenusProps) => {
   return (
     <Tab width={400}>
       <Tab.Menus gap={10} highlightColor={highlightColor} {...args}>
-        {days.map((day, index) => (
+        {DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
         ))}
       </Tab.Menus>
