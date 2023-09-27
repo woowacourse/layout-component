@@ -12,49 +12,39 @@ const defaultInactiveStyle = {
   fontWeight: 'normal',
 };
 
+interface CommonStyle {
+  /**
+   * (비)활성화 되었을 때 글자색입니다.
+   */
+  color?: string;
+  /**
+   * (비)활성화 되었을 때 배경색입니다.
+   */
+  backgroundColor?: string;
+  /**
+   * (비)활성화 되었을 때 테두리색입니다.
+   */
+  borderColor?: string;
+  /**
+   * (비)활성화 되었을 때 글자의 굵기입니다.
+   */
+  fontWeight?: string;
+}
+
+type StyleProps = Pick<
+  CommonStyle,
+  'color' | 'backgroundColor' | 'borderColor' | 'fontWeight'
+>;
+
 interface TabListProps extends ComponentPropsWithoutRef<'li'> {
   /**
    * 버튼이 활성화 되었을 때 스타일입니다.
    */
-  activeStyle?: {
-    /**
-     * 활성화 되었을 때 글자색입니다.
-     */
-    color?: string;
-    /**
-     * 활성화 되었을 때 배경색입니다.
-     */
-    backgroundColor?: string;
-    /**
-     * 활성화 되었을 때 테두리색입니다.
-     */
-    borderColor?: string;
-    /**
-     * 활성화 되었을 때 글자의 굵기입니다.
-     */
-    fontWeight?: string;
-  };
+  activeStyle?: StyleProps;
   /**
    * 버튼이 비활성화 되었을 때 스타일입니다.
    */
-  inactiveStyle?: {
-    /**
-     * 비활성화 되었을 때 글자색입니다.
-     */
-    color?: string;
-    /**
-     * 비활성화 되었을 때 배경색입니다.
-     */
-    backgroundColor?: string;
-    /**
-     * 비활성화 되었을 때 테두리색입니다.
-     */
-    borderColor?: string;
-    /**
-     * 활성화 되었을 때 글자의 굵기입니다.
-     */
-    fontWeight?: string;
-  };
+  inactiveStyle?: StyleProps;
   /**
    * 버튼의 padding 값을 조절할 수 있습니다.
    */
