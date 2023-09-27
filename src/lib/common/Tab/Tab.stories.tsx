@@ -81,3 +81,22 @@ export const InitialIndex = ({ ...args }) => {
     </Tab>
   );
 };
+
+export const SeveralTabs = () => {
+  return Array.from({ length: 3 }, (_, index) => {
+    return (
+      <Tab width={400} mb={28} initialIndex={index}>
+        <Tab.Menus>
+          {engDays.map((day, index) => (
+            <Tab.Menu key={day} label={day} index={index} />
+          ))}
+        </Tab.Menus>
+        {engDays.map((_, index) => (
+          <Tab.Content key={index} index={index}>
+            <p>내용 {index}</p>
+          </Tab.Content>
+        ))}
+      </Tab>
+    );
+  });
+};
