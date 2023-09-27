@@ -5,12 +5,12 @@ import { useContext, type ReactNode } from 'react';
 
 import { TabContext } from './Tab';
 
-interface MenuProps extends ComponentPropsWithoutRef<'button'> {
-  /** 메뉴 이름 */
+export interface MenuProps extends ComponentPropsWithoutRef<'button'> {
+  /** 탭 메뉴 이름 */
   label?: string;
-  /** 메뉴 아이콘 */
+  /** 탭 메뉴 아이콘 */
   icon?: ReactNode;
-  /** 메뉴 항목 */
+  /** 탭 메뉴의 항목, 원하는 내용의 항목과 일치시켜야 함 */
   index: number;
 }
 

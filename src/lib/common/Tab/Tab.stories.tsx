@@ -31,9 +31,9 @@ export default meta;
 const days = ['월', '화', '수', '목', '금', '토', '일'] as const;
 const engDays = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const;
 
-export const Default = ({ ...args }: TabProps) => {
+export const Default = ({ ...args }) => {
   return (
-    <Tab width={400} {...args}>
+    <Tab {...args}>
       <Tab.Menus highlightColor="#32affd">
         {days.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -48,9 +48,11 @@ export const Default = ({ ...args }: TabProps) => {
   );
 };
 
-export const Vertical = ({ ...args }) => {
+export const Vertical = ({ vertical, ...args }: TabProps) => {
+  const fixedVertical = vertical || true;
+
   return (
-    <Tab vertical width={400} {...args}>
+    <Tab vertical={fixedVertical} width={400} {...args}>
       <Tab.Menus width={46} gap={10}>
         {engDays.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
