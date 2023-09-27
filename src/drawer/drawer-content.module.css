@@ -7,7 +7,7 @@
   max-height: 100vh;
   z-index: 1001;
   background: #ffffff;
-  transform: translateX(0%) translateY(0px) translateZ(0px);
+  transform: translateX(0) translateY(0) translateZ(0);
 }
 
 .left,
