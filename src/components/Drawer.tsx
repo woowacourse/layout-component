@@ -1,4 +1,10 @@
-import { type CSSProperties, type PropsWithChildren, useEffect } from "react";
+import {
+  type CSSProperties,
+  type PropsWithChildren,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import { createPortal } from "react-dom";
 import "./Drawer.css";
 
@@ -24,13 +30,27 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
     children,
   } = props;
 
+  const [isClosing, setIsClosing] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isClosing || ref.current === null) {
+      return;
+    }
+
+    ref.current.getAnimations().forEach((animation) => {
+      animation.onfinish = () => {
+        setIsClosing(false);
+        onClose();
+      };
+    });
+  }, [isClosing]);
+
   useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") {
-        return;
+      if (e.key === "Escape") {
+        onClose();
       }
-
-      onClose();
     };
 
     document.addEventListener("keydown", handleKeydown);
@@ -84,6 +104,29 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
     };
   };
 
+  const closeAnimation = (anchor: string) => {
+    return {
+      animation: `${
+        anchor === "left"
+          ? "ruluCloseRight"
+          : anchor === "top"
+          ? "ruluCloseDown"
+          : anchor === "right"
+          ? "ruluCloseLeft"
+          : "ruluCloseUp"
+      } 0.6s ease-in-out forwards`,
+    };
+  };
+
+  const drawerAnimation = isClosing
+    ? closeAnimation(anchor)
+    : anchorAnimation(anchor);
+
+  const backgroundAnimation = {
+    animation: `${
+      isClosing ? "ruluFadeOut" : "ruluFadeIn"
+    }  0.6s ease-in-out forwards`,
+  };
   return (
     <>
       {isOpen &&
@@ -98,14 +141,14 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
                   bottom: 0,
                   left: 0,
                   backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  ...backgroundAnimation,
                 }}
-                onClick={onClose}
+                onClick={() => setIsClosing(true)}
               />
             )}
 
             <div
               style={{
-                overflowY: "auto",
                 display: "flex",
                 flexDirection: "column",
                 height: "100%",
@@ -119,7 +162,9 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
               }}
             >
               <div
+                ref={ref}
                 style={{
+                  overflowY: "auto",
                   width: width
                     ? width
                     : anchor === "top" || anchor === "bottom"
@@ -131,9 +176,9 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
                     ? "100%"
                     : "auto",
                   backgroundColor: "white",
-                  ...anchorAnimation(anchor),
+                  ...drawerAnimation,
                 }}
-                onClick={onClose}
+                onClick={() => setIsClosing(true)}
               >
                 {children}
               </div>
