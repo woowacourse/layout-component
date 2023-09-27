@@ -43,7 +43,17 @@ const MasonryLayout: MasonryLayoutComponent = forwardRef(function MasonryLayout<
   { css, as, children, ...rest }: MasonryLayoutProps<T>,
   ref: PolymorphicRef<T>
 ) {
-  const childArray = Array.isArray(children) ? children : [children];
+  const isChildrenArray = Array.isArray(children);
+
+  const childArray: ReactElement[] = isChildrenArray ? children : [children];
+
+  if (!isChildrenArray) {
+    return (
+      <S.Component as={as} ref={ref} style={css} {...rest}>
+        {children}
+      </S.Component>
+    );
+  }
 
   return (
     <S.Component as={as} ref={ref} style={css} {...rest}>
