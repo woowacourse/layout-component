@@ -11,6 +11,7 @@ const meta = {
   component: Tab.Menu,
   args: {
     label: '탭',
+    iconPosition: 'left',
     index: 0,
   },
 } satisfies Meta<typeof Tab.Menu>;
@@ -29,14 +30,15 @@ export const Default = ({ label }: MenuProps) => {
   );
 };
 
-export const TabWithIcons = ({ label }: MenuProps) => {
+export const TabWithIcons = ({ label, iconPosition }: MenuProps) => {
   return (
     <Tab width={300}>
       <Tab.Menus highlightColor="#32affd">
-        <Tab.Menu label={label} index={0} icon={<HiOutlineHeart />} />
-        <Tab.Menu label={label} index={1} icon={<HiHeart />} iconPosition="top" />
-        <Tab.Menu label={label} index={2} icon={<HiOutlineHeart />} iconPosition="right" />
-        <Tab.Menu label={label} index={3} icon={<HiHeart />} iconPosition="bottom" />
+        <Tab.Menu label={label} index={0} icon={<HiOutlineHeart />} iconPosition={iconPosition} />
+        <Tab.Menu label={label} index={1} icon={<HiOutlineHeart />} />
+        <Tab.Menu label={label} index={2} icon={<HiHeart />} iconPosition="top" />
+        <Tab.Menu label={label} index={3} icon={<HiOutlineHeart />} iconPosition="right" />
+        <Tab.Menu label={label} index={4} icon={<HiHeart />} iconPosition="bottom" />
       </Tab.Menus>
     </Tab>
   );
