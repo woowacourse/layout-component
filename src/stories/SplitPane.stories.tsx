@@ -23,7 +23,7 @@ export const Playground: Story = {
     );
   },
   args: {
-    children: [<div>a</div>, <div>b</div>],
+    children: [<div>a</div>, <div>b</div>, <div>b</div>],
   },
   argTypes: {
     width: {
