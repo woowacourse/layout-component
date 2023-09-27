@@ -7,7 +7,7 @@ import styles from './drawer-content.module.css';
 
 type DrawerContentProps = {
   css?: CSSProperties;
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 };
 
 const DrawerContent = ({ css = {}, children }: DrawerContentProps) => {

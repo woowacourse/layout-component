@@ -14,7 +14,7 @@ type DrawerProps = {
   animation?: boolean;
   placement?: Placement;
   portalElement?: Element;
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 };
 
 const Drawer = ({
