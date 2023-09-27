@@ -1,6 +1,6 @@
 {
   "name": "yummy-design-component",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "type": "module",
   "description": "편리하게 레이아웃 작업을 할 수 있는 디자인 컴포넌트입니다.",
   "repository": {
