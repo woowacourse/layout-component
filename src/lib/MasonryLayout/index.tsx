@@ -4,10 +4,30 @@ import * as S from './style';
 import MasonryLayoutItem from './MasonryLayoutItem';
 
 export interface _MasonryLayoutProps {
-  itemSize: string;
+  itemSize: number;
+  smallItemSize?: number;
+  mediumItemSize?: number;
+  largeItemSize?: number;
+  xLargeItemSize?: number;
+  doubleXLargeItemSize?: number;
   gap?: string;
+  smallGap?: string;
+  mediumGap?: string;
+  largeGap?: string;
+  xLargeGap?: string;
+  doubleXLargeGap?: string;
   rowGap?: string;
+  smallRowGap?: string;
+  mediumRowGap?: string;
+  largeRowGap?: string;
+  xLargeRowGap?: string;
+  doubleXLargeRowGap?: string;
   columnGap?: string;
+  smallColumnGap?: string;
+  mediumColumnGap?: string;
+  largeColumnGap?: string;
+  xLargeColumnGap?: string;
+  doubleXLargeColumnGap?: string;
 }
 
 export type MasonryLayoutProps<T extends ElementType> =
