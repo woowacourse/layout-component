@@ -35,9 +35,9 @@ const meta = {
         '디테일 한 CSS 속성을 지정해야 할 경우 직접 CSS를 입력할 수 있습니다.',
     },
     itemSize: {
-      control: 'text',
+      control: 'number',
       description:
-        '아이템의 최소 너비를 문자열로 입력할 수 있습니다. 단위는 px입니다.',
+        '아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
     },
     gap: {
       control: 'text',
@@ -53,6 +53,106 @@ const meta = {
       control: 'text',
       description:
         'column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    smallItemSize: {
+      control: 'number',
+      description:
+        '@media (min-width: 640px) 아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
+    },
+    smallGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 640px) 아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    smallRowGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 640px) row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    smallColumnGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 640px) column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mediumItemSize: {
+      control: 'number',
+      description:
+        '@media (min-width: 768px) 아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
+    },
+    mediumGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 768px) 아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mediumRowGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 768px) row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    mediumColumnGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 768px) column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    largeItemSize: {
+      control: 'number',
+      description:
+        '@media (min-width: 1024px) 아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
+    },
+    largeGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1024px) 아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    largeRowGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1024px) row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    largeColumnGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1024px) column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    xLargeItemSize: {
+      control: 'number',
+      description:
+        '@media (min-width: 1280px) 아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
+    },
+    xLargeGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1280px) 아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    xLargeRowGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1280px) row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    xLargeColumnGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1280px) column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    doubleXItemSize: {
+      control: 'number',
+      description:
+        '@media (min-width: 1536px) 아이템의 최소 너비를 숫자로 입력할 수 있습니다. 단위는 px입니다.',
+    },
+    doubleXGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1536px) 아이템들의 row, column의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    doubleXRowGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1536px) row 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
+    },
+    doubleXColumnGap: {
+      control: 'text',
+      description:
+        '@media (min-width: 1536px) column 방향의 간격을 문자열로 조정할 수 있습니다. EX) 10px, 10%',
     },
     m: {
       control: 'text',
