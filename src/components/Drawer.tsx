@@ -16,6 +16,7 @@ export interface DrawerProps {
   width?: CSSProperties["width"];
   height?: CSSProperties["height"];
   zIndex?: CSSProperties["zIndex"];
+  backdropZIndex?: CSSProperties["zIndex"];
 }
 
 const Drawer = (props: PropsWithChildren<DrawerProps>) => {
@@ -27,6 +28,7 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
     width,
     height,
     zIndex = 1,
+    backdropZIndex = 0,
     children,
   } = props;
 
@@ -141,6 +143,7 @@ const Drawer = (props: PropsWithChildren<DrawerProps>) => {
                   bottom: 0,
                   left: 0,
                   backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  zIndex: backdropZIndex,
                   ...backgroundAnimation,
                 }}
                 onClick={() => setIsClosing(true)}
