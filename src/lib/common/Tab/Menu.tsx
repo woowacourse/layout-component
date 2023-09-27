@@ -10,7 +10,7 @@ export interface MenuProps extends ComponentPropsWithoutRef<'button'> {
   label?: string;
   /** 탭 메뉴 아이콘 */
   icon?: ReactNode;
-  /** 탭 메뉴 아이콘 위치
+  /** 탭 메뉴 아이콘 위치, 아이콘이 있을 때만 동작
    * @default 'left'
    */
   iconPosition?: IconPosition;
