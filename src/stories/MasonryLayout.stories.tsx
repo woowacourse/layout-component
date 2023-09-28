@@ -44,7 +44,7 @@ export const Default: Story = {
     children: childrenDefault,
     direction: "column",
     gap: 4,
-    line: 4,
+    lane: 4,
   },
 };
 
@@ -53,7 +53,7 @@ export const ConfigGap: Story = {
     children: childrenDefault,
     direction: "column",
     gap: { row: 8, column: 20 },
-    line: 3,
+    lane: 3,
   },
 };
 
@@ -62,6 +62,6 @@ export const ConfigRow: Story = {
     children: childrenRow,
     direction: "row",
     gap: 8,
-    line: 3,
+    lane: 3,
   },
 };

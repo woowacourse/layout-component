@@ -6,7 +6,7 @@ import type { Gap } from "../types";
 interface Props {
   direction?: "column" | "row";
   gap: Gap;
-  line: number;
+  lane: number;
   children: React.ReactElement[];
 }
 
@@ -15,13 +15,13 @@ interface MasonryChild {
   child: React.ReactElement;
 }
 
-function MasonryLayout({ direction = "column", gap, line, children }: Props) {
+function MasonryLayout({ direction = "column", gap, lane, children }: Props) {
   const dimensionProperty = direction === "column" ? "height" : "width";
-  const layoutArrayList = createArrayOfArrays<MasonryChild>(line);
+  const layoutArrayList = createArrayOfArrays<MasonryChild>(lane);
   const { rowGap, columnGap } = parseGap(gap);
 
-  const rowGrid = { gridTemplateRows: `repeat(${line}, 1fr)`, height: "100%" };
-  const columnGrid = { gridTemplateColumns: `repeat(${line}, 1fr)` };
+  const rowGrid = { gridTemplateRows: `repeat(${lane}, 1fr)`, height: "100%" };
+  const columnGrid = { gridTemplateColumns: `repeat(${lane}, 1fr)` };
 
   const gridStyle = {
     display: "grid",
@@ -30,7 +30,7 @@ function MasonryLayout({ direction = "column", gap, line, children }: Props) {
     ...(direction === "column" && columnGrid),
   };
 
-  const lineStyle = {
+  const laneStyle = {
     display: "flex",
     flexDirection: direction,
     gap: direction === "column" ? rowGap : columnGap,
@@ -47,8 +47,8 @@ function MasonryLayout({ direction = "column", gap, line, children }: Props) {
 
   return (
     <div style={gridStyle}>
-      {Array.from({ length: line }, (_, index) => (
-        <div key={index} style={lineStyle}>
+      {Array.from({ length: lane }, (_, index) => (
+        <div key={index} style={laneStyle}>
           {layoutArrayList[index].map((item) => item.child)}
         </div>
       ))}

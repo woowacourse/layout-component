@@ -50,7 +50,7 @@
 - 자식요소들은 style속성에 정렬하는 방향에 따라 height 혹은 width를 명시해줘야 합니다.
 
 ```tsx
-<MasonryLayout direction="column" gap={8} line={3}>
+<MasonryLayout direction="column" gap={8} lane={3}>
   <div style={{ height: `100px` }}>Item 1</div>
   <div style={{ height: `180px` }}>Item 2</div>
   <div style={{ height: `120px` }}>Item 3</div>
