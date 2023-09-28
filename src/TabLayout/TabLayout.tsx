@@ -53,7 +53,7 @@ const TabLayoutContainer = styled.nav`
 
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 1%;
+  gap: 10px;
   border-bottom: 1px solid;
   padding-bottom: 10px;
 `;
