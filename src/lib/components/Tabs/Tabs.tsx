@@ -15,7 +15,7 @@ export interface TabsProps extends PropsWithChildren {
 }
 
 const Tabs = (props: TabsProps) => {
-  const { defaultTabId, direction, primaryColor, children } = props;
+  const { defaultTabId, direction = 'horizontal', primaryColor, children } = props;
   const flexDirection = direction === 'horizontal' ? 'column' : 'row';
 
   return (
