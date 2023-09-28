@@ -28,6 +28,15 @@ const meta = {
         defaultValue: { summary: 'Cornflowerblue' },
       },
     },
+    backgroundColor: {
+      control: {
+        type: 'color',
+        presetColors: ['#c5d3ff'],
+      },
+      table: {
+        defaultValue: { summary: 'transparent' },
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -55,6 +64,7 @@ export const Primary: Story = {
     defaultTabPanelId: 'item1',
     direction: 'horizontal',
     primaryColor: '#6495ed',
+    backgroundColor: '#fff',
   },
 
   render: (args) => {

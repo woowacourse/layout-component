@@ -6,6 +6,7 @@ interface TabsContext {
   changeTab: (selectedTabId: string) => void;
   direction: TabDirection;
   primaryColor: string;
+  backgroundColor: string;
 }
 
 const TabsContext = createContext<TabsContext>({
@@ -13,6 +14,7 @@ const TabsContext = createContext<TabsContext>({
   changeTab: () => {},
   direction: 'horizontal',
   primaryColor: 'Cornflowerblue',
+  backgroundColor: 'transparent',
 });
 
 TabsContext.displayName = 'Tabs';
@@ -22,7 +24,13 @@ export const useTabsContext = () => useContext(TabsContext);
 interface TabsProviderProps extends TabsProps {}
 
 const TabsProvider = (props: TabsProviderProps) => {
-  const { defaultTabPanelId, direction = 'horizontal', primaryColor = 'Cornflowerblue', children } = props;
+  const {
+    defaultTabPanelId,
+    direction = 'horizontal',
+    primaryColor = 'Cornflowerblue',
+    backgroundColor = 'transparent',
+    children,
+  } = props;
   const [tabId, setTabId] = useState(`${defaultTabPanelId}-tab`);
 
   const changeTab = useCallback((selectedTabId: typeof tabId) => setTabId(selectedTabId), []);
@@ -33,8 +41,9 @@ const TabsProvider = (props: TabsProviderProps) => {
       changeTab,
       direction,
       primaryColor,
+      backgroundColor,
     }),
-    [tabId, direction, primaryColor],
+    [tabId, direction, primaryColor, backgroundColor],
   );
 
   return <TabsContext.Provider value={memoizedValue}>{children}</TabsContext.Provider>;

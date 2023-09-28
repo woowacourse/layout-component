@@ -12,14 +12,21 @@ export interface TabsProps extends PropsWithChildren {
   direction?: TabDirection;
   /** 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다. 기본 값은 Cornflowerblue입니다. */
   primaryColor?: string;
+  /** 탭의 백그라운드 색상을 지정하는 속성입니다. 기본 값은 transparent입니다. */
+  backgroundColor?: string;
 }
 
 const Tabs = (props: TabsProps) => {
-  const { defaultTabPanelId, direction = 'horizontal', primaryColor, children } = props;
+  const { defaultTabPanelId, direction = 'horizontal', primaryColor, backgroundColor, children } = props;
   const flexDirection = direction === 'horizontal' ? 'column' : 'row';
 
   return (
-    <TabsProvider defaultTabPanelId={defaultTabPanelId} direction={direction} primaryColor={primaryColor}>
+    <TabsProvider
+      defaultTabPanelId={defaultTabPanelId}
+      direction={direction}
+      primaryColor={primaryColor}
+      backgroundColor={backgroundColor}
+    >
       <Flex direction={flexDirection}>{children}</Flex>
     </TabsProvider>
   );
@@ -52,7 +59,7 @@ interface TabProps extends ComponentPropsWithoutRef<'li'> {
 
 const Tab = (props: TabProps) => {
   const { tabPanelId, children, ...restProps } = props;
-  const { selectedTabId, changeTab, direction, primaryColor } = useTabsContext();
+  const { selectedTabId, changeTab, direction, primaryColor, backgroundColor } = useTabsContext();
   const isSelected = tabPanelId === selectedTabId.slice(0, -4); // '-tab'을 제외한 부분 추출
 
   const onClickTab: MouseEventHandler<HTMLLIElement> = (event) => {
@@ -60,6 +67,8 @@ const Tab = (props: TabProps) => {
 
     changeTab(event.currentTarget.id);
   };
+
+  console.log(backgroundColor);
 
   return (
     <TabWrapper
@@ -72,6 +81,7 @@ const Tab = (props: TabProps) => {
       selected={isSelected}
       onClick={onClickTab}
       primaryColor={primaryColor}
+      backgroundColor={backgroundColor}
       {...restProps}
     >
       <TabAnchor href={`#${tabPanelId}`}>{children}</TabAnchor>
@@ -112,12 +122,18 @@ Tabs.Panel = Panel;
 export default Tabs;
 
 const TabWrapper = styled.li<
-  Omit<TabProps, 'tabPanelId'> & { selected: boolean; direction: TabDirection; primaryColor: string }
+  Omit<TabProps, 'tabPanelId'> & {
+    selected: boolean;
+    direction: TabDirection;
+    primaryColor: string;
+    backgroundColor: string;
+  }
 >`
   position: relative;
 
   width: 100%;
   padding: 1.6rem;
+  background-color: ${({ backgroundColor }) => backgroundColor};
 
   text-align: center;
   white-space: nowrap;
@@ -127,6 +143,8 @@ const TabWrapper = styled.li<
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s ease;
+
+  user-select: none;
 
   ${({ direction }) =>
     css`
