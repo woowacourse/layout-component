@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, MouseEventHandler, PropsWithChildren, memo } from 'react';
+import { ComponentPropsWithoutRef, MouseEventHandler, PropsWithChildren } from 'react';
 import { styled, css } from 'styled-components';
 import TabsProvider, { useTabsContext } from '../../context/TabsContext';
 import { Flex } from '../..';
@@ -106,7 +106,7 @@ const Panel = (props: PanelProps) => {
 };
 
 Tabs.List = List;
-Tabs.Tab = memo(Tab);
+Tabs.Tab = Tab;
 Tabs.Panel = Panel;
 
 export default Tabs;
