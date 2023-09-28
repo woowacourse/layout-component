@@ -3,7 +3,7 @@ import { Flex } from '../..';
 import { RefObject } from 'react';
 import TabsNavigationScrollButton from './TabsNavigationScrollButton';
 import { TabsDirection } from '../../types/type';
-import { useTab } from '../TabsProvider';
+import useTabs from '../hooks/useTabs';
 
 type TabsNavigationProps = {
   tabsNavigation: RefObject<HTMLDivElement>;
@@ -20,7 +20,7 @@ function TabsNavigation({
   accentColor,
   centered,
 }: TabsNavigationProps) {
-  const { isOverFlow, selectPanel, isSelected, panelList } = useTab();
+  const { isOverFlow, selectPanel, isSelected, panelList } = useTabs();
 
   return (
     <Layout direction={direction}>

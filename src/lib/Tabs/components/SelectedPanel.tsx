@@ -1,7 +1,7 @@
-import { useTab } from '../TabsProvider';
+import useTabs from '../hooks/useTabs';
 
 const SelectedPanel = () => {
-  const { selectedPanel } = useTab();
+  const { selectedPanel } = useTabs();
 
   return <div>{selectedPanel?.contents}</div>;
 };

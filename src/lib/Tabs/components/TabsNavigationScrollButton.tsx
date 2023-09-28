@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import { styled } from 'styled-components';
 import { DownArrow, LeftArrow, RightArrow, UpArrow } from '../assets/Icons';
 import { TabsDirection } from '../../types/type';
-import { useTab } from '../TabsProvider';
+import useTabs from '../hooks/useTabs';
 
 type TabsNavigationScrollButtonProps = {
   scrollButtons: boolean;
@@ -14,7 +14,7 @@ function TabsNavigationScrollButton({
   scrollButtons,
   direction,
 }: PropsWithChildren<TabsNavigationScrollButtonProps>) {
-  const { isOverFlow, scrollState, handleMoveScroll } = useTab();
+  const { isOverFlow, scrollState, handleMoveScroll } = useTabs();
   return (
     <>
       {scrollButtons && isOverFlow && (

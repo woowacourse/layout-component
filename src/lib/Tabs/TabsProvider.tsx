@@ -1,11 +1,5 @@
-import {
-  PropsWithChildren,
-  ReactNode,
-  RefObject,
-  createContext,
-  useContext,
-} from 'react';
-import useTabs from './hooks/useTabs';
+import { PropsWithChildren, ReactNode, RefObject, createContext } from 'react';
+import usePanel from './hooks/usePanel';
 import useTabsScroll from './hooks/useTabsScroll';
 import { Label, PanelList, ScrollState, TabsDirection } from '../types/type';
 
@@ -35,7 +29,7 @@ const TabsProvider = ({
   tabsNavigation: RefObject<HTMLDivElement>;
   direction: TabsDirection;
 }>) => {
-  const { panelList, selectedPanel, selectPanel, isSelected } = useTabs(tabs);
+  const { panelList, selectedPanel, selectPanel, isSelected } = usePanel(tabs);
 
   const { isOverFlow, scrollState, handleMoveScroll } = useTabsScroll(
     tabsNavigation,
@@ -56,11 +50,3 @@ const TabsProvider = ({
 };
 
 export default TabsProvider;
-
-export const useTab = () => {
-  const value = useContext(TabsContext);
-
-  if (!value) throw new Error('tab provider 오류');
-
-  return value;
-};
