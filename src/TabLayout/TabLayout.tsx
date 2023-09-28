@@ -1,4 +1,4 @@
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, Children } from "react";
 import styled from "styled-components";
 
 type TabLayoutProps = {
@@ -23,6 +23,16 @@ type TabButtonProps = {
 const TabLayout = (props: TabLayoutProps) => {
   const { tabs, children } = props;
   const [activeTab, setActiveTab] = useState<number>(0);
+
+  const childrenNodes = Children.toArray(children);
+
+  if (tabs.length !== childrenNodes.length) {
+    return (
+      <AlertContentContainer>
+        <AlertContent>🚨 탭과 콘텐츠의 개수가 동일해야 합니다.</AlertContent>
+      </AlertContentContainer>
+    );
+  }
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
@@ -68,5 +78,16 @@ const TabButton = styled.button<TabButtonProps>`
 `;
 
 const Content = styled.section``;
+
+const AlertContentContainer = styled.div`
+  width: 100%;
+  padding: 20px;
+  background-color: #fcedec;
+`;
+
+const AlertContent = styled.p`
+  margin: 0;
+  color: #5f2120;
+`;
 
 export default TabLayout;
