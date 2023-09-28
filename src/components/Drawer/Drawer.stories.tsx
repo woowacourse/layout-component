@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import Drawer, { Anchor } from './Drawer';
 import Flex from '../Flex/Flex';
+import { Fragment, useState } from 'react';
 
 const meta = {
   title: 'Drawer',
   component: Drawer,
-  args: {},
+  args: { open: false, onClose: () => {} },
   argTypes: {},
 } satisfies Meta<typeof Drawer>;
 
@@ -15,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: () => {
-    const [state, setState] = React.useState({
+  render: ({}) => {
+    const [state, setState] = useState({
       top: false,
       left: false,
       bottom: false,
@@ -38,7 +38,7 @@ export const Playground: Story = {
     return (
       <>
         {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => (
-          <React.Fragment key={anchor}>
+          <Fragment key={anchor}>
             <button onClick={() => toggleDrawer(anchor, true)}>{anchor}</button>
             <Drawer
               anchor={anchor}
@@ -47,7 +47,7 @@ export const Playground: Story = {
             >
               {list(anchor)}
             </Drawer>
-          </React.Fragment>
+          </Fragment>
         ))}
       </>
     );

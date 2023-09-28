@@ -1,6 +1,5 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
-import Flex from '../Flex/Flex';
 
 export type Anchor = 'left' | 'right' | 'top' | 'bottom';
 
@@ -10,7 +9,7 @@ type Props = {
    *
    * @default 'left'
    */
-  anchor: Anchor;
+  anchor?: Anchor;
   /**
    * Drawer 활성화 여부
    *

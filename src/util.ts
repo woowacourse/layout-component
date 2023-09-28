@@ -1,5 +1,5 @@
 import { breakpoints } from './type';
-import type { Device, DeviceAndValue } from './type';
+import type { Device } from './type';
 
 export const genResponsiveStyle = (property: string, deviceAndValue: unknown) => {
   if (!deviceAndValue || typeof deviceAndValue !== 'object') return '';
