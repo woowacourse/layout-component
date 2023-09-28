@@ -66,6 +66,7 @@ const ButtonContainer = styled.div`
   gap: 10px;
   border-bottom: 1px solid;
   padding-bottom: 10px;
+  overflow: auto;
 `;
 
 const TabButton = styled.button<TabButtonProps>`
