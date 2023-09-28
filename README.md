@@ -41,3 +41,19 @@
   <div>Item 3</div>
 </Flex>
 ```
+
+## 4. Masonry Layout
+
+- 여러 크기의 아이템을 격자(벽돌) 형태로 정렬합니다.
+- 행 혹은 열의 수를 설정할 수 있습니다.
+- gap 속성을 통해 자식들간의 간격을 조절할 수 있습니다.
+- 자식요소들은 style속성에 정렬하는 방향에 따라 height 혹은 width를 명시해줘야 합니다.
+
+```tsx
+<MasonryLayout direction="column" gap={8} lane={3}>
+  <div style={{ height: `100px` }}>Item 1</div>
+  <div style={{ height: `180px` }}>Item 2</div>
+  <div style={{ height: `120px` }}>Item 3</div>
+  <!-- 추가 아이템 -->
+</MasonryLayout>
+```
