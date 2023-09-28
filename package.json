@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
-  "types": "dist/lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -15,6 +15,11 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://hyeryongchoi.github.io/layout-component/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyeryongchoi/layout-component.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
