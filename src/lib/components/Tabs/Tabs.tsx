@@ -89,19 +89,19 @@ const Panel = (props: PanelProps) => {
   const { selectedTabId } = useTabsContext();
   const isSelected = id === selectedTabId.slice(0, -4); // '-tab'을 제외한 부분 추출
 
+  if (!isSelected) return null;
+
   return (
-    isSelected && (
-      <TabPanelWrapper
-        id={id}
-        tabIndex={0}
-        role='tabpanel'
-        aria-labelledby={`${id}-tab`}
-        aria-expanded={isSelected}
-        {...restProps}
-      >
-        {children}
-      </TabPanelWrapper>
-    )
+    <TabPanelWrapper
+      id={id}
+      tabIndex={0}
+      role='tabpanel'
+      aria-labelledby={`${id}-tab`}
+      aria-expanded={isSelected}
+      {...restProps}
+    >
+      {children}
+    </TabPanelWrapper>
   );
 };
 
