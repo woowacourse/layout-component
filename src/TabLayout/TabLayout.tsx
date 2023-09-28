@@ -33,15 +33,16 @@ const TabLayout = (props: TabLayoutProps) => {
         {tabs.map((tab, index) => (
           <TabButton
             key={index}
-            aria-label="tab-button"
+            role="tab"
             onClick={() => handleTabClick(index)}
             isActive={activeTab === index}
+            aria-selected={activeTab === index ? "true" : "false"}
           >
             {tab}
           </TabButton>
         ))}
       </ButtonContainer>
-      <Content aria-label="tab-content">{children[activeTab]}</Content>
+      <Content>{children[activeTab]}</Content>
     </TabLayoutContainer>
   );
 };
