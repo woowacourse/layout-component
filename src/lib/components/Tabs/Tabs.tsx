@@ -74,7 +74,7 @@ const Tab = (props: TabProps) => {
       primaryColor={primaryColor}
       {...restProps}
     >
-      <TabAnchor href={tabPanelId}>{children}</TabAnchor>
+      <TabAnchor href={`#${tabPanelId}`}>{children}</TabAnchor>
     </TabWrapper>
   );
 };
