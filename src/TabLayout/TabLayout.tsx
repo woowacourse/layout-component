@@ -1,4 +1,5 @@
 import { useState, ReactNode, Children } from "react";
+import { Flex } from "goni-layout-component";
 import styled from "styled-components";
 
 type TabLayoutProps = {
@@ -39,7 +40,7 @@ const TabLayout = (props: TabLayoutProps) => {
   };
   return (
     <TabLayoutContainer>
-      <ButtonContainer>
+      <Flex direction="row" justify="flex-start" align="flex-start" gap="10px">
         {tabs.map((tab, index) => (
           <TabButton
             key={index}
@@ -51,7 +52,7 @@ const TabLayout = (props: TabLayoutProps) => {
             {tab}
           </TabButton>
         ))}
-      </ButtonContainer>
+      </Flex>
       <Content>{children[activeTab]}</Content>
     </TabLayoutContainer>
   );
@@ -61,24 +62,18 @@ const TabLayoutContainer = styled.nav`
   width: 100%;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  border-bottom: 1px solid;
-  padding-bottom: 10px;
-  overflow: auto;
-`;
-
 const TabButton = styled.button<TabButtonProps>`
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   border: none;
-  background-color: ${(props) => (props.isActive ? "#007BFF" : "transparent")};
+  background-color: ${(props) => (props.isActive ? "#007BFF" : "#eff8ff")};
   color: ${(props) => (props.isActive ? "#fff" : "#000")};
 `;
 
-const Content = styled.section``;
+const Content = styled.section`
+  margin-top: 20px;
+`;
 
 const AlertContentContainer = styled.div`
   width: 100%;
