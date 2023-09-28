@@ -108,6 +108,7 @@ import { Tabs } from 'chex-layout-component';
 | defaultTabPanelId | string                     |                  | 기본 탭을 설정하는 속성입니다.                                                    |
 | direction         | 'horizontal' \| 'vertical' | 'horizontal'     | 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. |
 | primaryColor      | string                     | 'Cornflowerblue' | 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다.                        |
+| backgroundColor   | string                     | 'transparent'    | 탭의 백그라운드 색상을 지정하는 속성입니다.                                       |
 
 ### Example
 
@@ -143,6 +144,6 @@ import { Tabs } from 'chex-layout-component';
 - Styled-components
 - Vite
 
-## [Storybook](https://6505550eb343f2286f179ae2-txbaamrfzf.chromatic.com)
+## [Storybook](https://6505550eb343f2286f179ae2-mpmzswtxzy.chromatic.com)
 
-[Storybook](https://6505550eb343f2286f179ae2-txbaamrfzf.chromatic.com)에서 자유롭게 컴포넌트를 경험해보세요!
+[Storybook](https://6505550eb343f2286f179ae2-mpmzswtxzy.chromatic.com)에서 자유롭게 컴포넌트를 경험해보세요!
