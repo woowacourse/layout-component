@@ -22,8 +22,8 @@ export const useTabsContext = () => useContext(TabsContext);
 interface TabsProviderProps extends TabsProps {}
 
 const TabsProvider = (props: TabsProviderProps) => {
-  const { defaultTabId, direction = 'horizontal', primaryColor = 'Cornflowerblue', children } = props;
-  const [tabId, setTabId] = useState(defaultTabId);
+  const { defaultTabPanelId, direction = 'horizontal', primaryColor = 'Cornflowerblue', children } = props;
+  const [tabId, setTabId] = useState(`${defaultTabPanelId}-tab`);
 
   const changeTab = useCallback((selectedTabId: typeof tabId) => setTabId(selectedTabId), []);
 

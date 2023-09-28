@@ -52,7 +52,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    defaultTabId: 'item1-tab',
+    defaultTabPanelId: 'item1',
     direction: 'horizontal',
     primaryColor: '#6495ed',
   },

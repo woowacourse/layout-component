@@ -103,16 +103,16 @@ import { Tabs } from 'chex-layout-component';
 
 ### Props
 
-| Props        | Type                       | Default          | Description                                                                       |
-| ------------ | -------------------------- | ---------------- | --------------------------------------------------------------------------------- |
-| defaultTabId | string                     |                  | 기본 탭을 설정하는 속성입니다.                                                    |
-| direction    | 'horizontal' \| 'vertical' | 'horizontal'     | 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. |
-| primaryColor | string                     | 'Cornflowerblue' | 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다.                        |
+| Props             | Type                       | Default          | Description                                                                       |
+| ----------------- | -------------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| defaultTabPanelId | string                     |                  | 기본 탭을 설정하는 속성입니다.                                                    |
+| direction         | 'horizontal' \| 'vertical' | 'horizontal'     | 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. |
+| primaryColor      | string                     | 'Cornflowerblue' | 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다.                        |
 
 ### Example
 
 ```tsx
-<Tabs defaultTabId='item1-tab' direction='horizontal' primaryColor='#6495ed'>
+<Tabs defaultTabId='item1' direction='horizontal' primaryColor='#6495ed'>
   <Tabs.List>
     <Tabs.Tab tabPanelId='item1'>ITEM ONE</Tabs.Tab>
     <Tabs.Tab tabPanelId='item2'>ITEM TWO</Tabs.Tab>
