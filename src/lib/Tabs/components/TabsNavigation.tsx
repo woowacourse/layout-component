@@ -2,41 +2,29 @@ import { css, styled } from 'styled-components';
 import { Flex } from '../..';
 import { RefObject } from 'react';
 import TabsNavigationScrollButton from './TabsNavigationScrollButton';
-import { Label, PanelList, ScrollState, TabsDirection } from '../../types/type';
+import { TabsDirection } from '../../types/type';
+import { useTab } from '../TabsProvider';
 
 type TabsNavigationProps = {
-  isOverFlow: boolean;
-  scrollState: ScrollState;
   tabsNavigation: RefObject<HTMLDivElement>;
-  panelList: PanelList;
   scrollButtons: boolean;
   direction: TabsDirection;
   centered: boolean;
   accentColor: string;
-  handleMoveScroll: (pos: 'end' | 'start') => void;
-  selectPanel: (label: Label) => void;
-  isSelected: (label: Label) => boolean;
 };
 
 function TabsNavigation({
-  isOverFlow,
-  scrollState,
   tabsNavigation,
-  panelList,
   scrollButtons,
   direction,
   accentColor,
   centered,
-  handleMoveScroll,
-  selectPanel,
-  isSelected,
 }: TabsNavigationProps) {
+  const { isOverFlow, selectPanel, isSelected, panelList } = useTab();
+
   return (
     <Layout direction={direction}>
       <TabsNavigationScrollButton
-        isOverFlow={isOverFlow}
-        scrollState={scrollState}
-        handleMoveScroll={handleMoveScroll}
         scrollButtons={scrollButtons}
         direction={direction}
       >

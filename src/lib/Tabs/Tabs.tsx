@@ -2,10 +2,10 @@
 import { ComponentPropsWithoutRef, PropsWithChildren, useRef } from 'react';
 import TabPanel from './TabPanel';
 import { css, styled } from 'styled-components';
-import useTabs from './hooks/useTabs';
-import useTabsScroll from './hooks/useTabsScroll';
 import TabsNavigation from './components/TabsNavigation';
 import { TabsDirection } from '../types/type';
+import TabsProvider from './TabsProvider';
+import SelectedPanel from './components/SelectedPanel';
 
 type TabsProps = {
   /**
@@ -43,31 +43,23 @@ function Tabs({
 }: PropsWithChildren<TabsProps>) {
   const tabsNavigation = useRef<HTMLDivElement>(null);
 
-  const { panelList, selectedPanel, selectPanel, isSelected } =
-    useTabs(children);
-
-  const { isOverFlow, scrollState, handleMoveScroll } = useTabsScroll(
-    tabsNavigation,
-    direction
-  );
-
   return (
-    <Layout direction={direction}>
-      <TabsNavigation
-        isOverFlow={isOverFlow}
-        scrollState={scrollState}
-        handleMoveScroll={handleMoveScroll}
-        tabsNavigation={tabsNavigation}
-        selectPanel={selectPanel}
-        isSelected={isSelected}
-        panelList={panelList}
-        scrollButtons={scrollButtons}
-        direction={direction}
-        centered={centered}
-        accentColor={accentColor}
-      />
-      {selectedPanel?.contents}
-    </Layout>
+    <TabsProvider
+      tabs={children}
+      direction={direction}
+      tabsNavigation={tabsNavigation}
+    >
+      <Layout direction={direction}>
+        <TabsNavigation
+          tabsNavigation={tabsNavigation}
+          scrollButtons={scrollButtons}
+          direction={direction}
+          centered={centered}
+          accentColor={accentColor}
+        />
+        <SelectedPanel />
+      </Layout>
+    </TabsProvider>
   );
 }
 
