@@ -120,31 +120,31 @@ value: 현재 활성화 된 `TabButton`을 나타냅니다.
 - current: 현재 실행되고 있는 값을 의미합니다. `TabButton`과 `TabPanel`의 `value`에 할당하면 됩니다.
 
 ```tsx
-	const tabs = [
-		'active',
-		'active',
-		'active'
-	]
-	const { ids, current, handleClick } = useChangeTab({ tabs });
+const tabs = [
+	'active',
+	'active',
+	'active'
+]
+const { ids, current, handleClick } = useChangeTab({ tabs });
 
-	const tabMenu = tabs.map((content, index) => (
+const tabMenu = tabs.map((content, index) => (
 
-	));
+));
 
-	return (
-		<div style={{ width: 520 }}>
-			<TabList onClick={handleClick}>
-				<TabButton label='active' order={ids[0]} value={current} />
-				<TabButton label='active' order={ids[1]} value={current} />
-				<TabButton label='active' order={ids[2]} value={current} />
-			</TabList>
-			<TabPanels>
-					<TabPanel value={current} order={ids[0]}>1번 탭</TabPanel>
-					<TabPanel value={current} order={ids[1]}>2번 탭</TabPanel>
-					<TabPanel value={current} order={ids[2]}>3번 탭</TabPanel>
-			</TabPanels>
-		</div>
-	)
+return (
+	<div>
+		<TabList customCss={{ width: 520 }} onClick={handleClick}>
+			<TabButton label='active' order={ids[0]} value={current} />
+			<TabButton label='active' order={ids[1]} value={current} />
+			<TabButton label='active' order={ids[2]} value={current} />
+		</TabList>
+		<TabPanels>
+			<TabPanel value={current} order={ids[0]}>1번 탭</TabPanel>
+			<TabPanel value={current} order={ids[1]}>2번 탭</TabPanel>
+			<TabPanel value={current} order={ids[2]}>3번 탭</TabPanel>
+		</TabPanels>
+	</div>
+)
 
 ```
 
