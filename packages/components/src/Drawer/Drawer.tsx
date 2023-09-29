@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import DrawerPanel, { DrawerPanelProps } from './DrawerPanel';
 
 export type Anchor = 'TOP' | 'RIGHT' | 'BOTTOM' | 'LEFT';
 
@@ -12,9 +11,30 @@ interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
 }
 
-const Drawer: React.FC<DrawerProps> & {
-  Panel: React.FC<DrawerPanelProps>;
-} = ({ anchor, isOpen, onClose, children, backgroundColor, ...divProps }) => {
+const Drawer = ({
+  anchor,
+  isOpen,
+  onClose,
+  children,
+  backgroundColor,
+  ...divProps
+}: DrawerProps) => {
+  const handleClose = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', handleClose);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleClose);
+    };
+  }, [isOpen]);
+
   return (
     <>
       <Backdrop $isOpen={isOpen} onClick={onClose} />
@@ -29,8 +49,6 @@ const Drawer: React.FC<DrawerProps> & {
     </>
   );
 };
-
-Drawer.Panel = DrawerPanel;
 
 export default Drawer;
 
@@ -54,8 +72,11 @@ const Container = styled.div<{
 
   ${({ anchor }) => positions[anchor]}
   ${({ $isOpen, anchor }) => ($isOpen ? openAnimation : closeAnimation[anchor])}
+  
   background-color: ${({ $backgroundColor }) =>
-    $backgroundColor ? $backgroundColor : '#333333'}
+    $backgroundColor ? $backgroundColor : '#ffffff'};
+
+  box-shadow: 1px 0px 4px #333333;
 `;
 
 const positions = {
