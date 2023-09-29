@@ -64,8 +64,6 @@
 
 ### Drawer 방향을 설정할 수 있습니다.
 
-<img width="638" alt="스크린샷 2023-09-26 오후 4 20 20" src="https://github.com/gyeongza/layout-component/assets/62369936/aa0fb6c5-0654-4ac2-b90c-433cd9b177d2">
-
 ```javascript
 // 1. Drawer
 
@@ -83,11 +81,7 @@ const App = () => {
   return (
     <div>
       <Drawer anchor="LEFT" isOpen={isOpen} onClose={handleModalClose}>
-        <Drawer.Panel style={{ color: 'white' }}>첫 번째 메뉴</Drawer.Panel>
-        <Drawer.Panel>두 번째 메뉴</Drawer.Panel>
-        <Drawer.Panel>세 번째 메뉴</Drawer.Panel>
-      </Drawer>
-
+        // 원하는 컴포넌트를 추가하세요.
       <button onClick={handleModalOpen}>오픈</button>
     </div>
   );
