@@ -43,7 +43,12 @@ export const Default: Story = {
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
 		const tabMenu = tabs.map((content, index) => (
-			<TabButton label={content} order={ids[index]} value={current} />
+			<TabButton
+				key={ids[index]}
+				label={content}
+				order={ids[index]}
+				value={current}
+			/>
 		));
 
 		return (
@@ -74,6 +79,7 @@ export const Disable: Story = {
 
 		const tabMenu = tabs.map((content, index) => (
 			<TabButton
+				key={ids[index]}
 				label={content}
 				order={ids[index]}
 				disabled={index === 1}
@@ -100,7 +106,12 @@ export const JustifyTab: Story = {
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
 		const tabMenu = tabs.map((content, index) => (
-			<TabButton label={content} order={ids[index]} value={current} />
+			<TabButton
+				key={ids[index]}
+				label={content}
+				order={ids[index]}
+				value={current}
+			/>
 		));
 
 		return (
@@ -121,7 +132,12 @@ export const TabOverFLow: Story = {
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
 		const tabMenu = tabs.map((content, index) => (
-			<TabButton label={content} order={ids[index]} value={current} />
+			<TabButton
+				key={ids[index]}
+				label={content}
+				order={ids[index]}
+				value={current}
+			/>
 		));
 
 		return (
@@ -149,7 +165,12 @@ export const TabOverFLowNoButton: Story = {
 		const { ids, current, handleClick } = useChangeTab({ tabs });
 
 		const tabMenu = tabs.map((content, index) => (
-			<TabButton label={content} order={ids[index]} value={current} />
+			<TabButton
+				key={ids[index]}
+				label={content}
+				order={ids[index]}
+				value={current}
+			/>
 		));
 
 		return (

@@ -30,7 +30,7 @@ const useChangeTab = ({ tabs, changeCallback }: useChangeTabProps) => {
 
 			selectedRef.current.scrollIntoView({
 				behavior: 'smooth',
-				block: 'end',
+				block: 'nearest',
 				inline: 'nearest',
 			});
 
