@@ -68,7 +68,7 @@ const Container = styled.div<{
   $backgroundColor?: string;
 }>`
   position: fixed;
-  transition: all ease-out 0.4s;
+  transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1) 0s;
 
   ${({ $anchor }) => positions[$anchor]}
   ${({ $isOpen, $anchor }) =>
