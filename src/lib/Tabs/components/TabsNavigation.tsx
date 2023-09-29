@@ -78,6 +78,7 @@ const TAPS_LIST_STYLE = {
     min-width: 100%;
     flex-direction: row;
     word-break: normal;
+    white-space: nowrap;
     border-bottom: 1.5px solid #d0d0d0;
   `,
   vertical: css`
@@ -85,6 +86,7 @@ const TAPS_LIST_STYLE = {
     width: 160px;
     flex-direction: column;
     word-break: break-all;
+    white-space: normal;
     border-right: 1.5px solid #d0d0d0;
   `,
 } as const;
