@@ -13,6 +13,8 @@ import {
   splitPaneContainerStyle,
 } from './SplitPane.styles';
 
+type pixelWidth = `${number}px`;
+
 export interface SplitPaneProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * SplitPane을 적용하는 컴포넌트의 너비
@@ -22,18 +24,16 @@ export interface SplitPaneProps extends ComponentPropsWithoutRef<'div'> {
   width?: string;
   /**
    * 왼쪽 pane의 최대 너비
-   * 숫자만 입력 가능하며 px로 고정됩니다.
    *
-   * @default 500
+   * @default '500px'
    */
-  paneMaxWidth?: number;
+  paneMaxWidth?: pixelWidth;
   /**
    * 왼쪽 pane의 최소 너비
-   * 숫자만 입력 가능하며 px로 고정됩니다.
    *
-   * @default 100
+   * @default '100px'
    */
-  paneMinWidth?: number;
+  paneMinWidth?: pixelWidth;
   /**
    * 가운데 분할선의 스타일
    * 선의 색과 굵이 등을 조절하고 싶다면 'borderRight' 속성을 선언해야 기본 선에 덮어씌워집니다.
@@ -44,8 +44,8 @@ export interface SplitPaneProps extends ComponentPropsWithoutRef<'div'> {
 
 const SplitPane = ({
   width = '100%',
-  paneMaxWidth = 500,
-  paneMinWidth = 100,
+  paneMaxWidth = '500px',
+  paneMinWidth = '100px',
   dividerStyle,
   children,
   ...attributes
@@ -67,7 +67,11 @@ const SplitPane = ({
       if (!isActive) return;
 
       if (leftPaneRef.current) {
-        if (e.clientX < paneMinWidth || e.clientX > paneMaxWidth) return;
+        if (
+          e.clientX < Number(paneMinWidth.replace('px', '')) ||
+          e.clientX > Number(paneMaxWidth.replace('px', ''))
+        )
+          return;
 
         leftPaneRef.current.style.width = `${e.clientX}px`;
       }
