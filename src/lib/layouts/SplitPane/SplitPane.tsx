@@ -6,7 +6,7 @@ export interface SplitPaneProps {
   defaultSize: string;
   minSize?: string;
   maxSize?: string;
-  children?: ReactNode[];
+  children: ReactNode[];
 }
 
 const SplitPane = ({defaultSize, minSize, maxSize, children}: SplitPaneProps) => {
