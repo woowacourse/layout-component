@@ -1,10 +1,5 @@
 import { CSSProperties } from "react";
 
-export const rowTabLayoutContainer: CSSProperties = {
-  display: "flex",
-  flexDirection: "column-reverse",
-};
-
 export const rowMenuContainer: CSSProperties = {
   display: "flex",
   alignItems: "stretch",
@@ -59,7 +54,6 @@ export const selectedRowMenuItem: CSSProperties = {
 
 export const columnTabLayoutContainer: CSSProperties = {
   display: "flex",
-  flexDirection: "row-reverse",
 };
 
 export const columnMenuContainer: CSSProperties = {

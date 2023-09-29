@@ -1,6 +1,5 @@
 import { ReactNode, useState } from "react";
 import {
-  rowTabLayoutContainer,
   columnTabLayoutContainer,
   rowMenuContainer,
   columnMenuContainer,
@@ -25,12 +24,12 @@ interface TabLayoutProps {
 export default function TabLayout({ itemList, menuDirection }: TabLayoutProps) {
   const [nowTabKey, setNowTabKey] = useState(itemList[0].key);
   const isRow = menuDirection === "row";
+  const minWidth = itemList.length * 40 - 12;
+  const contentStyle =
+    menuDirection === "row" ? { ...content, minWidth } : content;
 
   return (
-    <div style={isRow ? rowTabLayoutContainer : columnTabLayoutContainer}>
-      <div style={content}>
-        {itemList.find((item) => item.key === nowTabKey)?.content}
-      </div>
+    <div style={isRow ? {} : columnTabLayoutContainer}>
       <div style={isRow ? rowMenuContainer : columnMenuContainer}>
         {itemList.map(({ key, name }) => {
           if (nowTabKey !== key)
@@ -53,6 +52,9 @@ export default function TabLayout({ itemList, menuDirection }: TabLayoutProps) {
             </button>
           );
         })}
+      </div>
+      <div style={contentStyle}>
+        {itemList.find((item) => item.key === nowTabKey)?.content}
       </div>
     </div>
   );
