@@ -33,6 +33,8 @@ const Flex = (props: Props) => {
 export default Flex;
 
 const Tag = styled.div<Props>`
+  box-sizing: border-box;
+
   display: ${({ display }) => display || 'flex'};
   flex-direction: ${({ direction }) => direction || 'row'};
   justify-content: ${({ justify }) => justify || 'flex-start'};

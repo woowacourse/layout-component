@@ -5,6 +5,7 @@
 > - Container
 > - Grid
 > - Flex
+> - Tabs
 
 ## Installation
 
@@ -90,6 +91,52 @@ import { Flex } from 'chex-layout-component';
 | wrap      | 'nowrap' \| 'wrap' \| 'wrap-reverse'                                                          | 'nowrap'     | Flex 아이템이 한 줄에 나타날지 여러 줄로 나타날지를 결정하는 속성입니다.                                |
 | css       | CSSProp                                                                                       | ''           | 컨테이너에 적용할 CSS 스타일을 설정하는 속성입니다.                                                     |
 
+## Tabs
+
+여러 개의 컴포넌트 중 선택한 탭에 따른 한 가지만 보여주는 컴포넌트
+
+### Import
+
+```typescript
+import { Tabs } from 'chex-layout-component';
+```
+
+### Props
+
+| Props             | Type                       | Default          | Description                                                                       |
+| ----------------- | -------------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| defaultTabPanelId | string                     |                  | 기본 탭을 설정하는 속성입니다.                                                    |
+| direction         | 'horizontal' \| 'vertical' | 'horizontal'     | 탭의 방향을 설정하는 속성입니다. 수평 또는 수직 방향으로 탭을 배치할 수 있습니다. |
+| primaryColor      | string                     | 'Cornflowerblue' | 탭의 폰트 색상과 하단 경계선의 색상을 지정하는 속성입니다.                        |
+| backgroundColor   | string                     | 'transparent'    | 탭의 백그라운드 색상을 지정하는 속성입니다.                                       |
+
+### Example
+
+```tsx
+<Tabs defaultTabId='item1' direction='horizontal' primaryColor='#6495ed'>
+  <Tabs.List>
+    <Tabs.Tab tabPanelId='item1'>ITEM ONE</Tabs.Tab>
+    <Tabs.Tab tabPanelId='item2'>ITEM TWO</Tabs.Tab>
+    <Tabs.Tab tabPanelId='item3'>ITEM THREE</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel id='item1'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>👀</Container>
+  </Tabs.Panel>
+  <Tabs.Panel id='item2'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐾</Container>
+  </Tabs.Panel>
+  <Tabs.Panel id='item3'>
+    <Container css={{ width: '200px', margin: '2rem', textAlign: 'center' }}>🐕</Container>
+  </Tabs.Panel>
+</Tabs>
+```
+
+## Author's Intent
+
+**미래의 자신 그리고 개발자 동료들**이 사용한다고 생각하고 만든 기본 레이아웃 컴포넌트입니다.
+<br>
+어떤 속성을 포함해야 사용하기 편할까를 고민하여 컴포넌트 `Prop`을 지정하였습니다. 사용자의 자유도를 높여 유연한 컴포넌트로서 재사용이 용이하도록 만들고자 했습니다.
+
 ## Development Environment
 
 - React
@@ -97,6 +144,6 @@ import { Flex } from 'chex-layout-component';
 - Styled-components
 - Vite
 
-## [Storybook](https://6505550eb343f2286f179ae2-huchuaarep.chromatic.com/)
+## [Storybook](https://6505550eb343f2286f179ae2-mpmzswtxzy.chromatic.com)
 
-Storybook에서 자유롭게 컴포넌트를 경험해보세요!
+[Storybook](https://6505550eb343f2286f179ae2-mpmzswtxzy.chromatic.com)에서 자유롭게 컴포넌트를 경험해보세요!
