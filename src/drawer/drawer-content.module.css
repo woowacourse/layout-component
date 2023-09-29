@@ -1,0 +1,156 @@
+.content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  max-height: 100vh;
+  z-index: 1001;
+  background: #ffffff;
+  transform: translateX(0) translateY(0) translateZ(0);
+}
+
+.left,
+.right {
+  top: 0;
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.right {
+  right: 0;
+  border-left: 1px solid #e0e0e0;
+}
+
+.top,
+.bottom {
+  left: 0;
+  right: 0;
+  max-width: 100vw;
+}
+
+.top {
+  top: 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bottom {
+  bottom: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.animation-left {
+  animation: 0.3s showFromLeft ease-out;
+}
+
+.animation-left.close-left {
+  animation: 0.3s hideToLeft;
+}
+
+.animation-right {
+  animation: 0.3s showFromRight ease-out;
+}
+
+.animation-right.close-right {
+  animation: 0.3s hideToRight;
+}
+
+.animation-top {
+  animation: 0.3s showFromTop ease-out;
+}
+
+.animation-top.close-top {
+  animation: 1s hideToTop;
+}
+
+.animation-bottom {
+  animation: 0.3s showFromBottom ease-out;
+}
+
+.animation-bottom.close-bottom {
+  animation: 1s hideToBottom;
+}
+
+@keyframes showFromLeft {
+  from {
+    transform: translateX(-300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideToLeft {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes showFromRight {
+  from {
+    transform: translateX(300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideToRight {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateX(300px);
+  }
+}
+
+@keyframes showFromBottom {
+  from {
+    transform: translateY(300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideToBottom {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(300px);
+  }
+}
+
+@keyframes showFromTop {
+  from {
+    transform: translateY(-300px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideToTop {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-300px);
+  }
+}
