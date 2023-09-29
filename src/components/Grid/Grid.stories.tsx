@@ -1,11 +1,10 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Grid from './index';
+import Grid from './Grid';
 const Item = <div style={{ backgroundColor: '#0064ff', padding: '10px' }}>아이템</div>;
 
 const meta = {
-  title: 'Example/Grid',
+  title: 'Layout/Grid',
   component: Grid,
   parameters: {
     layout: 'centered',
