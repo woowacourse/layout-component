@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RefObject, useEffect, useLayoutEffect, useState } from 'react';
-import { ScrollState, TabsDirection } from '../../types/type';
+import type { ScrollPositionState, TabsDirection } from '../../types/type';
 
 const useTabsScroll = (
   ref: RefObject<HTMLDivElement> | null,
   direction: TabsDirection
 ) => {
   const [isOverFlow, setIsOverFlow] = useState(false);
-  const [scrollState, setScrollState] = useState<ScrollState>(null);
+  const [scrollPositionState, setScrollPositionState] =
+    useState<ScrollPositionState>(null);
 
   const handleMoveScroll = (pos: 'start' | 'end') => {
     if (!ref || !ref.current) return;
@@ -41,20 +42,20 @@ const useTabsScroll = (
       clientHeight,
     } = ref.current;
 
-    if (scrollLeft > 0 || scrollTop > 0) setScrollState('both');
-    else setScrollState('start');
+    if (scrollLeft > 0 || scrollTop > 0) setScrollPositionState('both');
+    else setScrollPositionState('start');
 
     if (
       direction === 'horizontal' &&
       Math.abs(scrollWidth - scrollLeft - clientWidth) < 5
     )
-      setScrollState('end');
+      setScrollPositionState('end');
 
     if (
       direction === 'vertical' &&
       Math.abs(scrollHeight - scrollTop - clientHeight) < 5
     )
-      setScrollState('end');
+      setScrollPositionState('end');
   };
 
   useLayoutEffect(() => {
@@ -96,7 +97,7 @@ const useTabsScroll = (
     };
   }, [handleScroll, ref]);
 
-  return { isOverFlow, scrollState, handleMoveScroll };
+  return { isOverFlow, scrollPositionState, handleMoveScroll };
 };
 
 export default useTabsScroll;

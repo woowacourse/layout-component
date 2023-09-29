@@ -16,4 +16,4 @@ export type PanelList = {
 
 export type TabsDirection = 'horizontal' | 'vertical';
 
-export type ScrollState = 'start' | 'end' | 'both' | null;
+export type ScrollPositionState = 'start' | 'end' | 'both' | null;
