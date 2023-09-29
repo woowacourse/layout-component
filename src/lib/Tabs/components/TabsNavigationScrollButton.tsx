@@ -14,13 +14,14 @@ function TabsNavigationScrollButton({
   scrollButtons,
   direction,
 }: PropsWithChildren<TabsNavigationScrollButtonProps>) {
-  const { isOverFlow, scrollState, handleMoveScroll } = useTabs();
+  const { isOverFlow, scrollPositionState, handleMoveScroll } = useTabs();
   return (
     <>
       {scrollButtons && isOverFlow && (
         <ScrollButton
           $enableScroll={
-            isOverFlow && (scrollState === 'both' || scrollState === 'end')
+            isOverFlow &&
+            (scrollPositionState === 'both' || scrollPositionState === 'end')
           }
         >
           {direction === 'horizontal' ? (
@@ -34,7 +35,8 @@ function TabsNavigationScrollButton({
       {scrollButtons && isOverFlow && (
         <ScrollButton
           $enableScroll={
-            isOverFlow && (scrollState === 'both' || scrollState === 'start')
+            isOverFlow &&
+            (scrollPositionState === 'both' || scrollPositionState === 'start')
           }
         >
           {direction === 'horizontal' ? (

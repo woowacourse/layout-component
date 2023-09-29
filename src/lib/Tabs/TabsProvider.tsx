@@ -1,7 +1,12 @@
 import { PropsWithChildren, ReactNode, RefObject, createContext } from 'react';
 import usePanel from './hooks/usePanel';
 import useTabsScroll from './hooks/useTabsScroll';
-import { Label, PanelList, ScrollState, TabsDirection } from '../types/type';
+import type {
+  Label,
+  PanelList,
+  ScrollPositionState,
+  TabsDirection,
+} from '../types/type';
 
 type Tabs = {
   panelList: PanelList;
@@ -11,7 +16,7 @@ type Tabs = {
     contents: ReactNode;
   };
   isOverFlow: boolean;
-  scrollState: ScrollState;
+  scrollPositionState: ScrollPositionState;
   selectPanel: (label: Label) => void;
   isSelected: (label: Label) => boolean;
   handleMoveScroll: (pos: 'start' | 'end') => void;
@@ -31,7 +36,7 @@ const TabsProvider = ({
 }>) => {
   const { panelList, selectedPanel, selectPanel, isSelected } = usePanel(tabs);
 
-  const { isOverFlow, scrollState, handleMoveScroll } = useTabsScroll(
+  const { isOverFlow, scrollPositionState, handleMoveScroll } = useTabsScroll(
     tabsNavigation,
     direction
   );
@@ -40,7 +45,7 @@ const TabsProvider = ({
     panelList,
     selectedPanel,
     isOverFlow,
-    scrollState,
+    scrollPositionState,
     selectPanel,
     isSelected,
     handleMoveScroll,
