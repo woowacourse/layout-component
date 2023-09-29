@@ -15,179 +15,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Top: Story = {
-  decorators: [
-    (Story) => {
-      const [isOpen, setIsOpen] = useState(false);
-
-      const handleDrawerOpen = () => {
-        setIsOpen(true);
-      };
-
-      const handleDrawerClose = () => {
-        setIsOpen(false);
-      };
-
-      return (
-        <>
-          <button onClick={handleDrawerOpen}>top</button>
-          <Story
-            isOpen={isOpen}
-            onClose={handleDrawerClose}
-            args={{
-              anchor: 'TOP',
-              isOpen: isOpen,
-              onClose: handleDrawerClose,
-              children: (
-                <>
-                  <Drawer.Panel style={{ color: 'white' }}>
-                    첫 번째 메뉴
-                  </Drawer.Panel>
-                  <Drawer.Panel>두 번째 메뉴</Drawer.Panel>
-                  <Drawer.Panel>세 번째 메뉴</Drawer.Panel>
-                </>
-              ),
-            }}
-          />
-        </>
-      );
-    },
-  ],
-
-  args: {
-    anchor: 'TOP',
-    isOpen: false,
-    onClose: () => {},
+  render: ({ anchor }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const handleDrawerOpen = () => {
+      setIsOpen(true);
+    };
+    const handleDrawerClose = () => {
+      setIsOpen(false);
+    };
+    return (
+      <div>
+        <button onClick={handleDrawerOpen}>{anchor}</button>
+        <Drawer isOpen={isOpen} onClose={handleDrawerClose} anchor={anchor}>
+          <ul>
+            <li>여기에 원하는 컴포넌트를 넣어주세요</li>
+          </ul>
+        </Drawer>
+      </div>
+    );
   },
 };
-
-export const Bottom: Story = {
-  decorators: [
-    (Story) => {
-      const [isOpen, setIsOpen] = useState(false);
-      const handleDrawerOpen = () => {
-        setIsOpen(true);
-      };
-      const handleDrawerClose = () => {
-        setIsOpen(false);
-      };
-
-      return (
-        <>
-          <button onClick={handleDrawerOpen}>bottom</button>
-          <Story
-            isOpen={isOpen}
-            onClose={handleDrawerClose}
-            args={{
-              anchor: 'BOTTOM',
-              isOpen: isOpen,
-              onClose: handleDrawerClose,
-              children: (
-                <>
-                  <Drawer.Panel style={{ color: 'white' }}>
-                    첫 번째 메뉴
-                  </Drawer.Panel>
-                  <Drawer.Panel>두 번째 메뉴</Drawer.Panel>
-                  <Drawer.Panel>세 번째 메뉴</Drawer.Panel>
-                </>
-              ),
-            }}
-          />
-        </>
-      );
-    },
-  ],
-
-  args: {
-    anchor: 'BOTTOM',
-    isOpen: false,
-    onClose: () => {},
-  },
-};
-
-export const Right: Story = {
-  decorators: [
-    (Story) => {
-      const [isOpen, setIsOpen] = useState(false);
-      const handleDrawerOpen = () => {
-        setIsOpen(true);
-      };
-      const handleDrawerClose = () => {
-        setIsOpen(false);
-      };
-
-      return (
-        <>
-          <button onClick={handleDrawerOpen}>right</button>
-          <Story
-            isOpen={isOpen}
-            onClose={handleDrawerClose}
-            args={{
-              anchor: 'RIGHT',
-              isOpen: isOpen,
-              onClose: handleDrawerClose,
-              children: (
-                <>
-                  <Drawer.Panel style={{ color: 'white' }}>
-                    첫 번째 메뉴
-                  </Drawer.Panel>
-                  <Drawer.Panel>두 번째 메뉴</Drawer.Panel>
-                  <Drawer.Panel>세 번째 메뉴</Drawer.Panel>
-                </>
-              ),
-            }}
-          />
-        </>
-      );
-    },
-  ],
-
-  args: {
-    anchor: 'RIGHT',
-    isOpen: false,
-    onClose: () => {},
-  },
-};
-
-export const Left: Story = {
-  decorators: [
-    (Story) => {
-      const [isOpen, setIsOpen] = useState(false);
-      const handleDrawerOpen = () => {
-        setIsOpen(true);
-      };
-      const handleDrawerClose = () => {
-        setIsOpen(false);
-      };
-
-      return (
-        <>
-          <button onClick={handleDrawerOpen}>LEFT</button>
-          <Story
-            isOpen={isOpen}
-            onClose={handleDrawerClose}
-            args={{
-              anchor: 'LEFT',
-              isOpen: isOpen,
-              onClose: handleDrawerClose,
-              children: (
-                <>
-                  <Drawer.Panel style={{ color: 'white' }}>
-                    첫 번째 메뉴
-                  </Drawer.Panel>
-                  <Drawer.Panel>두 번째 메뉴</Drawer.Panel>
-                  <Drawer.Panel>세 번째 메뉴</Drawer.Panel>
-                </>
-              ),
-            }}
-          />
-        </>
-      );
-    },
-  ],
-
-  args: {
-    anchor: 'LEFT',
-    isOpen: false,
-    onClose: () => {},
-  },
+Top.args = {
+  anchor: 'TOP',
+  isOpen: false,
+  children: <></>,
 };
