@@ -51,10 +51,15 @@ const SplitPane = ({
   ...attributes
 }: SplitPaneProps) => {
   const [isActive, setIsActive] = useState(false);
-  const removeNullChildren = (children: ReactNode): ReactNode[] => {
-    return React.Children.toArray(children).filter((c) => c);
+
+  const removeNullChildren = (children: ReactNode): ReactNode[] | undefined => {
+    return React.Children.map(children, (c) => c)?.filter((c) => c);
   };
-  const notNullChildren = removeNullChildren(children) as React.ReactNode[];
+  const notNullChildren = removeNullChildren(children);
+
+  if (!Array.isArray(notNullChildren)) {
+    throw new Error('Invalid children');
+  }
 
   const leftPaneRef = useRef<HTMLDivElement | null>(null);
 
@@ -80,10 +85,12 @@ const SplitPane = ({
   );
 
   useEffect(() => {
-    if (leftPaneRef.current) {
-      leftPaneRef.current.style.width = `${leftPaneRef.current.offsetWidth}px`;
-      leftPaneRef.current.style.flex = 'none';
-    }
+    requestAnimationFrame(() => {
+      if (leftPaneRef.current) {
+        leftPaneRef.current.style.width = `${leftPaneRef.current.offsetWidth}px`;
+        leftPaneRef.current.style.flex = 'none';
+      }
+    });
   }, []);
 
   const handleMouseUp = () => {
