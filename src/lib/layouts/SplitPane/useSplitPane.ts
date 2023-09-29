@@ -18,7 +18,7 @@ export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: st
     setIsResizing(false);
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent | TouchEvent) => {
     // 패널 사이즈가 변경중이라면
     if (!isResizing || !containerRef.current) {
       return;
@@ -28,7 +28,7 @@ export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: st
     const leftPaneLeftX = leftPaneRef.current?.getBoundingClientRect().left || 0;
     const rightPanelRightX = rightPaneRef.current?.getBoundingClientRect().right || 0;
 
-    const mouseX = e.clientX;
+    const mouseX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
 
     // 마우스 위치가 패널 범위를 벗어나면 종료
     if (mouseX < leftPaneLeftX || mouseX > rightPanelRightX) {
@@ -46,6 +46,8 @@ export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: st
   };
 
   useEffect(() => {
+    window.addEventListener('touchmove', handleMouseMove);
+    window.addEventListener('touchend', handleMouseUp);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
 
