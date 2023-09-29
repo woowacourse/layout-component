@@ -23,11 +23,11 @@ const SplitPane = ({defaultSize, minSize, maxSize, children}: SplitPaneProps) =>
     <SplitPaneContainer ref={containerRef}>
       {children && children?.length === 2 ? (
         <>
-          <ResizablePane style={{flexBasis: paneSize}} minSize={minSize} maxSize={maxSize} ref={leftPaneRef}>
+          <ResizablePane style={{flexBasis: paneSize}} $minSize={minSize} $maxSize={maxSize} ref={leftPaneRef}>
             {children[0]}
           </ResizablePane>
           <Resizer onMouseDown={handleMouseDown}/>
-          <ResizablePane style={{flex: 1}} minSize={minSize} maxSize={maxSize} ref={rightPaneRef}>
+          <ResizablePane style={{flex: 1}} $minSize={minSize} $maxSize={maxSize} ref={rightPaneRef}>
             {children[1]}
           </ResizablePane>
         </>
