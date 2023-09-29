@@ -5,14 +5,7 @@ import styles from './drawer-backdrop.module.css';
 const DrawerBackdrop = () => {
   const { onClose } = useDrawerContext();
 
-  return (
-    <button
-      type='button'
-      className={styles.backdrop}
-      onClick={onClose}
-      aria-hidden
-    />
-  );
+  return <div className={styles.backdrop} onClick={onClose} aria-hidden />;
 };
 
 export default DrawerBackdrop;
