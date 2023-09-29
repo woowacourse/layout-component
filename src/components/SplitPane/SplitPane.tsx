@@ -58,7 +58,9 @@ const SplitPane = ({
   const notNullChildren = removeNullChildren(children);
 
   if (!Array.isArray(notNullChildren)) {
-    throw new Error('Invalid children');
+    throw new Error(
+      '자식 컴포넌트가 유효하지 않습니다. 2개의 컴포넌트를 넣었는지 확인해주세요.'
+    );
   }
 
   const leftPaneRef = useRef<HTMLDivElement | null>(null);
