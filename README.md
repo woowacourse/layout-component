@@ -55,3 +55,35 @@
   - 공간에 여유가 없는 경우 줄바꿈처리 여부
   - nowrap = 줄바꿈하지 않음
   - wrap = 줄바꿈
+
+### TabLayout 컴포넌트
+
+- menuPlace: "row" | "column";
+
+  - 필수항목
+  - 메뉴바의 위치를 설정하는 속성
+  - "row"를 선택하면 상단에 가로로 위치
+  - "column"를 선택하면 왼쪽에 세로로 위치
+
+- itemList: TabItem[];
+
+  ```js
+  //TabItem 속성
+  interface TabItem {
+    name: string;
+    key: string;
+    content: ReactNode;
+  }
+
+  //TabItem 예시
+  const item: TabItem = {
+    name: "item1",
+    key: "item1",
+    content: <div>item1</div>,
+  };
+  ```
+
+  - 필수항목
+  - tab의 이름과 내용을 설정하는 속성
+  - 위 형식(TabItem)의 객체를 가진 배열을 넣기
+  - key는 각 TabItem을 구분하는 속성이기 때문에 중복이 있으면 안됨

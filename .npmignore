@@ -4,3 +4,4 @@ stories/*
 node_modules
 public
 src
+node_modules/*
