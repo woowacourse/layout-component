@@ -22,6 +22,9 @@ const meta = {
     children: {
       description: `탭 메뉴를 클릭했을 때 보여줄 내용<br />리액트 컴포넌트도 넣을 수 있음`,
     },
+    css: {
+      description: 'CSS 속성을 직접 입력할 수 있습니다.',
+    },
   },
 } satisfies Meta<typeof Tab.Content>;
 

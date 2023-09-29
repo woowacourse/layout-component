@@ -14,6 +14,11 @@ const meta = {
     iconPosition: 'left',
     index: 0,
   },
+  argTypes: {
+    css: {
+      description: 'CSS 속성을 직접 입력할 수 있습니다.',
+    },
+  }
 } satisfies Meta<typeof Tab.Menu>;
 
 export default meta;
