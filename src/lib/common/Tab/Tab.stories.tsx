@@ -67,9 +67,11 @@ export const Vertical = ({ vertical, ...args }: TabProps) => {
   );
 };
 
-export const InitialIndex = ({ ...args }) => {
+export const InitialIndex = ({ initialIndex, ...args }: TabProps) => {
+  const fixedInitialIndex = initialIndex || 3;
+
   return (
-    <Tab width={400} initialIndex={3} {...args}>
+    <Tab width={400} initialIndex={fixedInitialIndex} {...args}>
       <Tab.Menus>
         {ENG_DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
