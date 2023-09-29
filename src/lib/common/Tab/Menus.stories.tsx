@@ -19,6 +19,7 @@ const meta = {
   args: {
     highlightColor: '#32affd',
     index: 1,
+    lineClamp: false,
   },
   argTypes: {
     index: {
@@ -50,4 +51,23 @@ export const Default = ({ highlightColor, ...args }: MenusProps) => {
       </Tab.Menus>
     </Tab>
   );
+};
+
+export const MenusWithLineClamp = ({ highlightColor, ...args }: MenusProps) => {
+  return Array.from({ length: 2 }, (_, index) => (
+    <>
+      {!!index && (
+        <h3 css={{ margin: 32, fontWeight: 600, textAlign: 'center' }}>
+          lineClamp를 적용한 경우 👇🏻
+        </h3>
+      )}
+      <Tab id="menus-with-line-clamp" width={400} key={index}>
+        <Tab.Menus gap={10} highlightColor={highlightColor} {...args} lineClamp={!!index}>
+          {Array.from({ length: 4 }, (_, index) => (
+            <Tab.Menu key={index} label="긴 라벨 이름입니다" index={index} />
+          ))}
+        </Tab.Menus>
+      </Tab>
+    </>
+  ));
 };

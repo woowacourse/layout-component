@@ -15,6 +15,10 @@ export interface MenusProps extends FlexContainerProps {
    * @default false
    */
   noUnderline?: boolean;
+  /** [true] 메뉴 이름이 탭 메뉴의 너비보다 길 경우 말 줄임표(...) 표시
+   * @default false
+   */
+  lineClamp?: boolean;
 }
 
 const Menus = ({
@@ -22,6 +26,7 @@ const Menus = ({
   children,
   gap,
   noUnderline = false,
+  lineClamp = false,
   ...attributes
 }: PropsWithChildren<MenusProps>) => {
   const { vertical } = useContext(TabContext);
@@ -35,7 +40,7 @@ const Menus = ({
       justify={vertical ? 'start' : 'space-between'}
       position="left"
       gap={gap}
-      css={menuContainerStyle({ highlightColor, noUnderline, vertical })}
+      css={menuContainerStyle({ highlightColor, noUnderline, vertical, lineClamp })}
       {...attributes}
     >
       {children}
