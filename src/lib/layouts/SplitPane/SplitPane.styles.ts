@@ -18,6 +18,9 @@ export const ResizablePane = styled.div<ResizablePaneProps>`
 `;
 
 export const Resizer = styled.div`
-  width: 3px;
+  padding: 0px 1px;
+  margin: 0px 2px;
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
   cursor: col-resize;
 `;
