@@ -1,6 +1,26 @@
 import { CSSProperties } from "react";
 
-export const rowMenuContainer: CSSProperties = {
+export const getStyle = (menuDirection: "row" | "column") => {
+  if (menuDirection === "row") {
+    return {
+      layout: {},
+      menuContainer: rowMenuContainer,
+      selectedMenuItem: selectedRowMenuItem,
+      unselectedMenuItem: unselectedRowMenuItem,
+      content,
+    };
+  }
+
+  return {
+    layout: columnTabLayoutContainer,
+    menuContainer: columnMenuContainer,
+    selectedMenuItem: selectedColumnMenuItem,
+    unselectedMenuITem: unselectedColumnMenuItem,
+    content,
+  };
+};
+
+const rowMenuContainer: CSSProperties = {
   display: "flex",
   alignItems: "stretch",
   justifyContent: "flex-start",
@@ -26,7 +46,7 @@ const rowMenuItem: CSSProperties = {
   cursor: "pointer",
 };
 
-export const unselectedRowMenuItem: CSSProperties = {
+const unselectedRowMenuItem: CSSProperties = {
   ...rowMenuItem,
 
   color: "rgba(0,0,0,0.8)",
@@ -39,7 +59,7 @@ export const unselectedRowMenuItem: CSSProperties = {
   backgroundColor: "rgba(0,0,0,0.1)",
 };
 
-export const selectedRowMenuItem: CSSProperties = {
+const selectedRowMenuItem: CSSProperties = {
   ...rowMenuItem,
 
   fontWeight: "600",
@@ -52,11 +72,11 @@ export const selectedRowMenuItem: CSSProperties = {
   backgroundColor: "white",
 };
 
-export const columnTabLayoutContainer: CSSProperties = {
+const columnTabLayoutContainer: CSSProperties = {
   display: "flex",
 };
 
-export const columnMenuContainer: CSSProperties = {
+const columnMenuContainer: CSSProperties = {
   display: "flex",
   flexDirection: "column",
 
@@ -82,7 +102,7 @@ const columnMenuItem: CSSProperties = {
   cursor: "pointer",
 };
 
-export const unselectedColumnMenuItem: CSSProperties = {
+const unselectedColumnMenuItem: CSSProperties = {
   ...columnMenuItem,
 
   color: "rgba(0,0,0,0.8)",
@@ -95,7 +115,7 @@ export const unselectedColumnMenuItem: CSSProperties = {
   backgroundColor: "rgba(0,0,0,0.1)",
 };
 
-export const selectedColumnMenuItem: CSSProperties = {
+const selectedColumnMenuItem: CSSProperties = {
   ...columnMenuItem,
 
   fontWeight: "600",
@@ -108,7 +128,7 @@ export const selectedColumnMenuItem: CSSProperties = {
   backgroundColor: "white",
 };
 
-export const content: CSSProperties = {
+const content: CSSProperties = {
   padding: "5px",
   border: "1px solid rgba(0,0,0,0.5)",
 

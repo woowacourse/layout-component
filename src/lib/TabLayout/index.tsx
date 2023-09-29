@@ -1,14 +1,5 @@
 import { ReactNode, useState } from "react";
-import {
-  columnTabLayoutContainer,
-  rowMenuContainer,
-  columnMenuContainer,
-  unselectedRowMenuItem,
-  selectedRowMenuItem,
-  unselectedColumnMenuItem,
-  selectedColumnMenuItem,
-  content,
-} from "./style";
+import { getStyle } from "./style";
 
 interface TabItem {
   name: string;
@@ -23,29 +14,26 @@ interface TabLayoutProps {
 
 export default function TabLayout({ itemList, menuDirection }: TabLayoutProps) {
   const [nowTabKey, setNowTabKey] = useState(itemList[0].key);
-  const isRow = menuDirection === "row";
+  const {
+    layout,
+    menuContainer,
+    selectedMenuItem,
+    unselectedMenuItem,
+    content,
+  } = getStyle(menuDirection);
+
   const minWidth = itemList.length * 40 - 12;
   const contentStyle =
     menuDirection === "row" ? { ...content, minWidth } : content;
 
   return (
-    <div style={isRow ? {} : columnTabLayoutContainer}>
-      <div style={isRow ? rowMenuContainer : columnMenuContainer}>
+    <div style={layout}>
+      <div style={menuContainer}>
         {itemList.map(({ key, name }) => {
-          if (nowTabKey !== key)
-            return (
-              <button
-                key={key}
-                style={isRow ? unselectedRowMenuItem : unselectedColumnMenuItem}
-                onClick={() => setNowTabKey(key)}
-              >
-                {name}
-              </button>
-            );
           return (
             <button
               key={key}
-              style={isRow ? selectedRowMenuItem : selectedColumnMenuItem}
+              style={nowTabKey !== key ? unselectedMenuItem : selectedMenuItem}
               onClick={() => setNowTabKey(key)}
             >
               {name}
