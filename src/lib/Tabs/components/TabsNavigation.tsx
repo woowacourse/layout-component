@@ -51,6 +51,7 @@ function TabsNavigation({
                       ? '#cecece'
                       : '#000000',
                     cursor: !disabled && 'pointer',
+                    userSelect: disabled && 'none',
                   }}
                 >
                   {label}
