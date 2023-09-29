@@ -22,12 +22,18 @@ const Content = ({
   index,
   ...attributes
 }: PropsWithChildren<ContentProps>) => {
-  const { activeTab } = useContext(TabContext);
+  const { id, activeTab } = useContext(TabContext);
 
   if (activeTab !== `menu-${index}`) return <></>;
 
   return (
-    <FlexItem alignSelf={position} role="tabpanel" {...attributes}>
+    <FlexItem
+      role="tabpanel"
+      id={`${id}-panel-${index}`}
+      tabIndex={0}
+      alignSelf={position}
+      {...attributes}
+    >
       {children}
     </FlexItem>
   );

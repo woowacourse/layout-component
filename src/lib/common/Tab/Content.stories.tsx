@@ -31,7 +31,7 @@ const DAYS = ['월', '화', '수', '목', '금', '토', '일'] as const;
 
 export const Default = ({ children, ...args }: ContentProps) => {
   return (
-    <Tab>
+    <Tab id="content-default">
       <Tab.Menus gap={10}>
         {DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />

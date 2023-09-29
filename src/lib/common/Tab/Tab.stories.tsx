@@ -33,7 +33,7 @@ const ENG_DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'] as const;
 
 export const Default = ({ ...args }) => {
   return (
-    <Tab {...args}>
+    <Tab {...args} id="default">
       <Tab.Menus highlightColor="#32affd">
         {DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -52,7 +52,7 @@ export const Vertical = ({ vertical, ...args }: TabProps) => {
   const fixedVertical = vertical || true;
 
   return (
-    <Tab vertical={fixedVertical} width={400} {...args}>
+    <Tab vertical={fixedVertical} width={400} {...args} id="vertical">
       <Tab.Menus width={46} gap={10}>
         {ENG_DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -71,7 +71,7 @@ export const InitialIndex = ({ initialIndex, ...args }: TabProps) => {
   const fixedInitialIndex = initialIndex || 3;
 
   return (
-    <Tab width={400} initialIndex={fixedInitialIndex} {...args}>
+    <Tab width={400} initialIndex={fixedInitialIndex} {...args} id="initialIndex">
       <Tab.Menus>
         {ENG_DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />
@@ -89,7 +89,7 @@ export const InitialIndex = ({ initialIndex, ...args }: TabProps) => {
 export const SeveralTabs = () => {
   return Array.from({ length: 3 }, (_, index) => {
     return (
-      <Tab width={400} mb={28} initialIndex={index}>
+      <Tab key={index} width={400} mb={28} initialIndex={index} id={`tab-${index}`}>
         <Tab.Menus>
           {ENG_DAYS.map((day, index) => (
             <Tab.Menu key={day} label={day} index={index} />
@@ -107,7 +107,14 @@ export const SeveralTabs = () => {
 
 export const TabWithLayoutProp = ({ ...args }) => {
   return (
-    <Tab width={400} height={200} layout="centerLeft" css={{ border: '1px solid #000' }} {...args}>
+    <Tab
+    width={400}
+    height={200}
+    layout="centerLeft"
+    css={{ border: '1px solid #000' }}
+    {...args}
+    id="tab-with-layout"
+    >
       <Tab.Menus width={300}>
         {ENG_DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />

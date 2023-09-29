@@ -20,7 +20,7 @@ export default meta;
 
 export const Default = ({ label }: MenuProps) => {
   return (
-    <Tab>
+    <Tab id="menu-default">
       <Tab.Menus gap={10}>
         {Array.from({ length: 7 }, (_, index) => (
           <Tab.Menu key={index} label={label} index={index} />
@@ -32,7 +32,7 @@ export const Default = ({ label }: MenuProps) => {
 
 export const TabWithIcons = ({ label, iconPosition }: MenuProps) => {
   return (
-    <Tab width={300}>
+    <Tab id="menu-with-icons" width={300}>
       <Tab.Menus highlightColor="#32affd">
         <Tab.Menu label={label} index={0} icon={<HiOutlineHeart />} iconPosition={iconPosition} />
         <Tab.Menu label={label} index={1} icon={<HiOutlineHeart />} />

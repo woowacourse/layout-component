@@ -28,6 +28,9 @@ const meta = {
       description:
         '같은 index 가진 Content와 연결<br />Menu를 누르면 Menu의 index와 같은 index를 가진 Content가 보임',
     },
+    css: {
+      description: 'CSS 속성을 직접 입력할 수 있습니다.',
+    },
     ...sizeArgTypes,
     ...spacingArgTypes,
   },
@@ -35,12 +38,11 @@ const meta = {
 
 export default meta;
 
-
 const DAYS = ['월', '화', '수', '목', '금', '토', '일'] as const;
 
 export const Default = ({ highlightColor, ...args }: MenusProps) => {
   return (
-    <Tab width={400}>
+    <Tab id="menus-default" width={400}>
       <Tab.Menus gap={10} highlightColor={highlightColor} {...args}>
         {DAYS.map((day, index) => (
           <Tab.Menu key={day} label={day} index={index} />

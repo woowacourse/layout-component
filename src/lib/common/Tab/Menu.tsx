@@ -19,19 +19,22 @@ export interface MenuProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 const Menu = ({ label, icon, index, iconPosition = 'left', ...attributes }: MenuProps) => {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { id, activeTab, setActiveTab } = useContext(TabContext);
 
-  const handleCheckMenu = () => {
+  const handleSelectMenu = () => {
     setActiveTab(`menu-${index}`);
   };
 
   return (
     <button
       role="tab"
+      id={`${id}-tab-${index}`}
+      aria-controls={`${id}-panel-${index}`}
+      aria-selected={activeTab === `menu-${index}` ? true : false}
       className={activeTab === `menu-${index}` ? 'active' : ''}
       css={[tabMenuStyle, icon && tabMenuWithIconStyle(iconPosition)]}
       {...attributes}
-      onClick={handleCheckMenu}
+      onClick={handleSelectMenu}
     >
       {icon}
       {label}
