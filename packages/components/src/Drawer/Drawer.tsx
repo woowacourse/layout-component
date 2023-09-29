@@ -39,7 +39,7 @@ const Drawer = ({
     <>
       <Backdrop $isOpen={isOpen} onClick={onClose} />
       <Container
-        anchor={anchor}
+        $anchor={anchor}
         $isOpen={isOpen}
         $backgroundColor={backgroundColor}
         {...divProps}
@@ -63,15 +63,16 @@ const Backdrop = styled.div<{ $isOpen: boolean }>`
 `;
 
 const Container = styled.div<{
-  anchor: Anchor;
+  $anchor: Anchor;
   $isOpen: boolean;
   $backgroundColor?: string;
 }>`
   position: fixed;
   transition: all ease-out 0.4s;
 
-  ${({ anchor }) => positions[anchor]}
-  ${({ $isOpen, anchor }) => ($isOpen ? openAnimation : closeAnimation[anchor])}
+  ${({ $anchor }) => positions[$anchor]}
+  ${({ $isOpen, $anchor }) =>
+    $isOpen ? openAnimation : closeAnimation[$anchor]}
   
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor ? $backgroundColor : '#ffffff'};
