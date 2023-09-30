@@ -36,10 +36,8 @@
   },
   "dependencies": {
     "copyfiles": "^2.4.1",
-    "hae_on-layout-component": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-layout-component-pat": "^1.1.5",
     "rimraf": "^5.0.1",
     "styled-components": "^6.0.8"
   },
