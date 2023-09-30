@@ -40,9 +40,7 @@ export const useSplitPane = (defaultSize: string, minSize: string, maxSize: stri
     if ((parseFloat(newPaneSize) < parseFloat(minSize)) || (parseFloat(newPaneSize) > parseFloat(maxSize))) {
       return;
     }
-
-    console.log(minSize, newPaneSize, maxSize)
-
+    
     setPaneSize(newPaneSize);
   };
 
