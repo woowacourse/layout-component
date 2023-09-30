@@ -14,12 +14,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/react-aaker-layout-components.umd.js",
-  "module": "./dist/react-aaker-layout-components.es.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/react-aaker-layout-components.es.js",
-      "require": "./dist/react-aaker-layout-components.umd.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.js"
     }
   },
   "repository": {
@@ -70,6 +70,7 @@
     "storybook": "^7.4.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "3.5.3"
+    "vite-plugin-dts": "3.5.3",
+    "vite-tsconfig-paths": "4.2.1"
   }
 }
