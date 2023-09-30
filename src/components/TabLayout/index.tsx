@@ -8,7 +8,7 @@ interface TabLayoutProps {
 }
 
 interface TabHeaderItemProps {
-  isselected: boolean;
+  $isselected: boolean;
   bordercolor: CSSProperties['color'];
 }
 
@@ -20,11 +20,14 @@ const TabLayoutContainer = styled.div`
 
 const TabLayoutHeader = styled.div`
   display: flex;
+  width: 100%;
+  overflow-x: scroll;
 `;
 
 const TabHeaderItem = styled.div<TabHeaderItemProps>`
   padding: 10px;
-  ${({ isselected, bordercolor }) => isselected && `border-bottom: 3px solid ${bordercolor}`};
+  ${({ $isselected, bordercolor }) =>
+    $isselected && `border-bottom: 3px solid ${bordercolor}`};
   cursor: pointer;
 `;
 
@@ -40,7 +43,7 @@ const TabLayout = ({ tabs, children, bordercolor }: TabLayoutProps) => {
             bordercolor={bordercolor}
             key={element}
             onClick={() => setSelectIdx(idx)}
-            isselected={idx === selectIdx}
+            $isselected={idx === selectIdx}
           >
             {element}
           </TabHeaderItem>
