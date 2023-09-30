@@ -1,4 +1,4 @@
-import { PolymorphicElementProps } from '../../../types';
+import type { ElementPolymorphProp } from '../../../types';
 import { columnGapVar, itemSizeVar, masonryBoard } from './Board.css';
 import MasonryProvider, { MasonryContextProps } from '../../contexts';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
@@ -13,9 +13,14 @@ type MasonryProps = MasonryContextProps & {
   columnGap?: React.CSSProperties['columnGap'];
 };
 
-const Board = <E extends 'div' | 'main' | 'section' | 'article' = 'div'>(
-  props: React.PropsWithChildren<PolymorphicElementProps<E, MasonryProps>>
-) => {
+type BoardPolymorphTags = 'div' | 'main' | 'section' | 'article';
+
+interface MasonryPolymorphProp extends ElementPolymorphProp<BoardPolymorphTags> {
+  /** Masonry에 적용할 semantic tag */
+  as?: BoardPolymorphTags;
+}
+
+const Board = (props: React.PropsWithChildren<MasonryPolymorphProp & MasonryProps>) => {
   const {
     as: Element = 'div',
     rowGap = 0,

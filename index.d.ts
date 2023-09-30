@@ -4,11 +4,6 @@ declare type ElementPolymorphProp<Element extends React.ElementType> = {
   as?: Element;
 };
 
-declare type PolymorphicElementProps<
-  Element extends React.ElementType,
-  Props = Record<string, never>,
-> = Omit<Props, keyof ElementPolymorphProp<Element>> & ElementPolymorphProp<Element>;
-
 declare type PolymorphicElementPropsWithoutRef<
   Element extends React.ElementType,
   Props = Record<string, never>,
@@ -50,11 +45,23 @@ declare type MasonryContextProps = {
   columnGap?: React.CSSProperties['columnGap'];
 };
 
+type BoardPolymorphTags = 'div' | 'main' | 'section' | 'article';
+
+export interface MasonryPolymorphProp extends ElementPolymorphProp<BoardPolymorphTags> {
+  /** Masonry에 적용할 semantic tag */
+  as?: BoardPolymorphTags;
+}
+
 export declare type MasonryProps = MasonryContextProps & {
   /** Masonry.Item의 너비 */
   itemSize?: React.CSSProperties['width'];
   /** true일 경우 Masonry의 너비에 따라 Item의 너비가 유동적으로 변함 */
   fluidResize?: boolean;
+};
+
+export declare type ItemProps = {
+  /** 각 Item의 rowGap을 개별적으로 설정 */
+  rowGap?: React.CSSProperties['rowGap'];
 };
 
 declare const Container: <E extends React.ElementType = 'div'>(
@@ -67,10 +74,10 @@ declare const Grid: <E extends React.ElementType = 'div'>(
   props: PolymorphicElementPropsWithRef<E, GridProps>
 ) => JSX.Element;
 
-declare const Board: <E extends 'div' | 'main' | 'section' | 'article' = 'div'>(
-  props: React.PropsWithChildren<PolymorphicElementProps<E, MasonryProps>>
+declare const Board: (
+  props: React.PropsWithChildren<MasonryPolymorphProp & MasonryProps>
 ) => JSX.Element;
-declare const Item: (props: React.PropsWithChildren) => JSX.Element;
+declare const Item: (props: React.PropsWithChildren<ItemProps>) => JSX.Element;
 declare const Masonry: typeof Board & { Item: typeof Item };
 
 export { Container, Flex, Grid, Masonry };
