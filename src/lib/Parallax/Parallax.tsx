@@ -10,7 +10,7 @@ const Parallax = ({ image, height = '100vh', children }: PropsWithChildren<Paral
     height,
     overflowX: 'hidden',
     overflowY: 'auto',
-    background: image ? `no-repeat center url(${image})` : '',
+    background: image && `no-repeat center url(${image})`,
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     transformStyle: 'preserve-3d',
