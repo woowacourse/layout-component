@@ -17,7 +17,6 @@ class ErrorBoundary extends Component<Props, State> {
   };
 
   public static getDerivedStateFromError(error: Error): State {
-    // Update state so the next render will show the fallback UI.
     return {
       hasError: true,
       error,
@@ -35,7 +34,7 @@ class ErrorBoundary extends Component<Props, State> {
         <div>
           <h1>무언가 잘못됐어요...!</h1>
           <p>{this.state.error?.toString()}</p>
-          {/*<pre>{this.state.errorInfo?.componentStack}</pre>*/}
+          <button onClick={() => this.setState({hasError: false})}>다시 시도하기</button>
         </div>
       );
     }
