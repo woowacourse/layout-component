@@ -1,0 +1,10 @@
+export const ERROR_MESSAGE_CHECK_ENDS_WITH_PERCENTAGE = 'defaultSize, minSize, maxSize는 반드시 %로 끝나야 합니다.';
+export const ERROR_MESSAGE_CHECK_DEFAULT_SIZE_LESS_THAN_MIN_SIZE = 'defaultSize는 minSize보다 작을 수 없습니다.';
+export const ERROR_MESSAGE_CHECK_DEFAULT_SIZE_GREATER_THAN_MAX_SIZE = 'defaultSize는 maxSize보다 클 수 없습니다.';
+export const ERROR_MESSAGE_CHECK_CHILDREN_LENGTH = 'SplitPane 컴포넌트의 children은 반드시 2개여야 합니다.';
+export const ERROR_MESSAGE_CHECK_DEFAULT_SIZE = 'defaultSize는 0% ~ 100% 사이의 값이어야 합니다.';
+export const ERROR_MESSAGE_CHECK_MIN_SIZE = 'minSize는 0% ~ 100% 사이의 값이어야 합니다.';
+export const ERROR_MESSAGE_CHECK_MAX_SIZE = 'maxSize는 0% ~ 100% 사이의 값이어야 합니다.';
+export const ERROR_MESSAGE_CHECK_DEFAULT_NUMBER_PERCENTAGE = 'defaultSize는 숫자% 형태여야 합니다.';
+export const ERROR_MESSAGE_CHECK_MIN_SIZE_NUMBER_PERCENTAGE = 'minSize는 숫자% 형태여야 합니다.';
+export const ERROR_MESSAGE_CHECK_MAX_SIZE_NUMBER_PERCENTAGE = 'maxSize는 숫자% 형태여야 합니다.';
