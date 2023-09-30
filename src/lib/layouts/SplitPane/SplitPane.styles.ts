@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface ResizablePaneProps {
-  $minSize?: string;
-  $maxSize?: string;
+  $minSize: string;
+  $maxSize: string;
 }
 
 export const SplitPaneContainer = styled.div`

@@ -19,7 +19,7 @@ export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: st
   };
 
   const handleMouseMove = (e: MouseEvent | TouchEvent) => {
-    // 패널 사이즈가 변경중이라면
+    // 패널 사이즈가 변경되지 않았거나, 컨테이너가 없으면 종료
     if (!isResizing || !containerRef.current) {
       return;
     }
