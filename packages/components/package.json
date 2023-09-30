@@ -1,10 +1,15 @@
 {
   "name": "@gyeongza/components",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "private": false,
   "main": "./dist/index.js",
+  "type": "module",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "browser": "./browser/specific/main.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gyeongza/layout-component.git"
@@ -79,6 +84,5 @@
     "url": "https://github.com/gyeongza/layout-component/issues"
   },
   "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/gyeongza/layout-component#readme",
   "_id": "@gyeongza/components@0.0.6"
 }

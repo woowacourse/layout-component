@@ -9,6 +9,7 @@
 
 public
 
-.storybook/
 build-storybook.log
-stories/
+
+src/App.tsx
+src/index.tsx

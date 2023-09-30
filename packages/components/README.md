@@ -44,9 +44,9 @@
 
 # Flex 컴포넌트
 
-### direction, justify, align 속성을 통해 배열 방향과 정렬을 조절할 수 있다.
+### direction, justify, align 속성을 통해 배열 방향과 정렬을 조절할 수 있습니다.
 
-### gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있다.
+### gap 속성을 통해 자식 컴포넌트 간의 간격을 조절할 수 있습니다.
 
 <img width="312" alt="스크린샷 2023-09-18 오후 5 40 36" src="https://github.com/gyeongza/layout-component/assets/62369936/ad9411b2-8515-44d9-bd59-64661426ccf5">
 
@@ -58,4 +58,34 @@
   <div>FlexItem 2</div>
   <div>FlexItem 3</div>
 </Flex>
+```
+
+# Drawer 컴포넌트
+
+### Drawer 방향을 설정할 수 있습니다.
+
+```javascript
+// 1. Drawer
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setIsOpen(true);
+  };
+
+  return (
+    <div>
+      <Drawer anchor="LEFT" isOpen={isOpen} onClose={handleModalClose}>
+        // 원하는 컴포넌트를 추가하세요.
+      <button onClick={handleModalOpen}>오픈</button>
+    </div>
+  );
+};
+
+export default App;
 ```

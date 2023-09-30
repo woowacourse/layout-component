@@ -19,5 +19,5 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "exclude": ["src/stories"]
+  "exclude": ["src/stories", "src/App.tsx"]
 }
