@@ -187,4 +187,4 @@ export default App;
 
 ## Version
 
-- 0.1.0 (latest)
+- 0.1.2 (latest)
