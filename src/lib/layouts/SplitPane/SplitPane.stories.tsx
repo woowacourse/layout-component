@@ -84,3 +84,47 @@ export const Duplicated = (args: SplitPaneProps) => (
     </SplitPane>
   </SplitPane>
 );
+
+export const NoArgs = () => (
+  <SplitPane defaultSize="20%">
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
+
+export const WrongArgs = () => (
+  <SplitPane defaultSize="20%" minSize="10%" maxSize="110%">
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
+
+export const WrongArgs2 = () => (
+  <SplitPane defaultSize="20%" minSize="10%" maxSize="10%">
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
+
+export const WrongArgs3 = () => (
+  <SplitPane defaultSize="20" minSize="10%" maxSize="90%">
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
