@@ -1,14 +1,9 @@
 import {useSplitPane} from "./useSplitPane.ts";
-import {
-  checkChildrenLength,
-  checkDefaultSizeGreaterThanMaxSize,
-  checkDefaultSizeLessThanMinSize,
-  checkEndsWithPercentage,
-} from "./validate.ts";
+import {checkValidProps,} from "./validate.ts";
 import {SplitPaneProps} from "./SplitPane.tsx";
 import {ResizablePane, Resizer, SplitPaneContainer} from "./SplitPane.styles.ts";
 
-function SplitPaneRenderer({defaultSize, minSize = '10%', maxSize = '90%', children}: SplitPaneProps) {
+function SplitPaneRenderer({defaultSize, minSize, maxSize, children}: SplitPaneProps) {
 
   const {
     containerRef,
@@ -18,11 +13,7 @@ function SplitPaneRenderer({defaultSize, minSize = '10%', maxSize = '90%', child
     handleMouseDown,
   } = useSplitPane(defaultSize, minSize, maxSize);
 
-  checkEndsWithPercentage({defaultSize, minSize, maxSize});
-  checkDefaultSizeLessThanMinSize({defaultSize, minSize});
-  checkDefaultSizeGreaterThanMaxSize({defaultSize, maxSize});
-
-  checkChildrenLength(children);
+  checkValidProps({defaultSize, minSize, maxSize, children});
 
   return (
     <SplitPaneContainer ref={containerRef}>

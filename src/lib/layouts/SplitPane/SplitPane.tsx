@@ -4,12 +4,12 @@ import SplitPaneRenderer from "./SplitPaneRenderer.tsx";
 
 export interface SplitPaneProps {
   defaultSize: string;
-  minSize?: string;
-  maxSize?: string;
+  minSize: string;
+  maxSize: string;
   children: ReactNode[];
 }
 
-const SplitPane = ({defaultSize, minSize = '10%', maxSize = '90%', children}: SplitPaneProps) => {
+const SplitPane = ({defaultSize, minSize, maxSize, children}: SplitPaneProps) => {
 
   return (
     <ErrorBoundary>

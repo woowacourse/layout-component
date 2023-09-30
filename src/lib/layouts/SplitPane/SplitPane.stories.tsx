@@ -55,20 +55,6 @@ export const Texts = (args: SplitPaneProps) => (
   </SplitPane>
 );
 
-export const WrongChildren = (args: SplitPaneProps) => (
-  <SplitPane {...args}>
-    <div>
-      {loremIpsum}
-    </div>
-    <div>
-      {loremIpsum}
-    </div>
-    <div>
-      {loremIpsum}
-    </div>
-  </SplitPane>
-);
-
 export const Duplicated = (args: SplitPaneProps) => (
   <SplitPane {...args}>
     <div>
@@ -85,8 +71,11 @@ export const Duplicated = (args: SplitPaneProps) => (
   </SplitPane>
 );
 
-export const NoArgs = () => (
-  <SplitPane defaultSize="20%">
+export const WrongChildren = (args: SplitPaneProps) => (
+  <SplitPane {...args}>
+    <div>
+      {loremIpsum}
+    </div>
     <div>
       {loremIpsum}
     </div>
@@ -120,6 +109,17 @@ export const WrongArgs2 = () => (
 
 export const WrongArgs3 = () => (
   <SplitPane defaultSize="20" minSize="10%" maxSize="90%">
+    <div>
+      {loremIpsum}
+    </div>
+    <div>
+      {loremIpsum}
+    </div>
+  </SplitPane>
+);
+
+export const WrongArgs4 = () => (
+  <SplitPane defaultSize="20%" minSize="1a0%" maxSize="90%">
     <div>
       {loremIpsum}
     </div>
