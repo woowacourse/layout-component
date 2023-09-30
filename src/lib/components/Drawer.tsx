@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import usePortal from '../hooks/usePortal';
 
 type Props = {
@@ -13,11 +13,12 @@ const Drawer = ({ anchor = 'left', isOpen, toggleDrawer, children }: PropsWithCh
   const { portalRootRef } = usePortal('drawer-root');
 
   return createPortal(
-    <Backdrop isOpen={isOpen} onClick={toggleDrawer}>
+    <>
+      {isOpen && <Backdrop isOpen={isOpen} onClick={toggleDrawer} />}
       <Container isOpen={isOpen} anchor={anchor}>
         {children}
       </Container>
-    </Backdrop>,
+    </>,
     portalRootRef.current,
   );
 };
@@ -37,33 +38,55 @@ const Backdrop = styled.div<BackdropProps>`
   bottom: 0;
   left: 0;
 
-  background-color: ${props => `rgba(0, 0, 0, ${props.isOpen ? 0.5 : 0})`};
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 const Container = styled.div<ContainerProps>`
-  display: flex;
-  flex-direction: column;
-  justify-content: ${props => `${props.anchor === 'bottom' ? 'flex-end' : 'flex-start'}`};
-
   position: fixed;
-  ${props => (props.anchor === 'left' ? 'left: 0;' : '')}
-  ${props => (props.anchor === 'right' ? 'right: 0;' : '')}
-  ${props => (props.anchor === 'top' ? 'top: 0;' : '')}
-  ${props => (props.anchor === 'bottom' ? 'bottom: 0;' : '')}
-  z-index: 3;
-
-  width: ${props => `${props.anchor === 'left' || props.anchor === 'right' ? 'auto' : '100%'}`};
-  height: ${props => `${props.anchor === 'left' || props.anchor === 'right' ? '100vh' : 'auto'}`};
-
-  transform: ${props =>
-    props.isOpen
-      ? props.anchor === 'left' || props.anchor === 'right'
-        ? 'translateX(0)'
-        : 'translateY(0)'
-      : props.anchor === 'left' || props.anchor === 'right'
-      ? `translateX(${props.anchor === 'left' ? '-110%' : '100%'})`
-      : `translateY(${props.anchor === 'top' ? '-110%' : '100%'})`};
   transition: transform 0.2s ease-in-out;
-
   background-color: white;
+
+  ${({ anchor, isOpen }) => {
+    const leftAndRightStyles = css`
+      top: 0;
+      width: auto;
+      height: 100vh;
+    `;
+
+    const topAndBottomStyles = css`
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+    `;
+
+    switch (anchor) {
+      case 'left':
+        return css`
+          ${leftAndRightStyles}
+          left: 0;
+          transform: ${isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+        `;
+      case 'right':
+        return css`
+          ${leftAndRightStyles}
+          right: 0;
+          transform: ${isOpen ? 'translateX(0)' : 'translateX(100%)'};
+        `;
+      case 'bottom':
+        return css`
+          ${topAndBottomStyles}
+          bottom: 0;
+          transform: ${isOpen ? 'translateY(0)' : 'translateY(100%)'};
+        `;
+      case 'top':
+        return css`
+          ${topAndBottomStyles}
+          top: 0;
+          transform: ${isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+        `;
+      default:
+        return;
+    }
+  }};
 `;
