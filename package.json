@@ -1,6 +1,6 @@
 {
   "name": "@gabrielyoon7/layout-component",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A layout component for React (with woowacourse)",
   "type": "module",
   "main": "dist/index.umd.cjs",
