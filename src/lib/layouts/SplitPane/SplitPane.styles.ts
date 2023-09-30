@@ -7,8 +7,6 @@ interface ResizablePaneProps {
 
 export const SplitPaneContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  height: 100%;
 `;
 
 export const ResizablePane = styled.div<ResizablePaneProps>`
