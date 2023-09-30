@@ -4,12 +4,17 @@ import useMasonryContext from '../../hooks/useMasonryContext';
 import { columnFlow, rowGapVar, volumeVar } from './Item.css';
 import { toPixelIfNumber } from '../../../utils/toPixelIfNumber';
 
-const Item = (props: React.PropsWithChildren) => {
-  const { children } = props;
+type ItemProps = {
+  /** 각 Item의 rowGap을 개별적으로 설정 */
+  rowGap?: React.CSSProperties['rowGap'];
+};
+
+const Item = (props: React.PropsWithChildren<ItemProps>) => {
+  const { children, rowGap } = props;
 
   const [volume, setVolume] = useState(1);
   const item = useRef<HTMLDivElement>(null);
-  const { rowGap = 0 } = useMasonryContext();
+  const { rowGap: globalRowGap = 0 } = useMasonryContext();
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
@@ -29,7 +34,7 @@ const Item = (props: React.PropsWithChildren) => {
       ref={item}
       className={columnFlow}
       style={assignInlineVars({
-        [rowGapVar]: toPixelIfNumber(rowGap),
+        [rowGapVar]: toPixelIfNumber(rowGap ?? globalRowGap),
         [volumeVar]: volume.toString(),
       })}
     >
