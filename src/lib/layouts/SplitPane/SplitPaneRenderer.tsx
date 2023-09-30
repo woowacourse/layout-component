@@ -21,16 +21,16 @@ function SplitPaneRenderer({defaultSize, minSize = '10%', maxSize = '90%', child
   checkEndsWithPercentage({defaultSize, minSize, maxSize});
   checkDefaultSizeLessThanMinSize({defaultSize, minSize});
   checkDefaultSizeGreaterThanMaxSize({defaultSize, maxSize});
-  
+
   checkChildrenLength(children);
 
   return (
     <SplitPaneContainer ref={containerRef}>
-      <ResizablePane style={{flexBasis: paneSize}} $minSize={minSize} $maxSize={maxSize} ref={leftPaneRef}>
+      <ResizablePane $size={paneSize} ref={leftPaneRef}>
         {children[0]}
       </ResizablePane>
       <Resizer onMouseDown={handleMouseDown}/>
-      <ResizablePane style={{flex: 1}} $minSize={minSize} $maxSize={maxSize} ref={rightPaneRef}>
+      <ResizablePane $size={`calc(100% - ${paneSize} - 3px)`} ref={rightPaneRef}>
         {children[1]}
       </ResizablePane>
     </SplitPaneContainer>

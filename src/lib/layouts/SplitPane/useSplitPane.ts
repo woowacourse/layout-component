@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 
-export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: string) => {
+export const useSplitPane = (defaultSize: string, minSize: string, maxSize: string) => {
   const [paneSize, setPaneSize] = useState(defaultSize);
   const [isResizing, setIsResizing] = useState(false);
 
@@ -34,13 +34,14 @@ export const useSplitPane = (defaultSize: string, minSize?: string, maxSize?: st
     if (mouseX < leftPaneLeftX || mouseX > rightPanelRightX) {
       return;
     }
-
     const newPaneSize = `${((mouseX - leftPaneLeftX) / (rightPanelRightX - leftPaneLeftX)) * 100}%`;
 
     // 최소 크기와 최대 크기를 체크하고 업데이트
-    if ((minSize && newPaneSize < minSize) || (maxSize && newPaneSize > maxSize)) {
+    if ((parseFloat(newPaneSize) < parseFloat(minSize)) || (parseFloat(newPaneSize) > parseFloat(maxSize))) {
       return;
     }
+
+    console.log(minSize, newPaneSize, maxSize)
 
     setPaneSize(newPaneSize);
   };

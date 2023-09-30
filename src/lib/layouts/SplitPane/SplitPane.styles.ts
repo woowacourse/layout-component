@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
 interface ResizablePaneProps {
-  $minSize: string;
-  $maxSize: string;
+  $size: string;
 }
 
 export const SplitPaneContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const ResizablePane = styled.div<ResizablePaneProps>`
   overflow: auto;
-  min-width: ${({$minSize}) => $minSize || '0'};
-  max-width: ${({$maxSize}) => $maxSize || '100%'};
+  width: ${({$size}) => $size};
 `;
 
 export const Resizer = styled.div`
