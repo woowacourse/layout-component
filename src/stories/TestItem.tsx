@@ -1,17 +1,17 @@
 import type { CSSProperties as CSS, PropsWithChildren } from 'react';
 
 interface TestItemProps {
-  size?: number;
+  height?: number;
 }
 
-const TestItem = ({ children, size = 256 }: PropsWithChildren<TestItemProps>) => {
+export const TestItem = ({ children, height = 256 }: PropsWithChildren<TestItemProps>) => {
   const style: CSS = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
 
-    width: `${size}px`,
-    height: `${size}px`,
+    width: `100%`,
+    minHeight: `${height}px`,
 
     background: 'linear-gradient(to right, skyblue, violet)',
     fontSize: '2rem',

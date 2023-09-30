@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story['render'] = (args) => (
   <Container {...args}>
-    <TestItem size={512}>Children</TestItem>
+    <TestItem height={512}>Children</TestItem>
   </Container>
 );
 

@@ -12,7 +12,6 @@ export const Grid = (props: PropsWithChildren<GridProps>) => {
 
   const style: CSS = {
     ...stylingContainer(props),
-
     display: 'grid',
     gridTemplateRows: `repeat(${rows}, 1fr)`,
     gridTemplateColumns: `repeat(${columns}, 1fr)`,

@@ -13,7 +13,6 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
 
   const style: CSS = {
     ...stylingContainer(props),
-
     display: 'flex',
     flexDirection: direction,
     justifyContent: justify,
