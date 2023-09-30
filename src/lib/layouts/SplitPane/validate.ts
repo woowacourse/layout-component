@@ -1,3 +1,5 @@
+import {ReactNode} from "react";
+
 export interface ValidatePercentageParams {
   defaultSize: string;
   minSize: string;
@@ -10,16 +12,8 @@ export const isEndsWithPercentage = ({defaultSize, minSize, maxSize}: ValidatePe
   }
 }
 
-
-export const validatePercentage = ({defaultSize, minSize, maxSize}: ValidatePercentageParams) => {
-
-
-  const intPercentage1 = parseInt(minSize, 10);
-  const intPercentage2 = parseInt(maxSize, 10);
-
-  if (intPercentage1 <= 0 || intPercentage2 <= 0) {
-    return false;
+export const isChildrenLengthTwo = (children: ReactNode[]) => {
+  if (children.length !== 2) {
+    throw new Error('SplitPane 컴포넌트의 children은 반드시 2개여야 합니다.');
   }
-
-  return intPercentage1 + intPercentage2 === 100;
 }
