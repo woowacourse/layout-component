@@ -1,12 +1,13 @@
 {
-  "name": "goni-layout-component",
-  "version": "0.0.8",
+  "name": "goni-tab-layout-component",
+  "version": "0.0.9",
   "private": false,
-  "description": "A collection of reusable layout components for building responsive web applications with React.",
+  "description": "A tab layout component for building responsive web applications with React.",
   "keywords": [
     "react",
+    "tab",
     "layout",
-    "components",
+    "component",
     "responsive",
     "web development"
   ],
@@ -14,19 +15,20 @@
   "author": "Kim Goni",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeongwusi/layout-component.git"
+    "url": "https://github.com/jeongwusi/layout-component/tree/step2.git"
   },
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "dependencies": {
-    "@types/node": "^16.18.52",
-    "@types/react": "^18.2.21",
+    "@types/node": "^16.18.54",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "goni-layout-component": "^0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^6.0.8",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,7 +41,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -55,18 +57,19 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.4.2",
-    "@storybook/addon-interactions": "^7.4.2",
-    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-essentials": "^7.4.4",
+    "@storybook/addon-interactions": "^7.4.4",
+    "@storybook/addon-links": "^7.4.4",
     "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.4.2",
-    "@storybook/preset-create-react-app": "^7.4.2",
-    "@storybook/react": "^7.4.2",
-    "@storybook/react-webpack5": "^7.4.2",
+    "@storybook/blocks": "^7.4.4",
+    "@storybook/preset-create-react-app": "^7.4.4",
+    "@storybook/react": "^7.4.4",
+    "@storybook/react-webpack5": "^7.4.4",
     "@storybook/testing-library": "^0.2.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-plugin-storybook": "^0.6.14",
     "prop-types": "^15.8.1",
-    "storybook": "^7.4.2",
+    "storybook": "^7.4.4",
     "webpack": "^5.88.2"
   }
 }
