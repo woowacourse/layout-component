@@ -46,8 +46,16 @@ const RandomImages = (props: { sizeList: Array<[number, number]> }) => {
       {sizeList.map(([width, height], index) => (
         <Masonry.Item key={index}>
           <img
-            src={`https://source.unsplash.com/random/${width}x${height}`}
-            alt={`가로 ${width}픽셀, 세로 ${height}픽셀의 무작위 사진`}
+            src={
+              index % 10 !== 9
+                ? `https://source.unsplash.com/random/${width}x${height}`
+                : '무조건 실패하는 주소'
+            }
+            alt={
+              index % 10 !== 9
+                ? `가로 ${width}픽셀, 세로 ${height}픽셀의 무작위 사진`
+                : '무조건 실패하도록 연출된 이미지입니다. 당황하지 마세요!'
+            }
             loading="lazy"
             style={{
               objectFit: 'cover',

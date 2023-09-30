@@ -3,7 +3,7 @@ import * as MasonryStory from './Masonry.stories';
 
 <Meta of={MasonryStory} />
 
-# Grid
+# Masonry
 
 ## 기능
 
@@ -14,6 +14,7 @@ Masonry는 세로 방향의 Masonry layout을 제공합니다.
 - Masonry를 이용해 정리할 요소는 `<Masonry.Item>`으로 감싸야 합니다.
 - DOM 상에서 `<Masonry.Item>`은 `<Masonry>`의 바로 하위 요소여야 합니다.
 - `<Masonry.Item>`을 제외한 모든 `<Masonry>`의 하위 요소에 대한 올바른 렌더링은 보장하지 않습니다.
+- `<Masonry.Item>`의 하위 요소에 대한 overflow는 처리해주지 않습니다. 크기가 일정치 않은 사진이나 글자 사용 시 overflow에 유의해주세요!
 
 ## 미리보기
 
