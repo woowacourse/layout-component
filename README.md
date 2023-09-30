@@ -123,7 +123,9 @@ Masonry는 세로 방향의 Masonry layout을 제공합니다.
 
 #### Masonry.Item
 
-이 컴포넌트는 props를 받지 않습니다.
+|props 이름|설명|기본값|
+|:-:|:-:|:-:|
+|`rowGap`|이 prop이 적용된 하나의 Item과 바로 아래 Item 사이의 간격|`<Masonry>의 rowGap`|
 
 #### 주의사항
 
