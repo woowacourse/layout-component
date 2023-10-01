@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { MIN_TAB_LENGTH } from '../../../constants';
-import { ComponentPropsWithoutRef } from 'react';
+import { CSSProperties, ComponentPropsWithoutRef } from 'react';
 import useTabsContext from './hooks/useTabContext';
 
 interface TabProps extends ComponentPropsWithoutRef<'button'> {
@@ -11,12 +11,19 @@ interface TabProps extends ComponentPropsWithoutRef<'button'> {
 
 const TabButton = (props: TabProps) => {
 	const { title, value, disabled } = props;
-	const { currentIndex } = useTabsContext();
+	const { currentIndex, currentStyle } = useTabsContext();
 
 	const selected = !disabled && currentIndex === value;
-
+	const { color } = currentStyle;
+	console.log(color);
 	return (
-		<Tab role='tab' selected={selected} disabled={disabled} data-order={value}>
+		<Tab
+			role='tab'
+			selected={selected}
+			disabled={disabled}
+			data-order={value}
+			color={color}
+		>
 			{title}
 		</Tab>
 	);
@@ -24,7 +31,7 @@ const TabButton = (props: TabProps) => {
 
 export default TabButton;
 
-const Tab = styled.button<{ selected: boolean }>`
+const Tab = styled.button<{ selected: boolean; color: CSSProperties['color'] }>`
 	cursor: pointer;
 
 	min-width: ${MIN_TAB_LENGTH}px;
@@ -33,15 +40,19 @@ const Tab = styled.button<{ selected: boolean }>`
 
 	font-size: 1.4rem;
 	line-height: 1.8rem;
-	color: ${({ selected }) => (selected ? 'green' : 'black')};
+	color: ${({ selected, color }) => (selected ? color : 'black')};
 
 	background: transparent;
 	border: none;
 	border-bottom: solid 2px
-		${({ selected }) => (selected ? 'green' : 'transparent')};
+		${({ selected, color }) => (selected ? color : 'transparent')};
 
 	&:hover:not(:disabled) {
-		background: rgb(233, 253, 233);
+		background-color: color-mix(
+			in srgb,
+			${({ color }) => color},
+			transparent 90%
+		);
 	}
 	&:disabled {
 		opacity: 0.3;

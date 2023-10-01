@@ -6,11 +6,21 @@ import { TabListProps } from './Tabs';
 import TabButton from './TabButton';
 import useTabsContext from './hooks/useTabContext';
 import useChangeTab from './hooks/useChangeTab';
+import { useLayoutEffect } from 'react';
 
 const TabList = (props: TabListProps) => {
-	const { justify = 'start', moveButton = false, items } = props;
+	const {
+		justify = 'start',
+		moveButton = false,
+		items,
+		color = 'green',
+	} = props;
 
-	const { currentIndex, setCurrentIndex } = useTabsContext();
+	const { currentIndex, setCurrentIndex, setCurrentStyle } = useTabsContext();
+
+	useLayoutEffect(() => {
+		setCurrentStyle((prev) => ({ ...prev, color }));
+	}, [color, setCurrentStyle]);
 
 	const buttons = items.map(({ id, title, disabled }, index) => (
 		<TabButton

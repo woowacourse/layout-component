@@ -108,3 +108,24 @@ export const TabOverFLowNoButton: Story = {
 		);
 	},
 };
+
+export const TabOtherColor: Story = {
+	render: () => {
+		const tabs = Array.from({ length: 20 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+			content: `${index + 1}번 탭`,
+		}));
+
+		return (
+			<div style={{ width: 520 }}>
+				<Tabs>
+					<Tabs.Lists items={tabs} color='blue' />
+					<Tabs.Contents
+						items={tabs.map(({ id, content }) => ({ id, content }))}
+					/>
+				</Tabs>
+			</div>
+		);
+	},
+};

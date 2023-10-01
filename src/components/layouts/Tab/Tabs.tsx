@@ -3,6 +3,7 @@ import { Justify } from '../../../models/FlexTypes';
 import TabsProvider from './context/TabContext';
 import TabList from './TabList';
 import TabPanel from './TabPanel';
+import { CSSProperties } from 'react';
 
 export type TabListProps = {
 	items: {
@@ -13,6 +14,7 @@ export type TabListProps = {
 	justify?: Justify;
 	moveButton?: boolean;
 	customCss?: CSSObject;
+	color?: CSSProperties['color'];
 };
 
 export type TabPanelProps = {
