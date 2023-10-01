@@ -1,6 +1,6 @@
-import { ComponentPropsWithRef, CSSProperties } from 'react';
+import { ComponentPropsWithoutRef, CSSProperties } from 'react';
 
-export interface ContainerProps extends ComponentPropsWithRef<'div'> {
+export interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   display?: 'inline' | 'block' | 'inline-block' | 'none';
   position?: CSSProperties['position'];
   top?: CSSProperties['top'];
