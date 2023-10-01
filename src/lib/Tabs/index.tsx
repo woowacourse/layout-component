@@ -100,11 +100,11 @@ const Tabs = ({
       )}
 
       {autoplay && (
-        <AutoplayButtonWrapper onClick={toggleAutoplay}>
+        <AutoplayButtonWrapper>
           {isPlaying ? (
-            <AutoplayButton>||</AutoplayButton>
+            <AutoplayButton onClick={toggleAutoplay}>||</AutoplayButton>
           ) : (
-            <AutoplayButton>▶️</AutoplayButton>
+            <AutoplayButton onClick={toggleAutoplay}>▶️</AutoplayButton>
           )}
         </AutoplayButtonWrapper>
       )}
