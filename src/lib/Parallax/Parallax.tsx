@@ -1,4 +1,4 @@
-import { PropsWithChildren, useRef, useState, useEffect } from 'react';
+import { PropsWithChildren } from 'react';
 import { useScrollContext, ParallaxProvider } from './ParallaxContext';
 
 type ParallaxProps = {
