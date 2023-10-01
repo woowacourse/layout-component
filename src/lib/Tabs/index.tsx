@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { TouchEventHandler, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 interface TabProps {
@@ -13,7 +13,10 @@ interface Props {
   $simpleTab?: boolean;
   responsive?: boolean;
   swiper?: boolean;
+  swipeable?: boolean;
 }
+
+let isAcceleratingPos = false;
 
 const Tabs = ({
   width = 400,
@@ -22,6 +25,7 @@ const Tabs = ({
   $tabBoxHeight = height / 10,
   responsive = true,
   swiper = false,
+  swipeable = false,
   children,
 }: Props) => {
   const childrenList = React.Children.toArray(
@@ -29,6 +33,48 @@ const Tabs = ({
   ) as React.ReactElement<TabProps>[];
 
   const [pos, setPos] = useState<number>(0);
+  const [prevTouch, setPrevTouch] = useState<React.Touch | null>(null);
+  const timerId = useRef<NodeJS.Timeout | null>(null);
+
+  const acceleratePos = (diff: number) => {
+    if (isAcceleratingPos) return;
+
+    if (pos < childrenList.length - 1 && diff < -10) {
+      isAcceleratingPos = true;
+      setPos(pos + 1);
+    }
+
+    if (pos > 0 && diff > 10) {
+      isAcceleratingPos = true;
+      setPos(pos - 1);
+    }
+
+    if (timerId.current) return;
+
+    timerId.current = setTimeout(() => {
+      isAcceleratingPos = false;
+
+      if (timerId.current) {
+        clearTimeout(timerId.current);
+        timerId.current = null;
+      }
+    }, 150);
+  };
+
+  const handleTouchMove: TouchEventHandler = (event) => {
+    const touch = event.touches[0]!;
+
+    setPrevTouch(touch);
+    if (!prevTouch) return;
+
+    const diff = touch.pageX - prevTouch.pageX;
+
+    acceleratePos(diff);
+  };
+
+  const handleTouchEnd: TouchEventHandler = () => {
+    setPrevTouch(null);
+  };
 
   return (
     <Wrapper width={width} responsive={responsive}>
@@ -53,6 +99,10 @@ const Tabs = ({
       </TabButtonWrapper>
 
       <TabSectionWrapper
+        {...(swipeable && {
+          onTouchMove: handleTouchMove,
+          onTouchEnd: handleTouchEnd,
+        })}
         width={width}
         height={height}
         $childrenLength={childrenList.length}
