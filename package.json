@@ -1,6 +1,6 @@
 {
   "name": "jeremy-component",
-  "version": "0.1.3",
+  "version": "0.2.3",
   "description": "Reusable components",
   "private": false,
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shackstack/layout-component"
+    "url": "git+https://github.com/shackstack/layout-component.git"
   },
   "author": {
     "name": "Jeremy"
@@ -26,7 +26,6 @@
     "@types/node": "^16.18.53",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
-    "jeremy-component": "^0.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -41,7 +40,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "babel src/lib --out-dir dist --copy-files --extensions \".ts,.tsx\"",
-    "type": "tsc"
+    "type": "tsc",
+    "chromatic": "npx chromatic --project-token=chpt_d7050fc4db8e600"
   },
   "eslintConfig": {
     "extends": [
@@ -85,5 +85,11 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.4.3",
     "webpack": "^5.88.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/shackstack/layout-component/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/shackstack/layout-component#readme",
+  "_id": "jeremy-component@0.1.3"
 }
