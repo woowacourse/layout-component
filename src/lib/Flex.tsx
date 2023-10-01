@@ -32,6 +32,9 @@ type Props = {
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
 } & HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Flexbox 속 컨텐츠 요소들을 유연하게 배치할 수 있는 레이아웃 컴포넌트
+ */
 const Flex = ({
   direction = "row",
   justify = "flex-start",

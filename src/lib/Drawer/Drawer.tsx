@@ -17,6 +17,9 @@ type Props = {
   onClose: () => void;
 };
 
+/**
+ * 화면의 한 방향에서 슬라이드 형태로 사이드바를 보여주는 레이아웃 컴포넌트
+ */
 const Drawer = ({ direction = "left", isOpen, onClose, children }: PropsWithChildren<Props>) => {
   const preventCloseModal: MouseEventHandler = (event) => {
     event.stopPropagation();

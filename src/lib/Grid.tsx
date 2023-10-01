@@ -28,6 +28,9 @@ type Props = {
   gap?: CssNumberValue;
 } & HTMLAttributes<HTMLDivElement>;
 
+/**
+ * 컨텐츠들을 격자 형태로 배치하는 레이아웃 컴포넌트
+ */
 const Grid = ({
   rows,
   columns,
