@@ -22,6 +22,7 @@ const meta = {
       description: 'Content(children)의 최소 너비',
     },
     backgroundColor: { control: 'color', description: 'Container 컴포넌트의 배경색 Content(children)의 최소 너비' },
+    css: { description: '추가 스타일링을 위한 prop' },
   },
 } satisfies Meta<typeof Container>;
 

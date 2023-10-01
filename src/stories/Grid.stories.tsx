@@ -44,6 +44,7 @@ const meta = {
     rowGap: { control: 'select', options: [0, 10, '20px', 30], description: '행 셀 사이의 간격' },
     columnGap: { control: 'select', options: [0, 10, '20px', 30], description: '열 셀 사이의 간격' },
     gap: { control: 'select', options: [0, 10, '20px', 30], description: '셀 사이의 간격' },
+    css: { description: '추가 스타일링을 위한 prop' },
   },
 } satisfies Meta<typeof Grid>;
 
@@ -76,7 +77,7 @@ export const AreasWithItems: Story = {
     children: (
       <>
         {childrenWithArea.map(({ color, content, area }) => (
-          <Grid.Item area={area} overrideStyle={{ backgroundColor: color }}>
+          <Grid.Item area={area} css={{ backgroundColor: color }}>
             {content}
           </Grid.Item>
         ))}

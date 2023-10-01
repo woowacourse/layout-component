@@ -6,6 +6,15 @@ import Parallax from '../lib/Parallax/Parallax';
 const meta = {
   component: Parallax,
   title: 'Parallax',
+  argTypes: {
+    image: {
+      description: '컨테이너의 고정 배경의 경로입니다.',
+    },
+    height: {
+      description: '컨테이너의 높이',
+    },
+    css: { description: '추가 스타일링을 위한 prop' },
+  },
 } satisfies Meta<typeof Parallax>;
 
 export default meta;
@@ -15,7 +24,7 @@ export const Default: Story = {
   render: () => {
     return (
       <Container>
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#ffd280' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#ffd280' }}>
           <h1 style={{ color: 'white' }}>welcome to HEAVEN</h1>
         </Flex>
         <Parallax css={{ background: '#2d0a0d' }}>
@@ -49,7 +58,7 @@ export const Default: Story = {
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax7.png"></Parallax.Item>
         </Parallax>
 
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#ffb835' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#ffb835' }}>
           <h1 style={{ color: 'white' }}>...More...High</h1>
         </Flex>
 
@@ -83,7 +92,7 @@ export const Default: Story = {
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax6.png"></Parallax.Item>
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax7.png"></Parallax.Item>
         </Parallax>
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#eba117' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#eba117' }}>
           <h1 style={{ color: 'white' }}>...High</h1>
         </Flex>
 
@@ -117,7 +126,7 @@ export const Default: Story = {
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax6.png"></Parallax.Item>
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax7.png"></Parallax.Item>
         </Parallax>
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#2d0a0d' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#2d0a0d' }}>
           <h1 style={{ color: 'white' }}>...Deep</h1>
         </Flex>
         <Parallax css={{ background: '#2d0a0d' }}>
@@ -150,7 +159,7 @@ export const Default: Story = {
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax6.png"></Parallax.Item>
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax7.png"></Parallax.Item>
         </Parallax>
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#160d0e' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#160d0e' }}>
           <h1 style={{ color: 'white' }}>...More...Deep</h1>
         </Flex>
         <Parallax css={{ background: '#2d0a0d' }}>
@@ -183,7 +192,7 @@ export const Default: Story = {
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax6.png"></Parallax.Item>
           <Parallax.Item speed={6} image="http://www.firewatchgame.com/images/parallax/parallax7.png"></Parallax.Item>
         </Parallax>
-        <Flex align="center" justify="center" overrideStyle={{ height: '100vh', background: '#000000' }}>
+        <Flex align="center" justify="center" css={{ height: '100vh', background: '#000000' }}>
           <h1 style={{ color: 'white' }}>Welcome to Hell!</h1>
         </Flex>
       </Container>
