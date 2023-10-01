@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import useSwipeable from '../hooks/useSwipeable';
+import useAutoplay from '../hooks/useAutoplay';
 
 interface TabProps {
   label: string;
@@ -31,12 +32,11 @@ const Tabs = ({
   $autoplayTime = 5000,
   children,
 }: Props) => {
-  const [pos, setPos] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(autoplay);
   const childrenList = React.Children.toArray(
     children,
   ) as React.ReactElement<TabProps>[];
 
+  const [pos, setPos] = useState<number>(0);
   const {
     increasePos,
     decreasePos,
@@ -48,21 +48,13 @@ const Tabs = ({
     pos,
     setPos,
   });
-  const intervalId = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (isPlaying) {
-      intervalId.current = setInterval(() => {
-        pos <= childrenList.length - 2 ? setPos((prev) => prev + 1) : setPos(0);
-      }, $autoplayTime);
-    }
-
-    if (!isPlaying && intervalId.current) clearInterval(intervalId.current);
-
-    return () => {
-      if (intervalId.current) clearInterval(intervalId.current);
-    };
-  }, [childrenList.length, pos, $autoplayTime, isPlaying]);
+  const { isPlaying, toggleAutoplay } = useAutoplay({
+    autoplay,
+    $autoplayTime,
+    childrenListLength: childrenList.length,
+    pos,
+    setPos,
+  });
 
   return (
     <Wrapper width={width} responsive={responsive}>
@@ -108,7 +100,7 @@ const Tabs = ({
       )}
 
       {autoplay && (
-        <AutoplayButtonWrapper onClick={() => setIsPlaying((prev) => !prev)}>
+        <AutoplayButtonWrapper onClick={toggleAutoplay}>
           {isPlaying ? (
             <AutoplayButton>||</AutoplayButton>
           ) : (
