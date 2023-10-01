@@ -13,6 +13,7 @@ Includes the following components:
 - Container
 - Flex
 - Grid
+- Tab
 
 ## Installation
 
