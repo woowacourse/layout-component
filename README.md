@@ -57,7 +57,7 @@ Grid는 컨텐츠들을 격자 형태로 배치합니다. 화면 크기에 따�
 
 #### Required
 
-- `rows`: 격자의 행 수 를 지정합니다.
+- `rows`: 격자의 행 수를 지정합니다.
 - `columns`: 격자의 열 수를 지정합니다.
 
 #### Optional
@@ -126,7 +126,7 @@ const App = () => {
 
 #### Required
 
-- `isOpen`: Drawer의 열릴지 닫힐지 결정하는 상태입니다.
+- `isOpen`: Drawer가 열릴지 닫힐지를 결정하는 상태입니다.
 - `onClose`: Drawer가 닫힐 때 실행하는 함수입니다.
 
 #### Optional
