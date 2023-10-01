@@ -3,7 +3,14 @@ import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import { CssNumberValue } from "../types";
 
 type Props = {
+  /**
+   * 컨텐츠들의 최대 너비를 정합니다.
+   * @default 0
+   */
   minWidth?: CssNumberValue;
+  /**
+   * 컨텐츠들의 최소 너비를 정합니다.
+   */
   maxWidth: CssNumberValue;
 } & HTMLAttributes<HTMLDivElement>;
 
