@@ -109,7 +109,7 @@ const TabSectionWrapper = styled.div<{
 
   // 사용자가 입력한 width 값 보다 <Tab /> 컴포넌트 개수만큼 overflow 되었으므로 width * index 만큼 transform 하여 요소의 위치로 이동합니다. (전환 효과)
   transform: ${({ width, pos }) => `translateX(${-width * pos}px)`};
-  transition: 0.3s ease all;
+  transition: 0.3s ease transform;
 
   ${({ responsive, width, $childrenLength, pos }) =>
     responsive &&
