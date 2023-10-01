@@ -18,6 +18,7 @@ interface Props {
   swipeable?: boolean;
   autoplay?: boolean;
   $autoplayTime?: number;
+  $autoplayButton?: boolean;
 }
 
 const Tabs = ({
@@ -30,6 +31,7 @@ const Tabs = ({
   swipeable = false,
   autoplay = false,
   $autoplayTime = 5000,
+  $autoplayButton = false,
   children,
 }: Props) => {
   const childrenList = React.Children.toArray(
@@ -99,7 +101,7 @@ const Tabs = ({
         </SwiperButtonWrapper>
       )}
 
-      {autoplay && (
+      {$autoplayButton && (
         <AutoplayButtonWrapper>
           {isPlaying ? (
             <AutoplayButton onClick={toggleAutoplay}>||</AutoplayButton>
