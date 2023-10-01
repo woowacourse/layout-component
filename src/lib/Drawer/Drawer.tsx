@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { HTMLAttributes, PropsWithChildren } from "react";
 import styles from "./Drawer.module.css";
 
 type Props = {
@@ -15,16 +15,18 @@ type Props = {
    * Drawer가 닫힐 때 실행하는 함수입니다.
    */
   onClose: () => void;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * 화면의 한 방향에서 슬라이드 형태로 사이드바를 보여주는 레이아웃 컴포넌트
  */
-const Drawer = ({ direction = "left", isOpen, onClose, children }: PropsWithChildren<Props>) => {
+const Drawer = ({ direction = "left", isOpen, onClose, children, ...attributes }: PropsWithChildren<Props>) => {
   return (
     <>
       <div className={`${styles.backdrop} ${isOpen ? styles.open : ""}`} onClick={onClose} />
-      <div className={`${styles.container} ${styles[direction]} ${isOpen ? styles.open : ""}`}>{children}</div>
+      <div className={`${styles.container} ${styles[direction]} ${isOpen ? styles.open : ""}`} {...attributes}>
+        {children}
+      </div>
     </>
   );
 };
