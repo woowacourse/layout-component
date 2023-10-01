@@ -57,6 +57,7 @@ const Tabs = ({
         height={height}
         $childrenLength={childrenList.length}
         pos={pos}
+        responsive={responsive}
       >
         {children}
       </TabSectionWrapper>
@@ -98,6 +99,7 @@ const TabSectionWrapper = styled.div<{
   height: number;
   $childrenLength: number;
   pos: number;
+  responsive: boolean;
 }>`
   display: flex;
 
@@ -109,9 +111,26 @@ const TabSectionWrapper = styled.div<{
   transform: ${({ width, pos }) => `translateX(${-width * pos}px)`};
   transition: 0.3s ease all;
 
+  ${({ responsive, width, $childrenLength, pos }) =>
+    responsive &&
+    css`
+      @media (max-width: ${width}px) {
+        width: calc(100vw * ${$childrenLength});
+        transform: translateX(calc(-100vw * ${pos}));
+      }
+    `}
+
   // <Tabs /> 컴포넌트에 입력한 width와 <Tab /> 컴포넌트 width를 동일하게 합니다.
   & > * {
     width: ${({ width }) => `${width}px`};
+
+    ${({ responsive, width }) =>
+      responsive &&
+      css`
+        @media (max-width: ${width}px) {
+          width: 100vw;
+        }
+      `}
   }
 `;
 
