@@ -125,18 +125,8 @@ ParallaxScrolling 컴포넌트는 다음과 같은 속성(props)을 받아들입
 
 ```jsx
 <ParallaxScrolling perspective={500}>
-  <ParallaxItem
-    imgUrl='imageURL'
-    translateZ={-10}
-    scale={25}
-    objectFit='cover'
-  />
-  <ParallaxItem
-    imgUrl='imageURL'
-    translateZ={-10}
-    scale={3}
-    objectFit='contain'
-  />
+  <ParallaxItem imgUrl='imageURL' speed={0.1} scale={25} objectFit='cover' />
+  <ParallaxItem imgUrl='imageURL' speed={0.8} scale={3} objectFit='contain' />
   {/* 추가 ParallaxItem 컴포넌트 */}
 </ParallaxScrolling>
 ```
@@ -158,13 +148,13 @@ ParallaxScrolling 컴포넌트와 ParallaxItem 컴포넌트의 조합은 웹 페
 
 ### 개요
 
-ParallaxItem 컴포넌트는 ParallaxScrolling 컴포넌트의 children으로 사용되며, 개별 이미지 요소에 대한 3D 효과와 위치를 동적으로 설정하는 역할을 합니다. 이 컴포넌트를 통해 사용자는 각 이미지의 Z축 변환, 스케일, 오브젝트 피팅 등을 손쉽게 조절할 수 있습니다.
+ParallaxItem 컴포넌트는 ParallaxScrolling 컴포넌트의 children으로 사용되며, 개별 이미지 요소에 대한 3D 효과와 위치를 동적으로 설정하는 역할을 합니다. 이 컴포넌트를 통해 사용자는 각 이미지의 스크롤 시 스피드, 스케일, 오브젝트 피팅 등을 손쉽게 조절할 수 있습니다.
 
 ### 사용법
 
 ParallaxItem 컴포넌트는 다음과 같은 속성(props)을 받아들입니다:
 
-- `translateZ`: 이미지의 Z축 변환 값을 설정합니다.
+- `speed`: 이미지의 스피드를 조정할 수 있습니다. 0 ~ 1로 조정가능합니다.
 - `scale`: 이미지의 스케일 값을 설정합니다.
 - `objectFit`: CSS의 object-fit 속성 값을 설정합니다.
 - `imgUrl`: 이미지의 URL을 지정합니다.
@@ -173,7 +163,7 @@ ParallaxItem 컴포넌트는 다음과 같은 속성(props)을 받아들입니�
 ```jsx
 <ParallaxItem
   imgUrl='imageURL'
-  translateZ={-100}
+  speed={0.1}
   scale={1.5}
   objectFit='cover'
   right='20px'
@@ -184,7 +174,7 @@ ParallaxItem 컴포넌트는 다음과 같은 속성(props)을 받아들입니�
 
 ParallaxItem 컴포넌트의 핵심은 Img라는 styled-component입니다. Img 컴포넌트는 position: absolute;로 설정되어 부모 컴포넌트인 ParallaxScrolling 내에서의 절대 위치를 가집니다.
 
-transform 속성을 통해 translateZ와 scale 값을 동적으로 적용하여 이미지의 3D 효과를 조절합니다. 또한, right, left, top, bottom 속성을 사용하여 이미지의 위치를 정밀하게 조절할 수 있습니다.
+transform 속성을 통해 speed와 scale 값을 동적으로 적용하여 이미지의 3D 효과를 조절합니다. 또한, right, left, top, bottom 속성을 사용하여 이미지의 위치를 정밀하게 조절할 수 있습니다.
 
 ### 결론
 
