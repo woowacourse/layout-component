@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useSwipeable from '../hooks/useSwipeable';
 
@@ -15,6 +15,8 @@ interface Props {
   responsive?: boolean;
   swiper?: boolean;
   swipeable?: boolean;
+  autoplay?: boolean;
+  $autoplayTime?: number;
 }
 
 const Tabs = ({
@@ -25,20 +27,42 @@ const Tabs = ({
   responsive = true,
   swiper = false,
   swipeable = false,
+  autoplay = false,
+  $autoplayTime = 5000,
   children,
 }: Props) => {
+  const [pos, setPos] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(autoplay);
   const childrenList = React.Children.toArray(
     children,
   ) as React.ReactElement<TabProps>[];
 
   const {
-    pos,
     increasePos,
     decreasePos,
     moveToSettedPos,
     handleTouchMove,
     handleTouchEnd,
-  } = useSwipeable(childrenList.length);
+  } = useSwipeable({
+    childrenListLength: childrenList.length,
+    pos,
+    setPos,
+  });
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (isPlaying) {
+      intervalId.current = setInterval(() => {
+        pos <= childrenList.length - 2 ? setPos((prev) => prev + 1) : setPos(0);
+      }, $autoplayTime);
+    }
+
+    if (!isPlaying && intervalId.current) clearInterval(intervalId.current);
+
+    return () => {
+      if (intervalId.current) clearInterval(intervalId.current);
+    };
+  }, [childrenList.length, pos, $autoplayTime, isPlaying]);
 
   return (
     <Wrapper width={width} responsive={responsive}>
@@ -81,6 +105,16 @@ const Tabs = ({
           <SwiperButton onClick={decreasePos}>◀️</SwiperButton>
           <SwiperButton onClick={increasePos}>▶️</SwiperButton>
         </SwiperButtonWrapper>
+      )}
+
+      {autoplay && (
+        <AutoplayButtonWrapper onClick={() => setIsPlaying((prev) => !prev)}>
+          {isPlaying ? (
+            <AutoplayButton>||</AutoplayButton>
+          ) : (
+            <AutoplayButton>▶️</AutoplayButton>
+          )}
+        </AutoplayButtonWrapper>
       )}
     </Wrapper>
   );
@@ -224,6 +258,26 @@ const SwiperButtonWrapper = styled.div`
 `;
 
 const SwiperButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(149, 149, 149, 0.25);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+`;
+
+const AutoplayButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+`;
+
+const AutoplayButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

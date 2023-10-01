@@ -1,9 +1,14 @@
 import { TouchEventHandler, useRef, useState } from 'react';
 
+interface Props {
+  childrenListLength: number;
+  pos: number;
+  setPos: React.Dispatch<React.SetStateAction<number>>;
+}
+
 let isAcceleratingPos = false;
 
-const useSwipeable = (childrenListLength: number) => {
-  const [pos, setPos] = useState<number>(0);
+const useSwipeable = ({ childrenListLength, pos, setPos }: Props) => {
   const [prevTouch, setPrevTouch] = useState<React.Touch | null>(null);
   const timerId = useRef<NodeJS.Timeout | null>(null);
 
