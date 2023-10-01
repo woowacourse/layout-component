@@ -1,4 +1,4 @@
-import { MouseEventHandler, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import styles from "./Drawer.module.css";
 
 type Props = {
@@ -21,19 +21,10 @@ type Props = {
  * 화면의 한 방향에서 슬라이드 형태로 사이드바를 보여주는 레이아웃 컴포넌트
  */
 const Drawer = ({ direction = "left", isOpen, onClose, children }: PropsWithChildren<Props>) => {
-  const preventCloseModal: MouseEventHandler = (event) => {
-    event.stopPropagation();
-  };
-
   return (
     <>
       <div className={`${styles.backdrop} ${isOpen ? styles.open : ""}`} onClick={onClose} />
-      <div
-        className={`${styles.container} ${styles[direction]} ${isOpen ? styles.open : ""}`}
-        onClick={preventCloseModal}
-      >
-        {children}
-      </div>
+      <div className={`${styles.container} ${styles[direction]} ${isOpen ? styles.open : ""}`}>{children}</div>
     </>
   );
 };
