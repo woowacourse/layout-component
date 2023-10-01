@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "rm -rf dist && mkdir dist && yarn build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -38,12 +37,10 @@
     "url": "https://github.com/jeonjeunghoon/layout-component/issues"
   },
   "description": "아커의 레이아웃 컴포넌트 모음",
-  "dependencies": {
-    "classnames": "2.3.2"
-  },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "classnames": "2.3.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.3",
