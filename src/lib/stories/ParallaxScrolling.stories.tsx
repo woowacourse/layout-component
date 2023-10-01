@@ -16,27 +16,27 @@ export const Default: Story = {
     children: (
       <>
         <ParallaxItem
-          translateZ={-7}
-          scale={25}
+          speed={0}
+          scale={500}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/galaxy.jpg'}
           objectFit='cover'
         />
         <ParallaxItem
-          translateZ={-10}
-          scale={3}
+          speed={0.8}
+          scale={8}
+          right='8000px'
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/neptune.png'}
-          right='10000px'
           objectFit='contain'
         />
         <ParallaxItem
-          translateZ={-7}
+          speed={0.4}
           scale={8}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/mars.png'}
           objectFit='contain'
           left='8000px'
         />
         <ParallaxItem
-          translateZ={-6}
+          speed={0.000001}
           scale={5}
           imgUrl={'https://d3ex8zhlkii399.cloudfront.net/atmosphere.png'}
           objectFit='contain'

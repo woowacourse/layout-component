@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 interface ParallaxItemProps {
-  translateZ: number;
   scale: number;
   objectFit: string;
   imgUrl: string;
@@ -9,6 +8,7 @@ interface ParallaxItemProps {
   left?: string;
   top?: string;
   bottom?: string;
+  speed: number;
 }
 
 const ParallaxItem = ({ imgUrl, ...props }: ParallaxItemProps) => {
@@ -24,8 +24,8 @@ const Img = styled.img<ImgProps>`
   height: 100%;
   object-fit: ${({ objectFit }) => objectFit};
 
-  transform: ${({ translateZ, scale }) =>
-    `translateZ(${translateZ}px) scale(${scale});`};
+  transform: ${({ speed, scale }) =>
+    `translateZ(${(1 - speed) * -100}px) scale(${scale});`};
 
   ${({ right }) =>
     right &&
