@@ -20,12 +20,12 @@ const Tabs = ({
   height = 400,
   $simpleTab = false,
   $tabBoxHeight = height / 10,
-  responsive = false,
+  responsive = true,
   swiper = false,
   children,
 }: Props) => {
   const childrenList = React.Children.toArray(
-    children
+    children,
   ) as React.ReactElement<TabProps>[];
 
   const [pos, setPos] = useState<number>(0);
@@ -48,7 +48,7 @@ const Tabs = ({
               >
                 {!$simpleTab && (children.props.label || idx + 1)}
               </TabButton>
-            )
+            ),
         )}
       </TabButtonWrapper>
 
