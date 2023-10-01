@@ -6,8 +6,8 @@ import {
 } from 'react';
 
 import { styled, css } from 'styled-components';
-import { ResponsiveStyleType } from '../type';
-import { calculateResponsiveStyle, isCommonStyle } from '../utils';
+import { ResponsiveStyleType } from '../types/type';
+import { calculateResponsiveStyle, isCommonStyle } from '../utils/utils';
 
 type GridItemProps = {
   /**

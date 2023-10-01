@@ -10,12 +10,12 @@ import {
 import { styled, css } from 'styled-components';
 
 import GridItem from './GridItem';
-import { ResponsiveStyleType } from '../type';
+import { ResponsiveStyleType } from '../types/type';
 import {
   calculateResponsiveGridTemplateStyle,
   calculateResponsiveStyle,
   isCommonStyle,
-} from '../utils';
+} from '../utils/utils';
 
 type GridProps = {
   /**

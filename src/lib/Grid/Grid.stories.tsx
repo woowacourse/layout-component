@@ -218,7 +218,7 @@ export const GenerateErrorGridItem: Story = {
       <>
         {Array.from({ length: 8 }).map((_, index) => {
           if (index === 3 || index === 7) {
-            return <div>Error</div>;
+            return <div key={index}>Error</div>;
           }
           return (
             <Grid.Item
