@@ -19,6 +19,8 @@ const useAutoplay = ({
   const intervalId = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    if (childrenListLength < 2) setIsPlaying(false);
+
     if (isPlaying) {
       intervalId.current = setInterval(() => {
         pos <= childrenListLength - 2 ? setPos((prev) => prev + 1) : setPos(0);

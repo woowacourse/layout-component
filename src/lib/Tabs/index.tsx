@@ -101,7 +101,7 @@ const Tabs = ({
         </SwiperButtonWrapper>
       )}
 
-      {$autoplayButton && (
+      {$autoplayButton && childrenList.length > 1 && (
         <AutoplayButtonWrapper>
           {isPlaying ? (
             <AutoplayButton onClick={toggleAutoplay}>||</AutoplayButton>
