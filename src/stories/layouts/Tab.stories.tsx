@@ -1,184 +1,110 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import type { Meta, StoryObj } from '@storybook/react';
-import { TabPanels, Wrapper } from '../../components/layouts/Tab/Tab.styles';
-import TabButton from '../../components/layouts/Tab/TabButton';
-import TabPanel from '../../components/layouts/Tab/TabPanel';
-import useChangeTab from '../../components/layouts/Tab/hooks/useChangeTab';
-import { JUSTIFIES } from '../../models/FlexTypes';
-import TabList from '../../components/layouts/Tab/TabList';
+import Tabs from '../../components/layouts/Tab/Tabs';
 
 const meta = {
 	title: 'Layout/Tab',
-	component: TabList,
+	component: Tabs,
 	parameters: {
 		layout: 'centered',
 	},
-	tags: ['autodocs'],
-	argTypes: {
-		justify: {
-			control: { type: 'select' },
-			options: JUSTIFIES,
-			description: 'tab list의 위치',
-		},
-		onClick: {
-			description: 'tab이 클릭됐을 때 실행되는 callback',
-		},
-		moveButton: {
-			control: { type: 'boolean' },
-			description: 'tab 양옆에 scroll하는 버튼을 추가할지 결정하는 옵션',
-		},
-		customCss: {
-			control: { type: 'object' },
-			description: '위에 속성 외에 개인적으로 설정할 값들',
-		},
+	args: {
+		children: <></>,
 	},
-} satisfies Meta<typeof TabList>;
+	tags: ['autodocs'],
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	render: (args) => {
-		const tabs = ['1번탭', '2번탭', '3번탭'];
-		const { ids, current, handleClick } = useChangeTab({ tabs });
-
-		const tabMenu = tabs.map((content, index) => (
-			<TabButton
-				key={ids[index]}
-				label={content}
-				order={ids[index]}
-				value={current}
-			/>
-		));
+	render: () => {
+		const tabs = Array.from({ length: 3 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+			content: `${index + 1}번 탭`,
+		}));
 
 		return (
-			<Wrapper customCss={{ width: 520 }}>
-				<TabList {...args} onClick={handleClick}>
-					{tabMenu}
-				</TabList>
-				<TabPanels>
-					<TabPanel value={current} order={ids[0]}>
-						1번 탭
-					</TabPanel>
-					<TabPanel value={current} order={ids[1]}>
-						2번 탭
-					</TabPanel>
-					<TabPanel value={current} order={ids[2]}>
-						3번 탭
-					</TabPanel>
-				</TabPanels>
-			</Wrapper>
+			<Tabs>
+				<Tabs.Lists items={tabs} />
+				<Tabs.Contents
+					items={tabs.map(({ id, content }) => ({ id, content }))}
+				/>
+			</Tabs>
 		);
 	},
 };
 
 export const Disable: Story = {
-	render: (args) => {
-		const tabs = ['Active', 'Disable', 'Active'];
-		const { ids, current, handleClick } = useChangeTab({ tabs });
-
-		const tabMenu = tabs.map((content, index) => (
-			<TabButton
-				key={ids[index]}
-				label={content}
-				order={ids[index]}
-				disabled={index === 1}
-				value={current}
-			/>
-		));
+	render: () => {
+		const tabs = [
+			{ id: '0', title: 'active' },
+			{ id: '3', title: 'disable', disabled: true },
+			{ id: '2', title: 'active' },
+		];
 
 		return (
-			<Wrapper customCss={{ width: 520 }}>
-				<TabList {...args} onClick={handleClick}>
-					{tabMenu}
-				</TabList>
-			</Wrapper>
+			<Tabs>
+				<Tabs.Lists items={tabs} />
+			</Tabs>
 		);
 	},
 };
 
 export const JustifyTab: Story = {
-	args: {
-		justify: 'center',
-	},
-	render: (args) => {
-		const tabs = ['1번탭', '2번탭', '3번탭'];
-		const { ids, current, handleClick } = useChangeTab({ tabs });
-
-		const tabMenu = tabs.map((content, index) => (
-			<TabButton
-				key={ids[index]}
-				label={content}
-				order={ids[index]}
-				value={current}
-			/>
-		));
+	render: () => {
+		const tabs = Array.from({ length: 4 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+		}));
 
 		return (
-			<Wrapper customCss={{ width: 520 }}>
-				<TabList {...args} onClick={handleClick}>
-					{tabMenu}
-				</TabList>
-			</Wrapper>
+			<Tabs>
+				<Tabs.Lists items={tabs} justify='center' />
+			</Tabs>
 		);
 	},
 };
 
 export const TabOverFLow: Story = {
-	render: (args) => {
-		const tabs = Array.from({ length: 20 }).map(
-			(_, index) => `${index + 1}번 탭`
-		);
-		const { ids, current, handleClick } = useChangeTab({ tabs });
-
-		const tabMenu = tabs.map((content, index) => (
-			<TabButton
-				key={ids[index]}
-				label={content}
-				order={ids[index]}
-				value={current}
-			/>
-		));
+	render: () => {
+		const tabs = Array.from({ length: 20 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+			content: `${index + 1}번 탭`,
+		}));
 
 		return (
-			<Wrapper customCss={{ width: 520 }}>
-				<TabList {...args} onClick={handleClick} moveButton>
-					{tabMenu}
-				</TabList>
-				<TabPanels>
-					{ids.map((id, index) => (
-						<TabPanel value={current} order={id}>
-							{index + 1}번 탭
-						</TabPanel>
-					))}
-				</TabPanels>
-			</Wrapper>
+			<div style={{ width: 520 }}>
+				<Tabs>
+					<Tabs.Lists items={tabs} moveButton />
+					<Tabs.Contents
+						items={tabs.map(({ id, content }) => ({ id, content }))}
+					/>
+				</Tabs>
+			</div>
 		);
 	},
 };
 
 export const TabOverFLowNoButton: Story = {
-	render: (args) => {
-		const tabs = Array.from({ length: 20 }).map(
-			(_, index) => `${index + 1}번 탭`
-		);
-		const { ids, current, handleClick } = useChangeTab({ tabs });
-
-		const tabMenu = tabs.map((content, index) => (
-			<TabButton
-				key={ids[index]}
-				label={content}
-				order={ids[index]}
-				value={current}
-			/>
-		));
+	render: () => {
+		const tabs = Array.from({ length: 20 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+			content: `${index + 1}번 탭`,
+		}));
 
 		return (
-			<Wrapper customCss={{ width: 520 }}>
-				<TabList {...args} onClick={handleClick}>
-					{tabMenu}
-				</TabList>
-			</Wrapper>
+			<div style={{ width: 520 }}>
+				<Tabs>
+					<Tabs.Lists items={tabs} />
+					<Tabs.Contents
+						items={tabs.map(({ id, content }) => ({ id, content }))}
+					/>
+				</Tabs>
+			</div>
 		);
 	},
 };

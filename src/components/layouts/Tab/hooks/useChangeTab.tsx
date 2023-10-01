@@ -1,21 +1,15 @@
-import { SyntheticEvent, useId, useRef, useState } from 'react';
+import { SyntheticEvent, useRef } from 'react';
 
 interface useChangeTabProps {
-	tabs: string[];
+	setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
 	changeCallback?: () => void;
 }
 
-const useChangeTab = ({ tabs, changeCallback }: useChangeTabProps) => {
-	const length = tabs.length;
-
-	const id = useId();
-	const orders = Array.from({ length }).map((_, index) => id + index + 1);
-
+const useChangeTab = ({
+	setCurrentIndex,
+	changeCallback,
+}: useChangeTabProps) => {
 	const selectedRef = useRef<HTMLButtonElement | null>(null);
-
-	const ids = [...orders] as const;
-
-	const [current, setCurrent] = useState<(typeof ids)[number]>(ids[0]);
 
 	const handleClick = (event: SyntheticEvent<HTMLDivElement, MouseEvent>) => {
 		if (!(event.target instanceof HTMLButtonElement)) return;
@@ -24,7 +18,7 @@ const useChangeTab = ({ tabs, changeCallback }: useChangeTabProps) => {
 		const order = dataset['order'];
 
 		if (order) {
-			setCurrent(order);
+			setCurrentIndex(Number(order));
 
 			selectedRef.current = event.target;
 
@@ -38,7 +32,7 @@ const useChangeTab = ({ tabs, changeCallback }: useChangeTabProps) => {
 		}
 	};
 
-	return { ids, handleClick, current };
+	return { handleClick };
 };
 
 export default useChangeTab;

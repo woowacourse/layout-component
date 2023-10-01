@@ -1,24 +1,37 @@
 import styled, { CSSObject } from '@emotion/styled';
 import { Justify } from '../../../models/FlexTypes';
-import { PropsWithChildren } from 'react';
 import useTabButton from './hooks/useTabButton';
 import { css } from '@emotion/react';
+import { TabListProps } from './Tabs';
+import TabButton from './TabButton';
+import useTabsContext from './hooks/useTabContext';
+import useChangeTab from './hooks/useChangeTab';
 
-export interface TableListProps extends PropsWithChildren {
-	justify?: Justify;
-	onClick: (event: React.SyntheticEvent<HTMLDivElement, MouseEvent>) => void;
-	moveButton?: boolean;
-	customCss?: CSSObject;
-}
+const TabList = (props: TabListProps) => {
+	const { justify = 'start', moveButton = false, items } = props;
 
-const TabList = (props: TableListProps) => {
-	const { justify = 'start', onClick, moveButton = false, children } = props;
+	const { currentIndex, setCurrentIndex } = useTabsContext();
+
+	const buttons = items.map(({ id, title, disabled }, index) => (
+		<TabButton
+			key={id}
+			id={`tab-control-${id}`}
+			role='tab'
+			aria-controls={`tab-content-${id}`}
+			aria-selected={currentIndex === index}
+			value={index}
+			title={title}
+			disabled={disabled}
+		/>
+	));
+
+	const { handleClick } = useChangeTab({ setCurrentIndex });
 
 	const { tabContainerRef, scrollTabHandler, showButton, tabListRef } =
-		useTabButton({ children, moveButton });
+		useTabButton({ children: buttons, moveButton });
 
 	return (
-		<Wrapper ref={tabContainerRef} onClick={onClick}>
+		<Wrapper ref={tabContainerRef} onClick={handleClick}>
 			<Button
 				type='button'
 				onClick={scrollTabHandler}
@@ -26,7 +39,7 @@ const TabList = (props: TableListProps) => {
 				show={showButton}
 			>{`<`}</Button>
 			<TabContainer ref={tabListRef} justify={justify}>
-				{children}
+				{buttons}
 			</TabContainer>
 			<Button
 				type='button'

@@ -1,8 +1,8 @@
-import { Children, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { MIN_TAB_LENGTH } from '../../../../constants';
 
 interface useTabButtonProps {
-	children: React.ReactNode;
+	children: JSX.Element[];
 	moveButton: boolean;
 }
 
@@ -11,7 +11,7 @@ const useTabButton = ({ children, moveButton }: useTabButtonProps) => {
 	const tabListRef = useRef<HTMLDivElement>(null);
 
 	const [showButton, setShowButton] = useState(false);
-	const countArray = Children.toArray(children).length;
+	const countArray = children.length;
 
 	useLayoutEffect(() => {
 		if (!tabContainerRef.current) return;

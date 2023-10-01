@@ -1,21 +1,23 @@
 import styled from '@emotion/styled';
 import { MIN_TAB_LENGTH } from '../../../constants';
 import { ComponentPropsWithoutRef } from 'react';
+import useTabsContext from './hooks/useTabContext';
 
 interface TabProps extends ComponentPropsWithoutRef<'button'> {
-	label: string;
-	order: string;
-	value: string;
+	title: string;
+	value: number;
 	disabled?: boolean;
 }
 
 const TabButton = (props: TabProps) => {
-	const { label, value, disabled, order } = props;
-	const selected = !disabled && value === order;
+	const { title, value, disabled } = props;
+	const { currentIndex } = useTabsContext();
+
+	const selected = !disabled && currentIndex === value;
 
 	return (
-		<Tab selected={selected} disabled={disabled} data-order={order}>
-			{label}
+		<Tab role='tab' selected={selected} disabled={disabled} data-order={value}>
+			{title}
 		</Tab>
 	);
 };

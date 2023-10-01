@@ -1,15 +1,21 @@
-import { PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
-
-interface TabPanelProps extends PropsWithChildren {
-	order: string;
-	value: string;
-}
+import useTabsContext from './hooks/useTabContext';
+import { TabPanelProps } from './Tabs';
 
 const TabPanel = (props: TabPanelProps) => {
-	const { children, value, order } = props;
-
-	return <Wrapper hidden={value !== order}>{children}</Wrapper>;
+	const { items } = props;
+	const { currentIndex } = useTabsContext();
+	const { id, content } = items[currentIndex];
+	return (
+		<Wrapper
+			key={id}
+			id={`tab-content-${id}`}
+			role='tabpanel'
+			aria-labelledby={`tab-control-${id}`}
+		>
+			{content}
+		</Wrapper>
+	);
 };
 
 export default TabPanel;
