@@ -54,7 +54,9 @@
     "storybook": "^7.4.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.5.4"
+    "vite-plugin-dts": "^3.5.4",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^3.0.0"
   },
   "readme": "ERROR: No README data found!",
   "_id": "layout-component@0.0.0"
