@@ -1,5 +1,6 @@
-import React, { TouchEventHandler, useRef, useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
+import useSwipeable from '../hooks/useSwipeable';
 
 interface TabProps {
   label: string;
@@ -16,8 +17,6 @@ interface Props {
   swipeable?: boolean;
 }
 
-let isAcceleratingPos = false;
-
 const Tabs = ({
   width = 400,
   height = 400,
@@ -32,49 +31,14 @@ const Tabs = ({
     children,
   ) as React.ReactElement<TabProps>[];
 
-  const [pos, setPos] = useState<number>(0);
-  const [prevTouch, setPrevTouch] = useState<React.Touch | null>(null);
-  const timerId = useRef<NodeJS.Timeout | null>(null);
-
-  const acceleratePos = (diff: number) => {
-    if (isAcceleratingPos) return;
-
-    if (pos < childrenList.length - 1 && diff < -10) {
-      isAcceleratingPos = true;
-      setPos(pos + 1);
-    }
-
-    if (pos > 0 && diff > 10) {
-      isAcceleratingPos = true;
-      setPos(pos - 1);
-    }
-
-    if (timerId.current) return;
-
-    timerId.current = setTimeout(() => {
-      isAcceleratingPos = false;
-
-      if (timerId.current) {
-        clearTimeout(timerId.current);
-        timerId.current = null;
-      }
-    }, 150);
-  };
-
-  const handleTouchMove: TouchEventHandler = (event) => {
-    const touch = event.touches[0]!;
-
-    setPrevTouch(touch);
-    if (!prevTouch) return;
-
-    const diff = touch.pageX - prevTouch.pageX;
-
-    acceleratePos(diff);
-  };
-
-  const handleTouchEnd: TouchEventHandler = () => {
-    setPrevTouch(null);
-  };
+  const {
+    pos,
+    increasePos,
+    decreasePos,
+    moveToSettedPos,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useSwipeable(childrenList.length);
 
   return (
     <Wrapper width={width} responsive={responsive}>
@@ -90,7 +54,7 @@ const Tabs = ({
                 $tabBoxHeight={$tabBoxHeight}
                 $childrenLength={childrenList.length}
                 $simpleTab={$simpleTab}
-                onClick={() => setPos(idx)}
+                onClick={() => moveToSettedPos(idx)}
               >
                 {!$simpleTab && (children.props.label || idx + 1)}
               </TabButton>
@@ -114,14 +78,8 @@ const Tabs = ({
 
       {swiper && (
         <SwiperButtonWrapper>
-          <SwiperButton onClick={() => pos > 0 && setPos(pos - 1)}>
-            ◀️
-          </SwiperButton>
-          <SwiperButton
-            onClick={() => pos < childrenList.length - 1 && setPos(pos + 1)}
-          >
-            ▶️
-          </SwiperButton>
+          <SwiperButton onClick={decreasePos}>◀️</SwiperButton>
+          <SwiperButton onClick={increasePos}>▶️</SwiperButton>
         </SwiperButtonWrapper>
       )}
     </Wrapper>
