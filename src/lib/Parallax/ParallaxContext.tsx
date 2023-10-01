@@ -1,26 +1,63 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useEffect, useState, useRef, useMemo } from 'react';
 
 interface ParallaxContextProps {
-  scroll: number;
+  yOffsetRatio: number;
 }
 
-const ParallaxContext = createContext<ParallaxContextProps>({ scroll: 0 });
+const ParallaxContext = createContext<ParallaxContextProps>({ yOffsetRatio: 0 });
 
 export const useScrollContext = () => useContext(ParallaxContext);
 
-interface ParallaxProviderProps {}
+interface ParallaxProviderProps {
+  css: React.CSSProperties;
+}
 
-export const ParallaxProvider = ({ children }: PropsWithChildren<ParallaxProviderProps>) => {
-  const [scroll, setScroll] = useState(0);
+export const ParallaxProvider = ({ css, children }: PropsWithChildren<ParallaxProviderProps>) => {
+  const parallaxRef = useRef<HTMLDivElement | null>(null);
+  const [yOffsetRatio, setYOffsetRatio] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScroll(window.scrollY);
-    };
-    window.addEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const windowY = window.scrollY;
+        const elementOffsetTop = parallaxRef.current.offsetTop;
 
-    return () => window.removeEventListener('scroll', onScroll);
+        const centerOffset = windowY - elementOffsetTop;
+        const elementHeight = parallaxRef.current.offsetHeight;
+
+        const offsetRatio = centerOffset / elementHeight;
+
+        setYOffsetRatio(offsetRatio);
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return;
+      }
+      window.removeEventListener('scroll', handleScroll);
+    });
+
+    if (parallaxRef.current) {
+      observer.observe(parallaxRef.current);
+    }
+
+    const cloneRef = parallaxRef.current;
+    return () => {
+      if (cloneRef) {
+        observer.disconnect();
+      }
+    };
   }, []);
 
-  return <ParallaxContext.Provider value={{ scroll }}>{children}</ParallaxContext.Provider>;
+  const memoizedValue = useMemo(() => ({ yOffsetRatio }), [yOffsetRatio]);
+
+  return (
+    <ParallaxContext.Provider value={memoizedValue}>
+      <div ref={parallaxRef} style={css}>
+        {children}
+      </div>
+    </ParallaxContext.Provider>
+  );
 };

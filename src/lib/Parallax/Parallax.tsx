@@ -1,5 +1,5 @@
 import { PropsWithChildren, useRef, useState, useEffect } from 'react';
-import { useScrollContext } from './ParallaxContext';
+import { useScrollContext, ParallaxProvider } from './ParallaxContext';
 
 type ParallaxProps = {
   image?: string;
@@ -10,8 +10,7 @@ type ParallaxProps = {
 const Parallax = ({ image, height = '100vh', css, children }: PropsWithChildren<ParallaxProps>) => {
   const containerStyles: React.CSSProperties = {
     height,
-    overflowX: 'hidden',
-    overflowY: 'hidden',
+    overflow: 'hidden',
     background: image && `no-repeat center url(${image})`,
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
@@ -19,27 +18,29 @@ const Parallax = ({ image, height = '100vh', css, children }: PropsWithChildren<
     ...css,
   };
 
-  return <div style={containerStyles}>{children}</div>;
+  return <ParallaxProvider css={containerStyles}>{children}</ParallaxProvider>;
 };
 
 type ParallaxItemProps = {
   speed: number;
   image?: string;
-  width?: React.CSSProperties['width'];
   inset?: React.CSSProperties['inset'];
+  css?: React.CSSProperties;
 };
 
-const Item = ({ speed, image, width = '100%', inset = 0, children }: PropsWithChildren<ParallaxItemProps>) => {
-  const { scroll } = useScrollContext();
+const Item = ({ speed, image, inset = 0, css, children }: PropsWithChildren<ParallaxItemProps>) => {
+  const { yOffsetRatio } = useScrollContext();
+
+  const yOffset = yOffsetRatio * (speed * 50);
 
   const parallaxStyles: React.CSSProperties = {
     willChange: 'transform',
-    transform: `translate3d(0,${(scroll / 20) * speed}px,0)`,
-    background: image ? `url(${image}) no-repeat center` : '',
+    background: image && `url(${image}) no-repeat center`,
     backgroundSize: 'cover',
+    transform: `translate3d(0,${yOffset}px, 0)`,
     position: 'absolute',
-    width,
     inset,
+    ...css,
   };
 
   return <div style={parallaxStyles}>{children}</div>;
