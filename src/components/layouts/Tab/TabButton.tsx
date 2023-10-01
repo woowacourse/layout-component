@@ -15,7 +15,7 @@ const TabButton = (props: TabProps) => {
 
 	const selected = !disabled && currentIndex === value;
 	const { color } = currentStyle;
-	console.log(color);
+
 	return (
 		<Tab
 			role='tab'
@@ -35,7 +35,7 @@ const Tab = styled.button<{ selected: boolean; color: CSSProperties['color'] }>`
 	cursor: pointer;
 
 	min-width: ${MIN_TAB_LENGTH}px;
-	height: 100%;
+	min-height: 40px;
 	padding: 4px 12px;
 
 	font-size: 1.4rem;

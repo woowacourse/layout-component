@@ -129,3 +129,22 @@ export const TabOtherColor: Story = {
 		);
 	},
 };
+
+export const VertiCalTab: Story = {
+	render: () => {
+		const tabs = Array.from({ length: 20 }).map((_, index) => ({
+			id: `${index}`,
+			title: `${index + 1}번 탭`,
+			content: `${index + 1}번 탭`,
+		}));
+
+		return (
+			<Tabs direction='vertical' customCss={{ height: 300 }}>
+				<Tabs.Lists items={tabs} color='blue' moveButton />
+				<Tabs.Contents
+					items={tabs.map(({ id, content }) => ({ id, content }))}
+				/>
+			</Tabs>
+		);
+	},
+};

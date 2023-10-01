@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { MIN_TAB_LENGTH } from '../../../../constants';
+import useTabsContext from './useTabContext';
 
 interface useTabButtonProps {
 	children: JSX.Element[];
@@ -12,6 +13,10 @@ const useTabButton = ({ children, moveButton }: useTabButtonProps) => {
 
 	const [showButton, setShowButton] = useState(false);
 	const countArray = children.length;
+
+	const {
+		currentStyle: { direction = 'horizon' },
+	} = useTabsContext();
 
 	useLayoutEffect(() => {
 		if (!tabContainerRef.current) return;
@@ -29,12 +34,20 @@ const useTabButton = ({ children, moveButton }: useTabButtonProps) => {
 		const { dataset } = event.currentTarget;
 
 		if (dataset['direction'] === 'prev') {
-			tabList.scrollLeft -= containerRect.width;
+			if (direction === 'horizon') {
+				tabList.scrollLeft -= containerRect.width;
+			} else {
+				tabList.scrollTop -= containerRect.height;
+			}
 			return;
 		}
 
 		if (dataset['direction'] === 'next') {
-			tabList.scrollLeft += containerRect.width;
+			if (direction === 'horizon') {
+				tabList.scrollLeft += containerRect.width;
+			} else {
+				tabList.scrollTop += containerRect.height;
+			}
 			return;
 		}
 	};

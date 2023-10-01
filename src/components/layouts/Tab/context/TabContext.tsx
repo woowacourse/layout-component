@@ -6,9 +6,11 @@ import {
 	createContext,
 	useState,
 } from 'react';
+import { Direction } from '../../../../models/TabTypes';
 
 interface CurrentStyleProps {
 	color?: CSSProperties['color'];
+	direction?: Direction;
 }
 
 type TabsStyleProps = {
@@ -23,23 +25,21 @@ type TabsIndexProps = {
 
 type TabsProviderProps = {
 	children: ReactNode;
+	direction?: Direction;
 };
 
 export type TabsContextProps = TabsIndexProps & TabsStyleProps;
 
-const initialContext: TabsContextProps = {
-	currentIndex: 0,
-	setCurrentIndex: () => {},
-	currentStyle: { color: 'green' },
-	setCurrentStyle: () => {},
-};
+export const TabsContext = createContext<TabsContextProps | null>(null);
 
-export const TabsContext = createContext<TabsContextProps>(initialContext);
-
-const TabsProvider = ({ children }: TabsProviderProps) => {
+const TabsProvider = ({
+	children,
+	direction = 'horizon',
+}: TabsProviderProps) => {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 	const [currentStyle, setCurrentStyle] = useState<CurrentStyleProps>({
 		color: 'green',
+		direction,
 	});
 
 	return (

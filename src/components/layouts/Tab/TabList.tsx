@@ -7,6 +7,7 @@ import TabButton from './TabButton';
 import useTabsContext from './hooks/useTabContext';
 import useChangeTab from './hooks/useChangeTab';
 import { useLayoutEffect } from 'react';
+import { Direction } from '../../../models/TabTypes';
 
 const TabList = (props: TabListProps) => {
 	const {
@@ -16,7 +17,12 @@ const TabList = (props: TabListProps) => {
 		color = 'green',
 	} = props;
 
-	const { currentIndex, setCurrentIndex, setCurrentStyle } = useTabsContext();
+	const {
+		currentIndex,
+		currentStyle: { direction = 'horizon' },
+		setCurrentIndex,
+		setCurrentStyle,
+	} = useTabsContext();
 
 	useLayoutEffect(() => {
 		setCurrentStyle((prev) => ({ ...prev, color }));
@@ -41,14 +47,16 @@ const TabList = (props: TabListProps) => {
 		useTabButton({ children: buttons, moveButton });
 
 	return (
-		<Wrapper ref={tabContainerRef} onClick={handleClick}>
+		<Wrapper ref={tabContainerRef} onClick={handleClick} direction={direction}>
 			<Button
 				type='button'
 				onClick={scrollTabHandler}
 				data-direction='prev'
 				show={showButton}
-			>{`<`}</Button>
-			<TabContainer ref={tabListRef} justify={justify}>
+			>
+				{direction === 'horizon' ? `◀️` : `🔼`}
+			</Button>
+			<TabContainer ref={tabListRef} justify={justify} direction={direction}>
 				{buttons}
 			</TabContainer>
 			<Button
@@ -56,23 +64,41 @@ const TabList = (props: TabListProps) => {
 				onClick={scrollTabHandler}
 				data-direction='next'
 				show={showButton}
-			>{`>`}</Button>
+			>
+				{direction === 'horizon' ? `▶️` : `🔽`}
+			</Button>
 		</Wrapper>
 	);
 };
 
 export default TabList;
 
-const Wrapper = styled.div<{ customCss?: CSSObject }>`
+const Wrapper = styled.div<{
+	direction: Direction;
+	customCss?: CSSObject;
+}>`
 	position: relative;
 
 	display: flex;
+	flex-direction: ${({ direction }) =>
+		direction === 'horizon' ? 'row' : 'column'};
 	gap: 4px;
 
 	height: 100%;
 	padding: 0;
 
-	border-bottom: solid 0.5px rgba(0, 0, 0, 0.7);
+	${({ direction }) => {
+		if (direction === 'horizon') {
+			return css({
+				borderBottom: 'solid 0.5px rgba(0, 0, 0, 0.7)',
+			});
+		} else {
+			return css({
+				borderRight: 'solid 0.5px rgba(0, 0, 0, 0.7)',
+			});
+		}
+	}}
+
 	${({ customCss }) => customCss && css(customCss)}
 `;
 
@@ -83,6 +109,7 @@ const Button = styled.button<{ show: boolean }>`
 	align-items: center;
 
 	width: 20px;
+	margin: 0 auto;
 
 	background: transparent;
 	border: none;
@@ -90,6 +117,7 @@ const Button = styled.button<{ show: boolean }>`
 
 const TabContainer = styled.div<{
 	justify: Justify;
+	direction: Direction;
 }>`
 	scroll-behavior: smooth;
 
@@ -98,6 +126,8 @@ const TabContainer = styled.div<{
 	overflow: auto hidden;
 	display: inline-flex;
 	flex: 1 1 auto;
+	flex-direction: ${({ direction }) =>
+		direction === 'horizon' ? 'row' : 'column'};
 	justify-content: ${({ justify }) => justify && justify};
 
 	max-width: calc(100%-40px);
