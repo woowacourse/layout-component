@@ -121,10 +121,9 @@ ParallaxScrolling 컴포넌트는 사용자의 스크롤 동작에 반응하여 
 ParallaxScrolling 컴포넌트는 다음과 같은 속성(props)을 받아들입니다:
 
 `children`: ParallaxItem 컴포넌트를 통해 패럴랙스 효과를 적용할 이미지 요소들을 지정합니다.
-`perspective`: 3D 효과의 강도를 결정하는 투시도를 설정합니다. 값이 클수록 더 강한 3D 효과가 발생합니다.
 
 ```jsx
-<ParallaxScrolling perspective={500}>
+<ParallaxScrolling>
   <ParallaxItem imgUrl='imageURL' speed={0.1} scale={25} objectFit='cover' />
   <ParallaxItem imgUrl='imageURL' speed={0.8} scale={3} objectFit='contain' />
   {/* 추가 ParallaxItem 컴포넌트 */}

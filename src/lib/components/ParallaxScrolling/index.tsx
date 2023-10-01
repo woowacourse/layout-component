@@ -3,15 +3,11 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 interface ParallaxScrollingProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
-  perspective?: number;
 }
 
-const ParallaxScrolling = ({
-  children,
-  perspective,
-}: ParallaxScrollingProps) => {
+const ParallaxScrolling = ({ children }: ParallaxScrollingProps) => {
   return (
-    <Layout perspective={perspective}>
+    <Layout>
       <Container>{children}</Container>
     </Layout>
   );
@@ -19,9 +15,7 @@ const ParallaxScrolling = ({
 
 export default ParallaxScrolling;
 
-type LayoutProps = Omit<ParallaxScrollingProps, 'children'>;
-
-const Layout = styled.div<LayoutProps>`
+const Layout = styled.div`
   height: 100vh;
   overflow-x: hidden;
 
