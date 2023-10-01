@@ -15,7 +15,7 @@ export default function Panels({ activeTab, children }: Props) {
       {Children.map(children, (child, index) => {
         if (activeTab !== index) return null;
 
-        return <article className={cx('panel')}>{child}</article>;
+        return <section className={cx('panel')}>{child}</section>;
       })}
     </div>
   );
