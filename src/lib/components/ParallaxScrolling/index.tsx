@@ -31,10 +31,6 @@ const Layout = styled.div<LayoutProps>`
 const Container = styled.div`
   position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   height: 100%;
 
   transform-style: preserve-3d;
