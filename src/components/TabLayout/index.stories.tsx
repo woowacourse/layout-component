@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TabLayout from '.';
 import Container from '../Container';
 
-const tabs = ['1번', '2번', '3번'];
+const tabs = ['1번', '2번', '33333333333333333번', '444444444444444444444444444444444번'];
 
 const meta = {
   title: 'TabLayout',
@@ -25,6 +25,7 @@ export const Primary: Story = {
         <Container>탭1</Container>
         <Container>탭2</Container>
         <Container>탭3</Container>
+        <Container>탭4</Container>
       </TabLayout>
     );
   },

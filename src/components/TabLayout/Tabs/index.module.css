@@ -1,6 +1,7 @@
 .tab-button-list {
   display: flex;
   align-items: 'center';
+  width: 100%;
 
   box-shadow: var(--tab-position) #e2e8f0 inset;
   background-color: transparent;
@@ -8,6 +9,7 @@
 
 .item {
   background-color: transparent;
+  overflow: hidden;
 }
 
 .active-item {
@@ -20,6 +22,9 @@
   padding: 8px 16px;
 
   font-size: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tab-button:active {

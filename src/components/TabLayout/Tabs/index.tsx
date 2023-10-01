@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-import { TabJustify, TabPosition } from '..';
+import { TabButtonWidth, TabJustify, TabPosition } from '..';
 
 import styles from './index.module.css';
 import classNames from 'classnames/bind';
@@ -45,15 +45,32 @@ const generateBoxShadowPosition = (tabPosition: TabPosition) => {
   return { '--tab-position': boxShadowSetWithTabPosition[tabPosition] };
 };
 
+const generateTabButtonWidth = (tabButtonWidth: TabButtonWidth, length: number) => {
+  const tabButtonWidthSet = {
+    small: `calc(100% / ${length * 2})`,
+    large: `calc(100% / ${length})`,
+  };
+
+  return { width: tabButtonWidthSet[tabButtonWidth] };
+};
+
 interface Props {
   tabJustify: TabJustify;
   tabPosition: TabPosition;
+  tabButtonWidth: TabButtonWidth;
   tabs: string[];
   activeTab: number;
   activateTab: (index: number) => void;
 }
 
-export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activateTab }: Props) {
+export default function Tabs({
+  tabJustify,
+  tabPosition,
+  tabButtonWidth,
+  tabs,
+  activeTab,
+  activateTab,
+}: Props) {
   return (
     <ul
       className={cx('tab-button-list')}
@@ -66,7 +83,10 @@ export default function Tabs({ tabJustify, tabPosition, tabs, activeTab, activat
         return (
           <li
             className={cx('item', { 'active-item': activeTab === index })}
-            style={{ ...generateBoxShadowPosition(tabPosition) }}
+            style={{
+              ...generateBoxShadowPosition(tabPosition),
+              ...generateTabButtonWidth(tabButtonWidth, tabs.length),
+            }}
             key={tab}
           >
             <button

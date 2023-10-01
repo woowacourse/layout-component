@@ -22,6 +22,7 @@ const directionSetWithTabPosition: Record<TabPosition, CSSProperties> = {
 
 export type TabJustify = 'start' | 'center' | 'end';
 export type TabPosition = 'top' | 'right' | 'left' | 'bottom';
+export type TabButtonWidth = 'small' | 'large';
 
 interface Props
   extends Omit<
@@ -38,10 +39,12 @@ interface Props
   tabs: string[];
   tabJustify?: TabJustify;
   tabPosition?: TabPosition;
+  tabButtonWidth?: TabButtonWidth;
 }
 
 export default function TabLayout({
   tabs,
+  tabButtonWidth = 'large',
   tabJustify = 'start',
   tabPosition = 'top',
   position,
@@ -85,6 +88,7 @@ export default function TabLayout({
       {...rest}
     >
       <Tabs
+        tabButtonWidth={tabButtonWidth}
         tabJustify={tabJustify}
         tabPosition={tabPosition}
         tabs={tabs}
