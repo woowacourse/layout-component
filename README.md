@@ -126,16 +126,7 @@ return (
 ## 사용 방법
 
 ```tsx
-import {
-	Grid,
-	Flex,
-	Container,
-	TabList,
-	TabButton,
-	TabPanels,
-	TabPanel,
-	useChangeTab,
-} from '@hozzijeong/layout-component';
+import { Grid, Flex, Container, Tabs } from '@hozzijeong/layout-component';
 ```
 
 위와 같이 import 한 다음에 각각의 사용 안내에 따라 사용하시면 됩니다.
