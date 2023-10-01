@@ -76,76 +76,51 @@ CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는
 
 여러 개의 컴포넌트 중 하나만 화면에 보여주고, 사용자가 선택한 탭에 따라 보여주는 컴포넌트를 변경합니다. 탭을 클릭하면 해당 탭의 내용만 볼 수 있고 탭의 순서와 이름을 조절할 수 있습니다.
 
-### TabList
+### Tabs
 
-`TabButton`을 감싸는 컴포넌트 입니다. 해당 컴포넌트를 부모 컴포넌트로 설정하고 자식으로 `TabButton`을 설정할 수 있습니다.
+`Tab Component`를 사용할 때 최상위에 선언해야 하는 컴포넌트 입니다.
 
+- customCss: 개인적으로 디자인을 추가할 수 있습니다.
+- direction: `vertical` | `horizon`으로 탭을 수직으로 볼 것인지, 수평으로 볼 것인지 설정할 수 있습니다 (optional, default: `horizon`)
+
+### Tabs.List
+
+`Tabs Component`안에서 선언되는 컴포넌트 입니다. 콘텐츠의 title을 저장하는 역할을 합니다.
+
+- items: 각각의 `Tab`을 나타내는 prop입니다. 아래 특성들을 가진 배열을 받습니다.
+  - id: 해당 탭을 나타내는 고유 id입니다.
+  - title: 해당 탭의 이름을 나타냅니다.
+  - disable: 사용하지 않을 탭을 설정합니다. (optional)
 - justify: 탭 버튼의 위치를 조절할 수 있습니다.
-- onClick: 탭 버튼 클릭에 대한 click handler입니다.
 - moveButton: 탭이 width를 초과할 때 좌,우로 스크롤 하는 버튼을 추가할지 여부를 결정합니다.
 - customCss: 이외에 개인적으로 디자인을 추가할 수 있습니다.
+- color: 선택된 탭의 색을 변경할 수 있습니다 (optional, default `green`)
 
-### TabButton
+### Tabs.Contents
 
-사용자가 직접 지정한 탭 버튼입니다. `TabList`안에서 사용할 수 있습니다.
+`Tabs.List`에 맞춰서 보여줄 content입니다.
 
-- label: 탭의 이름을 나타냅니다.;
-- order: 탭의 고유 값을 나타냅니다.;
-- value: 현재 활성화 된 탭의 값을 나타냅니다.;
-- disabled: 사용하지 않을 탭을 설정합니다.;
+- items: 각각의 `Tab`의 `content`를 나타내는 prop입니다. 아래 특성들을 가진 배열을 받습니다.
+  - id: 해당 콘텐츠를 나타내는 고유 id입니다.
+  - content: 해당 탭의 콘텐츠를 나타냅니다.
 
-### TabPanels
-
-`TabPanel`이 들어갈 부모 컴포넌트 입니다. 굳이 사용하지 않아도 됩니다.
-
-### TabPanel
-
-`TabButton`과 1:1로 매핑되는 컴포넌트 입니다.
-order: `TabButton`에 작용된 고유 값입니다.
-value: 현재 활성화 된 `TabButton`을 나타냅니다.
-
-### useChangeTab
-
-`TabButton`에 들어갈 고유 값과 click handler를 반환하는 custom hook입니다.
-
-#### input
-
-- tabs: tab에 들어갈 문자열들을 배열로 받습니다.
-- changeCallback?: 탭을 클릭하고 난 다음에 실행할 callback 입니다.
-
-#### output
-
-- ids: `TabButton`과 `TabPanel`의 `order`에 들어갈 고유한 값입니다. 매칭하고 싶은 `button`과 `panel`에 같은 값을 할당하면 됩니다.
-- handleClick: 탭 버튼을 클릭했을 때 실행되는 handler입니다. `TabList`에 onClick으로 할당하면 됩니다.
-- current: 현재 실행되고 있는 값을 의미합니다. `TabButton`과 `TabPanel`의 `value`에 할당하면 됩니다.
+'
 
 ```tsx
-const tabs = [
-	'active',
-	'active',
-	'active'
-]
-const { ids, current, handleClick } = useChangeTab({ tabs });
+const tabs = Array.from({ length: 20 }).map((_, index) => ({
+	id: `${index}`,
+	title: `${index + 1}번 탭`,
+	content: `${index + 1}번 탭`,
+}));
 
-const tabMenu = tabs.map((content, index) => (
-
-));
+const contents = tabs.map(({ id, content }) => ({ id, content }));
 
 return (
-	<div>
-		<TabList customCss={{ width: 520 }} onClick={handleClick}>
-			<TabButton label='active' order={ids[0]} value={current} />
-			<TabButton label='active' order={ids[1]} value={current} />
-			<TabButton label='active' order={ids[2]} value={current} />
-		</TabList>
-		<TabPanels>
-			<TabPanel value={current} order={ids[0]}>1번 탭</TabPanel>
-			<TabPanel value={current} order={ids[1]}>2번 탭</TabPanel>
-			<TabPanel value={current} order={ids[2]}>3번 탭</TabPanel>
-		</TabPanels>
-	</div>
-)
-
+	<Tabs customCss={{ width: 520 }}>
+		<Tabs.Lists items={tabs} color='blue' moveButton />
+		<Tabs.Contents items={contents} />
+	</Tabs>
+);
 ```
 
 ## 사용 방법
