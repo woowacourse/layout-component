@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Container>;
  */
 
 const meta: Meta<typeof Container> = {
-  title: 'Container',
+  title: 'Layout-Component/Container',
   component: Container,
 };
 

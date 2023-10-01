@@ -1,6 +1,6 @@
 # Yeopto's React Layout Component
 
-This library provides components that make it easy to implement various layouts using React. The library is written in TypeScript, and each component is helpful when creating screen layouts.
+This library provides components that make it easy to implement various layouts using React and offers several useful UI components. This library is built using TypeScript and Styled-Components.
 
 ## Installation
 
@@ -43,7 +43,7 @@ import { Container } from 'yeopto-react-layout-component';
 
 const App = () => {
   return (
-    <Container minWidth={600} maxWidth={960} unit='px'>
+    <Container minWidth={600} maxWidth={960} unit="px">
       <div>Content</div>
     </Container>
   );
@@ -64,7 +64,7 @@ The `Grid` component implements a layout that arranges child components in a gri
 - `rowGap(optional)`: type is number. Adjusts the row gap between child components.
 - `colGap(optional)`: type is number. Adjusts the column gap between child components.
 - `justifyItems(optional)`: type is `flex-start` | `flex-end` | `center`. default is `flex-start`
-- `children`: type is React.ReactNode. A child component of the Container component.
+- `children`: type is React.ReactNode. A child component of the Grid component.
 
 ### User Guide
 
@@ -104,7 +104,7 @@ The `Flex` component implements a layout that flexibly arranges child components
 - `justify(optional)`: type is `flex-start` | `flex-end` | `center` | `space-between` | `space-around`. aligns items along the main axis. default value is `flex-start`
 - `align(optional)`: type is `flex-start` | `flex-end` | `center` | `stretch`. aligns items along the cross-axis. default value is `stretch`
 - `gap(optional)`: type is number. Adjusts the spacing between child components.
-- `children`: type is React.ReactNode. A child component of the Container component.
+- `children`: type is React.ReactNode. A child component of the Flex component.
 
 ### User Guide
 
@@ -134,6 +134,52 @@ const App = () => {
 export default App;
 ```
 
+## Drawer Component
+
+The `Drawer` component is a component that allows you to open and close a sidebar, like a drawer, from one side of the screen.
+
+### Props
+
+- `anchor(optional)`: type is `top` | `bottom` | `left` | `right`. Determines the direction from which it opens. default value is `left`.
+- `isOpen`: type is `boolean`. Determines whether the Drawer is open or closed.
+- `toggleDrawer`: type is `() => void`. This is a function that allows opening and closing.
+- `children(optional)`: type is `React.ReactNode` or `undefined`. this type originated from `PropsWithChildren`.
+
+### User Guide
+
+**Import Library**
+
+```tsx
+import { Drawer } from 'yeopto-react-layout-component';
+```
+
+**Using Example Code**
+
+```tsx
+import React, { useState } from 'react';
+import { Drawer } from 'yeopto-react-layout-component';
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOnClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <button onClick={handleOnClick}>Open Drawer</button>
+      <Drawer isOpen={isOpen} toggleDrawer={handleOnClick}>
+        <h2>Drawer Content</h2>
+        <p>This is the content of the drawer.</p>
+      </Drawer>
+    </>
+  );
+};
+
+export default App;
+```
+
 ## Development Environment
 
 - React + TypeScript (Vite)
@@ -141,4 +187,4 @@ export default App;
 
 ## Version
 
-- 0.0.6 (latest)
+- 0.1.2 (latest)
