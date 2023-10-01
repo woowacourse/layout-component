@@ -419,7 +419,7 @@ function App() {
 
 ```tsx
 Copy code
-import TabLayout from 'your-library/TabLayout';
+import { TabLayout } from 'react-aaker-layout-components';
 
 function App() {
   return (
