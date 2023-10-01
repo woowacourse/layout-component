@@ -69,7 +69,7 @@ const buttonStyle = ({ isSelected, iconDirection, hidden }: StyleProps) => {
     },
 
     '&:not(:disabled):hover': {
-      backgroundColor: '#bfbfbf',
+      backgroundColor: isSelected ? '#fff' : '#bfbfbf',
     },
   });
 };
