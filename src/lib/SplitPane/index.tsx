@@ -92,38 +92,22 @@ export default function SplitPane({
 
 const Container = styled.div<{
   $size: string;
-  $minSize: string;
-  $maxSize: string;
+  $minSize: PercentageString;
+  $maxSize: PercentageString;
 }>`
   display: flex;
-  width: ${(props) => props.$size};
+  width: ${({ $size }) => $size};
   border: 2px solid #e7e7e7;
   border-radius: 7px;
 `;
 
-const FirstPane = styled.div<{
-  $size: string;
-  $minSize: PercentageString;
-  $maxSize: PercentageString;
-}>`
-  min-width: ${({ $minSize }) => $minSize};
-  max-width: ${({ $maxSize }) => $maxSize};
-
-  width: ${({ $size }) => $size};
+const FirstPane = styled(Pane)`
   border-right: 0.7px solid black;
-
   cursor: ew-resize;
 `;
 
-const SecondPane = styled.div<{
-  $size: string;
-  $minSize: PercentageString;
-  $maxSize: PercentageString;
-}>`
-  min-width: ${({ $minSize }) => $minSize};
-  max-width: ${({ $maxSize }) => $maxSize};
-
-  width: ${({ $size }) => $size};
+const SecondPane = styled(Pane)`
+  cursor: ew-resize;
 `;
 
 function extractNumberFromPercentage(percentageString: string) {
