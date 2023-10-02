@@ -118,3 +118,44 @@ There are several options you can control. `direction`, `justify`, and so on.
 4. `gap`: The `gap` decides gap of columns and rows by entering `number`.
 
 5. `padding`: You can determine `padding` by entering `number` for `Grid`
+
+---
+
+## Drawer
+
+### introduction
+
+This `Drawer` has children for render. `Drawer` appear where anchor you input.
+
+**example**
+
+```tsx
+import { Drawer, useDrawer } from 'rego-layout-component';
+
+// ...
+
+const { isOpen, closeDrawer, openDrawer } = useDrawer();
+
+return (
+  <div>
+    <button onClick={openDrawer}>open drawer</button>
+    <Drawer anchor="left" isOpen={isOpen} closeDrawer={closeDrawer} padding={1}>
+      <div>Home</div>
+      <div>MyPage</div>
+      <div>Setting</div>
+    </Drawer>
+  </div>
+);
+```
+
+### options
+
+1. `anchor`: You can decide on the `direction` option among the following options.
+
+   > 'left' | 'right' | 'top' | 'bottom'
+
+2. `isOpen`: You can control `Drawer`'s state by `isOpen`.
+
+3. `closeDrawer`: This function is used to close `Drawer`.
+
+4. `padding`: You can determine `padding` by entering `number` for `Grid`
