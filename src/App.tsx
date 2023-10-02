@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Container, Flex, Grid, MasonryLayout } from './lib';
+import { Container, Flex, Grid, MasonryLayout } from 'wus-layout-component';
 
 const MOCK_IMAGE_DATA = [
   'https://github.com/woowacourse/layout-component/assets/80146176/e082c132-298a-4d38-b9cf-b34eedc6dd3e',
