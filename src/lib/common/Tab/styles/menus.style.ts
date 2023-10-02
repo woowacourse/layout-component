@@ -15,10 +15,15 @@ export const menuContainerStyle = ({
   vertical = false,
   lineClamp,
 }: menuContainerStyleProps) => css`
-  ${!noUnderline && `box-shadow: 0 3px 0 -1px #eee;`}
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${!noUnderline && `box-shadow: inset 0 -3px 0 -1px #eee;`}
 
   button {
-    ${vertical && `box-shadow: 0 3px 0 -1px #eee;`}
+    ${vertical && `box-shadow: inset 0 -3px 0 -1px #eee;`}
     ${lineClampStyle(lineClamp ? 1 : undefined)}
   }
 
@@ -26,7 +31,7 @@ export const menuContainerStyle = ({
     font-weight: 600;
     color: ${highlightColor};
 
-    ${!noUnderline && `box-shadow: 0 3px 0 -1px ${highlightColor};`}
+    ${!noUnderline && `box-shadow: inset 0 -3px 0 -1px ${highlightColor};`}
 
     fill: ${highlightColor};
     stroke: ${highlightColor};
