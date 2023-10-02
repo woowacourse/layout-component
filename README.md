@@ -9,7 +9,7 @@
 
 ## Version
 
-> Latest version: 0.1.3 (updated in 2023.09.26s)
+> Latest version: 0.1.3 (updated in 2023.09.26)
 
 - Major package version
   - "react": "^18.2.0"
