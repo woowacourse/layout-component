@@ -278,7 +278,7 @@ const MOCK_RANDOM_IMAGE_LIST = new Array(IMAGE_URL.length).fill(1).map(() => {
 function MasonryLayoutStory(props: ComponentProps) {
   return (
     <MasonryLayout {...props}>
-      {MOCK_RANDOM_IMAGE_LIST.map((item) => {
+      {MOCK_RANDOM_IMAGE_LIST.map(item => {
         return <Image loading="lazy" src={item} alt="랜덤 이미지" />;
       })}
     </MasonryLayout>
@@ -286,12 +286,26 @@ function MasonryLayoutStory(props: ComponentProps) {
 }
 
 export const ColumnMasonry: Story = {
-  render: (props) => <MasonryLayoutStory {...props} />,
+  render: props => <MasonryLayoutStory {...props} />,
   args: {
     itemSize: 300,
     fullScreen: true,
     p: '36px',
     gap: '16px',
+  },
+};
+
+export const ResponsiveMasonry: Story = {
+  render: props => <MasonryLayoutStory {...props} />,
+  args: {
+    itemSize: 400,
+    smallItemSize: 300,
+    mediumItemSize: 200,
+    fullScreen: true,
+    px: '100px',
+    gap: '8px',
+    smallGap: '100px',
+    largeGap: '10px',
   },
 };
 

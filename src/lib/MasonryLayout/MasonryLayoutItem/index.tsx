@@ -16,6 +16,17 @@ interface MasonryLayoutItemProps extends PropsWithChildren {
   doubleXLargeGap?: string;
 }
 
+const debounce = (func: any, timeout = 300) => {
+  let timer: NodeJS.Timeout;
+
+  return (...args: any[]) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+};
+
 export default function MasonryLayoutItem({
   children,
   ...rest
@@ -26,12 +37,14 @@ export default function MasonryLayoutItem({
   useEffect(() => {
     if (!itemRef.current) return;
 
-    const resizeObserver = new ResizeObserver((entries) => {
+    const callback = debounce((entries: ResizeObserverEntry[]) => {
       const [entry] = entries;
       const { height } = entry.target.getBoundingClientRect();
 
       setHeight(Math.round(height));
-    });
+    }, 100);
+
+    const resizeObserver = new ResizeObserver(callback);
 
     resizeObserver.observe(itemRef.current);
 

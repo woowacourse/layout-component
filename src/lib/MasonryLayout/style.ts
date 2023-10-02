@@ -4,17 +4,15 @@ import { _MasonryLayoutProps } from '.';
 
 type ComponentProps = _MasonryLayoutProps & CommonStyleProps;
 
-const getGridTemplate = (size: number, responsiveSize?: number) => {
+const getGridTemplate = (responsiveSize?: number) => {
   if (!responsiveSize) {
-    return `repeat(auto-fill, minmax(${size}px, 1fr))`;
+    return;
   }
 
   return `repeat(auto-fill, minmax(${responsiveSize}px, 1fr))`;
 };
 
 const getGridColumGap = ({
-  gap,
-  columnGap = '0',
   responsiveGap,
   responsiveColumnGap,
 }: {
@@ -23,10 +21,10 @@ const getGridColumGap = ({
   responsiveGap?: string;
   responsiveColumnGap?: string;
 }) => {
-  const defaultGap = gap ? gap : columnGap;
   const responseColumnGap = responsiveGap ? responsiveGap : responsiveColumnGap;
+
   if (!responseColumnGap) {
-    return defaultGap;
+    return;
   }
 
   return responseColumnGap;
@@ -34,6 +32,7 @@ const getGridColumGap = ({
 
 export const Component = styled(CommonTag)<ComponentProps>`
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: ${({ itemSize }) =>
     `repeat(auto-fill, minmax(${itemSize}px, 1fr))`};
 
@@ -41,65 +40,50 @@ export const Component = styled(CommonTag)<ComponentProps>`
   grid-column-gap: ${({ gap, columnGap = '0' }) => (gap ? gap : columnGap)};
 
   @media (min-width: 640px) {
-    grid-template-columns: ${({ itemSize, smallItemSize }) =>
-      getGridTemplate(itemSize, smallItemSize)};
-    grid-column-gap: ${({ gap, columnGap, smallGap, smallColumnGap }) =>
+    grid-template-columns: ${({ smallItemSize }) =>
+      getGridTemplate(smallItemSize)};
+    grid-column-gap: ${({ smallGap, smallColumnGap }) =>
       getGridColumGap({
-        gap,
-        columnGap,
         responsiveGap: smallGap,
         responsiveColumnGap: smallColumnGap,
       })};
   }
 
   @media (min-width: 768px) {
-    grid-template-columns: ${({ itemSize, mediumItemSize }) =>
-      getGridTemplate(itemSize, mediumItemSize)};
-    grid-column-gap: ${({ gap, columnGap, mediumGap, mediumColumnGap }) =>
+    grid-template-columns: ${({ mediumItemSize }) =>
+      getGridTemplate(mediumItemSize)};
+    grid-column-gap: ${({ mediumGap, mediumColumnGap }) =>
       getGridColumGap({
-        gap,
-        columnGap,
         responsiveGap: mediumGap,
         responsiveColumnGap: mediumColumnGap,
       })};
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: ${({ itemSize, largeItemSize }) =>
-      getGridTemplate(itemSize, largeItemSize)};
-    grid-column-gap: ${({ gap, columnGap, largeGap, largeColumnGap }) =>
+    grid-template-columns: ${({ largeItemSize }) =>
+      getGridTemplate(largeItemSize)};
+    grid-column-gap: ${({ largeGap, largeColumnGap }) =>
       getGridColumGap({
-        gap,
-        columnGap,
         responsiveGap: largeGap,
         responsiveColumnGap: largeColumnGap,
       })};
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: ${({ itemSize, xLargeItemSize }) =>
-      getGridTemplate(itemSize, xLargeItemSize)};
-    grid-column-gap: ${({ gap, columnGap, xLargeGap, xLargeColumnGap }) =>
+    grid-template-columns: ${({ xLargeItemSize }) =>
+      getGridTemplate(xLargeItemSize)};
+    grid-column-gap: ${({ xLargeGap, xLargeColumnGap }) =>
       getGridColumGap({
-        gap,
-        columnGap,
         responsiveGap: xLargeGap,
         responsiveColumnGap: xLargeColumnGap,
       })};
   }
 
   @media (min-width: 1536px) {
-    grid-template-columns: ${({ itemSize, doubleXLargeItemSize }) =>
-      getGridTemplate(itemSize, doubleXLargeItemSize)};
-    grid-column-gap: ${({
-      gap,
-      columnGap,
-      doubleXLargeGap,
-      doubleXLargeColumnGap,
-    }) =>
+    grid-template-columns: ${({ doubleXLargeItemSize }) =>
+      getGridTemplate(doubleXLargeItemSize)};
+    grid-column-gap: ${({ doubleXLargeGap, doubleXLargeColumnGap }) =>
       getGridColumGap({
-        gap,
-        columnGap,
         responsiveGap: doubleXLargeGap,
         responsiveColumnGap: doubleXLargeColumnGap,
       })};
