@@ -1,3 +1,4 @@
+import React from 'react'
 import { Container as ContainerPat } from 'react-layout-component-pat'
 import styled from 'styled-components'
 

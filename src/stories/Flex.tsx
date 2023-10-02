@@ -1,3 +1,4 @@
+import React from 'react'
 import { Flex as FlexPat } from 'react-layout-component-pat'
 
 type Direction = 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined
