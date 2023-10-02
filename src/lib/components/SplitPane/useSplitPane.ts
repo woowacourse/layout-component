@@ -150,6 +150,10 @@ const useSplitPane = (props: UseSplitPaneProps) => {
       });
     };
 
+    const handleIgnoreEvent = (event: MouseEvent) => {
+      event.preventDefault();
+    };
+
     const rootElement = rootRef.current;
 
     if (!rootElement) {
@@ -157,13 +161,17 @@ const useSplitPane = (props: UseSplitPaneProps) => {
     }
 
     rootElement.addEventListener('mousedown', handleMouseDown);
-    rootElement.addEventListener('mousemove', handleMouseMove);
-    rootElement.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    rootElement.addEventListener('dragstart', handleIgnoreEvent);
+    rootElement.addEventListener('drop', handleIgnoreEvent);
 
     return () => {
       rootElement.removeEventListener('mousedown', handleMouseDown);
-      rootElement.removeEventListener('mousemove', handleMouseMove);
-      rootElement.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      rootElement.removeEventListener('dragstart', handleIgnoreEvent);
+      rootElement.removeEventListener('drop', handleIgnoreEvent);
     };
   }, [
     getCalculatedElementRatios,
