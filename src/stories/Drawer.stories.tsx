@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Left: Story = {
   render() {
-    const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+    const { isOpen, openModal, closeModal } = useModal();
 
     return (
       <>
@@ -28,7 +28,7 @@ export const Left: Story = {
           Drawer 열기
         </button>
         {isOpen && (
-          <Drawer placement="left" isVisible={isVisible} onClose={closeModal}>
+          <Drawer placement="left" onClose={closeModal}>
             <div style={{ width: '20vw', height: '100vh', backgroundColor: '#81D4FA' }}>Contents</div>
           </Drawer>
         )}
@@ -39,7 +39,7 @@ export const Left: Story = {
 
 export const Right: Story = {
   render() {
-    const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+    const { isOpen, openModal, closeModal } = useModal();
 
     return (
       <>
@@ -47,7 +47,7 @@ export const Right: Story = {
           Drawer 열기
         </button>
         {isOpen && (
-          <Drawer placement="right" isVisible={isVisible} onClose={closeModal}>
+          <Drawer placement="right" onClose={closeModal}>
             <div style={{ width: '20vw', height: '100vh', backgroundColor: '#81D4FA' }}>Contents</div>
           </Drawer>
         )}
@@ -58,7 +58,7 @@ export const Right: Story = {
 
 export const Top: Story = {
   render() {
-    const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+    const { isOpen, openModal, closeModal } = useModal();
 
     return (
       <>
@@ -66,7 +66,7 @@ export const Top: Story = {
           Drawer 열기
         </button>
         {isOpen && (
-          <Drawer placement="top" isVisible={isVisible} onClose={closeModal}>
+          <Drawer placement="top" onClose={closeModal}>
             <div style={{ width: '100vw', height: '20vh', backgroundColor: '#81D4FA' }}>Contents</div>
           </Drawer>
         )}
@@ -77,7 +77,7 @@ export const Top: Story = {
 
 export const Bottom: Story = {
   render() {
-    const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+    const { isOpen, openModal, closeModal } = useModal();
 
     return (
       <>
@@ -85,7 +85,7 @@ export const Bottom: Story = {
           Drawer 열기
         </button>
         {isOpen && (
-          <Drawer placement="bottom" isVisible={isVisible} onClose={closeModal}>
+          <Drawer placement="bottom" onClose={closeModal}>
             <div style={{ width: '100vw', height: '20vh', backgroundColor: '#81D4FA' }}>Contents</div>
           </Drawer>
         )}

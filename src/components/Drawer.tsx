@@ -1,17 +1,19 @@
 import { css, keyframes } from '@emotion/react';
+import { useDrawer } from '../hooks/useDrawer';
 import { ComponentPropsWithoutRef } from 'react';
 import { createPortal } from 'react-dom';
 
 export interface DrawerProps extends ComponentPropsWithoutRef<React.ElementType> {
   placement: 'left' | 'right' | 'top' | 'bottom';
-  isVisible: boolean;
   onClose: () => void;
 }
 
-const Drawer = ({ placement = 'left', isVisible, onClose, children }: DrawerProps) => {
+const Drawer = ({ placement = 'left', onClose, children }: DrawerProps) => {
+  const { isVisible, closeDrawer } = useDrawer({ onClose });
+
   return createPortal(
     <>
-      <div css={backdropStyle} onClick={onClose} />
+      <div css={backdropStyle} onClick={closeDrawer} />
       <div
         css={[
           drawerStyles[placement],
