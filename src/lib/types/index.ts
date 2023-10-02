@@ -11,7 +11,4 @@ export type Gap =
     }
   | { gap?: Size };
 
-export type Point = {
-  x: number;
-  y: number;
-};
+export type Direction = 'row' | 'column';
