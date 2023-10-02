@@ -36,103 +36,123 @@ const backdropStyle = css`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
+const SlideOpen = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+`;
+
 const showSheet = {
   left: css`
-    opacity: 0;
-
-    @keyframes SlideLeftToRight {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    animation: SlideLeftToRight 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards;
+    transform: translateX(-100%);
+    animation: ${SlideOpen} 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   right: css`
     opacity: 0;
-
-    @keyframes SlideRightToLeft {
-      0% {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    animation: SlideRightToLeft 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards;
+    transform: translateX(100%);
+    animation: ${SlideOpen} 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   top: css`
     opacity: 0;
-
-    @keyframes SlideTopToBottom {
-      0% {
-        opacity: 0;
-        transform: translateY(-100%);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    animation: SlideTopToBottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards;
+    transform: translateY(-100%);
+    animation: ${SlideOpen} 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   bottom: css`
     opacity: 0;
-
-    @keyframes SlideBottomToTop {
-      0% {
-        opacity: 0;
-        transform: translateY(100%);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    animation: SlideBottomToTop 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards;
+    transform: translateY(100%);
+    animation: ${SlideOpen} 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 };
 
 const hideSheet = {
   left: css`
-    transform: translateX(-100%);
+    opacity: 1;
+
+    @keyframes SlideCloseLeft {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+
+    animation: SlideCloseLeft 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   right: css`
-    transform: translateX(100%);
+    opacity: 1;
+
+    @keyframes SlideCloseRight {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+
+    animation: SlideCloseRight 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   top: css`
-    transform: translateY(-100%);
+    opacity: 1;
+
+    @keyframes SlideCloseTop {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+    }
+
+    animation: SlideCloseTop 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 
   bottom: css`
-    transform: translateY(100%);
+    opacity: 1;
+
+    @keyframes SlideCloseBottom {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+
+    animation: SlideCloseBottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards;
   `,
 };
 
