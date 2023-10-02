@@ -1,7 +1,8 @@
 import type { Meta } from '@storybook/react';
 
-import { sizeArgTypes } from '../styles/size';
-import { spacingArgTypes } from '../styles/spacing';
+import { sizeArgTypes } from '@styles/size';
+import { spacingArgTypes } from '@styles/spacing';
+
 import type { TabProps } from './Tab';
 import Tab from './Tab';
 
@@ -111,12 +112,12 @@ export const SeveralTabs = () => {
 export const TabWithLayoutProp = ({ ...args }) => {
   return (
     <Tab
-    width={400}
-    height={200}
-    layout="centerLeft"
-    css={{ border: '1px solid #000' }}
-    {...args}
-    id="tab-with-layout"
+      width={400}
+      height={200}
+      layout="centerLeft"
+      css={{ border: '1px solid #000' }}
+      {...args}
+      id="tab-with-layout"
     >
       <Tab.Menus width={300}>
         {ENG_DAYS.map((day, index) => (

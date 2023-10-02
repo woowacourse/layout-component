@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
+import { sizeArgTypes } from '@styles/size';
+import { spacingArgTypes } from '@styles/spacing';
+
 import FlexContainer from '../FlexContainer';
-import { sizeArgTypes } from '../styles/size';
-import { spacingArgTypes } from '../styles/spacing';
 import type { FlexItemProps } from './FlexItem';
 import FlexItem from './FlexItem';
 

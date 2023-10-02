@@ -1,6 +1,10 @@
+import { Global } from '@emotion/react';
+
+import { reset } from '@styles/reset';
+import type { Size } from '@styles/size';
+import type { Spacing } from '@styles/spacing';
+
 import type { FlexBasicLayout } from '../FlexContainer/FlexContainer';
-import type { Size } from '../styles/size';
-import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
 import { flexItemStyle } from './styles/flexItem.style';
 
@@ -34,9 +38,12 @@ const FlexItem = ({
   const Tag = tag;
 
   return (
-    <Tag css={flexItemStyle({ order, shrink, grow, flex, alignSelf })} {...attributes}>
-      {children}
-    </Tag>
+    <>
+      <Global styles={reset} />
+      <Tag css={flexItemStyle({ order, shrink, grow, flex, alignSelf })} {...attributes}>
+        {children}
+      </Tag>
+    </>
   );
 };
 

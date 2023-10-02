@@ -37,9 +37,7 @@ const Tab = ({ initialIndex = 0, id, vertical, children, ...attributes }: TabPro
 
   return (
     <FlexContainer direction={vertical ? 'row' : 'column'} gap={16} {...attributes}>
-      <TabContext.Provider value={contextValue}>
-        {children}
-      </TabContext.Provider>
+      <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>
     </FlexContainer>
   );
 };

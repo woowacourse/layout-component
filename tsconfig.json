@@ -9,11 +9,11 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@styles/*": ["src/lib/styles/*"],
+      "@styles/*": ["src/lib/common/styles/*"],
       "@types": ["src/lib/types"],
       "@types/*": ["src/lib/types/*"],
-      "@constants": ["src/lib/constants/index"],
-      "@constants/*": ["src/lib/constants/*"],
+      "@constants": ["src/lib/common/constants/index"],
+      "@constants/*": ["src/lib/common/constants/*"],
       "@utils/*": ["src/lib/utils/*"]
     },
 
