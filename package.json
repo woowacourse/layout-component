@@ -1,6 +1,6 @@
 {
   "name": "woody-tab-layout-component",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple TabLayout Component",
   "type": "module",
   "main": "dist/index.umd.cjs",
