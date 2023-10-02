@@ -15,10 +15,10 @@ export const menuContainerStyle = ({
   vertical = false,
   lineClamp,
 }: menuContainerStyleProps) => css`
-  ${!noUnderline && `box-shadow: 0 2px 0 0 #eee;`}
+  ${!noUnderline && `box-shadow: 0 3px 0 -1px #eee;`}
 
   button {
-    ${vertical && `box-shadow: 0 2px 0 0 #eee;`}
+    ${vertical && `box-shadow: 0 3px 0 -1px #eee;`}
     ${lineClampStyle(lineClamp ? 1 : undefined)}
   }
 
@@ -26,7 +26,7 @@ export const menuContainerStyle = ({
     font-weight: 600;
     color: ${highlightColor};
 
-    ${!noUnderline && `box-shadow: 0 2px 0 0 ${highlightColor};`}
+    ${!noUnderline && `box-shadow: 0 3px 0 -1px ${highlightColor};`}
 
     fill: ${highlightColor};
     stroke: ${highlightColor};
