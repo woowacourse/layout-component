@@ -14,6 +14,9 @@ const preview: Preview = {
       },
     },
   },
+  argTypes: {
+    tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article', 'ul'] },
+  },
 };
 
 export default preview;

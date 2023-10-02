@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Container from '@components/Container';
 import Flex from '@components/Flex';
 
-import { getRandomHexColor, getRandomNumber } from '@utils/random';
+import { getRandomHSLColor, getRandomNumber } from '@utils/random';
 
 const meta = {
   title: 'Flex',
@@ -16,7 +16,6 @@ const meta = {
     },
   },
   argTypes: {
-    tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     rowGap: { control: { type: 'text' } },
     columnGap: { control: { type: 'text' } },
     gap: { control: { type: 'text' } },
@@ -64,7 +63,7 @@ export const Example2: Story = {
               key={index}
               width={randomSize}
               height={randomSize}
-              backgroundColor={getRandomHexColor()}
+              backgroundColor={getRandomHSLColor({ hue: 205 })}
             />
           );
         })}

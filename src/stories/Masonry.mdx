@@ -1,0 +1,25 @@
+import { Canvas, Controls, Description, Meta, Source } from '@storybook/blocks';
+
+import * as MasonryStories from './Masonry.stories.tsx';
+
+<Meta of={MasonryStories} />
+
+# Masonry
+
+<Description />
+
+<Canvas of={MasonryStories.Example1} sourceState="shown" />
+
+## Props
+
+<Controls exclude="children" />
+
+## Examples
+
+### Example 1
+
+<Canvas of={MasonryStories.Example1} />
+
+### Example 2
+
+<Canvas of={MasonryStories.Example2} />

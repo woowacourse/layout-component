@@ -13,7 +13,6 @@ const meta = {
     },
   },
   argTypes: {
-    tag: { control: 'select', options: ['div', 'p', 'span', 'section', 'aside', 'article'] },
     css: {
       control: { type: 'object' },
       description: '스타일을 추가하거나 오버라이딩할 수 있는 방법',

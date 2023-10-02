@@ -23,6 +23,7 @@ const config: StorybookConfig = {
         ...config.resolve.alias,
         '@': path.resolve(__dirname, '../src'),
         '@components': path.resolve(__dirname, '../src/components'),
+        '@hooks': path.resolve(__dirname, '../src/hooks'),
         '@type': path.resolve(__dirname, '../src/types'),
         '@styles': path.resolve(__dirname, '../src/styles'),
         '@constants': path.resolve(__dirname, '../src/constants'),
