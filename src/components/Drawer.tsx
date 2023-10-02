@@ -8,7 +8,7 @@ export interface DrawerProps extends ComponentPropsWithoutRef<React.ElementType>
   onClose: () => void;
 }
 
-const Drawer = ({ placement = 'left', onClose, children }: DrawerProps) => {
+const Drawer = ({ placement, onClose, children }: DrawerProps) => {
   const { isVisible, closeDrawer } = useDrawer({ onClose });
 
   return createPortal(

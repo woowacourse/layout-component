@@ -149,11 +149,11 @@ const { isOpen, openModal, closeModal } = useModal();
 
 ### Drawer Props
 
-| props      | value                                  | description                                 |
-| ---------- | -------------------------------------- | ------------------------------------------- |
-| placement? | 'left' \| 'right' \| 'top' \| 'bottom' | Drawer 컴포넌트의 위치를 지정합니다.        |
-| onClose    | () => void                             | Drawer 컴포넌트를 닫는 함수를 주입받습니다. |
-| children?  | ReactNode                              | Drawer의 자식 컴포넌트입니다.               |
+| props     | value                                  | description                                 |
+| --------- | -------------------------------------- | ------------------------------------------- |
+| placement | 'left' \| 'right' \| 'top' \| 'bottom' | Drawer 컴포넌트의 위치를 지정합니다.        |
+| onClose   | () => void                             | Drawer 컴포넌트를 닫는 함수를 주입받습니다. |
+| children? | ReactNode                              | Drawer의 자식 컴포넌트입니다.               |
 
 ### Usage
 
