@@ -12,3 +12,5 @@ export type Gap =
   | { gap?: Size };
 
 export type Direction = 'row' | 'column';
+
+export type HexColor = `#${string}`;

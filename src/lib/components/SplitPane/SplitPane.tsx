@@ -1,6 +1,6 @@
 import { Children, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
-import type { Direction } from '../../types';
+import type { Direction, HexColor } from '../../types';
 import useSplitPane from './useSplitPane';
 import Resizer from './Resizer/Resizer';
 import * as S from './SplitPane.styled';
@@ -11,6 +11,7 @@ type SplitPaneProps = {
   defaultRatios: number[];
   minimumRatio?: number;
   maximumRatio?: number;
+  themeColor?: HexColor;
 };
 
 const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
@@ -20,6 +21,7 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
     defaultRatios,
     minimumRatio = 0,
     maximumRatio = 100,
+    themeColor = '#be33ff',
     children,
   } = props;
   const elements = Children.toArray(children);
@@ -48,6 +50,7 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
                 id={index}
                 direction={direction}
                 thickness={resizerThickness}
+                themeColor={themeColor}
               />
             )}
           </>

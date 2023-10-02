@@ -8,16 +8,12 @@ export const Container = styled.div<{ $direction: Direction }>`
 
   width: 400px;
   height: 300px;
-
-  border: 1px solid red;
 `;
 
 export const SplitPaneItem = styled.div<{
   $direction: Direction;
   $ratio: number;
 }>`
-  position: static;
-
   width: ${({ $direction, $ratio }) =>
     $direction === 'row' ? `${$ratio}%` : '100%'};
   height: ${({ $direction, $ratio }) =>
