@@ -10,17 +10,15 @@
 
 ```bash
 npm install tab-layout-component
-
-npx tailwindcss build -o src/tailwind.css
 ```
+
+공식문서에 따라 Tailwind를 설치합니다 - [Tailwind 공식문서](https://tailwindcss.com/docs/installation)
 
 ## 사용법
 
-엔트리 파일에서 tailwind.css를 import 합니다
 패키지에서 TabLayout 컴포넌트를 가져와서 컴포넌트에서 사용하세요
 
 ```jsx
-import './tailwind.css';
 import { TabLayout } from 'tab-layout-component';
 
 const MyApp = () => {
