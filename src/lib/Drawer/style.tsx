@@ -23,13 +23,13 @@ const getDrawerHeight = (props: StyledDrawerProps) => {
 const getAnimationStyle = (props: StyledDrawerProps) => {
   const commonCloseStyle = css`
     display: flex;
-    transition: all 400ms ease-in-out;
+    transition: transform 400ms ease-in-out;
     box-shadow: none;
   `;
 
   const commonOpenStyle = css`
     display: flex;
-    transition: all 400ms ease-in-out;
+    transition: transform 400ms ease-in-out;
     box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.4);
   `;
 
