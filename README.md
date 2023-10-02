@@ -140,9 +140,9 @@ return (
   <div>
     <button onClick={openDrawer}>open drawer</button>
     <Drawer anchor="left" isOpen={isOpen} closeDrawer={closeDrawer} padding={1}>
-      <>Home</>
-      <>MyPage</>
-      <>Setting</>
+      <div>Home</div>
+      <div>MyPage</div>
+      <div>Setting</div>
     </Drawer>
   </div>
 );
