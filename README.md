@@ -10,6 +10,9 @@ npm install @gabrielyoon7/layout-component
 yarn add @gabrielyoon7/layout-component
 ```
 
+[스토리북](https://65068c38c8cef469d3e5e634-zeukkiflsp.chromatic.com/)
+[npm](https://www.npmjs.com/package/@gabrielyoon7/layout-component)
+
 ## Container
 
 ### 소개
@@ -30,7 +33,7 @@ function MyComponent() {
 
 ```
 
-[Container 스토리북 보러가기](https://65068c38c8cef469d3e5e634-otupvlrdhy.chromatic.com/?path=/docs/components-container--docs)
+[Container 스토리북 보러가기](https://65068c38c8cef469d3e5e634-zeukkiflsp.chromatic.com/?path=/docs/components-container--docs)
 
 ## Grid
 
@@ -60,7 +63,7 @@ function MyComponent() {
 
 ```
 
-[Grid 스토리북 보러가기](https://65068c38c8cef469d3e5e634-otupvlrdhy.chromatic.com/?path=/docs/components-grid--docs)
+[Grid 스토리북 보러가기](https://65068c38c8cef469d3e5e634-zeukkiflsp.chromatic.com/?path=/docs/components-grid--docs)
 
 ## Flex
 
@@ -83,4 +86,27 @@ function MyComponent() {
 
 ```
 
-[Flex 스토리북 보러가기](https://65068c38c8cef469d3e5e634-otupvlrdhy.chromatic.com/?path=/docs/components-flex--docs)
+[Flex 스토리북 보러가기](https://65068c38c8cef469d3e5e634-zeukkiflsp.chromatic.com/?path=/docs/components-flex--docs)
+
+## SplitPane
+
+### 소개
+
+이 컴포넌트는 SplitPane 레이아웃을 구현하기 위한 React 컴포넌트입니다. 이 컴포넌트를 사용하면 UI 디자인에서 SplitPane 레이아웃을 쉽게 구현할 수 있습니다.
+
+```typescript jsx
+import {SplitPane} from "@gabrielyoon7/layout-component";
+
+function MyComponent() {
+  return (
+    <SplitPane defaultSize="50%" minSize="10%" maxSize="90%">
+      <div style={{backgroundColor: 'yellow', height: '100px'}}/>
+      <div style={{backgroundColor: 'yellowgreen', height: '100px'}}/>
+    </SplitPane>
+  )
+}
+
+```
+
+[SplitPane 스토리북 보러가기](https://65068c38c8cef469d3e5e634-zeukkiflsp.chromatic.com/?path=/docs/components-splitpane--docs)
+
