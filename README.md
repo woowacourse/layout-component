@@ -17,7 +17,7 @@ npm install tab-layout-component
 패키지에서 TabLayout 컴포넌트를 가져와서 컴포넌트에서 사용하세요
 
 ```jsx
-import TabLayout from 'tab-layout-component';
+import { TabLayout } from 'tab-layout-component';
 
 const MyApp = () => {
   return (
