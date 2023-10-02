@@ -9,6 +9,8 @@ type SplitPaneProps = {
   direction?: Direction;
   resizerThickness?: number;
   defaultRatios: number[];
+  minimumRatio?: number;
+  maximumRatio?: number;
 };
 
 const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
@@ -16,6 +18,8 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
     direction = 'row',
     resizerThickness = 15,
     defaultRatios,
+    minimumRatio = 0,
+    maximumRatio = 100,
     children,
   } = props;
   const elements = Children.toArray(children);
@@ -24,6 +28,8 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
     rootRef,
     direction,
     defaultRatios,
+    minimumRatio,
+    maximumRatio,
   });
 
   return (

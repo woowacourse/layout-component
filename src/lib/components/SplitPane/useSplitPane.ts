@@ -7,6 +7,8 @@ type UseSplitPaneProps = {
   rootRef: RefObject<HTMLDivElement>;
   direction: Direction;
   defaultRatios: number[];
+  minimumRatio: number;
+  maximumRatio: number;
 };
 
 type UseSplitPaneState = {
@@ -17,7 +19,8 @@ type UseSplitPaneState = {
 };
 
 const useSplitPane = (props: UseSplitPaneProps) => {
-  const { rootRef, direction, defaultRatios } = props;
+  const { rootRef, direction, defaultRatios, minimumRatio, maximumRatio } =
+    props;
   const { width, height } = useElementSize(rootRef);
   const [splitPaneState, setSplitPaneState] = useState<UseSplitPaneState>({
     elementRatios: defaultRatios,
@@ -40,13 +43,18 @@ const useSplitPane = (props: UseSplitPaneProps) => {
           ? (mouseXDiff / width) * 100
           : (mouseYDiff / height) * 100;
       const moveDirection = mouseDiffRatio > 0 ? 'right' : 'left';
-      const absMouseDiffRatio = Math.abs(mouseDiffRatio);
+      let absMouseDiffRatio = Math.abs(mouseDiffRatio);
       let movedMouseDiffRatio = 0;
 
       if (moveDirection === 'right') {
+        absMouseDiffRatio = Math.min(
+          absMouseDiffRatio,
+          maximumRatio - calculatedElementRatios[resizerId]
+        );
+
         for (let i = resizerId + 1; i < calculatedElementRatios.length; i++) {
           const currentMovedDiffRatio = Math.min(
-            calculatedElementRatios[i],
+            calculatedElementRatios[i] - minimumRatio,
             absMouseDiffRatio - movedMouseDiffRatio
           );
 
@@ -56,9 +64,14 @@ const useSplitPane = (props: UseSplitPaneProps) => {
 
         calculatedElementRatios[resizerId] += movedMouseDiffRatio;
       } else {
+        absMouseDiffRatio = Math.min(
+          absMouseDiffRatio,
+          maximumRatio - calculatedElementRatios[resizerId + 1]
+        );
+
         for (let i = resizerId; i >= 0; i--) {
           const currentMovedDiffRatio = Math.min(
-            calculatedElementRatios[i],
+            calculatedElementRatios[i] - minimumRatio,
             absMouseDiffRatio - movedMouseDiffRatio
           );
 
@@ -71,7 +84,7 @@ const useSplitPane = (props: UseSplitPaneProps) => {
 
       return calculatedElementRatios;
     },
-    [direction, height, width]
+    [direction, height, width, minimumRatio, maximumRatio]
   );
 
   useEffect(() => {
