@@ -133,35 +133,33 @@ import { Drawer, useModal } from 'conan-layout-component';
 
 ### useModal
 
-| prop        | value   | description                                                                                                       |
-| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| defaultOpen | boolean | 모달의 열림/닫힘에 대한 기본값입니다.                                                                             |
-| closeDelay  | number  | 모달이 닫히는 애니메이션을 위한 isOpen 속성 변경의 딜레이 시간(ms)입니다. 모달 애니메이션 시간보다 길어야 합니다. |
+| prop         | value   | description                           |
+| ------------ | ------- | ------------------------------------- |
+| defaultOpen? | boolean | 모달의 열림/닫힘에 대한 기본값입니다. |
 
-| return     | value      | description                                                                                     |
-| ---------- | ---------- | ----------------------------------------------------------------------------------------------- |
-| isOpen     | boolean    | 모달의 열림/닫힘에 대한 값입니다. 해당 값을 이용해 모달을 조건부 렌더링합니다.                  |
-| isVisible  | boolean    | 모달 컴포넌트의 프롭스에 넘겨줄 열림/닫힘 값입니다. 모달이 닫히는 애니메이션을 위해 존재합니다. |
-| openModal  | () => void | 모달을 여는 함수입니다.                                                                         |
-| closeModal | () => void | 모달을 닫는 함수입니다.                                                                         |
+| return     | value      | description                                                                    |
+| ---------- | ---------- | ------------------------------------------------------------------------------ |
+| isOpen     | boolean    | 모달의 열림/닫힘에 대한 값입니다. 해당 값을 이용해 모달을 조건부 렌더링합니다. |
+| openModal  | () => void | 모달을 여는 함수입니다.                                                        |
+| closeModal | () => void | 모달을 닫는 함수입니다.                                                        |
 
 ```ts
-const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+const { isOpen, openModal, closeModal } = useModal();
 ```
 
 ### Drawer Props
 
-| props     | value                                  | description                                 |
-| --------- | -------------------------------------- | ------------------------------------------- |
-| placement | 'left' \| 'right' \| 'top' \| 'bottom' | Drawer 컴포넌트의 위치를 지정합니다.        |
-| isVisible | boolean                                | Drawer 컴포넌트의 보임을 제어합니다.        |
-| onClose   | () => void                             | Drawer 컴포넌트를 닫는 함수를 주입받습니다. |
+| props      | value                                  | description                                 |
+| ---------- | -------------------------------------- | ------------------------------------------- |
+| placement? | 'left' \| 'right' \| 'top' \| 'bottom' | Drawer 컴포넌트의 위치를 지정합니다.        |
+| onClose    | () => void                             | Drawer 컴포넌트를 닫는 함수를 주입받습니다. |
+| children?  | ReactNode                              | Drawer의 자식 컴포넌트입니다.               |
 
 ### Usage
 
 ```tsx
 const App = () => {
-  const { isOpen, isVisible, openModal, closeModal } = useModal({ closeDelay: 600 });
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <>
@@ -169,7 +167,7 @@ const App = () => {
         Drawer 열기
       </button>
       {isOpen && (
-        <Drawer placement="left" isVisible={isVisible} onClose={closeModal}>
+        <Drawer placement="left" onClose={closeModal}>
           <div style={{ width: '20vw', height: '100vh', backgroundColor: '#81D4FA' }}>Contents</div>
         </Drawer>
       )}
