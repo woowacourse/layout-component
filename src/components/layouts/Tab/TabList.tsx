@@ -92,11 +92,11 @@ const Wrapper = styled.div<{
 			return css({
 				borderBottom: 'solid 0.5px rgba(0, 0, 0, 0.7)',
 			});
-		} else {
-			return css({
-				borderRight: 'solid 0.5px rgba(0, 0, 0, 0.7)',
-			});
 		}
+
+		return css({
+			borderRight: 'solid 0.5px rgba(0, 0, 0, 0.7)',
+		});
 	}}
 
 	${({ customCss }) => customCss && css(customCss)}
@@ -123,7 +123,7 @@ const TabContainer = styled.div<{
 
 	position: relative;
 
-	overflow: auto hidden;
+	overflow: auto;
 	display: inline-flex;
 	flex: 1 1 auto;
 	flex-direction: ${({ direction }) =>

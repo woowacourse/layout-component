@@ -21,6 +21,7 @@ const TabPanel = (props: TabPanelProps) => {
 export default TabPanel;
 
 const Wrapper = styled.div`
+	overflow: auto;
 	min-width: 100px;
 	padding: 12px;
 `;
