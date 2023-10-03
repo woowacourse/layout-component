@@ -1,0 +1,72 @@
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.backdrop.isOpen {
+  display: block;
+}
+
+.container {
+  position: fixed;
+  background: white;
+  transition: transform 0.5s ease-in-out;
+}
+
+.container-top {
+  width: 100vw;
+  top: -100%;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+.container-right {
+  height: 100vh;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+.container-bottom {
+  width: 100vw;
+  bottom: -100%;
+  left: 0;
+  transform: translateY(100%);
+}
+
+.container-left {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+/* Drawer가 열렸을 때 */
+
+.isOpen + .direction-top {
+  top: 0;
+  transform: translateY(0);
+}
+
+.isOpen + .direction-right {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
+}
+
+.isOpen + .direction-bottom {
+  bottom: 0;
+  transform: translateY(0);
+}
+
+.isOpen + .direction-left {
+  left: 0;
+  transform: translateX(0);
+}
