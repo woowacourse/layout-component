@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import useSwipeable from '../hooks/useSwipeable';
 import useAutoplay from '../hooks/useAutoplay';
 
+type TabBoxPositionType = 'top' | 'bottom';
+
 interface TabProps {
   label: string;
 }
@@ -13,6 +15,7 @@ interface Props {
   height?: number;
   $tabBoxHeight?: number;
   $tabColor?: string | string[];
+  $tabBoxPosition?: TabBoxPositionType;
   $focusColor?: string;
   $simpleTab?: boolean;
   $isNotTabBoxShow?: boolean;
@@ -30,6 +33,7 @@ const Tabs = ({
   $simpleTab = false,
   $isNotTabBoxShow = false,
   $tabBoxHeight = height / 10,
+  $tabBoxPosition = 'top',
   $tabColor = '#e4e4e4',
   $focusColor = '#316fc4',
   responsive = true,
@@ -71,7 +75,11 @@ const Tabs = ({
   };
 
   return (
-    <Wrapper width={width} responsive={responsive}>
+    <Wrapper
+      width={width}
+      responsive={responsive}
+      $tabBoxPosition={$tabBoxPosition}
+    >
       {!$isNotTabBoxShow && (
         <TabBoxWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
           {childrenList.map(
@@ -130,11 +138,18 @@ const Tabs = ({
   );
 };
 
-const Wrapper = styled.div<{ width: number; responsive: boolean }>`
+const Wrapper = styled.div<{
+  width: number;
+  responsive: boolean;
+  $tabBoxPosition: TabBoxPositionType;
+}>`
   width: ${({ width }) => `${width}px`};
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: ${({ $tabBoxPosition }) =>
+    $tabBoxPosition === 'top' ? 'column' : 'column-reverse'};
 
   // responsive가 true 이면 입력 받은 width 값 보다 뷰포트가 작아질 때 뷰포트에 맞게 width를 설정합니다.
   ${({ responsive, width }) =>
