@@ -194,12 +194,36 @@ export const Margin: Story = {
   ),
 };
 
+export const CustomWidthHeight: Story = {
+  args: { children: '', defaultRatios: [] },
+  render: () => (
+    <SplitPane defaultRatios={[10, 20, 30, 40]} width="200px" height="200px">
+      {testChildren.map((child, index) => (
+        <Fragment key={index}>{child}</Fragment>
+      ))}
+    </SplitPane>
+  ),
+};
+
+export const CustomResizeThickness: Story = {
+  args: { children: '', defaultRatios: [] },
+  render: () => (
+    <SplitPane
+      defaultRatios={[50, 50]}
+      resizerThickness={30}
+      direction="column"
+    >
+      <Fragment>{testChildren[1]}</Fragment>
+      <Fragment>{testChildren[2]}</Fragment>
+    </SplitPane>
+  ),
+};
+
 export const CustomThemeColor: Story = {
   args: { children: '', defaultRatios: [], themeColor: '#000' },
   render: () => (
     <SplitPane
       defaultRatios={[25, 25, 25, 25]}
-      maximumRatio={30}
       resizerThickness={15}
       themeColor="#0004ff"
     >
