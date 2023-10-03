@@ -142,6 +142,10 @@ const useSplitPane = (props: UseSplitPaneProps) => {
     };
 
     const handleMouseUp = () => {
+      if (!isHolding) {
+        return;
+      }
+
       setSplitPaneState((prevSplitPaneState) => {
         return {
           ...prevSplitPaneState,
