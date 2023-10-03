@@ -15,6 +15,7 @@ interface Props {
   $tabColor?: string | string[];
   $focusColor?: string;
   $simpleTab?: boolean;
+  $isNotTabBoxShow?: boolean;
   responsive?: boolean;
   swiper?: boolean;
   swipeable?: boolean;
@@ -27,6 +28,7 @@ const Tabs = ({
   width = 400,
   height = 400,
   $simpleTab = false,
+  $isNotTabBoxShow = false,
   $tabBoxHeight = height / 10,
   $tabColor = '#e4e4e4',
   $focusColor = '#316fc4',
@@ -70,27 +72,29 @@ const Tabs = ({
 
   return (
     <Wrapper width={width} responsive={responsive}>
-      <TabButtonWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
-        {childrenList.map(
-          (children, idx) =>
-            children && (
-              <TabButton
-                key={`${children.props.label}, ${idx + 1}`}
-                idx={idx}
-                pos={pos}
-                $tabColor={getTabsColor(idx)}
-                $focusColor={$focusColor}
-                width={width}
-                $tabBoxHeight={$tabBoxHeight}
-                $childrenLength={childrenList.length}
-                $simpleTab={$simpleTab}
-                onClick={() => moveToSettedPos(idx)}
-              >
-                {!$simpleTab && (children.props.label || idx + 1)}
-              </TabButton>
-            ),
-        )}
-      </TabButtonWrapper>
+      {!$isNotTabBoxShow && (
+        <TabButtonWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
+          {childrenList.map(
+            (children, idx) =>
+              children && (
+                <TabButton
+                  key={`${children.props.label}, ${idx + 1}`}
+                  idx={idx}
+                  pos={pos}
+                  $tabColor={getTabsColor(idx)}
+                  $focusColor={$focusColor}
+                  width={width}
+                  $tabBoxHeight={$tabBoxHeight}
+                  $childrenLength={childrenList.length}
+                  $simpleTab={$simpleTab}
+                  onClick={() => moveToSettedPos(idx)}
+                >
+                  {!$simpleTab && (children.props.label || idx + 1)}
+                </TabButton>
+              ),
+          )}
+        </TabButtonWrapper>
+      )}
 
       <TabSectionWrapper
         {...(swipeable && {
