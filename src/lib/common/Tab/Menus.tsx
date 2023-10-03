@@ -6,7 +6,7 @@ import type { FlexContainerProps } from '../FlexContainer/FlexContainer';
 import { TabContext } from './Tab';
 import { menuContainerStyle } from './styles/menus.style';
 
-export interface MenusProps extends FlexContainerProps {
+export interface MenusProps extends Omit<FlexContainerProps, 'layout'> {
   /** 선택된 탭 메뉴를 강조하는 색깔 변경 가능
    * @default #000
    */
