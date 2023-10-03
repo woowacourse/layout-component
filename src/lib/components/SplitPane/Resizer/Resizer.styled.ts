@@ -25,7 +25,7 @@ export const Container = styled.div<{
 
   filter: brightness(0.65);
   cursor: ${({ $direction }) =>
-    $direction === 'row' ? 'col-resize' : 'row-resize'};
+    $direction === 'row' ? 'ew-resize' : 'ns-resize'};
   box-sizing: border-box;
   transition: 0.2s;
 
