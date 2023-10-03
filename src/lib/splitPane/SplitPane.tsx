@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import styled from 'styled-components';
+import getPosition from './utils';
 
 const SplitPane: React.FC<{
   defaultSize?: string | number;
@@ -22,14 +23,7 @@ const SplitPane: React.FC<{
     const resize = (event: MouseEvent | TouchEvent) => {
       if (isResizing && containerRef.current) {
         const containerRect = containerRef.current.getBoundingClientRect();
-
-        let position;
-        if (event instanceof TouchEvent) {
-          event.preventDefault();
-          position = event.touches[0].clientX;
-        } else {
-          position = (event as MouseEvent).clientX;
-        }
+        const position = getPosition(event);
 
         if (typeof minSize === 'string' && typeof maxSize === 'string') {
           const newWidth =
