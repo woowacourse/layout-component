@@ -13,6 +13,7 @@ interface Props {
   height?: number;
   $tabBoxHeight?: number;
   $tabColor?: string | string[];
+  $focusColor?: string;
   $simpleTab?: boolean;
   responsive?: boolean;
   swiper?: boolean;
@@ -28,6 +29,7 @@ const Tabs = ({
   $simpleTab = false,
   $tabBoxHeight = height / 10,
   $tabColor = '#e4e4e4',
+  $focusColor = '#316fc4',
   responsive = true,
   swiper = false,
   swipeable = false,
@@ -77,6 +79,7 @@ const Tabs = ({
                 idx={idx}
                 pos={pos}
                 $tabColor={getTabsColor(idx)}
+                $focusColor={$focusColor}
                 width={width}
                 $tabBoxHeight={$tabBoxHeight}
                 $childrenLength={childrenList.length}
@@ -206,6 +209,7 @@ const TabButton = styled.button<{
   $childrenLength: number;
   $simpleTab: boolean;
   $tabColor: string;
+  $focusColor: string;
 }>`
   width: ${({ width, $childrenLength }) => `${width / $childrenLength}px`};
   height: inherit;
@@ -236,19 +240,19 @@ const TabButton = styled.button<{
     `}
 
     // simpleTab 모드가 아닐때, 포커스 된 탭 박스 하단 밑줄 구현부입니다.
-    ${({ idx, pos }) =>
+    ${({ idx, pos, $focusColor }) =>
     idx === pos &&
     css`
-      border-bottom: 2px solid #316fc4;
+      border-bottom: 2px solid ${$focusColor};
     `}
 
     // simpleTab 모드 일 때, 포커스 된 원 배경색 구현부입니다.
-    ${({ $simpleTab, idx, pos }) =>
+    ${({ $simpleTab, idx, pos, $focusColor }) =>
     idx === pos &&
     $simpleTab &&
     css`
       border-bottom: 0;
-      background-color: #316fc4;
+      border: 2px solid ${$focusColor};
     `}
 `;
 
