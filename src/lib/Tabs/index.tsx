@@ -12,6 +12,7 @@ interface Props {
   width?: number;
   height?: number;
   $tabBoxHeight?: number;
+  $tabColor?: string | string[];
   $simpleTab?: boolean;
   responsive?: boolean;
   swiper?: boolean;
@@ -26,6 +27,7 @@ const Tabs = ({
   height = 400,
   $simpleTab = false,
   $tabBoxHeight = height / 10,
+  $tabColor = '#e4e4e4',
   responsive = true,
   swiper = false,
   swipeable = false,
@@ -58,6 +60,12 @@ const Tabs = ({
     setPos,
   });
 
+  const getTabsColor = (indexOfTab: number) => {
+    if (typeof $tabColor === 'string') return $tabColor;
+
+    return $tabColor[indexOfTab] || '#e4e4e4';
+  };
+
   return (
     <Wrapper width={width} responsive={responsive}>
       <TabButtonWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
@@ -68,6 +76,7 @@ const Tabs = ({
                 key={`${children.props.label}, ${idx + 1}`}
                 idx={idx}
                 pos={pos}
+                $tabColor={getTabsColor(idx)}
                 width={width}
                 $tabBoxHeight={$tabBoxHeight}
                 $childrenLength={childrenList.length}
@@ -196,13 +205,14 @@ const TabButton = styled.button<{
   $tabBoxHeight: number;
   $childrenLength: number;
   $simpleTab: boolean;
+  $tabColor: string;
 }>`
   width: ${({ width, $childrenLength }) => `${width / $childrenLength}px`};
   height: inherit;
   padding: 0.2rem 1rem;
   border: 0;
   cursor: pointer;
-  background-color: #e4e4e4;
+  background-color: ${({ $tabColor }) => $tabColor};
 
   // simpleTab 모드일 때 탭 박스 대신 원이 생성됩니다. 해당 원의 크기를 지정합니다.
   ${({ $simpleTab, $tabBoxHeight }) =>
