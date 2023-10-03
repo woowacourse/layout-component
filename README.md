@@ -101,10 +101,6 @@ CSS Grid를 사용하여 자식 컴포넌트들을 격자 형태로 배열하는
 `Tabs.List`에 맞춰서 보여줄 content입니다.
 
 - items: 각각의 `Tab`의 `content`를 나타내는 prop입니다. 아래 특성들을 가진 배열을 받습니다.
-  - id: 해당 콘텐츠를 나타내는 고유 id입니다.
-  - content: 해당 탭의 콘텐츠를 나타냅니다.
-
-'
 
 ```tsx
 const tabs = Array.from({ length: 20 }).map((_, index) => ({
