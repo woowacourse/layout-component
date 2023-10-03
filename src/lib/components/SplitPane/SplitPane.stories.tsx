@@ -28,35 +28,35 @@ const meta = {
     },
     direction: {
       description:
-        'Alignment direction of children.<br/>자식 컴포넌트들이 배치되는 방향입니다.**',
+        'Alignment direction of children.<br/>자식 컴포넌트들이 배치되는 방향입니다.',
       table: {
         defaultValue: { summary: 'row' },
       },
     },
     resizerThickness: {
       description:
-        'Thickness of the resizers for resizing child components. You can use only `number` type, which means the pixels of thickness.<br/>자식 컴포넌트의 크기를 조절할 수 있는 손잡이의 굵기입니다. `px` 단위만 사용할 수 있습니다.**',
+        'Thickness of the resizers for resizing child components. You can use only `number` type, which means the pixels of thickness.<br/>자식 컴포넌트의 크기를 조절할 수 있는 손잡이의 굵기입니다. `px` 단위만 사용할 수 있습니다.',
       table: {
         defaultValue: { summary: 15 },
       },
     },
     borderThickness: {
       description:
-        'Thickness of the border of the component. You can use only `number` type, which means the pixels of thickness.<br/>윤곽선의 굵기입니다. `px` 단위만 사용할 수 있습니다.**',
+        'Thickness of the border of the component. You can use only `number` type, which means the pixels of thickness.<br/>윤곽선의 굵기입니다. `px` 단위만 사용할 수 있습니다.',
       table: {
         defaultValue: { summary: 2 },
       },
     },
     minimumRatio: {
       description:
-        'The minimum ratio of the child components. Child components will not shrink below this value.<br/>각 자식 컴포넌트가 가지게 될 최소 크기(비율)입니다. 손잡이를 조절하더라도 최소 크기 미만으로는 줄어들지 않습니다.**',
+        'The minimum ratio of the child components. Child components will not shrink below this value.<br/>각 자식 컴포넌트가 가지게 될 최소 크기(비율)입니다. 손잡이를 조절하더라도 최소 크기 미만으로는 줄어들지 않습니다.',
       table: {
         defaultValue: { summary: 0 },
       },
     },
     maximumRatio: {
       description:
-        'The maximum ratio of the child components. Child components will not expand above this value.<br/>각 자식 컴포넌트가 가지게 될 최대 크기(비율)입니다. 손잡이를 조절하더라도 최대 크기보다 늘어나지 않습니다.**',
+        'The maximum ratio of the child components. Child components will not expand above this value.<br/>각 자식 컴포넌트가 가지게 될 최대 크기(비율)입니다. 손잡이를 조절하더라도 최대 크기보다 늘어나지 않습니다.',
       table: {
         defaultValue: { summary: 100 },
       },
