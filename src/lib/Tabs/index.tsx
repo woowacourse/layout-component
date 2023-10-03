@@ -16,6 +16,7 @@ interface Props {
   $tabBoxHeight?: number;
   $tabColor?: string | string[];
   $tabBoxPosition?: TabBoxPositionType;
+  $elementsOneTab?: number;
   $focusColor?: string;
   $simpleTab?: boolean;
   $isNotTabBoxShow?: boolean;
@@ -27,6 +28,24 @@ interface Props {
   $autoplayButton?: boolean;
 }
 
+const getTabsColor = (indexOfTab: number, $tabColor: string | string[]) => {
+  if (typeof $tabColor === 'string') return $tabColor;
+
+  return $tabColor[indexOfTab] || '#e4e4e4';
+};
+
+const calculateTabCountUsingElements = (
+  childrenList: React.ReactElement<TabProps>[],
+  $elementsOneTab: number,
+) => {
+  if ($elementsOneTab > 1) {
+    const tabBoxesCount = Math.ceil(childrenList.length / $elementsOneTab);
+    return childrenList.filter((_, idx) => idx < tabBoxesCount);
+  }
+
+  return childrenList;
+};
+
 const Tabs = ({
   width = 400,
   height = 400,
@@ -34,6 +53,7 @@ const Tabs = ({
   $isNotTabBoxShow = false,
   $tabBoxHeight = height / 10,
   $tabBoxPosition = 'top',
+  $elementsOneTab = 1,
   $tabColor = '#e4e4e4',
   $focusColor = '#316fc4',
   responsive = true,
@@ -56,23 +76,23 @@ const Tabs = ({
     handleTouchMove,
     handleTouchEnd,
   } = useSwipeable({
-    childrenListLength: childrenList.length,
+    childrenListLength: calculateTabCountUsingElements(
+      childrenList,
+      $elementsOneTab,
+    ).length,
     pos,
     setPos,
   });
   const { isPlaying, toggleAutoplay } = useAutoplay({
     autoplay,
     $autoplayTime,
-    childrenListLength: childrenList.length,
+    childrenListLength: calculateTabCountUsingElements(
+      childrenList,
+      $elementsOneTab,
+    ).length,
     pos,
     setPos,
   });
-
-  const getTabsColor = (indexOfTab: number) => {
-    if (typeof $tabColor === 'string') return $tabColor;
-
-    return $tabColor[indexOfTab] || '#e4e4e4';
-  };
 
   return (
     <Wrapper
@@ -82,18 +102,18 @@ const Tabs = ({
     >
       {!$isNotTabBoxShow && (
         <TabBoxWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
-          {childrenList.map(
+          {calculateTabCountUsingElements(childrenList, $elementsOneTab).map(
             (children, idx) =>
               children && (
                 <TabBox
                   key={`${children.props.label}, ${idx + 1}`}
                   idx={idx}
                   pos={pos}
-                  $tabColor={getTabsColor(idx)}
+                  $tabColor={getTabsColor(idx, $tabColor)}
                   $focusColor={$focusColor}
                   width={width}
                   $tabBoxHeight={$tabBoxHeight}
-                  $childrenLength={childrenList.length}
+                  $childrenLength={calculateTabCountUsingElements.length}
                   $simpleTab={$simpleTab}
                   onClick={() => moveToSettedPos(idx)}
                 >
@@ -114,6 +134,7 @@ const Tabs = ({
         $childrenLength={childrenList.length}
         pos={pos}
         responsive={responsive}
+        $elementsOneTab={$elementsOneTab}
       >
         {children}
       </TabSectionWrapper>
@@ -161,12 +182,25 @@ const Wrapper = styled.div<{
     `}
 `;
 
+const calculateWidthUsingElementsCount = (
+  width: number | '100vw',
+  elementCount: number,
+) => {
+  if (typeof width === 'number' && elementCount > 1)
+    return width / elementCount;
+  if (typeof width === 'string' && elementCount > 1)
+    return `calc(${width} / ${elementCount})`;
+
+  return width;
+};
+
 const TabSectionWrapper = styled.div<{
   width: number;
   height: number;
   $childrenLength: number;
   pos: number;
   responsive: boolean;
+  $elementsOneTab: number;
 }>`
   display: flex;
 
@@ -189,13 +223,14 @@ const TabSectionWrapper = styled.div<{
 
   // <Tabs /> 컴포넌트에 입력한 width와 <Tab /> 컴포넌트 width를 동일하게 합니다.
   & > * {
-    width: ${({ width }) => `${width}px`};
+    width: ${({ width, $elementsOneTab }) =>
+      calculateWidthUsingElementsCount(width, $elementsOneTab)}px;
 
-    ${({ responsive, width }) =>
+    ${({ responsive, width, $elementsOneTab }) =>
       responsive &&
       css`
         @media (max-width: ${width}px) {
-          width: 100vw;
+          width: ${calculateWidthUsingElementsCount('100vw', $elementsOneTab)};
         }
       `}
   }
