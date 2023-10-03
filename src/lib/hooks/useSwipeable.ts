@@ -56,6 +56,9 @@ const useSwipeable = ({ childrenListLength, pos, setPos }: Props) => {
     if (!prevTouch) return;
 
     const diff = touch.pageX - prevTouch.pageX;
+    const otherPos = touch.pageY - prevTouch.pageY;
+
+    if (Math.abs(otherPos) > 8) return;
 
     acceleratePos(diff);
   };
