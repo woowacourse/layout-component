@@ -1,7 +1,7 @@
 {
   "name": "seeen-tab-layout",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "woowacourse mission Tab Layout 컴포넌트입니다.",
   "type": "module",
