@@ -5,6 +5,8 @@ export const Container = styled.div<{
   $direction: Direction;
   $themeColor: HexColor;
   $borderThickness: number;
+  $horizontalMargin: number;
+  $verticalMargin: number;
 }>`
   display: flex;
   flex-direction: ${({ $direction }) =>
@@ -12,6 +14,8 @@ export const Container = styled.div<{
 
   width: 100%;
   height: 100%;
+  margin: ${({ $horizontalMargin, $verticalMargin }) =>
+    `${$verticalMargin}px ${$horizontalMargin}px`};
 
   border: ${({ $themeColor, $borderThickness }) =>
     `${$borderThickness}px solid ${$themeColor}`};

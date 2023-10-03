@@ -12,6 +12,8 @@ type SplitPaneProps = {
   defaultRatios: number[];
   minimumRatio?: number;
   maximumRatio?: number;
+  horizontalMargin?: number;
+  verticalMargin?: number;
   themeColor?: HexColor;
 };
 
@@ -24,6 +26,8 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
     minimumRatio = 0,
     maximumRatio = 100,
     themeColor = '#be33ff',
+    horizontalMargin = 0,
+    verticalMargin = 0,
     children,
   } = props;
   const elements = Children.toArray(children);
@@ -42,6 +46,8 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
       $direction={direction}
       $themeColor={themeColor}
       $borderThickness={borderThickness}
+      $horizontalMargin={horizontalMargin}
+      $verticalMargin={verticalMargin}
     >
       {elements.map((element, index) => {
         return (
