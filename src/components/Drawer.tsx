@@ -15,11 +15,7 @@ const Drawer = ({ placement, onClose, children }: DrawerProps) => {
     <>
       <div css={backdropStyle} onClick={closeDrawer} />
       <div
-        css={[
-          drawerStyles[placement],
-          isVisible ? showSheet[placement] : hideSheet[placement],
-          { position: 'fixed', opacity: 0 },
-        ]}
+        css={[drawerStyles[placement], isVisible ? showSheet[placement] : hideSheet[placement], { position: 'fixed' }]}
       >
         {children}
       </div>
