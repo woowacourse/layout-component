@@ -336,7 +336,7 @@ const AutoplayButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 0;
+  bottom: 12%;
 `;
 
 const AutoplayButton = styled.div`
