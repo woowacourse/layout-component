@@ -1,4 +1,4 @@
-# 🙆‍♂️ seeen-tab-layout 🙆‍♂️
+# seeen-tab-layout
 
 Tab Layout을 구현할 수 있는 라이브러리 입니다.
 
@@ -21,7 +21,7 @@ import { Tabs } from 'seeen-tab-layout';
 
 const App = () => {
   return (
-    <Tabs width={600} responsive>
+    <Tabs width={600} responsive swipeable $focusColor="#E1325C">
       <div>content1</div>
       <div>content2</div>
       <div>content3</div>
@@ -32,19 +32,28 @@ const App = () => {
 
 #### Props
 
-| props         | value     | essential | default     | description                                                              |
-| ------------- | --------- | --------- | ----------- | ------------------------------------------------------------------------ |
-| width         | number    | optional  | 400         | Tab Layout 가로 크기를 설정합니다.                                       |
-| height        | number    | optional  | 400         | Tab Layout 세로 크기를 설정합니다.                                       |
-| $tabBoxHeight | number    | optional  | height / 10 | Tab index box 세로 크기를 설정합니다. 가로 크기는 Tab Layout과 같습니다. |
-| $simpleTab    | boolean   | optional  | false       | Tab index box 를 간단하게 표현할 지 설정합니다.                          |
-| responsive    | boolean   | optional  | false       | 반응형에 대응할 여부를 설정합니다.                                       |
-| swiper        | boolean   | optional  | false       | 좌, 우로 넘길 수 있는 화살표 버튼을 표시할 지 설정합니다.                |
-| children      | ReactNode | essential | null        | Tab Layout 콘텐츠를 설정합니다.                                          |
+| props            | value              | essential | default     | description                                                              |
+| ---------------- | ------------------ | --------- | ----------- | ------------------------------------------------------------------------ |
+| width            | number             | optional  | 400         | Tab Layout 가로 크기를 설정합니다.                                       |
+| height           | number             | optional  | 400         | Tab Layout 세로 크기를 설정합니다.                                       |
+| $tabBoxHeight    | number             | optional  | height / 10 | Tab index box 세로 크기를 설정합니다. 가로 크기는 Tab Layout과 같습니다. |
+| $simpleTab       | boolean            | optional  | false       | Tab index box 를 간단하게 표현할 지 설정합니다.                          |
+| $tabColor        | string \| string[] | optional  | '#E4E4E4'   | Tab index box 의 색상을 지정합니다.                                      |
+| $tabBoxPosition  | 'top' \| 'bottom'  | optional  | 'top'       | Tab index box 의 위치를 지정합니다.                                      |
+| $isNotTabBoxShow | boolean            | optional  | false       | Tab index box 표시 여부를 설정합니다.                                    |
+| $focusColor      | string             | optional  | '#316fc4'   | Tab 이 포커스 되었을 때 색상을 설정합니다.                               |
+| $elementsOneTab  | number             | optional  | 1           | 하나의 Tab 에서 표시할 Tab 또는 element의 갯수를 설정합니다.             |
+| responsive       | boolean            | optional  | true        | 반응형에 대응할 여부를 설정합니다.                                       |
+| swiper           | boolean            | optional  | false       | 좌, 우로 넘길 수 있는 화살표 버튼을 표시할 지 설정합니다.                |
+| swipeable        | boolean            | optional  | false       | 모바일 환경에서 좌, 우 스와이프 가능 여부를 설정합니다.                  |
+| autoplay         | boolean            | optional  | false       | 일정 시간이 되면 자동으로 Tab 이 전환될 지 설정합니다.                   |
+| $autoplayTime    | number             | optional  | 2000        | autoplay 딜레이 시간을 설정합니다.                                       |
+| $autoplayButton  | boolean            | optional  | false       | autoplay 를 시작하고 일시정지 할 수 있는 버튼 표시 여부를 설정합니다.    |
+| children         | ReactNode          | essential | null        | Tab Layout 콘텐츠를 설정합니다.                                          |
 
 ## Tab
 
-- 개별 Tab의 역할을 하는 컴포넌트입니다. 이 컴포넌트에 label을 통해 tab index box에 숫자 대신 이름을 명시할 수 있습니다. 이 컴포넌트 내부에 Tab Index에 사용할 실질적인 구현부를 작성하면 됩니다.
+- 개별 Tab의 역할을 하는 컴포넌트입니다. 이 컴포넌트의 label 속성을 통해 tab index box에 숫자 대신 이름을 명시할 수 있습니다. 이 컴포넌트 내부에 실질적인 구현부를 작성하면 됩니다.
 
 ```tsx
 import { Tabs, Tab } from 'seeen-tab-layout';
