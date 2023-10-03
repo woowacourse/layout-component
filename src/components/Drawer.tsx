@@ -74,12 +74,9 @@ const showSheet = {
 
 const hideSheet = {
   left: css`
-    opacity: 1;
-
     @keyframes SlideCloseLeft {
       0% {
         opacity: 1;
-        transform: translateX(0);
       }
       50% {
         opacity: 1;
@@ -94,12 +91,9 @@ const hideSheet = {
   `,
 
   right: css`
-    opacity: 1;
-
     @keyframes SlideCloseRight {
       0% {
         opacity: 1;
-        transform: translateX(0);
       }
       50% {
         opacity: 1;
@@ -114,12 +108,9 @@ const hideSheet = {
   `,
 
   top: css`
-    opacity: 1;
-
     @keyframes SlideCloseTop {
       0% {
         opacity: 1;
-        transform: translateY(0);
       }
       50% {
         opacity: 1;
@@ -134,12 +125,9 @@ const hideSheet = {
   `,
 
   bottom: css`
-    opacity: 1;
-
     @keyframes SlideCloseBottom {
       0% {
         opacity: 1;
-        transform: translateY(0);
       }
       50% {
         opacity: 1;
