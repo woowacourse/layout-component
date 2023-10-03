@@ -3,7 +3,7 @@
 Hi! You can create website or app with this library.
 Before using this, look through Storybook.
 
-<a href="https://65054a5accdaa5b7c9142b51-qwmkflyvvp.chromatic.com/?path=/docs/instruction--docs">📚 **Storybook**</a>
+<a href="https://65054a5accdaa5b7c9142b51-fcuwgvpksi.chromatic.com/?path=/docs/instruction--docs">📚 **Storybook**</a>
 
 <br />
 <br />
