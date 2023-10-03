@@ -65,6 +65,7 @@ const meta = {
       options: ['nowrap', 'wrap', 'wrap-reverse'],
       description: 'Items의 줄 바꿈',
     },
+    css: { description: '추가 스타일링을 위한 prop' },
   },
 } satisfies Meta<typeof Flex>;
 
