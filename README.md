@@ -2,7 +2,7 @@
 
 간단한 레이아웃 컴포넌트입니다.
 
-[Storybook](https://6507e70242c4a95757b61d3a-zyyiztqalq.chromatic.com/)
+[Storybook](https://6507e70242c4a95757b61d3a-phdxlwoibm.chromatic.com/)
 
 ## 설치 방법
 
@@ -94,6 +94,30 @@ import { Container, Flex, Grid } from "guridaek-layout-components";
 - `gap`: CSSProperties["gap"]
 
   자식 요소간의 간격을 설정할 수 있습니다.
+
+- `etc`: CSSProp
+
+  추가적인 CSS를 적용할 수 있습니다.
+
+### Drawer 사용하기
+
+```js
+<Drawer anchor="TOP" isOpen={isOpen} onClose={handleClose}>
+  ...
+</Drawer>
+```
+
+- `anchor`: "TOP" | "BOTTOM" | "LEFT" | "RIGHT"
+
+  Drawer의 위치를 설정할 수 있습니다.
+
+- `isOpen`: boolean
+
+  화면에 표시된 상태인지 나타냅니다.
+
+- `onClose`: () => void
+
+  Drawer를 닫는 함수입니다. `isOpen`을 false로 바꿔줘야 합니다.
 
 - `etc`: CSSProp
 
