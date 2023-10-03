@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { RefObject } from 'react';
-import useElementSize from '../hooks/useElementSize';
+import useElementSize from '../../hooks/useElementSize';
 import { Direction } from '../../types';
 
 type UseSplitPaneProps = {

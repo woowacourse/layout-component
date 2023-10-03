@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import type { Direction, HexColor, Size } from '../../types';
-import { stringifySize } from '../utils/stringifySize';
+import { stringifySize } from '../../utils/stringifySize';
 
 export const Container = styled.div<{
   $direction: Direction;
