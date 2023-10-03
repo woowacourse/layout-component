@@ -1,19 +1,31 @@
 import { styled } from 'styled-components';
-import { Direction } from '../../types';
+import type { Direction, HexColor } from '../../types';
 
-export const Container = styled.div<{ $direction: Direction }>`
+export const Container = styled.div<{
+  $direction: Direction;
+  $themeColor: HexColor;
+  $borderThickness: number;
+}>`
   display: flex;
   flex-direction: ${({ $direction }) =>
     $direction === 'row' ? 'row' : 'column'};
 
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+
+  border: ${({ $themeColor, $borderThickness }) =>
+    `${$borderThickness}px solid ${$themeColor}`};
+
+  box-sizing: border-box;
 `;
 
 export const SplitPaneItem = styled.div<{
   $direction: Direction;
   $ratio: number;
 }>`
+  position: relative;
+  overflow: hidden;
+
   width: ${({ $direction, $ratio }) =>
     $direction === 'row' ? `${$ratio}%` : '100%'};
   height: ${({ $direction, $ratio }) =>

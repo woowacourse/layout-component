@@ -8,6 +8,7 @@ import * as S from './SplitPane.styled';
 type SplitPaneProps = {
   direction?: Direction;
   resizerThickness?: number;
+  borderThickness?: number;
   defaultRatios: number[];
   minimumRatio?: number;
   maximumRatio?: number;
@@ -18,6 +19,7 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
   const {
     direction = 'row',
     resizerThickness = 15,
+    borderThickness = 2,
     defaultRatios,
     minimumRatio = 0,
     maximumRatio = 100,
@@ -35,7 +37,12 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
   });
 
   return (
-    <S.Container ref={rootRef} $direction={direction}>
+    <S.Container
+      ref={rootRef}
+      $direction={direction}
+      $themeColor={themeColor}
+      $borderThickness={borderThickness}
+    >
       {elements.map((element, index) => {
         return (
           <>
