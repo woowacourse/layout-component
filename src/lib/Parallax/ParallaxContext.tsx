@@ -1,4 +1,4 @@
-import React, { createContext, PropsWithChildren, useContext, useEffect, useState, useRef, useMemo } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useEffect, useState, useRef } from 'react';
 
 interface ParallaxContextProps {
   yOffsetRatio: number;
@@ -51,10 +51,8 @@ export const ParallaxProvider = ({ css, children }: PropsWithChildren<ParallaxPr
     };
   }, []);
 
-  const memoizedValue = useMemo(() => ({ yOffsetRatio }), [yOffsetRatio]);
-
   return (
-    <ParallaxContext.Provider value={memoizedValue}>
+    <ParallaxContext.Provider value={{ yOffsetRatio }}>
       <div ref={parallaxRef} style={css}>
         {children}
       </div>
