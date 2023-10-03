@@ -22,9 +22,14 @@ const useAutoplay = ({
     if (childrenListLength < 2) setIsPlaying(false);
 
     if (isPlaying) {
-      intervalId.current = setInterval(() => {
-        pos <= childrenListLength - 2 ? setPos((prev) => prev + 1) : setPos(0);
-      }, $autoplayTime);
+      intervalId.current = setInterval(
+        () => {
+          pos <= childrenListLength - 2
+            ? setPos((prev) => prev + 1)
+            : setPos(0);
+        },
+        $autoplayTime < 1000 ? 1000 : $autoplayTime,
+      );
     }
 
     if (!isPlaying && intervalId.current) clearInterval(intervalId.current);
