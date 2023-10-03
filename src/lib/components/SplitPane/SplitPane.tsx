@@ -1,23 +1,25 @@
 import { Children, useRef } from 'react';
-import type { PropsWithChildren } from 'react';
-import type { Direction, HexColor } from '../../types';
+import type { ComponentPropsWithoutRef } from 'react';
+import type { Direction, HexColor, Size } from '../../types';
 import useSplitPane from './useSplitPane';
 import Resizer from './Resizer/Resizer';
 import * as S from './SplitPane.styled';
 
-type SplitPaneProps = {
+type SplitPaneProps = ComponentPropsWithoutRef<'div'> & {
   direction?: Direction;
   resizerThickness?: number;
   borderThickness?: number;
   defaultRatios: number[];
   minimumRatio?: number;
   maximumRatio?: number;
-  horizontalMargin?: number;
-  verticalMargin?: number;
+  horizontalMargin?: Size;
+  verticalMargin?: Size;
+  width?: Size;
+  height?: Size;
   themeColor?: HexColor;
 };
 
-const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
+const SplitPane = (props: SplitPaneProps) => {
   const {
     direction = 'row',
     resizerThickness = 15,
@@ -25,9 +27,11 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
     defaultRatios,
     minimumRatio = 0,
     maximumRatio = 100,
-    themeColor = '#be33ff',
     horizontalMargin = 0,
     verticalMargin = 0,
+    width = '100%',
+    height = '100%',
+    themeColor = '#be33ff',
     children,
   } = props;
   const elements = Children.toArray(children);
@@ -48,6 +52,8 @@ const SplitPane = (props: PropsWithChildren<SplitPaneProps>) => {
       $borderThickness={borderThickness}
       $horizontalMargin={horizontalMargin}
       $verticalMargin={verticalMargin}
+      $width={width}
+      $height={height}
     >
       {elements.map((element, index) => {
         return (
