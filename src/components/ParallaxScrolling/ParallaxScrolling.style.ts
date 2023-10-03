@@ -5,14 +5,26 @@ interface bodyStylingProps {
 }
 
 interface itemStylingProps {
-  image?: string;
-  speed?: number;
+  image: string;
+  speed: number;
 }
 
 interface zoomContainerStylingProps {
   zoomFactor: number;
   width?: number | string;
   height?: number | string;
+}
+
+interface ContentStylingProps {
+  height?: number | string;
+}
+
+interface ContentItemStylingProps {
+  speed?: 0 | 1;
+}
+
+interface ContentItemBackgroundStylingProps {
+  imageUrl: string;
 }
 
 export const bodyStyling = ({ height = "100vh" }: bodyStylingProps) =>
@@ -51,3 +63,53 @@ export const zoomContainerStyling = ({
 export const zoomImageStyling = css({
   backgroundSize: "cover",
 });
+
+export const contentStyling = ({ height = "100vh" }: ContentStylingProps) => {
+  return css({
+    height,
+    overflowX: "hidden",
+    overflowY: "auto",
+    perspective: "2px",
+
+    "&>section": {
+      transformStyle: "preserve-3d",
+      position: "relative",
+      height,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
+};
+
+export const contentItemStyling = ({ speed }: ContentItemStylingProps) =>
+  css({
+    "&>*": {
+      width: "60%",
+      fontSize: "2rem",
+    },
+    "&::after": {
+      content: '" "',
+      position: "absolute",
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      transform:
+        speed === 0
+          ? `translateZ(-1px) scale(1.5)`
+          : `translateZ(-1.25px) scale(1.75)`,
+      backgroundSize: "100%",
+      zIndex: -1,
+    },
+  });
+
+export const contentItemBackground = ({
+  imageUrl,
+}: ContentItemBackgroundStylingProps) =>
+  css({
+    "&::after": {
+      background: `url(${imageUrl})`,
+      backgroundSize: "cover",
+    },
+  });

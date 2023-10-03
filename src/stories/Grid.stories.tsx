@@ -22,7 +22,6 @@ export const Playground: Story = {
     const backgroundStyle = css({
       backgroundColor: "#dfdfdf",
       width: "100%",
-      // height: "1000px",
     });
 
     const boxStyle = css({
