@@ -73,11 +73,11 @@ const Tabs = ({
   return (
     <Wrapper width={width} responsive={responsive}>
       {!$isNotTabBoxShow && (
-        <TabButtonWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
+        <TabBoxWrapper $simpleTab={$simpleTab} $tabBoxHeight={$tabBoxHeight}>
           {childrenList.map(
             (children, idx) =>
               children && (
-                <TabButton
+                <TabBox
                   key={`${children.props.label}, ${idx + 1}`}
                   idx={idx}
                   pos={pos}
@@ -90,10 +90,10 @@ const Tabs = ({
                   onClick={() => moveToSettedPos(idx)}
                 >
                   {!$simpleTab && (children.props.label || idx + 1)}
-                </TabButton>
+                </TabBox>
               ),
           )}
-        </TabButtonWrapper>
+        </TabBoxWrapper>
       )}
 
       <TabSectionWrapper
@@ -186,7 +186,7 @@ const TabSectionWrapper = styled.div<{
   }
 `;
 
-const TabButtonWrapper = styled.div<{
+const TabBoxWrapper = styled.div<{
   $simpleTab: boolean;
   $tabBoxHeight: number;
 }>`
@@ -205,7 +205,7 @@ const TabButtonWrapper = styled.div<{
     `}
 `;
 
-const TabButton = styled.button<{
+const TabBox = styled.button<{
   width: number;
   idx: number;
   pos: number;
