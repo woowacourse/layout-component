@@ -323,11 +323,12 @@ const SwiperButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(149, 149, 149, 0.25);
+  background-color: transparent;
+  color: rgba(149, 149, 149, 0.8);
+  border: 1px solid rgba(149, 149, 149, 0.8);
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 0;
   cursor: pointer;
 `;
 
@@ -343,10 +344,11 @@ const AutoplayButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(149, 149, 149, 0.25);
+  background-color: transparent;
+  color: rgba(149, 149, 149, 0.8);
+  border: 1px solid rgba(149, 149, 149, 0.8);
   width: 64px;
   height: 32px;
-  border: 0;
   cursor: pointer;
 `;
 
