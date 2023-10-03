@@ -108,6 +108,11 @@ function GridExample() {
 
 ### Tab
 
+사용 방법:
+
+TabItem에 부여된 value값과 TabPanel에 부여된 value값을 매칭시킵니다.
+내가 보고 싶은 TabItem을 클릭 시 동일한 value값이 부여된 TabPanel의 컴포넌트의 내용이 보여집니다.
+
 ```tsx
 /*
   TabProvider
@@ -116,15 +121,14 @@ function GridExample() {
 
   TabList
 
-  - width? TabList의 width를 정할 수 있다. 
-  - justify? TabList의 정렬 방식을 정할 수 있다. 
+  - width?: TabList의 width를 정할 수 있다.  
 
   TabItem
 
-  - value: TabItem의 idx값;
+  - value: TabPanel과 mapping되는 TabItem의 idx값 
   - label: TabItem에 보여줄 string값;
-  - disabled?: TabItem disabled;
-  - indicatorColor?: TabItem 활성화 기능;
+  - disabled?: 해당 속성값이 true일 경우 TabItem 버튼을 누를 수 없다. 
+  - indicatorColor?: TabItem 활성화되었을 때 나타내는 색깔
   
   TabPanel
 
