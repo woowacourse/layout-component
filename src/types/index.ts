@@ -1,4 +1,5 @@
-type ElementPolymorphProp<Element extends React.ElementType> = {
+export type ElementPolymorphProp<Element extends React.ElementType> = {
+  /** HTML에 적용할 semantic tag */
   as?: Element;
 };
 
