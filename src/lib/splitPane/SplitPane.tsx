@@ -1,13 +1,20 @@
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import styled from 'styled-components';
-import getPosition from './utils';
+import { getPosition, validateArgs } from './utils';
 
-const SplitPane: React.FC<{
+export type SplitPaneProps = {
   defaultSize?: string | number;
   minSize?: string | number;
   maxSize?: string | number;
   children: ReactNode[];
-}> = ({ defaultSize = '50%', minSize = '20%', maxSize = '80%', children }) => {
+};
+
+const SplitPane: React.FC<SplitPaneProps> = ({
+  defaultSize = '50%',
+  minSize = '20%',
+  maxSize = '80%',
+  children,
+}) => {
   const [size, setSize] = useState(() => {
     if (typeof defaultSize === 'number') {
       return `${defaultSize}px`;
@@ -18,6 +25,13 @@ const SplitPane: React.FC<{
 
   const [isResizing, setIsResizing] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  validateArgs({
+    defaultSize,
+    minSize,
+    maxSize,
+    children,
+  });
 
   useEffect(() => {
     const resize = (event: MouseEvent | TouchEvent) => {
