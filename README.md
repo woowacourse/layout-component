@@ -14,6 +14,8 @@ npm i @suyoungj/react-layout-component
 yarn add @suyoungj/react-layout-component
 ```
 
+# Layout
+
 ## Container
 
 - 화면의 폭에 따라 컨텐츠의 최대 폭을 제한하고, 중앙에 배치합니다.
@@ -56,4 +58,27 @@ yarn add @suyoungj/react-layout-component
   <div>Content 8</div>
   <div>Content 9</div>
 </Grid>
+```
+
+# Overlay
+
+## Drawer
+
+- Drawer는 화면 가장자리에서 슬라이드되는 패널입니다.
+- 사용자가 현재 페이지를 벗어나지 않고 작업하거나 세부 정보를 확인해야 할 때 유용합니다.
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(() => false);
+  };
+
+  return (
+    <Drawer isOpen={isOpen} onClose={handleClose}>
+      <h1>Drawer</h1>
+    </Drawer>
+  );
+};
 ```
