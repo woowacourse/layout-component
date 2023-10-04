@@ -1,6 +1,6 @@
 {
   "name": "conan-layout-component",
-  "version": "0.2.0",
+  "version": "0.3.6",
   "description": "Layout components for React",
   "keywords": [
     "react",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/mjs/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/mjs/index.js",
