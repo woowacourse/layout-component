@@ -1,15 +1,41 @@
-# Wus-Layout-Component
+## Wus Layout Component
 
-## Introduce
+## Docs
 
-<p align="center">
-It's a package made to use layout components comfortably
-</p>
+### <a href="https://gilpop8663.github.io/layout-component">문서 보러가기</a>
 
-## Documentation
+## Get started
 
-For full documentation, visit [wus-layout-component.com](https://gilpop8663.github.io/layout-component/).
+레이아웃 컴포넌트를 편하게 사용할 수 있도록 제작된 패키지입니다
 
-## Contributing
+### Install
 
-If you're interested in contributing to Wus-Layout-Component
+`npm i wus-layout-component -D`
+
+### how to use?
+
+```tsx
+import { Flex } from 'wus-layout-component';
+
+<Flex
+  css={css}
+  justifyContent={justifyContent}
+  direction={direction}
+  alignItems={alignItems}
+  flexWrap={flexWrap}
+>
+  <div
+    style={{
+      width: '100px',
+      height: '100px',
+      backgroundColor: 'gray',
+    }}
+  ></div>
+</Flex>;
+```
+
+### Supporting
+
+해당 패키지는 CommonJs와 ES Modules를 지원합니다.
+
+### @2023
