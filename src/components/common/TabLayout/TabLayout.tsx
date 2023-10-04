@@ -22,7 +22,7 @@ const TabLayout = (props: TabLayoutProps) => {
           </TabButton>
         ))}
       </ButtonContainer>
-      <Content>{children[selectedTab]}</Content>
+      <section>{children[selectedTab]}</section>
     </TabLayoutContainer>
   );
 };
@@ -45,7 +45,5 @@ const TabButton = styled.button<TabButtonProps>`
   background-color: ${(props) => (props.isActive ? "#64CCC5" : "transparent")};
   color: ${(props) => (props.isActive ? "#fff" : "#000")};
 `;
-
-const Content = styled.section;
 
 export default TabLayout;
