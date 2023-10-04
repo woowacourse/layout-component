@@ -28,7 +28,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ContainerLayout: Story = {
+export const GridLayout: Story = {
   args: {
     column: 3,
     row: 3,

@@ -36,7 +36,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ContainerLayout: Story = {
+export const FlexBoxLayout: Story = {
   args: {
     direction: 'row',
     align: 'flex-start',
