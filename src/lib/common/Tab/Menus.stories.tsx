@@ -23,6 +23,11 @@ const meta = {
     lineClamp: false,
   },
   argTypes: {
+    layout: {
+      table: {
+        disable: true,
+      },
+    },
     index: {
       control: {
         type: 'number',
