@@ -1,103 +1,55 @@
-- **Live Storybook**: [Storybook](https://step1--tiny-madeleine-f22f65.netlify.app/)
-- **NPM Package**: [react-layout-box](https://www.npmjs.com/package/react-layout-box)
+### Storybook와 NPM 패키지 정보
+- **라이브 스토리북**: [Storybook](https://step2--incredible-selkie-3c034a.netlify.app/)
+- **NPM 패키지**: [react-tabs-booung](https://www.npmjs.com/package/react-tabs-booung)
 
-# Installation
+# 설치
 
 ```bash
-npm install react-layout-box
+npm install react-tabs-booung
 ```
 
----
+# Tabs 컴포넌트
 
+Tabs는 탭 기반의 콘텐츠 레이아웃을 쉽게 구성할 수 있게 도와주는 컴포넌트입니다.
 
+## 사용법
 
-# React Container Component
-
-A highly customizable and responsive `Container` component designed to handle the minimum and maximum width of its child elements. Particularly useful for readability and maintaining layout constraints.
-
-## Installation
-
-
-
-## Usage
+다음과 같이 사용할 수 있습니다.
 
 ```tsx
-import Container from 'react-layout-box';
+import { Tab, TabList, TabPanel, Tabs, TabPanelList } from 'react-tabs-booung';
 
-<Container minWidth="200px" maxWidth="800px">
-  <p>Your content here</p>
-</Container>
+const App = () => {
+return (
+<Tabs>
+<TabList>
+<Tab name={'first'}>
+<h3>first</h3>
+</Tab>
+<Tab name={'second'}>
+<h3>second</h3>
+</Tab>
+</TabList>
+
+      <TabPanelList>
+        <TabPanel name={'first'}>
+          <div>first Panel</div>
+        </TabPanel>
+        <TabPanel name={'second'}>
+          <div>second Panel</div>
+        </TabPanel>
+      </TabPanelList>
+    </Tabs>
+);
+};
 ```
 
 ## API
 
 ### Props
 
-| Prop     | Type            | Description                      |
-|----------|-----------------|----------------------------------|
-| minWidth | number \| string| Minimum width of the container   |
-| maxWidth | number \| string| Maximum width of the container   |
-| children | ReactNode       | The content inside the container |
-
----
-
-# React Flex Component
-
-A flexible and easy-to-use `Flex` component for building modern layouts with flexbox.
-
-
-## Usage
-
-Here is a simple usage example:
-
-```tsx
-import Flex from 'react-layout-box';
-
-<Flex direction="row" justify="center" align="center">
-  <div>Item 1</div>
-  <div>Item 2</div>
-</Flex>
-```
-
-## API
-
-### Props
-
-| Prop     | Type                 | Description                          |
-|----------|----------------------|--------------------------------------|
-| direction| 'row' \| 'row-reverse' \| 'column' \| 'column-reverse' \| 'inherit' \| 'initial' \| 'unset' | Flex direction |
-| justify  | 'start' \| 'center' \| 'space-between' \| 'space-around' \| 'space-evenly' | Justify content |
-| align    | 'stretch' \| 'center' \| 'start' \| 'end' | Align items    |
-| gap      | number \| string     | Gap between items                    |
-| children | ReactNode            | The content inside the flex container|
-
----
-
-# React Grid Component
-
-An intuitive `Grid` component that simplifies the creation of grid layouts in React.
-
-## Usage
-
-Here is a simple usage example:
-
-```tsx
-import Grid from 'react-layout-box';
-
-<Grid rows={3} columns={3}>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</Grid>
-```
-
-## API
-
-### Props
-
-| Prop     | Type           | Description                          |
-|----------|----------------|--------------------------------------|
-| rows     | number \| string | Number of rows                       |
-| columns  | number \| string | Number of columns                    |
-| gap      | number \| string | Gap between items                    |
-| children | ReactNode       | The content inside the grid container|
+| Prop         | Type            | Description                                        | Default Value |
+|--------------|-----------------|----------------------------------------------------|---------------|
+| className    | string          | 컴포넌트에 적용할 클래스명입니다.                    | `''`          |
+| defaultFocus | boolean         | 초기 렌더링 시 탭에 포커스를 줄지 여부입니다.          | `false`       |
+| defaultIdx   | string| 초기 렌더링 시 어떤 탭이 활성화될지를 결정합니다.        | `0`           |

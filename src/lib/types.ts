@@ -9,7 +9,7 @@ export type TabsProps = {
 
 export type TabPanelProps = {
   children: ReactNode;
-  name: number | string;
+  name: string;
   index?: number;
 };
 
