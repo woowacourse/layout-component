@@ -141,3 +141,35 @@ Grid layout is a two-dimensional layout system. This feature allows you to conte
   <button>3</button>
 </Grid>
 ```
+
+---
+
+## 4. `TabLayout`
+
+## `Props`
+
+`tabsMenu` is required.
+
+#### `tabsMenu`: string[]
+
+#### `children`?: ReactNode[]
+
+#### `tabWidth`?: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
+
+#### `tabMenuHeight`?: `${number}px` | `${number}rem` | `${number}em` | `${number}vw` | `${number}%`
+
+#### `tabMenuFontSize`?: string
+
+#### `tabMenuBorderBottomColor`?: string
+
+#### `defaultTabIndex`?: number;
+
+## `Example`
+
+```html
+<TabLayout tabsMenu={["tab1", "tab2", "tab3"]} tabWidth="50%">
+  <div>first Tab</div>
+  <div>second Tab</div>
+  <button>third Tab</button>
+</TabLayout>
+```
