@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import type { Size } from '../../types';
-import { stringifySize } from '../utils/stringifySize';
+import { stringifySize } from '../../utils/stringifySize';
 import styles from './Container.module.css';
 
 type ContainerProps = HTMLAttributes<HTMLDivElement> & {
