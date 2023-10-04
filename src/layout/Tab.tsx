@@ -15,7 +15,7 @@ const TabContext = createContext<{
 });
 
 //types
-type ListType = HTMLAttributes<HTMLElement> & {};
+type ListType = HTMLAttributes<HTMLElement>;
 type TriggerType = HTMLAttributes<HTMLElement> & {
   value: string;
 };
@@ -24,7 +24,7 @@ type ContentType = HTMLAttributes<HTMLElement> & {
 };
 
 //components
-export const TabBox = (props: PropsWithChildren) => {
+const TabBox = (props: PropsWithChildren) => {
   const { children } = props;
   const [tabs, setTabs] = useState<Set<string>>(new Set());
   const [currentTab, setCurrentTab] = useState("");
@@ -47,13 +47,13 @@ export const TabBox = (props: PropsWithChildren) => {
   );
 };
 
-export const List = (props: PropsWithChildren<ListType>) => {
+const List = (props: PropsWithChildren<ListType>) => {
   const { children, ...restProps } = props;
 
   return <section {...restProps}>{children}</section>;
 };
 
-export const Trigger = (props: PropsWithChildren<TriggerType>) => {
+const Trigger = (props: TriggerType) => {
   const { value, ...restProps } = props;
   const { tabs, addTab, selectTab } = useContext(TabContext);
 
@@ -70,7 +70,7 @@ export const Trigger = (props: PropsWithChildren<TriggerType>) => {
   );
 };
 
-export const Content = (props: PropsWithChildren<ContentType>) => {
+const Content = (props: PropsWithChildren<ContentType>) => {
   const { children, value } = props;
   const { currentTab, tabs } = useContext(TabContext);
 
@@ -82,8 +82,10 @@ export const Content = (props: PropsWithChildren<ContentType>) => {
   return currentTab === value ? <article>{children}</article> : null;
 };
 
-export const Tab = Object.assign(TabBox, {
+const Tab = Object.assign(TabBox, {
   List,
   Trigger,
   Content,
 });
+
+export default Tab;
