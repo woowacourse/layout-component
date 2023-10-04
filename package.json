@@ -1,7 +1,7 @@
 {
   "name": "ukko-layout-component",
   "private": false,
-  "version": "0.0.18",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -13,14 +13,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/ukkodeveloper/layout-component"
+    "url": "git://github.com/ukkodeveloper/layout-component.git"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "release": "npx vite build && npm version patch && npm publish"
+    "release": "npx vite build && npm version && npm publish",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_da5452bef9a6e18"
   },
   "files": [
     "dist"
@@ -31,6 +34,14 @@
     "styled-components": "^6.0.8"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.4.5",
+    "@storybook/addon-interactions": "^7.4.5",
+    "@storybook/addon-links": "^7.4.5",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.5",
+    "@storybook/react": "^7.4.5",
+    "@storybook/react-vite": "^7.4.5",
+    "@storybook/testing-library": "^0.2.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -39,8 +50,16 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "^0.6.14",
+    "storybook": "^7.4.5",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ukkodeveloper/layout-component/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/ukkodeveloper/layout-component#readme",
+  "_id": "ukko-layout-component@0.1.1"
 }
