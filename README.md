@@ -57,7 +57,7 @@ Grid는 컨텐츠들을 격자 형태로 배치합니다. 화면 크기에 따�
 
 #### Required
 
-- `rows`: 격자의 행 수 를 지정합니다.
+- `rows`: 격자의 행 수를 지정합니다.
 - `columns`: 격자의 열 수를 지정합니다.
 
 #### Optional
@@ -114,6 +114,51 @@ const App = () => {
       <div>Item</div>
       <div>Item</div>
     </Flex>
+  );
+};
+```
+
+## Drawer
+
+화면의 한 방향에서 슬라이드 형태로 사이드바를 보여주는 레이아웃입니다.
+
+### Props
+
+#### Required
+
+- `isOpen`: Drawer가 열릴지 닫힐지를 결정하는 상태입니다.
+- `onClose`: Drawer가 닫힐 때 실행하는 함수입니다.
+
+#### Optional
+
+- `direction`: Drawer가 나올 방향을 설정합니다.
+
+### 사용 예시
+
+```jsx
+import { Drawer } from "luxo-layout-component";
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openDrawer = () => {
+    setIsOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <button onClick={openDrawer}>click</button>
+
+      <Drawer direction="left" isOpen={isOpen} onClose={closeDrawer}>
+        <div>Item</div>
+        <div>Item</div>
+        <div>Item</div>
+      </Drawer>
+    </>
   );
 };
 ```
