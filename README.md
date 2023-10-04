@@ -31,7 +31,7 @@ A Tiny, zero dependency layout components.
 ### Usage:
 
 ```tsx
-import { Flex } from 'react-tiny-**dialog**';
+import { Flex } from 'react-tiny-**layout**';
 
 export default function Sample() {
   return (
@@ -69,7 +69,7 @@ export default function Sample() {
 ### Usage:
 
 ```tsx
-import { Grid } from 'react-tiny-dialog';
+import { Grid } from 'react-tiny-layout';
 
 export default function Sample() {
   return (
@@ -106,13 +106,49 @@ export default function Sample() {
 ### Usage:
 
 ```tsx
-import { Container } from 'react-tiny-dialog';
+import { Container } from 'react-tiny-layout';
 
 export default function Sample() {
   return (
     <Container minWidth=300>
       <div>child1</div>
     </Container>
+  );
+}
+```
+
+---
+
+### Tabs
+
+**Contains all the parts of a Container.**
+
+```tsx
+{
+  /** defaultValue 프로퍼티는 기본적으로 활성화 할 탭을 설정합니다. */
+  defaultValue: string;
+  /** onValueChange 프로퍼티는 탭이 변경될 때 실행됩니다. */
+  onValueChange?: (value: string) => void;
+  /** asChild 프로퍼티가 true인 경우 현재 엘리먼트를 자식 엘리먼트로 대체합니다. */
+  asChild?: boolean;
+}
+```
+
+### Usage:
+
+```tsx
+import { Tabs } from 'react-tiny-layout';
+
+export default function Sample() {
+  return (
+    <Tabs defaultValue="tab1">
+      <Tabs.List>
+        <Tabs.Trigger value="tab1">tab1</Tabs.Trigger>
+        <Tabs.Trigger value="tab2">tab2</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="tab1">panel1</Tabs.Content>
+      <Tabs.Content value="tab2">panel2</Tabs.Content>
+    </Tabs>
   );
 }
 ```
