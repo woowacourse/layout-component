@@ -1,20 +1,3 @@
-import { CSSProperties, PropsWithChildren } from 'react';
+export type Tabs = (number | string)[];
 
-type OptionalCommonProps = Partial<{
-  sx: CSSProperties;
-  className: string;
-}>;
-
-export interface CommonProps extends PropsWithChildren<OptionalCommonProps> {}
-
-export interface DynamicKeyToCssPropMapping {
-  [key: string]: keyof CSSProperties;
-}
-
-export type ParseClassName = (
-  className: string,
-  styles: { readonly [key: string]: string }
-) => {
-  dynamicStyle: CSSProperties;
-  staticClassName: string;
-};
+export type TabPosition = 'top' | 'bottom' | 'left' | 'right';

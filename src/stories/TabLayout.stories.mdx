@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { TabLayout } from '../lib';
+import '../index.css';
+
+<Meta
+  title='TabLayout'
+  component={TabLayout}
+  argTypes={{
+    tabPosition: {
+      options: ['top', 'bottom', 'left', 'right'],
+      control: { type: 'select' },
+    },
+    activeButtonColor: {
+      control: 'text',
+    },
+    className: {
+      control: 'text',
+    },
+  }}
+  args={{
+    tabs: ['Tab 1', 'Tab 2', 'Tab 3'],
+    tabPosition: 'top',
+    activeButtonColor: '#0000FF',
+  }}
+/>
+
+<ArgsTable of={TabLayout} />
+
+<Canvas>
+  <Story name='TabLayout'>
+    {(args) => (
+      <div className='flex h-screen items-center justify-center'>
+        <div className='h-52 w-52'>
+          <TabLayout {...args}>
+            <div className='flex h-full items-center justify-center rounded-lg border p-6 shadow-lg'>
+              Content1
+            </div>
+            <div className='flex h-full items-center justify-center rounded-lg border p-6 shadow-lg'>
+              Content2
+            </div>
+            <div className='flex h-full items-center justify-center rounded-lg border p-6 shadow-lg'>
+              Content3
+            </div>
+          </TabLayout>
+        </div>
+      </div>
+    )}
+  </Story>
+</Canvas>

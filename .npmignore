@@ -1,12 +1,17 @@
-.github/
-.storybook
+index.html        
+.github               
+/public
+/src
 
-node_modules/
-src/
-public/
+tsconfig.json            
+tsconfig.node.json       
+vite.config.ts
 
-tsconfig.json
-
-.gitignore
+.eslintrc.cjs
 .prettierrc
-.stylelintrc
+postcss.config.js
+tailwind.config.js
+
+.storybook
+build-storybook.log
+.gitignore
