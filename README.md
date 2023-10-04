@@ -151,3 +151,62 @@ const Demo = () => {
 
 export default Demo;
 ```
+
+## ParallaxItem
+
+ParallaxItem은 스크롤에 따라서 아이템의 스크롤 속도를 다르게 지정해서 다양한 Interactive한 효과를 제공해주는 컴포넌트입니다.
+
+사용자는 해당 컴포넌트의 스크롤 속도, 애니메이션 효과, 방향, 포지션 등을 커스텀하여 다양한 Parallax 효과를 구현할 수 있습니다.
+
+어떻게 하면 최소한의 Props, 기능 제공으로 사용자가 기대하는 효과를 만들어줄 수 있을까 고민했습니다.
+
+### Props
+
+```ts
+type ParallaxItemProps = {
+  children?: ReactNode;
+  speed?: number;
+  easing?: 'ease-in-out' | 'ease-in' | 'ease-out' | 'ease';
+  isHorizontal?: boolean;
+  isAbsolutePosition?: boolean;
+  position?: { top?: number; right?: number; bottom?: number; left?: number };
+  zIndex?: number;
+  ...divElementTypes
+};
+```
+
+### Example
+
+```ts
+import { ParallaxItem } from 'ks-layout';
+
+const Demo = () => {
+  return (
+    <section>
+      <ParallaxItem speed={0.4} easing="ease-in-out">
+        <div>
+          <h1>Basic parallax component.</h1>
+        </div>
+      </ParallaxItem>
+      <ParallaxItem
+        speed={0.1}
+        easing="ease"
+        isAbsolute
+        position={{ top: '300px' }}
+        zIndex={10}
+      >
+        <div>
+          <h1>This component has absolute position and z-index.</h1>
+        </div>
+      </ParallaxItem>
+      <ParallaxItem speed={0.5} isHorizontal>
+        <div>
+          <h1>This component will move to horizontal direction.</h1>
+        </div>
+      </ParallaxItem>
+    </section>
+  );
+};
+
+export default Demo;
+```
