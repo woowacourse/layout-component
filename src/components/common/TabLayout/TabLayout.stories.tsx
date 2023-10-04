@@ -30,4 +30,10 @@ export const Example: Story = {
       <div key={3}>Content 6</div>,
     ],
   },
+
+  argTypes: {
+    tabs: {
+      description: "각 탭의 레이블입니다.",
+    },
+  },
 };
