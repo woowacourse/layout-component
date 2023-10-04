@@ -33,6 +33,7 @@ export const Dimmer = styled.div<{
 
 export const DrawerRoot = styled.div<DrawerRootProps>`
   position: fixed;
+  overflow-y: auto;
   transition: transform
     ${({ transitionDurationMS }) => `${transitionDurationMS}ms`} ease-in-out;
 
