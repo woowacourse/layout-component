@@ -71,6 +71,26 @@ import { Flex } from '@layout-component-dahyeeee';
 | gap     | string                                                                                                                                                                           | 10px    | 자식요소들 간 간격을 정할 수 있습니다           |
 | as      | HTML Element                                                                                                                                                                     | div     | 요소의 HTML Tag를 정할 수 있습니다              |
 
+## SplitPane
+
+화면을 분할해 크기를 조정할 수 있는 컴포넌트
+자식컴포넌트를 2개를 넣어줘야 합니다.
+
+### imports
+
+```typescript
+import { SplitPane } from '@layout-component-dahyeeee';
+```
+
+### Props
+
+| props        | value       | default | description                                                                                                         |
+| ------------ | ----------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| width        | string      | 100%    | SplitPane을 적용하는 컴포넌트의 너비                                                                                |
+| paneMaxWidth | number      | 500     | 왼쪽 pane의 최대 너비. 숫자만 입력 가능하며 px로 고정됩니다.                                                        |
+| paneMinWidth | number      | 100     | 왼쪽 pane의 최소 너비. 숫자만 입력 가능하며 px로 고정됩니다.                                                        |
+| dividerStyle | CSSProperty | div     | 가운데 분할선의 스타일. 선의 색과 굵이 등을 조절하고 싶다면 'borderRight' 속성을 선언해야 기본 선에 덮어씌워집니다. |
+
 # css 사용법
 
 해당 라이브러리는 emotion을 사용했습니다.
