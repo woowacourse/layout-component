@@ -5,19 +5,19 @@ const App = () => {
   return (
     <Tabs>
       <TabList>
-        <Tab name={'first'}>
+        <Tab name={'1'}>
           <h3>first</h3>
         </Tab>
-        <Tab name={2}>
+        <Tab name={'2'}>
           <h3>second</h3>
         </Tab>
       </TabList>
 
       <TabPanelList>
-        <TabPanel name={'first'}>
+        <TabPanel name={'1'}>
           <div>first Panel</div>
         </TabPanel>
-        <TabPanel name={2}>
+        <TabPanel name={'2'}>
           <div>second Panel</div>
         </TabPanel>
       </TabPanelList>

@@ -1,27 +1,32 @@
 import { ReactElement, ReactNode } from 'react';
 
-export type TabsProps = {
+// 공통 속성을 가진 BaseProps 선언
+type BaseProps = {
   children: ReactNode;
-  className?: string;
+};
+
+// 기본적으로 포커스를 가질 수 있는 타입
+type FocusableProps = BaseProps & {
   defaultFocus?: boolean;
+};
+
+// 이름과 인덱스를 가질 수 있는 타입
+type NamedProps = {
+  name: string | number;
+  index?: number;
+};
+
+export type TabsProps = FocusableProps & {
+  className?: string;
   defaultIdx?: string | number;
 };
 
-export type TabPanelProps = {
-  children: ReactNode;
-  name: string;
-  index?: number;
-};
+export type TabPanelProps = BaseProps & NamedProps;
 
 export type TabPanelListProps = {
   children: ReactElement<TabPanelProps>[];
 };
 
-export type TabListProps = {
-  children: ReactNode;
-};
+export type TabListProps = BaseProps;
 
-export type TabProps = {
-  children: ReactNode;
-  name: number | string;
-};
+export type TabProps = BaseProps & NamedProps;
