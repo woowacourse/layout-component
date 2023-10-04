@@ -46,6 +46,6 @@ const TabButton = styled.button<TabButtonProps>`
   color: ${(props) => (props.isActive ? "#fff" : "#000")};
 `;
 
-const Content = styled.section``;
+const Content = styled.section;
 
 export default TabLayout;
