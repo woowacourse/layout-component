@@ -1,5 +1,4 @@
 import type { ContainerProps } from '../../types/component';
-import { filterUndefinedProps } from '../../utils/css';
 
 export default function Container({
   display,
@@ -8,10 +7,10 @@ export default function Container({
   right,
   bottom,
   left,
-  width,
-  height,
+  width = '100%',
+  height = '100%',
   minWidth,
-  maxWidth,
+  maxWidth = '100%',
   margin = '0 auto',
   padding,
   border,
@@ -27,7 +26,7 @@ export default function Container({
 }: ContainerProps) {
   return (
     <div
-      style={filterUndefinedProps({
+      style={{
         display,
         position,
         top,
@@ -48,7 +47,7 @@ export default function Container({
         cursor,
         opacity,
         zIndex,
-      })}
+      }}
       {...rest}
     >
       {children}

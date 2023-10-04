@@ -1,6 +1,5 @@
 import { CSSProperties } from 'react';
 import { ContainerProps } from '../../types/component';
-import { filterUndefinedProps } from '../../utils/css';
 
 interface Props extends Omit<ContainerProps, 'display'> {
   display?: 'flex' | 'inline-flex' | 'none';
@@ -58,7 +57,7 @@ export default function Flex({
 }: Props) {
   return (
     <div
-      style={filterUndefinedProps({
+      style={{
         display,
         flex,
         flexGrow,
@@ -92,7 +91,7 @@ export default function Flex({
         cursor,
         opacity,
         zIndex,
-      })}
+      }}
       {...rest}
     >
       {children}

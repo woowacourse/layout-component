@@ -357,3 +357,82 @@ function App() {
   );
 }
 ```
+
+## 🧭 TabLayout
+
+**여러 탭과 그에 대응하는 패널을 쉽게 구성할 수 있는 컴포넌트입니다.**
+
+### Props
+
+💡 `TabLayout` 은 `Container` 의 일부 속성을 사용할 수 있습니다.
+
+- `tabs: string[]`
+
+  탭의 목록을 설정합니다.
+
+- `tabJustify?: 'start' | 'center' | 'end'`
+
+  탭의 정렬을 설정합니다.
+
+  기본값은 'start'입니다.
+
+- `tabPosition?: 'top' | 'right' | 'left' | 'bottom'`
+
+  탭의 위치를 설정합니다.
+
+  기본값은 'top'입니다.
+
+- `position?: CSSProperties['position']`
+
+- `top?: CSSProperties['top']`
+
+- `right?: CSSProperties['right']`
+
+- `bottom?: CSSProperties['bottom']`
+
+- `left?: CSSProperties['left']`
+
+- `width?: CSSProperties['width']`
+
+  기본값은 '100%'입니다.
+
+- `height?: CSSProperties['height']`
+
+  기본값은 '100%'입니다.
+
+- `minWidth?: CSSProperties['minWidth']`
+
+- `maxWidth?: CSSProperties['maxWidth']`
+
+  기본값은 '100%'입니다.
+
+- `margin?: CSSProperties['margin']`
+
+- `opacity?: CSSProperties['opacity']`
+
+- `zIndex?: CSSProperties['zIndex']`
+
+  모든 스타일 속성은 선택 사항입니다.
+  undefined 값이 설정된 속성은 무시됩니다.
+
+### 사용 예시
+
+```tsx
+Copy code
+import { TabLayout } from 'react-aaker-layout-components';
+
+function App() {
+  return (
+    <TabLayout
+      tabs={['Tab1', 'Tab2']}
+      tabJustify="center"
+      tabPosition="top"
+      width="50%"
+      height="400px"
+    >
+      <div>Content for Tab1</div>
+      <div>Content for Tab2</div>
+    </TabLayout>
+  );
+}
+```

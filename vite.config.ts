@@ -2,13 +2,14 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/lib/index.ts'),
-      name: 'react-aaker-layout-components',
-      fileName: (format) => `react-aaker-layout-components.${format}.js`,
+      name: 'index',
+      fileName: 'index',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -18,6 +19,9 @@ export default defineConfig({
         },
       },
     },
+    commonjsOptions: {
+      esmExternals: ['react'],
+    },
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
 });

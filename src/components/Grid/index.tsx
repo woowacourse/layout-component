@@ -1,6 +1,5 @@
 import { CSSProperties } from 'react';
 import { ContainerProps } from '../../types/component';
-import { filterUndefinedProps } from '../../utils/css';
 
 interface Props extends Omit<ContainerProps, 'display'> {
   display?: 'grid' | 'inline-grid' | 'none';
@@ -92,7 +91,7 @@ export default function Grid({
 
   return (
     <div
-      style={filterUndefinedProps({
+      style={{
         display,
         grid,
         gridTemplate,
@@ -140,7 +139,7 @@ export default function Grid({
         cursor,
         opacity,
         zIndex,
-      })}
+      }}
       {...rest}
     >
       {children}
