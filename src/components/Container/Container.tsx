@@ -1,4 +1,4 @@
-import { getCenterStyling } from "@components/Container/Container.style";
+import { getCenterStyling } from "./Container.style";
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 export interface CenterProps extends ComponentPropsWithoutRef<ElementType> {

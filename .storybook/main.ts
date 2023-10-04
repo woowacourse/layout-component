@@ -16,6 +16,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
+
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
@@ -27,6 +28,8 @@ const config: StorybookConfig = {
         "@constants": path.resolve(__dirname, "../src/constants"),
         "@stories": path.resolve(__dirname, "../src/stories"),
         "@utils": path.resolve(__dirname, "../src/utils"),
+        react: "preact/compat",
+        "react-dom": "preact/compat",
       };
     }
 
@@ -48,6 +51,10 @@ const config: StorybookConfig = {
     config.module?.rules?.push({
       test: /\.svg$/,
       issuer: /\.(js|ts)$/,
+      use: ["url-loader"],
+    });
+    config?.module?.rules?.push({
+      test: /\.(jpg|jpeg|png)$/,
       use: ["url-loader"],
     });
 
