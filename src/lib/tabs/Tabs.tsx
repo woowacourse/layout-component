@@ -1,6 +1,7 @@
 import { TabsProps } from '../types.ts';
 import { useEffect, useRef, useState } from 'react';
 import TabContext from '../context/TabContext.ts';
+import '../../tabStyle.css';
 
 const Tabs = ({
   children,
@@ -17,9 +18,11 @@ const Tabs = ({
     }
   }, []);
 
+  const finalClassName = `booung-tabs ${className || ''}`.trim();
+
   return (
     <TabContext.Provider value={{ activeIdx, setActiveIdx, initialTabRef, defaultIdx }}>
-      <div className={className}>{children}</div>
+      <div className={finalClassName}>{children}</div>
     </TabContext.Provider>
   );
 };

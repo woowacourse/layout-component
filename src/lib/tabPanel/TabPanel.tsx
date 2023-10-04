@@ -7,7 +7,14 @@ const TabPanel = ({ children, name, index }: TabPanelProps) => {
 
   const shouldDisplay = activeIdx === name || activeIdx === index;
 
-  return <div style={{ display: shouldDisplay ? 'block' : 'none' }}>{children}</div>;
+  return (
+    <div
+      className={'booung-tab-panel'}
+      style={{ display: shouldDisplay ? 'block' : 'none' }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default TabPanel;

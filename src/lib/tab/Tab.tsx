@@ -21,6 +21,7 @@ const Tab = ({ children, name }: TabProps) => {
       onClick={tabButtonHandler}
       ref={name === 0 ? initialTabRef : null}
       {...a11yProps(name)}
+      className={'booung-tab'}
     >
       {children}
     </button>

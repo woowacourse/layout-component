@@ -8,7 +8,7 @@
 npm install react-tabs-booung
 ```
 
-# Tabs 컴포넌트
+# Index 컴포넌트
 
 Tabs는 탭 기반의 콘텐츠 레이아웃을 쉽게 구성할 수 있게 도와주는 컴포넌트입니다.
 
@@ -17,11 +17,11 @@ Tabs는 탭 기반의 콘텐츠 레이아웃을 쉽게 구성할 수 있게 도�
 다음과 같이 사용할 수 있습니다.
 
 ```tsx
-import { Tab, TabList, TabPanel, Tabs, TabPanelList } from 'react-tabs-booung';
+import { Tab, TabList, TabPanel, Index, TabPanelList } from 'react-tabs-booung';
 
 const App = () => {
 return (
-<Tabs>
+<Index>
 <TabList>
 <Tab name={'first'}>
 <h3>first</h3>
@@ -39,7 +39,7 @@ return (
           <div>second Panel</div>
         </TabPanel>
       </TabPanelList>
-    </Tabs>
+    </Index>
 );
 };
 ```

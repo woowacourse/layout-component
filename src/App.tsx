@@ -1,5 +1,6 @@
 import { Tab, TabList, TabPanel, Tabs } from './index.ts';
 import TabPanelList from './lib/tabPanelList/TabPanelList.tsx';
+import './tabStyle.css';
 
 const App = () => {
   return (
