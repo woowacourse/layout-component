@@ -3,8 +3,7 @@ import type { Preview } from '@storybook/react';
 
 import React from 'react';
 
-import { common } from '../src/lib/styles/common';
-import { reset } from '../src/lib/styles/reset';
+import { common } from '../src/lib/common/styles/common';
 
 const preview: Preview = {
   parameters: {
@@ -57,7 +56,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <React.Fragment>
-        <Global styles={[reset, common]} />
+        <Global styles={common} />
         <Story />
       </React.Fragment>
     ),

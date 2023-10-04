@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { addUnit } from '@utils/addUnit';
 import { getTypedObjectEntries } from '@utils/getTypedObjectEntries';
 
-import { CONTAINER_WIDTH, type CustomSize } from '../Container/style';
+import { CONTAINER_WIDTH, type CustomSize } from '../Container/style/container.style';
 
 export interface Size {
   width?: number | string;

@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
+import { sizeArgTypes } from '@styles/size';
+import { spacingArgTypes } from '@styles/spacing';
+
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
-import { sizeArgTypes } from '../styles/size';
-import { spacingArgTypes } from '../styles/spacing';
 import type { FlexContainerProps } from './FlexContainer';
 import FlexContainer from './FlexContainer';
-import { LAYOUT } from './style';
+import { LAYOUT } from './styles/flexContainer.style';
 
 const generateChildrenBoxes = () => {
   const BOX_COUNT = 6;

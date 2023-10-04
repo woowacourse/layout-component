@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
-import { sizeArgTypes } from '../styles/size';
-import { spacingArgTypes } from '../styles/spacing';
+import { sizeArgTypes } from '@styles/size';
+import { spacingArgTypes } from '@styles/spacing';
+
 import type { GridProps } from './Grid';
 import Grid from './Grid';
 

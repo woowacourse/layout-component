@@ -1,9 +1,14 @@
-import { sizeStyle, type Size } from '../styles/size';
-import type { Spacing } from '../styles/spacing';
-import { spacingStyle } from '../styles/spacing';
+import { Global } from '@emotion/react';
+
+import { reset } from '@styles/reset';
+import type { Size } from '@styles/size';
+import { sizeStyle } from '@styles/size';
+import type { Spacing } from '@styles/spacing';
+import { spacingStyle } from '@styles/spacing';
+
 import type { CommonProps } from '../types/common';
-import type { Alignment } from './style';
-import { positionStyle, widthStyle } from './style';
+import type { Alignment } from './style/container.style';
+import { positionStyle, widthStyle } from './style/container.style';
 
 export interface WidthStyle {
   /** 너비가 부모 박스 너비에 맞춰(100%) 유동적으로 변함
@@ -33,17 +38,20 @@ const Container = ({
   const Tag = tag;
 
   return (
-    <Tag
-      css={[
-        positionStyle(position),
-        widthStyle({ fluid, gutter }),
-        sizeStyle({ ...attributes }),
-        spacingStyle({ ...attributes }),
-      ]}
-      {...attributes}
-    >
-      {children}
-    </Tag>
+    <>
+      <Global styles={reset} />
+      <Tag
+        css={[
+          positionStyle(position),
+          widthStyle({ fluid, gutter }),
+          sizeStyle({ ...attributes }),
+          spacingStyle({ ...attributes }),
+        ]}
+        {...attributes}
+      >
+        {children}
+      </Tag>
+    </>
   );
 };
 

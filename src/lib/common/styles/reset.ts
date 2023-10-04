@@ -167,9 +167,14 @@ export const reset = css`
   button {
     background-color: transparent;
     color: inherit;
-    border-width: 0;
+    border: 0;
     padding: 0;
+    outline: none;
     cursor: pointer;
+  }
+  button:active,
+  button:focus {
+    outline: none;
   }
 
   input::-moz-focus-inner {
@@ -367,7 +372,7 @@ export const reset = css`
   [type='button']:-moz-focusring,
   [type='reset']:-moz-focusring,
   [type='submit']:-moz-focusring {
-    outline: 1px dotted ButtonText;
+    outline: none;
   }
 
   /**

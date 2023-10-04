@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import type { Meta } from '@storybook/react';
 
+import { sizeArgTypes } from '@styles/size';
+import { spacingArgTypes } from '@styles/spacing';
+
 import { getTypedObjectKeys } from '@utils/getTypedObjectKeys';
 
-import { sizeArgTypes } from '../styles/size';
-import { spacingArgTypes } from '../styles/spacing';
 import type { ContainerProps } from './Container';
 import Container from './Container';
-import { ALIGNMENT } from './style';
+import { ALIGNMENT } from './style/container.style';
 
 const meta = {
   title: 'Layout/Container',

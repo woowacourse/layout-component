@@ -1,9 +1,12 @@
+import { Global } from '@emotion/react';
+
+import { reset } from '@styles/reset';
+import type { Size } from '@styles/size';
+import type { Spacing } from '@styles/spacing';
+
 import type { FlexBasicLayout } from '../FlexContainer/FlexContainer';
-import Grid from '../Grid';
-import type { Size } from '../styles/size';
-import type { Spacing } from '../styles/spacing';
 import type { CommonProps } from '../types/common';
-import { flexItemStyle } from './style';
+import { flexItemStyle } from './styles/flexItem.style';
 
 export interface FlexItemProps extends Size, Spacing, CommonProps {
   /** Flex Item 순서 변경 가능 */
@@ -36,10 +39,10 @@ const FlexItem = ({
 
   return (
     <>
+      <Global styles={reset} />
       <Tag css={flexItemStyle({ order, shrink, grow, flex, alignSelf })} {...attributes}>
         {children}
       </Tag>
-      <Grid rows={1} />
     </>
   );
 };
