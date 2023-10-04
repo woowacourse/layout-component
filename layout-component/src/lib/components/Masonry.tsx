@@ -6,6 +6,7 @@ import React, {
   Children,
   isValidElement,
 } from "react";
+import styled from "styled-components";
 
 interface MasonryLayoutProps {
   columns: number;
@@ -55,8 +56,6 @@ function distributeChildrenIntoColumns(
 }
 
 export const Masonry = ({ columns, children, gap }: MasonryLayoutProps) => {
-  // 여기에 새로운 prop을 추가합니다.
-
   const [columnWrapper, setColumnWrapper] = useState<
     Array<(React.ReactElement | null)[]>
   >([]);
@@ -66,12 +65,21 @@ export const Masonry = ({ columns, children, gap }: MasonryLayoutProps) => {
   }, [columns, children, gap]);
 
   return (
-    <div style={{ display: "flex" }}>
+    <ColumnWrapper>
       {columnWrapper.map((columnItems, columnIndex) => (
-        <div key={`column${columnIndex}`} style={{ margin: "1em", flex: "1" }}>
+        <MasonryContainer key={`column${columnIndex}`}>
           {columnItems}
-        </div>
+        </MasonryContainer>
       ))}
-    </div>
+    </ColumnWrapper>
   );
 };
+
+const MasonryContainer = styled.div`
+  display: flex;
+`;
+
+const ColumnWrapper = styled.div`
+  margin: 1em;
+  flex: 1;
+`;
