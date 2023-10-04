@@ -22,7 +22,7 @@ Container **컴포넌트는 CSS의 기본적인 레이아웃 속성을 설정할
 
 # **Usage**
 
-```
+```jsx
 function App() {
   return (
     <Container
@@ -61,7 +61,7 @@ export default App;
 
 # **Usage**
 
-````
+```jsx
 function App() {
   return (
     <Flex
@@ -77,7 +77,8 @@ function App() {
     </Flex>
   );
 }
-export default App;```
+export default App;
+```
 
 ![Alt text](image-1.png)
 
@@ -98,8 +99,8 @@ export default App;```
 **그 외에도 ContainerProps에서 상속받은 모든 props를 사용할 수 있습니다.**
 
 # **Usage**
-````
 
+```jsx
 function App() {
 return (
 <Grid 
@@ -120,4 +121,32 @@ export default App;
 
 ```
 ![Alt text](image-2.png)
-```
+
+# Masonry 컴포넌트
+
+`Masonry`는 Pinterest 스타일의 레이아웃을 생성하는 데 사용되는 범용 컴포넌트입니다. 이 컴포넌트는 여러 열로 구성된 그리드를 만들며, 각 항목은 가장 짧은 열에 추가됩니다.
+
+## Props
+
+- **`columns`:** 그리드의 열 수를 설정합니다. 숫자를 입력받습니다.
+- **`gap`:** 그리드 셀 사이의 간격을 설정합니다. 숫자를 입력받습니다.
+- **`children`:** Masonry 레이아웃 내부에 배치할 요소들입니다. ReactNode 타입을 받습니다.
+
+## 사용법
+
+```jsx
+import { Masonry } from './components/Masonry';
+
+function App() {
+  return (
+    <Masonry columns={3} gap={10}>
+      <div style={{ height: '200px', background: '#8e44ad' }} />
+      <div style={{ height: '300px', background: '#3498db' }} />
+      <div style={{ height: '250px', background: '#c0392b' }} />
+      <div style={{ height: '350px', background: '#f1c40f' }} />
+      {/* 필요한 만큼 항목 추가 */}
+    </Masonry>
+  );
+}
+
+export default App;
