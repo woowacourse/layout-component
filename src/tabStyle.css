@@ -1,0 +1,49 @@
+@import "reset.css";
+
+.booung-tabs {
+    width: 100%;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.booung-tab-list {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.booung-tab {
+    flex-grow: 1;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+}
+
+.booung-tab:hover {
+    background-color: #f0f0f0;
+}
+
+.booung-tab:last-child {
+    border-right: none;
+}
+
+.booung-tab-panel-list {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.booung-tab-panel {
+    padding: 16px;
+    transition: padding 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

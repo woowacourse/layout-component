@@ -1,12 +1,13 @@
 {
-  "name": "react-layout-box",
+  "name": "react-tabs-booung",
   "private": false,
-  "version": "0.2.9",
+  "version": "0.0.6",
   "type": "module",
-  "description": "React-based Layout Components",
+  "description": "React-based tab layout Components",
   "keywords": [
     "react",
-    "layout",
+    "tab",
+    "tabs",
     "components"
   ],
   "license": "MIT",

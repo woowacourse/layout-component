@@ -1,20 +1,28 @@
-import { Container, Flex, Grid } from './lib';
+import { Tab, TabList, TabPanel, Tabs } from './index.ts';
+import TabPanelList from './lib/tabPanelList/TabPanelList.tsx';
+import './tabStyle.css';
 
 const App = () => {
   return (
-    <>
-      <Container maxWidth={100}>hi</Container>
-      <Flex gap={10}>
-        <div>first</div>
-        <div>second</div>
-        <div>third</div>
-      </Flex>
-      <Grid gap={10} rows={1} columns={2}>
-        <div>first</div>
-        <div>second</div>
-        <div>third</div>
-      </Grid>
-    </>
+    <Tabs>
+      <TabList>
+        <Tab name={'1'}>
+          <h3>first</h3>
+        </Tab>
+        <Tab name={'2'}>
+          <h3>second</h3>
+        </Tab>
+      </TabList>
+
+      <TabPanelList>
+        <TabPanel name={'1'}>
+          <div>first Panel</div>
+        </TabPanel>
+        <TabPanel name={'2'}>
+          <div>second Panel</div>
+        </TabPanel>
+      </TabPanelList>
+    </Tabs>
   );
 };
 
