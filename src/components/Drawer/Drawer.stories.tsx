@@ -13,7 +13,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Render = (props: DrawerProps) => {
-  const { placement, size, transitionDurationMS, zIndex } = props;
+  const { placement, size, width, height, transitionDurationMS, zIndex } =
+    props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
@@ -42,6 +43,8 @@ const Render = (props: DrawerProps) => {
         onClose={handleClose}
         placement={placement}
         size={size}
+        width={width}
+        height={height}
         transitionDurationMS={transitionDurationMS}
         zIndex={zIndex}
       >
@@ -141,6 +144,43 @@ export const TransitionDuration500: Story = {
       isOpen={false}
       onClose={() => alert('onClose')}
       transitionDurationMS={500}
+    />
+  ),
+  args: {
+    children: <></>,
+    isOpen: false,
+    onClose: () => {
+      alert('onClose');
+    },
+  },
+};
+
+export const CustomizeWidth: Story = {
+  render: () => (
+    <Render
+      children={<></>}
+      isOpen={false}
+      onClose={() => alert('onClose')}
+      width="500px"
+    />
+  ),
+  args: {
+    children: <></>,
+    isOpen: false,
+    onClose: () => {
+      alert('onClose');
+    },
+  },
+};
+
+export const CustomizeHeight: Story = {
+  render: () => (
+    <Render
+      children={<></>}
+      isOpen={false}
+      onClose={() => alert('onClose')}
+      placement="bottom"
+      height="500px"
     />
   ),
   args: {

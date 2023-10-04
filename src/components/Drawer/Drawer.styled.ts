@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import type { DrawerProps } from '~/components/Drawer/Drawer';
+import { toPx } from '~/utils/toPx';
 
 type DrawerRootProps = Omit<DrawerProps, 'isOpen' | 'onClose'> & {
   isTransitionActive: boolean;
@@ -98,6 +99,21 @@ export const DrawerRoot = styled.div<DrawerRootProps>`
       `;
     }
   }}
+  ${({ width }) => {
+    if (width) {
+      return css`
+        width: ${toPx(width)};
+      `;
+    }
+  }}
+  ${({ height }) => {
+    if (height) {
+      return css`
+        height: ${toPx(height)};
+      `;
+    }
+  }}
+  
 
   background-color: #fff;
   box-shadow: -6px 0 16px 0 rgba(0, 0, 0, 0.08),
