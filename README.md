@@ -105,3 +105,51 @@ function GridExample() {
   )
 }
 ```
+
+### Tab
+
+사용 방법:
+
+TabItem에 부여된 value값과 TabPanel에 부여된 value값을 매칭시킵니다.
+내가 보고 싶은 TabItem을 클릭 시 동일한 value값이 부여된 TabPanel의 컴포넌트의 내용이 보여집니다.
+
+```tsx
+/*
+  TabProvider
+  
+  - tabIdx? tab에서 처음 보여줄 idx를 설정할 수 있다. 
+
+  TabList
+
+  - width?: TabList의 width를 정할 수 있다.  
+
+  TabItem
+
+  - value: TabPanel과 mapping되는 TabItem의 idx값 
+  - label: TabItem에 보여줄 string값;
+  - disabled?: 해당 속성값이 true일 경우 TabItem 버튼을 누를 수 없다. 
+  - indicatorColor?: TabItem 활성화되었을 때 나타내는 색깔
+  
+  TabPanel
+
+  - value: 선택된 TabItem과 mapping된 idx값  
+*/
+
+function TabExample() {
+  const [value] = useState(1);
+
+  return (
+    <TabProvider tabIdx={value}>
+      <TabList>
+        <TabItem label="Item One" value={1} />
+        <TabItem label="Item Two" value={2} />
+        <TabItem label="Item Three" value={3} />
+      </TabList>
+
+      <TabPanel value={1}>Item One</TabPanel>
+      <TabPanel value={2}>Item Two</TabPanel>
+      <TabPanel value={3}>Item Three</TabPanel>
+    </TabProvider>
+  );
+}
+```
