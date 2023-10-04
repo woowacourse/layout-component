@@ -1,144 +1,95 @@
-# React Layout Component
+# seeen-tab-layout
 
-Container, Flex, Grid 레이아웃 컴포넌트를 사용할 수 있는 React 라이브러리입니다.
+Tab Layout을 구현할 수 있는 라이브러리 입니다.
 
-# 설치 방법
+## 설치 방법
 
-```
-$ npm install se-een-layout-component
-$ yarn add seeen-layout-component
-```
+    # npm
+    $ npm install seeen-tab-layout
 
-## Container 컴포넌트
+    # yarn
+    $ yarn add seeen-tab-layout
 
-자식 컴포넌트, 내용물을 담을 수 있는 컨테이너 박스 역할의 레이아웃 컴포넌트입니다.
+## 사용 방법
 
-```jsx
-import { Container } from '@se-een/layout-component';
+### Tabs
 
-<Container
-  as="section"
-  width={400}
-  height={400}
-  responsive
-  $backgroundColor="blue"
->
-  {/* children */}
-</Container>;
-```
+- 여러 개의 Tab을 담는 Container 역할의 컴포넌트입니다. 이 컴포넌트에 아래와 같은 옵션을 설정할 수 있습니다. Tabs 컴포넌트만 사용하여 Tab Index 기능을 구현할 수 있지만, Tab Index Box에 숫자 대신 이름을 넣고자 한다면 Tab 컴포넌트를 사용하여 label 속성에 이름을 명시해주어야 합니다.
 
-- display: 컨테이너의 표시 방식을 설정합니다. 'display' 옵션에 해당하는 값만 전달할 수 있습니다.
+```tsx
+import { Tabs } from 'seeen-tab-layout';
 
-- width: 컨테이너의 너비 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- height: 컨테이너의 높이 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- $minWidth: 컨테이너의 최소 너비 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- $minHeight: 컨테이너의 최소 높이 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- $maxWidth: 컨테이너의 최대 너비 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- $maxHeight: 컨테이너의 최대 높이 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- margin: 컨테이너의 여백 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- padding: 컨테이너의 안쪽 여백 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- position: 컨테이너의 위치 값을 설정합니다. 'position' 옵션에 해당하는 값만 전달할 수 있습니다.
-
-- left: 컨테이너의 왼쪽 위치 값을 설정합니다. 숫자 또는 문자열을 전달할 수 있습니다.
-
-- right: 컨테이너의 오른쪽 위치 값을 설정합니다. 숫자 또는 문자열을 전달할 수 있습니다.
-
-- top: 컨테이너의 위쪽 위치 값을 설정합니다. 숫자 또는 문자열을 전달할 수 있습니다.
-
-- bottom: 컨테이너의 아래쪽 위치 값을 설정합니다. 숫자 또는 문자열을 전달할 수 있습니다.
-
-- overflow: 컨테이너의 오버플로우 값을 설정합니다. 'overflow' 옵션에 해당하는 값만 전달할 수 있습니다.
-
-- cursor: 컨테이너의 커서 값을 설정합니다. 'cursor' 옵션에 해당하는 값만 전달할 수 있습니다.
-
-- opacity: 컨테이너의 투명도 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- $zIndex: 컨테이너의 Z-인덱스 값을 설정합니다. 숫자를 전달할 수 있습니다.
-
-- $backgroundColor: 컨테이너의 배경 색상 값을 설정합니다. 문자열 값을 전달할 수 있습니다.
-
-- responsive: 컨테이너는 최소 너비, 너비, 최대 너비 순으로 반응성을 적용합니다. 불리언 값을 전달할 수 있습니다.
-
-## Flex
-
-Flexbox 를 만들 수 있는 컨테이너 박스 역할의 레이아웃 컴포넌트입니다.
-
-```jsx
-import { Flex } from '@se-een/layout-component';
-
-<Flex as="section" $flexDirection="row" gap={20}>
-  {/* children */}
-</Flex>;
+const App = () => {
+  return (
+    <Tabs width={600} responsive swipeable $focusColor="#E1325C">
+      <div>content1</div>
+      <div>content2</div>
+      <div>content3</div>
+    </Tabs>
+  );
+};
 ```
 
-- Container 인터페이스를 상속 받습니다.
+#### Props
 
-- $flexDirection: flex 컨테이너 내에서 아이템들이 배치되는 방향을 설정합니다. (ex: "row", "column", "row-reverse", "column-reverse")
+| props            | value              | essential | default     | description                                                                               |
+| ---------------- | ------------------ | --------- | ----------- | ----------------------------------------------------------------------------------------- |
+| width            | number             | optional  | 400         | Tab Layout 가로 크기를 설정합니다.                                                        |
+| height           | number             | optional  | 400         | Tab Layout 세로 크기를 설정합니다.                                                        |
+| $tabBoxHeight    | number             | optional  | height / 10 | Tab index box 세로 크기를 설정합니다. 가로 크기는 Tab Layout과 같습니다.                  |
+| $simpleTab       | boolean            | optional  | false       | Tab index box 를 간단하게 표현할 지 설정합니다.                                           |
+| $tabColor        | string \| string[] | optional  | '#E4E4E4'   | Tab index box 의 색상을 지정합니다.                                                       |
+| $tabBoxPosition  | 'top' \| 'bottom'  | optional  | 'top'       | Tab index box 의 위치를 지정합니다.                                                       |
+| $isNotTabBoxShow | boolean            | optional  | false       | Tab index box 표시 여부를 설정합니다.                                                     |
+| $focusColor      | string             | optional  | '#316fc4'   | Tab 이 포커스 되었을 때 색상을 설정합니다.                                                |
+| $elementsOneTab  | number             | optional  | 1           | 하나의 Tab 에서 표시할 Tab 또는 element의 갯수를 설정합니다.                              |
+| responsive       | boolean            | optional  | true        | 반응형에 대응할 여부를 설정합니다.                                                        |
+| swiper           | boolean            | optional  | false       | 좌, 우로 넘길 수 있는 화살표 버튼을 표시할 지 설정합니다.                                 |
+| swipeable        | boolean            | optional  | false       | 모바일 환경에서 좌, 우 스와이프 가능 여부를 설정합니다.                                   |
+| autoplay         | boolean            | optional  | false       | 일정 시간이 되면 자동으로 Tab 이 전환될 지 설정합니다.                                    |
+| $autoplayTime    | number             | optional  | 5000        | autoplay 딜레이 시간을 설정합니다. ms 단위이며 1000 미만의 값은 1000으로 자동 지정됩니다. |
+| $autoplayButton  | boolean            | optional  | false       | autoplay 를 시작하고 일시정지 할 수 있는 버튼 표시 여부를 설정합니다.                     |
+| children         | ReactNode          | essential | null        | Tab Layout 콘텐츠를 설정합니다.                                                           |
 
-- $flexWrap: flex 아이템들이 여러 줄에 걸쳐 배치되는지 여부를 설정합니다. (ex: "nowrap", "wrap", "wrap-reverse")
+## Tab
 
-- $flexBasis: flex 컨테이너 내 아이템의 기본 크기를 지정합니다. 문자열 또는 숫자로 표현됩니다.
+- 개별 Tab의 역할을 하는 컴포넌트입니다. 이 컴포넌트의 label 속성을 통해 tab index box에 숫자 대신 이름을 명시할 수 있습니다. 이 컴포넌트 내부에 실질적인 구현부를 작성하면 됩니다.
 
-- $flexGrow: flex 컨테이너 내 아이템의 크기를 확장할 때, 각 아이템에 대한 확장 비율을 설정합니다. 숫자 값입니다.
+```tsx
+import { Tabs, Tab } from 'seeen-tab-layout';
 
-- $flexShrink: flex 컨테이너 내 아이템의 크기를 축소할 때, 각 아이템에 대한 축소 비율을 설정합니다. 숫자 값입니다.
-
-- $alignItems: flex 컨테이너 내 아이템의 수직 정렬을 설정합니다. (ex: "flex-start", "center", "flex-end", "stretch")
-
-- $alignContent: 여러 줄로 나눠진 flex 컨테이너 내 아이템들의 수직 정렬을 설정합니다. (ex: "flex-start", "center", "stretch")
-
-- $justifyContent: flex 컨테이너 내 아이템의 수평 정렬을 설정합니다. (ex: "flex-start", "center", "flex-end", "space-between", "space-around")
-
-- $justifyItems: flex 컨테이너 내 아이템의 수평 정렬을 설정합니다. (ex: "start", "center", "end", "stretch")
-
-- flex: flex 속성을 직접 설정하여 아이템에 대한 flex-grow, flex-shrink, 그리고 flex-basis 값을 동시에 지정할 수 있습니다. (ex: "1 1 50%")
-
-- gap: 그리드나 플렉스 컨테이너 내 아이템들 사이의 간격을 설정합니다. 문자열 값으로 지정됩니다.
-
-## Grid 컴포넌트
-
-Grid 를 만들 수 있는 컨테이너 박스 역할의 레이아웃 컴포넌트입니다.
-
-```jsx
-import { Grid } from '@se-een/layout-component';
-
-<Grid as="section" rows="auto" columns={4} gap={20}>
-  {/* children */}
-</Grid>;
+const App = () => {
+  return (
+    <Tabs width={1200} responsive>
+      <Tab label="main page">
+        <MainPage />
+      </Tab>
+      <Tab label="my page">
+        <MyPage />
+      </Tab>
+    </Tabs>
+  );
+};
 ```
 
-- Container 인터페이스를 상속 받습니다.
+### Props
 
-- row: 그리드 아이템의 행 위치를 설정합니다. 숫자 또는 문자열로 표현됩니다.
+| props | value  | essential | default | description                                          |
+| ----- | ------ | --------- | ------- | ---------------------------------------------------- |
+| label | string | essential |         | Tab Index Box에 숫자 (index) 대신 이름을 명시합니다. |
 
-- column: 그리드 아이템의 열 위치를 설정합니다. 숫자 또는 문자열로 표현됩니다.
+## 스토리북 배포 링크
 
-- $justifyItems: 그리드 아이템 내에서의 수평 정렬을 설정합니다. (ex: "start", "center", "end", "stretch")
+[seeen-tab-layout-storybook](https://65127eae0e98643d69097dab-uvpkkhkgtq.chromatic.com/?path=/docs/components-tabs--docs)
 
-- $justifyContent: 그리드 컨테이너 내 그리드 아이템들의 수평 정렬을 설정합니다. (ex: "start", "center", "end", "space-between", "space-around")
+## 참고 사항(고려한 부분 및 사용자 사용팁)
 
-- $alignItems: 그리드 컨테이너 내 그리드 아이템들의 수직 정렬을 설정합니다. (ex: "start", "center", "end", "stretch")
+쉽게 사용하면서 필요할 법한 기능을 고려하였습니다. 보통의 Tab Layout이 갖춰야할 기능을 갖추면서 좌, 우 스와이프 버튼 등 사용자가 커스터마이징을 할 수 있는 요소를 추가하였습니다.
 
-- $alignContent: 그리드 컨테이너 내 여러 그리드 라인들의 수직 정렬을 설정합니다. (ex: "start", "center", "end", "space-between", "space-around")
+Tab Layout 부모 컴포넌트 (Tabs) 에 자식 컴포넌트 (Tab) 이 몇 개인지 명시하지 않아도 children 개수를 자동으로 파악하여 정렬할 수 있도록 하였습니다.
 
-- $justifySelf: 개별 그리드 아이템의 수평 정렬을 설정합니다. (ex: "start", "center", "end", "stretch")
+## 개발 환경
 
-- $alignSelf: 개별 그리드 아이템의 수직 정렬을 설정합니다. (ex: "start", "center", "end", "stretch")
-
-- $gridTemplateAreas: 그리드 템플릿 영역을 설정합니다. 문자열로 표현됩니다.
-
-- $gridTemplateColumns: 그리드 템플릿 열을 설정합니다. 문자열로 표현됩니다.
-
-- $gridTemplateRows: 그리드 템플릿 행을 설정합니다. 문자열로 표현됩니다.
-
-- gap: 그리드 컨테이너 내 그리드 아이템들 사이의 간격을 설정합니다. 문자열로 표현됩니다.
-
-더 자세한 사용 방법은 [스토리북](https://650806462077bdd1feb62ede-yphfqsmeox.chromatic.com/)에서 확인해 보세요.
+- React(vite)
+- TypeScript
+- styled-components
