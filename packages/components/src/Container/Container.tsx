@@ -15,15 +15,15 @@ export type ContainerProps<TElementType extends React.ElementType> =
 const Container = <TElementType extends React.ElementType = "div">(
   props: ContainerProps<TElementType>
 ) => {
-  const { as: Element = 'div', minWidth, maxWidth, ...divProps } = props;
+  const { as: Element = 'div', minWidth, maxWidth, ...restProps } = props;
 
   return (
     <Element className={root}>
       <div
-        {...divProps}
+        {...restProps}
         className={content}
         style={{
-          ...divProps.style,
+          ...restProps.style,
           ...assignInlineVars({
             [vars.minWidth]: asCssLength(minWidth ?? "initial"),
             [vars.maxWidth]: asCssLength(maxWidth ?? "initial"),

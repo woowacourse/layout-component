@@ -1,7 +1,7 @@
 {
   "name": "@solo5star/layout-component",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.2.0",
   "main": "./dist/index.js",
   "type": "module",
   "types": "./dist/index.d.ts",
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/solo5star/layout-component#readme",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -28,9 +31,7 @@
   "dependencies": {
     "@vanilla-extract/css": "^1.13.0",
     "@vanilla-extract/dynamic": "^2.0.3",
-    "@vanilla-extract/recipes": "^0.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@vanilla-extract/recipes": "^0.5.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.2",
@@ -40,8 +41,8 @@
     "@storybook/react": "^7.4.2",
     "@storybook/react-vite": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "@types/react-dom": "^17.0.0 || ^18.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vanilla-extract/vite-plugin": "^3.9.0",
@@ -55,5 +56,9 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   }
 }

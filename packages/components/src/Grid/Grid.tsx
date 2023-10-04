@@ -14,14 +14,14 @@ export type GridProps<TElementType extends React.ElementType> =
   >;
 
 const Grid = <TElementType extends React.ElementType = 'div'>(props: GridProps<TElementType>) => {
-  const { as: Element = 'div', rows, columns, gap, ...divProps } = props;
+  const { as: Element = 'div', rows, columns, gap, ...restProps } = props;
 
   return (
     <Element
-      {...divProps}
+      {...restProps}
       className={root}
       style={{
-        ...divProps.style,
+        ...restProps.style,
         ...assignInlineVars({
           [vars.rows]: String((typeof rows === 'number' && `repeat(${rows}, 1fr)`) || "initial"),
           [vars.columns]: String((typeof columns === 'number' && `repeat(${columns}, 1fr)`) || "initial"),
