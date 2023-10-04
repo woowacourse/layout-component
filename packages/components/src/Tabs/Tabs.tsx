@@ -43,7 +43,6 @@ const Tabs = <TElementType extends React.ElementType = "div">(
   const [focusedTab, setFocusedTab] = useState<number>(0);
   const resolvedChildren = React.Children.toArray(resolveChildren(children));
 
-  console.log(resolvedChildren);
   const activeTab = resolvedChildren[focusedTab];
   const buttons = resolvedChildren
     .map(
