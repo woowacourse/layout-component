@@ -19,7 +19,7 @@ export const Playground: Story = {
           imageUrl="https://picsum.photos/1080/720"
         >
           <img
-            src="https://png.pngtree.com/png-clipart/20210224/ourmid/pngtree-cute-little-bear-fly-net-png-image_2934534.jpg"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Gnome-home.svg/800px-Gnome-home.svg.png"
             alt="img"
           />
         </ParallaxContent.Item>

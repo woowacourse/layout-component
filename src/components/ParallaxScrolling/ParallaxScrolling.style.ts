@@ -6,7 +6,6 @@ interface bodyStylingProps {
 
 interface itemStylingProps {
   image: string;
-  speed: number;
 }
 
 interface zoomContainerStylingProps {
@@ -33,7 +32,7 @@ export const bodyStyling = ({ height = "100vh" }: bodyStylingProps) =>
     margin: 0,
   });
 
-export const itemStyling = ({ image }: itemStylingProps) =>
+export const itemStyling = ({ image = "" }: itemStylingProps) =>
   css({
     height: "100vh",
     padding: "100px",

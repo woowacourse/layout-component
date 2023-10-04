@@ -5,7 +5,7 @@ interface ParallaxItemProps extends ComponentPropsWithoutRef<"div"> {
   imageUrl?: string;
 }
 
-const ParallaxItem = ({ imageUrl, children }: ParallaxItemProps) => {
+const ParallaxItem = ({ imageUrl = "", children }: ParallaxItemProps) => {
   return <div css={itemStyling({ image: imageUrl })}>{children}</div>;
 };
 

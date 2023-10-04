@@ -3,6 +3,13 @@ import Flex from "./components/Flex/Flex";
 import Grid from "./components/Grid/Grid";
 import ParallaxContainer from "./components/ParallaxScrolling/Container/ParallaxContainer";
 import ParallaxItem from "./components/ParallaxScrolling/Item/ParallaxItem";
-import ParallaxZoom from "./components/ParallaxScrolling/Zoom/ParallaxZoom";
+import ParallaxContent from "./components/ParallaxScrolling/ParallaxContent/ParallaxContent";
 
-export { Container, Grid, Flex, ParallaxContainer, ParallaxItem, ParallaxZoom };
+export {
+  Container,
+  Grid,
+  Flex,
+  ParallaxContainer,
+  ParallaxItem,
+  ParallaxContent,
+};
